@@ -1,0 +1,197 @@
+layout: {qmk_keyboard: kbdfans/maja, qmk_layout: LAYOUT}
+layers:
+  ISRT:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - - ' '
+    - ' '
+    - ' '
+    - ' '
+    - DF(QWER)
+    - ' '
+    - Y
+    - {t: C, h: LCTL}
+    - {t: L, h: LALT}
+    - {t: M, h: LGUI}
+  - - K
+    - Z
+    - {t: F, h: RGUI}
+    - {t: U, h: RALT}
+    - {t: ',', h: RCTL}
+    - ' '' '
+    - ' '
+    - ' '
+    - ' '
+    - TO(NPD)
+  - [' ', {t: I, h: NPD, type: ghost}, {t: S, h: ACCT, type: ghost}, {t: R, h: SMBL, type: ghost}, {t: T, h: ACT, type: ghost}, G, P, {t: N, h: ACT, type: ghost}, {t: E, h: SMBL, type: ghost}, {t: A, h: ACCT, type: ghost}]
+  - - {t: O, h: NPD, type: ghost}
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - {t: Q, h: LSFT}
+    - V
+    - W
+    - D
+    - J
+  - - ' '
+    - B
+    - H
+    - /
+    - .
+    - {t: X, h: RSFT}
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - {t: SPC, h: MEH}
+    - LEAD
+    - ← BSPC
+    - ↵ ENT
+    - ' '
+    - ' '
+    - ' '
+  ACTIONS:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', ' ', ' ', ' ', ' ', ' ', QK GESC,  COPY, ← LINE BSPC, ← WORD BSPC]
+  - [↥ PGUP, 🏠︎ HOME, ↶ WORD JUMP, ↷ WORD JUMP, TAB PREV, TAB NEXT, ' ', ' ', ' ', ' ']
+  - [' ', APP PREV, APP NEXT, → DEL, ← BSPC, '↧ PGDWN', '⇥ END', LEFT, DOWN, UP]
+  - [RIGHT, ' ', ' ', ' ', ' ',  CUT,  PASTE, → LINE DEL, → WORD DEL, TAB CLOSE]
+  - [TAB REOPEN, ↶ LINE JUMP, ↷ LINE JUMP, ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [↶ LINE SELECTL, ↶ WORD SELECTL, ↷ WORD SELECT, ↷ LINE SELECT, ' ', ' ', ' ']
+  SYMBOLS:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', ' ', ' ', ' ', ' ', ' ', 'CAPS', '@', '#', $]
+  - ['€', ' ', '[', ']', ;, ' ', ' ', ' ', ' ', ' ']
+  - [' ', '`', _, '~', '-', +, '=', (, ), ':']
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', <, '>', ' ']
+  - [' ', '{', '}', '\', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', ' ', ' ', {t: '↺ ISRT', type: ghost}, ' ', ' ', ' ']
+  ACCENTS:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', ' ', ' ', ' ', ' ', ' ', WORD CAPS, '*', '&', '%']
+  - [ REDO, ' ', 'ê', 'ù', 'î', 'ï', '', '', ' ', ' ']
+  - [' ', ↠ TAB, '"', '!', '?',  UNDO, ' ', 'é', 'è', 'à']
+  - ['ô', ' ', ' ', ' ', ' ', {t: 'Lay. GAME', type: ghost}, {t: 'Lay. QWERTY', type: ghost}, {t: 'Lay. GRAPHITE', type: ghost}, {t: 'Lay. NUMPAD', type: ghost}, ' ']
+  - [' ', ' ç', 'û', 'â', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', 'SHIFT', ' ', {t: '↺ ISRT', type: ghost}, ' ', ' ', ' ']
+  NUMPAD_MULTIMEDIA:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [' ', ' ', ' ', ' ', KEYBOARD RESET, ' ', '*', 7, 8, 9]
+  - ['+', 'ON/OFF RGB', 'RGB ↠', 'RGB ↞', 'SAT ⇈', 'SAT ⇊', '', '', '', '']
+  - [' ', 0, 4, 5, 6, '↵ ENT', 'PRINT SCREEN', 'HUE ⇈', 'HUE ⇊', 'BRIGHTNESS ⇈']
+  - ['BRIGHTNESS ⇊', ' ', ' ', ' ', ' ', /, 1, 2, 3, -]
+  - [⇒ NEXT TRACK, '🔊 VOL UP', '🔉 VOL DOWN', 'SPEED ⇈', 'SPEED ⇊', ' ', ' ', ' ', ' ', ' ']
+  - ['=', '.', '⇝ PLAY / STOP', {t: '↺ ISRT', type: ghost}, ' ', ' ', ' ']
+  QWERTY_TWEAKED:
+  - [QK GESC, '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - - '0'
+    - '-'
+    - '='
+    - ← BSPC
+    - → DEL
+    - ↠ TAB
+    - Q
+    - {t: W, h: LCTL}
+    - {t: E, h: LALT}
+    - {t: R, h: LGUI}
+  - - T
+    - Y
+    - {t: U, h: RGUI}
+    - {t: I, h: RALT}
+    - {t: O, h: RCTL}
+    - P
+    - '['
+    - ']'
+    - \
+    - 🏠︎ HOME
+  - [CAPS, {t: A, h: NPD, type: ghost}, {t: S, h: ACCT, type: ghost}, {t: D, h: SMBL, type: ghost}, {t: F, h: ACT, type: ghost}, G, H, {t: J, h: ACT, type: ghost},{t: K, h: SMBL, type: ghost}, {t: L, h: NPD, type: ghost}]
+  - [{t: ';', s: ':', h: NPD, type: ghost}, {t: "'", s: '"'}, ↵ ENT, '⇥ END', LSFT, Z, X, C, V, B]
+  - [{t: '↺ ISRT', type: ghost}, N, M, ',', ., /, RSFT, UP, LCTL, LGUI]
+  - - {t: SPC, h: MEH}
+    - LALT
+    - SPC
+    - RCTL
+    - LEFT
+    - DOWN
+    - RGHT
+  GAME:
+  - [QK GESC, '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - ['0', '-', '=', ← BSPC, → DEL, ↠ TAB, Q, W, E, R]
+  - [T, Y, U, I, O, P, '[', ']', \, ↥ PGUP]
+  - [CAPS, A, S, D, F, G, H, J, K, L]
+  - [;, ' '' ', ↵ ENT, '↧ PGDWN', LSFT, Z, X, C, V, B]
+  - [{t: '↺ ISRT', type: ghost}, N, M, ',', ., /, RSFT, UP, LCTL, LGUI]
+  - [SPC, LALT, RALT, RCTL, LEFT, DOWN, RIGHT]
+  GRAPHITE:
+  - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - - ' '
+    - ' '
+    - ' '
+    - ' '
+    - DF(QWER)
+    - ' '
+    - B
+    - {t: L, h: LCTL}
+    - {t: D, h: LALT}
+    - {t: W, h: LGUI}
+  - - Z
+    - ' '' '
+    - {t: F, h: RGUI}
+    - {t: O, h: RALT}
+    - {t: U, h: RCTL}
+    - J
+    - ' '
+    - ' '
+    - ' '
+    - TO(NPD)
+  - [' ', {t: N, h: NPD, type: ghost}, {t: R, h: ACCT, type: ghost}, {t: T, h: SMBL, type: ghost}, {t: S, h: ACT, type: ghost}, G, Y, {t: H, h: ACT, type: ghost}, {t: A, h: SMBL, type: ghost}, {t: E, h: ACCT, type: ghost}]
+  - -    {t: I, h: NPD, type: ghost}
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - {t: Q, h: LSFT}
+    - X
+    - M
+    - C
+    - V
+  - - ' '
+    - K
+    - P
+    - ','
+    - .
+    - {t: /, h: RSFT}
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - {t: SPC, h: MEH}
+    - LEAD
+    - ← BSPC
+    - ↵ ENT
+    - ' '
+    - ' '
+    - ' '
+combos:
+    - {p: [16, 17],          k: "ESC",                          l: ['ISRT']}
+    - {p: [19, 18],          k: "ESC",                          l: ['ISRT']}
+    - {p: [25, 24],          k: "← BSPC",                       l: ['ISRT']}
+    - {p: [25, 24, 23],      k: "→ DEL",                        l: ['ISRT'], a: top,  arc_scale: 0.9}
+    - {p: [33, 34],          k: "↠ TAB",                       l: ['ISRT']}
+    - {p: [38, 37],          k: "↵ ENT",                        l: ['ISRT']}
+    - {p: [61, 16],          k: "CLOSE APP",                    l: ['ISRT'], draw_separate: true}
+    - {p: [61, 19],          k: "SEARCH",                       l: ['ISRT'], draw_separate: true}
+    - {p: [61, 32],          k: "SAVE",                         l: ['ISRT'], draw_separate: true}
+    - {p: [61, 31],          k: "SELECT_ALL",                   l: ['ISRT'], draw_separate: true}
+    - {p: [61, 34],          k: "COPY",                         l: ['ISRT'], draw_separate: true}
+    - {p: [61, 35],          k: "CUT",                          l: ['ISRT'], draw_separate: true}
+    - {p: [61, 33],          k: "PASTE",                        l: ['ISRT'], draw_separate: true}
+    - {p: [61, 45],          k: "UNDO",                         l: ['ISRT'], draw_separate: true}
+    - {p: [61, 45, 45],      k: "REDO (2x Q)",                  l: ['ISRT'], draw_separate: true}
+    - {p: [61, 20],          k: "TAB NEW",                      l: ['ISRT'], draw_separate: true}
+    - {p: [61, 51],          k: "WINDOW NEW",                   l: ['ISRT'], draw_separate: true}
+    - {p: [61, 34, 34],      k: "SELECT AND COPY ALL (2x T)",   l: ['ISRT'], draw_separate: true}
+    - {p: [61, 19, 36],      k: "@personal",                    l: ['ISRT'], draw_separate: true}
+    - {p: [61, 19, 35],      k: "@game",                        l: ['ISRT'], draw_separate: true}
+    - {p: [61, 19, 39],      k: "@work",                        l: ['ISRT'], draw_separate: true}
+
