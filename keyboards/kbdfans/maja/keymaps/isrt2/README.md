@@ -1,6 +1,6 @@
 # Todos
 
-# Layers Managements
+## Layers Managements
 - [ ] Lock / Unlock current layer
 
 ## Leader and Combos Improvements
@@ -9,6 +9,7 @@
 - [ ] Add new lead functions (close tab, new private win, CTRL+1-5, smileys)
 
 ## Readme Improvements
+
 - [ ] add the keydrawer PNG to the README
 - [ ] Rework the home README
 - [ ] Add licenses etc
