@@ -73,6 +73,7 @@ typedef enum {
 
 enum custom_keycodes {
 	CKC_EURO = SAFE_RANGE + LAST_ACTION + LAST_ACCENT,
+    LYR_LOCK,
 };
 
 #endif // __ENUMS_H__

@@ -47,11 +47,9 @@ const s_action actions[] = {
 
 static_assert(ARRAY_SIZE(actions) == LAST_ACTION, "Mismatch");
 
-bool is_alt_tab_active = false; // ADD this near the beginning of keymap.c
-uint16_t alt_tab_timer = 0;     // we will be using them soon.
-
-void send_shortcut(e_actions_id id) {
+uint16_t send_shortcut(e_actions_id id, bool is_alt_tab_active) {
 	assert(id < LAST_ACTION);
+    uint16_t alt_tab_timer = 0;
 
     if (id == APP_NEXT || id == APP_PREV) {
         if (!is_alt_tab_active) {
@@ -61,13 +59,5 @@ void send_shortcut(e_actions_id id) {
         alt_tab_timer = timer_read();
     }
     send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
+    return alt_tab_timer;
 };
-
-void matrix_scan_user(void) { // The very important timer.
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 150) {
-        detected_host_os() == OS_MACOS ? unregister_code(KC_LCMD) : unregister_code(KC_LALT);
-        is_alt_tab_active = false;
-    }
-  }
-}

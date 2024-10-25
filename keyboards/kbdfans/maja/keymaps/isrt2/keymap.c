@@ -1,3 +1,5 @@
+#pragma once
+
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 
@@ -11,7 +13,10 @@
 #include "./user/combos.c"
 #include "./user/leader.c"
 
-#define SC(x) (SAFE_RANGE + x)                          // shortcuts
+#include "features/layer_lock.h"
+
+bool is_alt_tab_active = false; // ADD this near the beginning of keymap.c
+uint16_t alt_tab_timer = 0;     // we will be using them soon.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ISRT] = LAYOUT(
@@ -43,40 +48,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		__X__,  __X__,				   MEH_SPC,	QK_LEAD,	    /* | */		KC_BSPC,	KC_ENT,														/* | */		__X__,  __X__,		__X__
 	),
 	[ACT] = LAYOUT(
-		__X__,    	__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	        /* | */		__X__,			__X__,				__X__,			__X__,			__X__,			__X__,		    				__X__,		/* | */			__X__,
-		__X__,      QK_GESC,		SC(CMD_COPY),    SC(LINE_BACKSPACE),SC(WORD_BACKSPACE),	KC_PGUP,		/* | */		KC_HOME,    	SC(WORD_JUMPL),		SC(WORD_JUMPR),	RCS(KC_TAB),	LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
-		__X__,      SC(APP_PREV),   SC(APP_NEXT),    KC_DEL,			KC_BSPC,            KC_PGDN,		/* | */		KC_END,			KC_LEFT,			KC_DOWN,		KC_UP,			KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
-		__X__,      SC(CMD_CUT),    SC(CMD_PASTE),   SC(LINE_DEL),		SC(WORD_DEL),		SC(TAB_CLOSE),	/* | */		SC(TAB_REOPEN),	SC(LINE_JUMPL),		SC(LINE_JUMPR),	SC(TASK_MNGR),	__X__,	    	__X__,		    	__X__,					/* | */			__X__,
-		__X__,										__X__,				SC(LINE_SELECTL),   SC(WORD_SELECTL),/* | */	SC(WORD_SELECTR),SC(LINE_SELECTR),																	    					/* | */		__X__,		__X__,		__X__
+		__X__,    	__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	        /* | */		__X__,				__X__,			__X__,			__X__,			__X__,			__X__,		    				__X__,		/* | */			__X__,
+		__X__,      QK_GESC,		SC(CMD_COPY),    SC(LINE_BACKSPACE),SC(WORD_BACKSPACE),	KC_PGUP,		/* | */		KC_HOME,    		SC(WORD_JUMPL),	SC(WORD_JUMPR),	RCS(KC_TAB),	LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
+		__X__,      SC(APP_PREV),   SC(APP_NEXT),    KC_DEL,			KC_BSPC,            KC_PGDN,		/* | */		KC_END,				KC_LEFT,		KC_DOWN,		KC_UP,			KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
+		__X__,      SC(CMD_CUT),    SC(CMD_PASTE),   SC(LINE_DEL),		SC(WORD_DEL),		SC(TAB_CLOSE),	/* | */		SC(TAB_REOPEN),		SC(LINE_JUMPL),	SC(LINE_JUMPR),	SC(TASK_MNGR),	LYR_LOCK,		__X__,		    	__X__,					/* | */			__X__,
+		__X__,										__X__,				SC(LINE_SELECTL),   SC(WORD_SELECTL),/* | */	SC(WORD_SELECTR),	SC(LINE_SELECTR),																	    					/* | */		__X__,		__X__,		__X__
 	),
 	[SMBL] = LAYOUT(
-		__X__,   	 __X__,			__X__,          __X__,          __X__,          __X__,	__X__,	/* | */		__X__,			__X__,			__X__,			__X__,				__X__,			__X__,		    				__X__,		/* | */			__X__,
-		__X__,		KC_CAPS,        KC_AT,          KC_HASH,		KC_DOLLAR,      CKC_EURO,		/* | */		__X__,	        KC_LBRC,        KC_RBRC,		KC_SCLN,			__X__,          __X__,		    	__X__,		__X__,		/* | */			__X__,
-		__X__,		KC_GRV,         KC_UNDS,        KC_TILDE,		KC_MINS,        KC_PLUS,		/* | */		KC_EQL,	        KC_LPRN,        KC_RPRN,		KC_COLN,			__X__,	        __X__,		    	__X__,					/* | */			__X__,
-		__X__,		__X__,        	__X__,			KC_LT,			KC_GT,			KC_CIRC,		/* | */		__X__,			KC_LCBR,        KC_RCBR,		KC_BSLS,			__X__,			__X__,		    	__X__,					/* | */			__X__,
-		__X__,										__X__,			__X__,		    __X__,	        /* | */		__X__,	        TO(ISRT),																		    					/* | */		__X__,		__X__,		__X__
+		__X__,	__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,	__X__,		__X__,		__X__,		__X__,		__X__,				__X__,	/* | */	__X__,
+		__X__,	KC_CAPS,	KC_AT,		KC_HASH,	KC_DOLLAR,	CKC_EURO,		/* | */	__X__,	KC_LBRC,	KC_RBRC,	KC_SCLN,	__X__,		__X__,	__X__,		__X__,	/* | */	__X__,
+		__X__,	KC_GRV,		KC_UNDS,	KC_TILDE,	KC_MINS,	KC_PLUS,		/* | */	KC_EQL,	KC_LPRN,	KC_RPRN,	KC_COLN,	__X__,		__X__,	__X__,				/* | */	__X__,
+		__X__,	__X__,		__X__,		KC_LT,		KC_GT,		KC_CIRC,		/* | */	__X__,	KC_LCBR,	KC_RCBR,	KC_BSLS,	__X__,		__X__,	__X__,				/* | */	__X__,
+		__X__,	__X__,								__X__,		__X__,	        /* | */	__X__,	LYR_LOCK,													/* | */		__X__,		__X__,		__X__
 	),
 	[ACCT] = LAYOUT(
-		__X__,		__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	/* | */		__X__,			__X__,			__X__,			__X__,				__X__,			__X__,                          __X__,  	/* | */			__X__,
-		__X__,		CW_TOGG,      	KC_ASTR,        KC_AMPR,		KC_PERCENT,     SC(CMD_REDO),	/* | */	    __X__,			SC(E_CIRC),     SC(U_GRAVE),	SC(I_CIRC),			SC(I_TREMA),	__X__,		        __X__,		__X__,		/* | */			__X__,
-		__X__,		KC_TAB,         KC_DQUO,        KC_EXLM,		KC_QUES,        SC(CMD_UNDO),	/* | */	    __X__,			SC(E_AIGU),     SC(E_GRAVE),	SC(A_GRAVE),		SC(O_CIRC),	 	__X__,		        __X__,					/* | */			__X__,
-		__X__,		TO(GAME),       TO(QWER),		TO(GRPT),		TO(NPD),	    __X__,      	/* | */	    __X__,			SC(C_CEDILLE),  SC(U_CIRC),		SC(A_CIRC),         __X__,          __X__,              __X__,					/* | */			__X__,
-		__X__,										__X__,			__X__,		    KC_LSFT,        /* | */		__X__,	        TO(ISRT),																							/* | */		__X__,		__X__,		__X__
+		__X__,	__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,	__X__,			__X__,			__X__,			__X__,			__X__,				__X__,  	/* | */			__X__,
+		__X__,	CW_TOGG,	KC_ASTR,	KC_AMPR,	KC_PERCENT,	SC(CMD_REDO),	/* | */	__X__,	SC(E_CIRC),     SC(U_GRAVE),	SC(I_CIRC),		SC(I_TREMA),	__X__,	__X__,		__X__,		/* | */			__X__,
+		__X__,	KC_TAB,		KC_DQUO,	KC_EXLM,	KC_QUES,	SC(CMD_UNDO),	/* | */	__X__,	SC(E_AIGU),     SC(E_GRAVE),	SC(A_GRAVE),	SC(O_CIRC),	 	__X__,	__X__,					/* | */			__X__,
+		__X__,	TO(GAME),	TO(QWER),	TO(GRPT),	TO(NPD),	__X__,      	/* | */	__X__,	SC(C_CEDILLE),	SC(U_CIRC),		SC(A_CIRC),		__X__,		    __X__,	__X__,					/* | */			__X__,
+		__X__,	__X__,								__X__,	 	KC_LSFT,        /* | */	__X__,	LYR_LOCK,																				/* | */		__X__,		__X__,		__X__
 	),
-	[NPD] = LAYOUT( // multimedia is to do
-		__X__,		__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	/* | */		__X__,			__X__,			__X__,			__X__,				__X__,			__X__,			    			__X__,		/* | */			QK_BOOT,
-		__X__,		KC_PAST,        KC_P7,          KC_P8,			KC_P9,          KC_PPLS,		/* | */	    RGB_TOG,		RGB_MOD,		RGB_RMOD,		RGB_SAI,		    RGB_SAD,		__X__,			    __X__,		__X__,		/* | */			__X__,
-		__X__,		KC_P0,          KC_P4,          KC_P5,			KC_P6,          KC_PENT,		/* | */	    KC_PSCR,		RGB_HUI,		RGB_HUD,		RGB_VAI,		    RGB_VAD,		__X__,			    __X__,					/* | */			__X__,
-		__X__,		KC_PSLS,         KC_P1,          KC_P2,			KC_P3,          KC_PMNS,		/* | */	    KC_MNXT,		KC_VOLU,		KC_VOLD,		RGB_SPI,			RGB_SPD,		__X__,			    __X__,					/* | */			__X__,
-		__X__,										__X__,			KC_ENT,			KC_DOT,			/* | */	    KC_MPLY,	    TO(ISRT),																			    					/* | */		__X__,		__X__,		__X__
+	[NPD] = LAYOUT( // multimedia is to
+		__X__,		__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,		__X__,		__X__,		__X__,		__X__,		__X__,			__X__,	/* | */	QK_BOOT,
+		__X__,		KC_PAST,	KC_P7,		KC_P8,		KC_P9,		KC_PPLS,		/* | */	RGB_TOG,	RGB_MOD,	RGB_RMOD,	RGB_SAI,	RGB_SAD,	__X__,	__X__,	__X__,	/* | */	__X__,
+		__X__,		KC_P0,		KC_P4,		KC_P5,		KC_P6,		KC_PENT,		/* | */	KC_PSCR,	RGB_HUI,	RGB_HUD,	RGB_VAI,	RGB_VAD,	__X__,	__X__,			/* | */	__X__,
+		__X__,		KC_PSLS,	KC_P1,		KC_P2,		KC_P3,		KC_PMNS,		/* | */	KC_MNXT,	KC_VOLU,	KC_VOLD,	RGB_SPI,	RGB_SPD,	__X__,	__X__,			/* | */	__X__,
+		__X__,		__X__,								KC_ENT,		KC_DOT,			/* | */	KC_MPLY,	LYR_LOCK,												/* | */		__X__,		__X__,		__X__
 	)
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+	if (!process_layer_lock(keycode, record, LYR_LOCK)) {
+		return false;
+	}
+
 	switch (keycode) {
 		case SC(0)... SC(LAST_ACTION) - 1:
 			if (record->event.pressed) {
-				send_shortcut(keycode - SC(0));
+				alt_tab_timer = send_shortcut(keycode - SC(0), is_alt_tab_active);
 			}
 			return false;
 		case SC(FIRST_ACCENT + 1)... SC(LAST_ACCENT) - 1:
@@ -93,6 +102,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			return true;
 	};
 	return true;
+};
+
+void matrix_scan_user(void) {
+      layer_lock_task();
+
+    // The very important timer.
+    if (is_alt_tab_active) {
+        if (timer_elapsed(alt_tab_timer) > 150) {
+            detected_host_os() == OS_MACOS ? unregister_code(KC_LCMD) : unregister_code(KC_LALT);
+            is_alt_tab_active = false;
+        }
+  }
 };
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {

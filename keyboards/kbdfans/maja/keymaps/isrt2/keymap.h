@@ -2,6 +2,8 @@
 
 #include "./user/enums.h"
 
+#define SC(x) (SAFE_RANGE + x)                          // shortcuts
+
 #define MEH_SPC     MEH_T(KC_SPC)
 
 #define WIN_EUR     SS_LCTL(SS_LALT("5"))
