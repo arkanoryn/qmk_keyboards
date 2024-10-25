@@ -42,6 +42,7 @@ const s_action actions[] = {
 	[WORD_JUMPR]			= { .on_macOS = SS_LALT(SS_TAP(X_RIGHT)),			.on_winOS = SS_LCTL(SS_TAP(X_RIGHT))},
 	[WORD_SELECTL]		    = { .on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_LEFT))),	.on_winOS = SS_LSFT(SS_TAP(X_LEFT))},
 	[WORD_SELECTR]		    = { .on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))),	.on_winOS = SS_LSFT(SS_TAP(X_RIGHT))},
+	[TASK_MNGR] 		    = { .on_macOS = SS_LCMD(SS_LOPT(SS_TAP(X_ESC))),	.on_winOS = SS_LCTL(SS_LALT(SS_TAP(X_DEL)))},
 };
 
 static_assert(ARRAY_SIZE(actions) == LAST_ACTION, "Mismatch");

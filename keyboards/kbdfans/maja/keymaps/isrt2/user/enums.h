@@ -51,6 +51,7 @@ typedef enum {
 	WORD_JUMPR,
     WORD_SELECTL,
     WORD_SELECTR,
+    TASK_MNGR,
     LAST_ACTION
 } e_actions_id;
 

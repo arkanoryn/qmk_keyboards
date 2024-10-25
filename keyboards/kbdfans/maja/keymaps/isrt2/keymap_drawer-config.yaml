@@ -56,7 +56,7 @@ layers:
   - [↥ PGUP, 🏠︎ HOME, ↶ WORD JUMP, ↷ WORD JUMP, TAB PREV, TAB NEXT, ' ', ' ', ' ', ' ']
   - [' ', APP PREV, APP NEXT, → DEL, ← BSPC, '↧ PGDWN', '⇥ END', LEFT, DOWN, UP]
   - [RIGHT, ' ', ' ', ' ', ' ',  CUT,  PASTE, → LINE DEL, → WORD DEL, TAB CLOSE]
-  - [TAB REOPEN, ↶ LINE JUMP, ↷ LINE JUMP, ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  - [TAB REOPEN, {t: '↶', h: 'LINE JUMP'}, {t: '↷', h: 'LINE JUMP'}, {t: '⚙️', h: 'Task Mngr'}, ' ', ' ', ' ', ' ', ' ', ' ']
   - [↶ LINE SELECTL, ↶ WORD SELECTL, ↷ WORD SELECT, ↷ LINE SELECT, ' ', ' ', ' ']
   SYMBOLS:
   - [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']

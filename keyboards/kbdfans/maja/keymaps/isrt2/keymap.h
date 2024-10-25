@@ -4,6 +4,9 @@
 
 #define MEH_SPC     MEH_T(KC_SPC)
 
+#define WIN_EUR     SS_LCTL(SS_LALT("5"))
+#define MAC_EUR     SS_LALT(SS_LSFT("2"))
+
 // ISRT KEYMAP DEFINES
 #define CTL_C       LCTL_T(KC_C)
 #define ALT_L       LALT_T(KC_L)
