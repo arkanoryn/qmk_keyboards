@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "os_detection.h"
 
 #define __X__	KC_NO
 #define _____	KC_TRNS
@@ -42,10 +43,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		__X__,  __X__,				   MEH_SPC,	QK_LEAD,	    /* | */		KC_BSPC,	KC_ENT,														/* | */		__X__,  __X__,		__X__
 	),
 	[ACT] = LAYOUT(
-		__X__,    	__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	        /* | */		__X__,			__X__,			__X__,			__X__,				__X__,			__X__,		    				__X__,		/* | */			__X__,
-		__X__,      QK_GESC,		SC(CMD_COPY),    SC(LINE_BACKSPACE),SC(WORD_BACKSPACE),	KC_PGUP,		/* | */		KC_HOME,    	SC(WORD_JUMPL),  SC(WORD_JUMPR),  RCS(KC_TAB),		LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
-		__X__,      SC(APP_PREV),   SC(APP_NEXT),    KC_DEL,			KC_BSPC,            KC_PGDN,		/* | */		KC_END, 		KC_LEFT,        KC_DOWN,		KC_UP,				KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
-		__X__,      SC(CMD_CUT),    SC(CMD_PASTE),   SC(LINE_DEL),		SC(WORD_DEL),		SC(TAB_CLOSE),	/* | */		SC(TAB_REOPEN),  SC(LINE_JUMPL),  SC(LINE_JUMPR),  __X__,			__X__,	    	__X__,		    	__X__,					/* | */			__X__,
+		__X__,    	__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	        /* | */		__X__,			__X__,				__X__,			__X__,			__X__,			__X__,		    				__X__,		/* | */			__X__,
+		__X__,      QK_GESC,		SC(CMD_COPY),    SC(LINE_BACKSPACE),SC(WORD_BACKSPACE),	KC_PGUP,		/* | */		KC_HOME,    	SC(WORD_JUMPL),		SC(WORD_JUMPR),	RCS(KC_TAB),	LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
+		__X__,      SC(APP_PREV),   SC(APP_NEXT),    KC_DEL,			KC_BSPC,            KC_PGDN,		/* | */		KC_END,			KC_LEFT,			KC_DOWN,		KC_UP,			KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
+		__X__,      SC(CMD_CUT),    SC(CMD_PASTE),   SC(LINE_DEL),		SC(WORD_DEL),		SC(TAB_CLOSE),	/* | */		SC(TAB_REOPEN),	SC(LINE_JUMPL),		SC(LINE_JUMPR),	SC(TASK_MNGR),	__X__,	    	__X__,		    	__X__,					/* | */			__X__,
 		__X__,										__X__,				SC(LINE_SELECTL),   SC(WORD_SELECTL),/* | */	SC(WORD_SELECTR),SC(LINE_SELECTR),																	    					/* | */		__X__,		__X__,		__X__
 	),
 	[SMBL] = LAYOUT(
@@ -85,7 +86,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			return false;
 		case CKC_EURO:
 			if (record->event.pressed) {
-				SEND_STRING("CTRL+ALT+6 on winOS");
+				detected_host_os() == OS_MACOS ? send_string(MAC_EUR) : send_string(WIN_EUR);
+				return false;
 			}
 		default:
 			return true;
