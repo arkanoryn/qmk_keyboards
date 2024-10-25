@@ -1,9 +1,5 @@
 # Todos
 
-## Symbols and Shortcuts
-- [ ] Fix the EURO Keycaps
-- [ ] CTRL+ALT+SUPP shortcut for winOS
-
 # Layers Managements
 - [ ] Lock / Unlock current layer
 
@@ -30,3 +26,7 @@
 - [X] Move TAB to DF instead of current spot
 - [X] Change the fancy LT etc keycode to define for cleaner keymap
 - [X] Add the circonflexe on the symbol layer
+
+### Symbols and Shortcuts
+- [X] Fix the EURO Keycaps
+- [X] CTRL+ALT+SUPP shortcut for winOS
