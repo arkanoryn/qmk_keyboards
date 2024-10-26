@@ -15,9 +15,6 @@
 
 #include "features/layer_lock.h"
 
-bool is_alt_tab_active = false; // ADD this near the beginning of keymap.c
-uint16_t alt_tab_timer = 0;     // we will be using them soon.
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ISRT] = LAYOUT(
 		__X__,  __X__,	__X__,	__X__,	__X__,	__X__,  __X__,	/* | */		__X__,		__X__,		__X__,		__X__,		__X__,		__X__,			__X__,	/* | */		TO(QWER),
@@ -48,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		__X__,  __X__,				   MEH_SPC,	QK_LEAD,	    /* | */		KC_BSPC,	KC_ENT,														/* | */		__X__,  __X__,		__X__
 	),
 	[ACT] = LAYOUT(
-		__X__,    	__X__,			__X__,          __X__,          __X__,          __X__,	__X__,	        /* | */		__X__,				__X__,			__X__,			__X__,			__X__,			__X__,		    				__X__,		/* | */			__X__,
-		__X__,      QK_GESC,		SC(CMD_COPY),    SC(LINE_BACKSPACE),SC(WORD_BACKSPACE),	KC_PGUP,		/* | */		KC_HOME,    		SC(WORD_JUMPL),	SC(WORD_JUMPR),	RCS(KC_TAB),	LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
-		__X__,      SC(APP_PREV),   SC(APP_NEXT),    KC_DEL,			KC_BSPC,            KC_PGDN,		/* | */		KC_END,				KC_LEFT,		KC_DOWN,		KC_UP,			KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
-		__X__,      SC(CMD_CUT),    SC(CMD_PASTE),   SC(LINE_DEL),		SC(WORD_DEL),		SC(TAB_CLOSE),	/* | */		SC(TAB_REOPEN),		SC(LINE_JUMPL),	SC(LINE_JUMPR),	SC(TASK_MNGR),	LYR_LOCK,		__X__,		    	__X__,					/* | */			__X__,
-		__X__,										__X__,				SC(LINE_SELECTL),   SC(WORD_SELECTL),/* | */	SC(WORD_SELECTR),	SC(LINE_SELECTR),																	    					/* | */		__X__,		__X__,		__X__
+		__X__,    	__X__,			__X__,          __X__,                  __X__,                  __X__,  __X__,  /* | */ __X__,				__X__,			    __X__,			    __X__,			__X__,			__X__,		    				__X__,		/* | */			__X__,
+		__X__,      QK_GESC,		CKC(CMD_COPY),  CKC(LINE_BACKSPACE),    CKC(WORD_BACKSPACE),    KC_PGUP,		/* | */ KC_HOME,    		CKC(WORD_JUMPL),    CKC(WORD_JUMPR),    RCS(KC_TAB),	LCTL(KC_TAB),	__X__,		    	__X__,		__X__,		/* | */			__X__,
+		__X__,      CKC(APP_PREV),  CKC(APP_NEXT),  KC_DEL,			        KC_BSPC,                KC_PGDN,		/* | */ KC_END,             KC_LEFT,		    KC_DOWN,            KC_UP,			KC_RIGHT,		__X__,		    	__X__,					/* | */			__X__,
+		__X__,      CKC(CMD_CUT),   CKC(CMD_PASTE), CKC(LINE_DEL),		    CKC(WORD_DEL),          CKC(TAB_CLOSE),	/* | */ CKC(TAB_REOPEN),    CKC(LINE_JUMPL),	CKC(LINE_JUMPR),	CKC(TASK_MNGR),	LYR_LOCK,		__X__,		    	__X__,					/* | */			__X__,
+		__X__,      __X__,                                          CKC(LINE_SELECTL),      CKC(WORD_SELECTL),      /* | */ CKC(WORD_SELECTR),  CKC(LINE_SELECTR),																	    					/* | */		__X__,		__X__,		__X__
 	),
 	[SMBL] = LAYOUT(
 		__X__,	__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,	__X__,		__X__,		__X__,		__X__,		__X__,				__X__,	/* | */	__X__,
@@ -62,10 +59,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		__X__,	__X__,								__X__,		__X__,	        /* | */	__X__,	LYR_LOCK,													/* | */		__X__,		__X__,		__X__
 	),
 	[ACCT] = LAYOUT(
-		__X__,	__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,	__X__,			__X__,			__X__,			__X__,			__X__,				__X__,  	/* | */			__X__,
-		__X__,	CW_TOGG,	KC_ASTR,	KC_AMPR,	KC_PERCENT,	SC(CMD_REDO),	/* | */	__X__,	SC(E_CIRC),     SC(U_GRAVE),	SC(I_CIRC),		SC(I_TREMA),	__X__,	__X__,		__X__,		/* | */			__X__,
-		__X__,	KC_TAB,		KC_DQUO,	KC_EXLM,	KC_QUES,	SC(CMD_UNDO),	/* | */	__X__,	SC(E_AIGU),     SC(E_GRAVE),	SC(A_GRAVE),	SC(O_CIRC),	 	__X__,	__X__,					/* | */			__X__,
-		__X__,	TO(GAME),	TO(QWER),	TO(GRPT),	TO(NPD),	__X__,      	/* | */	__X__,	SC(C_CEDILLE),	SC(U_CIRC),		SC(A_CIRC),		__X__,		    __X__,	__X__,					/* | */			__X__,
+		__X__,	__X__,		__X__,		__X__,		__X__,		__X__,	__X__,	/* | */	__X__,	__X__,			__X__,			__X__,          __X__,			__X__,				__X__,  	/* | */			__X__,
+		__X__,	CW_TOGG,	KC_ASTR,	KC_AMPR,	KC_PERCENT,	CKC(CMD_REDO),	/* | */	__X__,	CKC(E_CIRC),     CKC(U_GRAVE),	CKC(I_CIRC),    CKC(I_TREMA),	__X__,	__X__,		__X__,		/* | */			__X__,
+		__X__,	KC_TAB,		KC_DQUO,	KC_EXLM,	KC_QUES,	CKC(CMD_UNDO),	/* | */	__X__,	CKC(E_AIGU),     CKC(E_GRAVE),	CKC(A_GRAVE),   CKC(O_CIRC),    __X__,	__X__,					/* | */			__X__,
+		__X__,	TO(GAME),	TO(QWER),	TO(GRPT),	TO(NPD),	__X__,      	/* | */	__X__,	CKC(C_CEDILLE),	CKC(U_CIRC),    CKC(A_CIRC),    __X__,		    __X__,	__X__,					/* | */			__X__,
 		__X__,	__X__,								__X__,	 	KC_LSFT,        /* | */	__X__,	LYR_LOCK,																				/* | */		__X__,		__X__,		__X__
 	),
 	[NPD] = LAYOUT( // multimedia is to
@@ -77,75 +74,78 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	if (!process_layer_lock(keycode, record, LYR_LOCK)) {
-		return false;
-	}
+// For now I leave this function here. If it increase in size, it will get its own file.
+bool process_custom_keycodes(uint16_t keycode, keyrecord_t *record) {
+  if (!record->event.pressed) {
+    return true;
+  }
 
-	switch (keycode) {
-		case SC(0)... SC(LAST_ACTION) - 1:
-			if (record->event.pressed) {
-				alt_tab_timer = send_shortcut(keycode - SC(0), is_alt_tab_active);
-			}
-			return false;
-		case SC(FIRST_ACCENT + 1)... SC(LAST_ACCENT) - 1:
-			if (record->event.pressed) {
-				return send_accent(keycode - SC(0));
-			}
-			return false;
-		case CKC_EURO:
-			if (record->event.pressed) {
-				detected_host_os() == OS_MACOS ? send_string(MAC_EUR) : send_string(WIN_EUR);
-				return false;
-			}
-		default:
-			return true;
-	};
-	return true;
+  switch (keycode) {
+    case CKC_EURO:
+      detected_host_os() == OS_MACOS ? send_string(MAC_EUR) : send_string(WIN_EUR);
+      return false;
+  }
+  return true;
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_layer_lock(keycode, record, LYR_LOCK)) {
+    return false;
+  }
+  if (!process_shortcuts(keycode, record)) {
+    return false;
+  }
+  if (!process_accents(keycode, record)) {
+    return false;
+  }
+  if (!process_custom_keycodes(keycode, record)) {
+    return false;
+  }
+  return true;
 };
 
 void matrix_scan_user(void) {
-      layer_lock_task();
+  layer_lock_task();
 
-    // The very important timer.
-    if (is_alt_tab_active) {
-        if (timer_elapsed(alt_tab_timer) > 150) {
-            detected_host_os() == OS_MACOS ? unregister_code(KC_LCMD) : unregister_code(KC_LALT);
-            is_alt_tab_active = false;
-        }
+  // The very important timer.
+  if (is_alt_tab_active) {
+    if (timer_elapsed(alt_tab_timer) > 150) {
+      detected_host_os() == OS_MACOS ? unregister_code(KC_LCMD) : unregister_code(KC_LALT);
+      is_alt_tab_active = false;
+    }
   }
 };
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-	for (uint8_t i = led_min; i < led_max; i++) {
-		switch (get_highest_layer(layer_state | default_layer_state)) {
-			case ISRT:
-				rgb_matrix_set_color(i, RGB_WHITE);
-				break;
-			case QWER:
-				rgb_matrix_set_color(i, RGB_GOLD);
-				break;
-			case GAME:
-				rgb_matrix_set_color(i, RGB_RED);
-				break;
-			case GRPT:
-				rgb_matrix_set_color(i, RGB_GREEN);
-				break;
-			case ACT:
-				rgb_matrix_set_color(i, RGB_BLUE);
-				break;
-			case SMBL:
-				rgb_matrix_set_color(i, RGB_AZURE);
-				break;
-			case ACCT:
-				rgb_matrix_set_color(i, RGB_CYAN);
-				break;
-			case NPD:
-				rgb_matrix_set_color(i, HSV_SPRINGGREEN);
-				break;
-			default:
-				break;
-		}
-	}
-	return false;
-}
+  for (uint8_t i = led_min; i < led_max; i++) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
+      case ISRT:
+        rgb_matrix_set_color(i, RGB_WHITE);
+        break;
+      case QWER:
+        rgb_matrix_set_color(i, RGB_GOLD);
+        break;
+      case GAME:
+        rgb_matrix_set_color(i, RGB_RED);
+        break;
+      case GRPT:
+        rgb_matrix_set_color(i, RGB_GREEN);
+        break;
+      case ACT:
+        rgb_matrix_set_color(i, RGB_BLUE);
+        break;
+      case SMBL:
+        rgb_matrix_set_color(i, RGB_AZURE);
+        break;
+      case ACCT:
+        rgb_matrix_set_color(i, RGB_CYAN);
+        break;
+      case NPD:
+        rgb_matrix_set_color(i, HSV_SPRINGGREEN);
+        break;
+      default:
+        break;
+    }
+  }
+  return false;
+};

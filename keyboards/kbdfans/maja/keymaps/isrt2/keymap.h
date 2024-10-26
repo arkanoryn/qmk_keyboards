@@ -2,7 +2,7 @@
 
 #include "./user/enums.h"
 
-#define SC(x) (SAFE_RANGE + x)                          // shortcuts
+#define CKC(x)      (SAFE_RANGE + x)        // generate custom keycode from enum
 
 #define MEH_SPC     MEH_T(KC_SPC)
 
