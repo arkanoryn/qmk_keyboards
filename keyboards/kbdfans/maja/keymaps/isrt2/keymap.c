@@ -10,8 +10,9 @@
 #include "./keymap.h"
 #include "./user/commands/shortcuts.c"
 #include "./user/commands/accents.c"
-#include "./user/combos.c"
 #include "./user/leader.c"
+
+#include "g/keymap_combo.h"
 
 #include "features/layer_lock.h"
 

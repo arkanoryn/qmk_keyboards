@@ -14,14 +14,6 @@ enum layers {
   NPD,  // NUMPAD & MULTIMEDIA
 };
 
-enum combos {
-  ESC,
-  TAB,
-  ENT,
-  BSPC,
-  DEL,
-};
-
 typedef enum {
   // ACTIONS
   APP_CLOSE = 0,
@@ -74,6 +66,7 @@ typedef enum {
 enum custom_keycodes {
   CKC_EURO = SAFE_RANGE + LAST_ACTION + LAST_ACCENT,
   LYR_LOCK,
+  MAGIC,
 };
 
 #endif // __ENUMS_H__

@@ -1,0 +1,38 @@
+#define QW_A        L4_A
+#define QW_B        KC_B
+#define QW_C        KC_C
+#define QW_D        L2_D
+#define QW_E        ALT_E
+#define QW_F        L1_F
+#define QW_G        KC_G
+#define QW_H        KC_H
+#define QW_I        ALT_I
+#define QW_J        L1_J
+#define QW_K        L2_K
+#define QW_L        L3_L
+#define QW_M        KC_M
+#define QW_N        KC_N
+#define QW_O        CTL_O
+#define QW_P        KC_P
+#define QW_Q        KC_Q
+#define QW_R        GUI_R
+#define QW_S        L3_S
+#define QW_T        KC_T
+#define QW_U        GUI_U
+#define QW_V        KC_V
+#define QW_W        CTL_W
+#define QW_X        KC_X
+#define QW_Y        KC_Y
+#define QW_Z        KC_Z
+#define QW_SCLN     L4_SCLN
+#define QW_QUOT     KC_QUOT
+
+SUBS(QW_ING,				"ing ",				QW_I, QW_N, QW_G)
+SUBS(QW_N_QUOTE_T,			"n't ",				QW_N, QW_QUOT, QW_T)
+SUBS(QW_QUOTE_VE,			"'ve ",				QW_QUOT, QW_V, QW_E)
+SUBS(QW_QUOTE_RE,			"'re ",				QW_QUOT, QW_R, QW_E)
+SUBS(QW_QUOTE_S,			"'s ",				QW_QUOT, QW_S, MAGIC)
+SUBS(QW_QUOTE_D,			"'d ",				QW_QUOT, QW_D, MAGIC)
+SUBS(QW_QUOTE_LL,			"'ll ",				QW_QUOT, QW_L, MAGIC)
+// ...
+SUBS(QW_HAV_HAVE,			"have ",			QW_H, QW_V, QW_E)
