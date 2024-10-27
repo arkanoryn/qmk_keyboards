@@ -1,5 +1,4 @@
-#ifndef __ENUMS_H__
-#define __ENUMS_H__
+#pragma once
 
 #include QMK_KEYBOARD_H
 
@@ -68,5 +67,3 @@ enum custom_keycodes {
   LYR_LOCK,
   MAGIC,
 };
-
-#endif // __ENUMS_H__

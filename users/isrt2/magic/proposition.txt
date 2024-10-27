@@ -1,0 +1,55 @@
+/**
+ * NOTE: define all of this cycle-combos correlative, so that their id's can be referenced with a ranged case
+ * NOTE: bonus points if they are the first ones, to reduce the size of the array :)
+ * TODO: expose the funcs on a header file to be used from `inject.h`
+ */
+
+// cycle_combos.c
+#define LONGEST_CYCLE 10 // we need a bound on the "base" dimension of our 2D array of strings, make it as small as posible
+
+static uint8_t last_combo_index;
+
+static const char *cycle_combo_output[][LONGEST_CYCLE] = {
+    [FIRST_CYCLE_COMBO] = {"foo", "bar"},
+    ...
+    [LAST_CYCLE_COMBO] = {"hello", "world", "!"},
+};
+
+static uint8_t combo_output[ARRAY_SIZE(cycle_combo_output)] = {0};
+
+/* FIXME: maybe u8 is not enough? */
+/* FIXME: check that first <= index <= last (?) */
+void update_combo_output(uint8_t index) {
+    uint8_t next_val = combo_output[index] + 1;
+    if (next_val == LONGEST_CYCLE || cycle_combo_output[next_val] == NULL) {
+        next_val = 0;
+    }
+    combo_output[index] = next_val;
+}
+
+void send_cycle_combo(uint8_t index) {
+    const uint8_t str_index = combo_output[index];
+    const char *str = cycle_combo_output[index][str_index];
+    send_string(str);
+}
+
+void set_combo_index(uint8_t index) {
+    last_combo_index = index;
+}
+
+uint8_t get_combo_index(void) {
+    return last_combo_index;
+}
+
+// inject.h
+switch (combo_index) {
+    case FIRST_CYCLE_COMBO ... LAST_CYCLE_COMBO:
+        send_cycle_combo(combo_index);
+        break;
+}
+set_combo_index(combo_index);
+
+// process_record_user
+case MAGIC:
+    if (pressed) update_combo_output(get_combo_index());
+    return false;

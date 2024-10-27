@@ -3,15 +3,10 @@
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 
-#include "commands.h"
+#include "ark_v1.h"
+#include "shortcuts.h"
 
-typedef struct {
-  const char *on_macOS;
-  const char *on_winOS;
-} s_action;
-
-/* [key]                = { MAC OS CMD,             WINOS CMD }*/
-const s_action actions[] = {
+const action_s actions[] = {
   // [CMD_COPY]               = { .on_macOS = "this is macOS",                 .on_winOS =     "this is winOS"}, // for testing purpose, replace the key with the one you want
   [CMD_COPY]			= { .on_macOS = SS_LCMD("c"),						.on_winOS = SS_LCTL("c")},
   [CMD_PASTE]			= { .on_macOS = SS_LCMD("v"),						.on_winOS = SS_LCTL("v")},
@@ -42,36 +37,59 @@ const s_action actions[] = {
   [WORD_SELECTR]	    = { .on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))),	.on_winOS = SS_LSFT(SS_TAP(X_RIGHT))},
   [TASK_MNGR]		    = { .on_macOS = SS_LCMD(SS_LOPT(SS_TAP(X_ESC))),	.on_winOS = SS_LCTL(SS_LALT(SS_TAP(X_DEL)))},
 };
-static_assert(ARRAY_SIZE(actions) == LAST_ACTION, "Mismatch");
+static_assert(ARRAY_SIZE(actions) == _LAST_SHORTCUT_ID, "Mismatch"); // ensure that we have all the actions from the enum
 
+alt_tab_s alt_tab_state = {0};
 
-bool is_alt_tab_active = false;
-uint16_t alt_tab_timer = 0;
+void init_alt_tab_state(void) {
+  alt_tab_state.active  = false;
+  alt_tab_state.timer   = 0;
+  alt_tab_state.keycode = detected_host_os() == OS_MACOS ? KC_LCMD : KC_LALT;
+}
 
-uint16_t send_shortcut(e_actions_id id, bool is_alt_tab_active) {
-  assert(id < LAST_ACTION);
-  uint16_t alt_tab_timer = 0;
+void alt_tab_task(void) {
+  if (alt_tab_state.active) {
+    if (timer_elapsed(alt_tab_state.timer) > 300) {
+      unregister_code(alt_tab_state.keycode);
+      alt_tab_state.active = false;
+    }
+  }
+}
+
+void manage_tabbing(shortcuts_id_e id, keyrecord_t *record) {
+  if (record->event.pressed) {
+    alt_tab_state.timer = timer_read();
+    if (!alt_tab_state.active) {
+      alt_tab_state.active = true;
+      register_code(alt_tab_state.keycode);
+    }
+    register_code(KC_TAB);
+  } else {
+    unregister_code(KC_TAB);
+  }
+};
+
+bool send_shortcut(shortcuts_id_e id, keyrecord_t *record) {
+  assert(id < _LAST_SHORTCUT_ID);
 
   if (id == APP_NEXT || id == APP_PREV) {
-    if (!is_alt_tab_active) {
-      is_alt_tab_active = true;
-      detected_host_os() == OS_MACOS ? register_code(KC_LCMD) : register_code(KC_LALT);
-    }
-    alt_tab_timer = timer_read();
+    manage_tabbing(id, record);
+  } else if (alt_tab_state.active) {
+    unregister_code(alt_tab_state.keycode);
+    alt_tab_state.active = false;
+  } else if (!record->event.pressed) {
+    return true;
+  } else {
+    send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
   }
-  send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
-  return alt_tab_timer;
+  return false;
 };
 
 bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
-  if (!record->event.pressed) {
-    return true;
-  }
 
   switch (keycode) {
-    case CKC(0)... CKC(LAST_ACTION) - 1:
-      alt_tab_timer = send_shortcut(keycode - CKC(0), is_alt_tab_active);
-      return false;
+    case CKC(0)... CKC(_LAST_SHORTCUT_ID) - 1:
+      return send_shortcut(keycode - CKC(0), record);
   }
   return true;
 };

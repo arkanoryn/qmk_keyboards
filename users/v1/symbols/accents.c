@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
-
-#include "commands.h"
+#include "ark_v1.h"
+#include "symbols.h"
 
 void process_accent(uint16_t accent_str, uint8_t letter_code) {
   const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
@@ -16,7 +16,7 @@ void process_accent(uint16_t accent_str, uint8_t letter_code) {
   tap_code16(letter_code);
 };
 
-bool send_accent(e_accents_id id) {
+bool process_accents(symbols_id_e id) {
   switch (id) {
     case E_CIRC:
       process_accent(CIRCONFLEXE, KC_E);
@@ -58,17 +58,5 @@ bool send_accent(e_accents_id id) {
     default:
       return true;
   };
-  return true;
-};
-
-bool process_accents(uint16_t keycode, keyrecord_t *record) {
-  if (!record->event.pressed) {
-    return true;
-  }
-
-  switch (keycode) {
-    case CKC(FIRST_ACCENT + 1)... CKC(LAST_ACCENT) - 1:
-      return send_accent(keycode - CKC(0));
-  }
   return true;
 };

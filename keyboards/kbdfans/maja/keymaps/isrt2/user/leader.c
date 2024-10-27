@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "./enums.h"
-#include "./commands/shortcuts.c"
+#include "./commands/commands.h"
 
 void isrt_leader_end_user(void) {
   if (leader_sequence_one_key(KC_Y)) {
