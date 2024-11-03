@@ -1,19 +1,19 @@
-#pragma once
-
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 
 #define __X__	KC_NO
 #define _____	KC_TRNS
 
-#include "./user/enums.h"
 #include "./keymap.h"
-#include "./user/commands/shortcuts.c"
-#include "./user/commands/accents.c"
-#include "./user/combos.c"
-#include "./user/leader.c"
+#include "./user/commands/commands.h"
 
 #include "features/layer_lock.h"
+
+#include "magic/magic.h"
+#include "g/keymap_combo.h"
+
+extern bool     is_alt_tab_active;
+extern uint16_t alt_tab_timer;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ISRT] = LAYOUT(
@@ -21,14 +21,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		__X__,  KC_Y,	CTL_C,	ALT_L,	GUI_M,	KC_K,			/* | */		KC_Z,		GUI_F,		ALT_U,		CTL_COMM,	KC_QUOT,	__X__,	__X__,	__X__,	/* | */		TO(NPD),
 		__X__,  L4_I,	L3_S,	L2_R,	L1_T,	KC_G,			/* | */		KC_P,		L1_N,		L2_E,		L3_A,		L4_O,		__X__,	__X__,			/* | */		TO(GAME),
 		__X__,  SFT_Q,	KC_V,	KC_W,	KC_D,	KC_J,			/* | */		KC_B,		KC_H,		KC_SLSH,	KC_DOT,		SFT_X,		__X__,	__X__,			/* | */		__X__,
-		__X__,  __X__,				   MEH_SPC,	QK_LEAD,		/* | */		KC_BSPC,	KC_ENT,														/* | */		__X__,		__X__,		__X__
+		__X__,  __X__,				   MEH_SPC,	QK_LEAD,		/* | */		MAGIC,		KC_ENT,														/* | */		__X__,		__X__,		__X__
 	),
 	[QWER] = LAYOUT(
 		QK_GESC,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	KC_6,	/* | */		KC_7,		KC_8,	KC_9,	KC_0,		KC_MINS,	KC_EQL,			KC_BSPC,	/* | */			KC_DEL,
 		KC_TAB,		KC_Q,	CTL_W,	ALT_E,	GUI_R,	KC_T,			/* | */		KC_Y,		GUI_U,	ALT_I,	CTL_O,		KC_P,		KC_LBRC, KC_RBRC, KC_BSLS,	/* | */			KC_HOME,
 		KC_CAPS,	L4_A,	L3_S,	L2_D,	L1_F,	KC_G,			/* | */		KC_H,		L1_J,	L2_K,	L3_L,		L4_SCLN,	KC_QUOT, KC_ENT,			/* | */			KC_END,
 		KC_LSFT,	KC_Z,	KC_X,	KC_C,	KC_V,	KC_B,			/* | */		TO(ISRT),	KC_N,	KC_M,	KC_COMM,	KC_DOT,		KC_SLSH, KC_RSFT,			/* | */			KC_UP,
-		KC_LCTL,	KC_LGUI,			   MEH_SPC,	KC_LALT,		/* | */		KC_SPC,		KC_RCTL,													/* | */		KC_LEFT,	KC_DOWN,	KC_RGHT
+		KC_LCTL,	KC_LGUI,			   MEH_SPC,	KC_LALT,		/* | */		MAGIC,		KC_RCTL,													/* | */		KC_LEFT,	KC_DOWN,	KC_RGHT
 	),
 	[GAME] = LAYOUT(
 		QK_GESC,	KC_1,	KC_2,	KC_3,	KC_4,	KC_5,	KC_6,	/* | */		KC_7,		KC_8,	KC_9,	KC_0,		KC_MINS,	KC_EQL,					KC_BSPC,	/* | */	KC_DEL,
@@ -100,6 +100,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   if (!process_custom_keycodes(keycode, record)) {
     return false;
+  }
+  if (!process_magic_key(keycode, record)) {
+    return false;
+  }
+
+  if (record->event.pressed) { // we dont want to reinitialize the combo on SHIFT press alone
+    const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
+    if (mods & MOD_MASK_SHIFT) {
+      SEND_STRING("SFT");
+    } else {
+      init_combos_state();
+    }
   }
   return true;
 };

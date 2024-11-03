@@ -1,5 +1,4 @@
-#ifndef __ENUMS_H__
-#define __ENUMS_H__
+#pragma once
 
 #include QMK_KEYBOARD_H
 
@@ -12,14 +11,6 @@ enum layers {
   SMBL, // SYMBOLS
   ACCT, // ACCENTS
   NPD,  // NUMPAD & MULTIMEDIA
-};
-
-enum combos {
-  ESC,
-  TAB,
-  ENT,
-  BSPC,
-  DEL,
 };
 
 typedef enum {
@@ -74,6 +65,5 @@ typedef enum {
 enum custom_keycodes {
   CKC_EURO = SAFE_RANGE + LAST_ACTION + LAST_ACCENT,
   LYR_LOCK,
+  MAGIC,
 };
-
-#endif // __ENUMS_H__
