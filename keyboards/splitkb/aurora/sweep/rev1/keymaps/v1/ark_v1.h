@@ -9,6 +9,8 @@
 #define _FIRST_SYMBOL_ID _LAST_SHORTCUT_ID
 #include "symbols/symbols.h"
 
+void send_temporary_string(const char *str);
+
 enum layers {
   GRPT, // GRAPHITE
   ISRT,

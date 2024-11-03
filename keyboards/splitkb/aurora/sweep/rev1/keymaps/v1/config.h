@@ -20,6 +20,8 @@
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
+// #define VIRT_SIDECHANNEL
+
 // #define COMBO_STRICT_TIMER // starts time on the first key of the combo
 // #define COMBO_TERM 60 // default is 50
 // #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable

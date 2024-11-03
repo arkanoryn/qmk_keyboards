@@ -1,12 +1,3 @@
-/*
-** /!\ This file is generated with the script `combos/scripts/parser.py`
-** Do NOT manually modify. Change / create files under `combos/definitions` and
-** re-run the script: `python3 parser.py <filename>`
-** ex:
-**
-**     $> python3 parser.py qwerty.csv
-*/
-#pragma once
 #include "quantum.h"
 #include "combos.h"
 
