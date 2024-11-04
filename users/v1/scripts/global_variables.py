@@ -5,6 +5,7 @@ GENERATED_FOLDER = Path(__file__).parent.parent / "generated"
 
 CORRECT_CHORD_FILENAME = "correct_chords"
 COMBOS_FILENAME = "combos"
+CYCLES_FILENAME = "cycles"
 
 # combos format is: [NAME,STR,CAN_CYCLE,IS_ACTION,KEYS...]
 NAME_POS = 0

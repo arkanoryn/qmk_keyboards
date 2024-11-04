@@ -2,6 +2,9 @@ import global_variables
 import common
 
 def write_combos_header(enums):
+    tmp_enums = enums.copy()
+    tmp_enums[0] = f"{tmp_enums[0]} = 0"
+
     content = common.lines(
         common.HEADER_HFILE,
         "#pragma once",
@@ -10,10 +13,11 @@ def write_combos_header(enums):
         "#include \"combos.h\"",
         "",
         "enum combos {",
-        f"  {",\n  ".join(enums)}",
+        f"  {",\n  ".join(tmp_enums)}",
         "};",
         "",
-        "const char* get_combos_cmds(uint16_t combo_index);"
+        "const char* get_combos_cmds(uint16_t combo_index);",
+        ""
     )
 
     with (global_variables.GENERATED_FOLDER / f"{global_variables.COMBOS_FILENAME}.h").open("w") as file:
@@ -23,7 +27,7 @@ def write_combos_cfile(progs, combos_t, cmds):
     content = common.lines(
         common.HEADER_CFILE,
         "#include QMK_KEYBOARD_H",
-        "#include \"combos.h\"",
+        f"#include \"{global_variables.COMBOS_FILENAME}.h\"",
         "",
         f"{"\n".join(progs)}",
         "",
@@ -37,7 +41,8 @@ def write_combos_cfile(progs, combos_t, cmds):
         "",
         "const char* get_combos_cmds(uint16_t combo_index){",
         "    return combo_cmds[combo_index];",
-        "};"
+        "};",
+        ""
     )
 
     with (global_variables.GENERATED_FOLDER / f"{global_variables.COMBOS_FILENAME}.c").open("w") as file:
@@ -82,6 +87,7 @@ def fill_combos_cmds(cmds, prefix_combo):
         cmds.append(f"[{name}] = \"{combo[global_variables.STR_POS]}\"")
 
 def generate(combos):
+    print("generate_combos - start")
     combos_enum = []
     combos_prog = []
     combos_t = []
@@ -95,3 +101,4 @@ def generate(combos):
 
     write_combos_header(combos_enum)
     write_combos_cfile(combos_prog, combos_t, combos_cmds)
+    print("generate_combos - end")

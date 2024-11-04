@@ -18,7 +18,7 @@
 #include "combos.h"
 
 enum combos {
-  GRAPHITE_DEL_WORD,
+  GRAPHITE_DEL_WORD = 0,
   GRAPHITE_NT,
   GRAPHITE_QUOTE_VE,
   GRAPHITE_QUOTE_RE,
