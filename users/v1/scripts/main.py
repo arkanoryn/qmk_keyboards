@@ -3,6 +3,7 @@ import csv
 
 import global_variables
 import generate_teacher
+import generate_combos
 
 def valid_combo(combo):
     if (len(combo) > 0 and combo[0][0] != "#"):
@@ -26,4 +27,5 @@ def get_all_combos(descriptions_folder):
 
 combos = get_all_combos(global_variables.DESCRIPTIONS_FOLDER)
 
-generate_teacher.generate_combos_teacher(combos)
+# generate_teacher.generate_combos_teacher(combos)
+generate_combos.generate(combos)

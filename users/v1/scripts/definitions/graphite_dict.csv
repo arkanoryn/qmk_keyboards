@@ -1,109 +1,109 @@
 prefix,GRAPHITE
-NT,"\bn't",dont circle,N,QUOT,T
-QUOTE_VE,"\b've",dont circle,QUOT,V,E
-QUOTE_RE,"\b're",dont circle,QUOT,R,E
-QUOTE_S,"\b's",dont circle,QUOT,S,MAGIC
-QUOTE_D,"\b'd",dont circle,QUOT,D,MAGIC
-QUOTE_LL,"\b'll",dont circle,QUOT,L,MAGIC
+NT,"\bn't",DONT CIRCLE,NOT ACTION,N,QUOT,T
+QUOTE_VE,"\b've",DONT CIRCLE,NOT ACTION,QUOT,V,E
+QUOTE_RE,"\b're",DONT CIRCLE,NOT ACTION,QUOT,R,E
+QUOTE_S,"\b's",DONT CIRCLE,NOT ACTION,QUOT,S,MAGIC
+QUOTE_D,"\b'd",DONT CIRCLE,NOT ACTION,QUOT,D,MAGIC
+QUOTE_LL,"\b'll",DONT CIRCLE,NOT ACTION,QUOT,L,MAGIC
 # 100 most used words
-A_,"a",dont circle,MAGIC,A
-A__,"A",dont circle,BSPC,A
-ABOUT,"about",dont circle,MAGIC,U,T
-AFTER,"after",dont circle,F,T,R
-ALL,"all",dont circle,MAGIC,A,L
-ALSO,"also",dont circle,A,L,S
-AND,"and",dont circle,A,N,D
-ANY,"any",dont circle,A,N,Y
-AS,"as",dont circle,A,S
-AT,"at",dont circle,A,T
-BACK,"back",circle,B,C,K
-BE,"be",circle,B,E
-BECAUSE,"because",dont circle,B,C,E
-BEFORE,"before",dont circle,B,F,O
-BIRTHDAY,"birthday",dont circle,B,D,A
-BUT,", but",circle,B,T
-BY,"by",dont circle,B,Y
-CAN,"can",circle,C,A,N
-CANNOT,"can not",circle,C,A,N,T
-COME,"come",circle,C,M,E
-COULD,"could",circle,C,O,U
-DAY,"day",circle,MAGIC,D,A
-DO,"do",circle,MAGIC,D,O
-EVEN,"even",dont circle,E,V,N
-FIND,"find",circle,F,N,D
-FIRST,"first",dont circle,F,I,R
-FOR,"for",dont circle,F,O,R
-FROM,"from",dont circle,F,R,M
-GET,"get",circle,G,E,T
-GIVE,"give",circle,G,I,E
-GO,"go",circle,MAGIC,G,O
-GREAT,"great",circle,G,R,E
-HAVE,"have",circle,H,V,E
-HE,"he",circle,H,E
-I_,"I",circle,I,MAGIC
-IF,"if",dont circle,I,F
-IN,"in",dont circle,I,N
-INTO,"into",dont circle,I,N,T
-IT,"it",circle,I,T
-KNOW,"know",circle,K,N,W
-KNOWLEDGE,"knowledge",circle,K,N,W,L
-LIKE,"like",circle,L,K,E
-LONG,"long",circle,L,N,G
-LOOK,"look",circle,MAGIC,L,K
-MAKE,"make",circle,M,K,E
-MAN,"man",circle,M,A,N
-MANY,"many",circle,M,A,N
-MAY,"may",dont circle,M,A,Y
-MORE,"more",circle,M,R,E
-MOST,"most",circle,M,O,S
-MUST,"must",dont circle,U,S,T
-NEW,"new",circle,N,E,W
-NO,"no",dont circle,N,O
-NOT,"not",dont circle,N,O,T
-NOW,"now",dont circle,N,O,W
-OF,"of",dont circle,O,F
-ON,"on",dont circle,O,N
-ONE,"one",circle,O,N,E
-ONLY,"only",dont circle,O,L,Y
-OR,"or",circle,MAGIC,O,R
-OTHER,"other",circle,O,T,R
-OUT,"out",circle,O,U,T
-OVER,"over",dont circle,O,V,E
-SAY,"say",circle,S,A,Y
-SEE,"see",circle,MAGIC,S,E
-SHE,"she",circle,S,H,E
-SO,"so",dont circle,S,O
-SOME,"some",circle,S,M,E
-STATE,"state",circle,S,T,E
-SUCH,"such",dont circle,S,U,H
-TAKE,"take",dont circle,T,K,E
-THAN,"than",dont circle,T,H,N
-THAT,"that",circle,T,H,A
-THE,"the",dont circle,T,H
-THEIR,"their",circle,MAGIC,T,R
-THEM,"them",dont circle,T,H,E
-THEN,"then",dont circle,MAGIC,T,N
-THERE,"there",dont circle,T,H,R
-THESE,"these",circle,MAGIC,T,S
-THEY,"they",circle,T,E,Y
-THINK,"think",circle,T,I,K
-THIS,"this",circle,T,H,S
-THOSE,"those",circle,T,O,S
-TIME,"time",dont circle,T,I,E
-TO,"to",dont circle,T,O
-UP,"up",dont circle,U,P
-USE,"use",circle,MAGIC,U,S
-WAY,"way",circle,W,A,Y
-WE,"we",circle,W,E
-WHAT,"what",dont circle,W,H,A
-WHEN,"when",dont circle,W,H,N
-WHERE,"where",dont circle,W,H,R
-WHICH,"which",dont circle,W,H,I
-WHO,"who",circle,W,H,O
-WHY,"why",dont circle,MAGIC,W,Y
-WILL,"will",circle,W,I,L
-WITH,"with",dont circle,W,T,H
-WORK,"work",circle,W,R,K
-WOULD,"would",circle,W,L,D
-YEAR,"year",circle,Y,E,A
-YOU,"you",circle,Y,O,U
+A_,"a",DONT CIRCLE,NOT ACTION,MAGIC,A
+A__,"A",DONT CIRCLE,NOT ACTION,BSPC,A
+ABOUT,"about",DONT CIRCLE,NOT ACTION,MAGIC,U,T
+AFTER,"after",DONT CIRCLE,NOT ACTION,F,T,R
+ALL,"all",DONT CIRCLE,NOT ACTION,MAGIC,A,L
+ALSO,"also",DONT CIRCLE,NOT ACTION,A,L,S
+AND,"and",DONT CIRCLE,NOT ACTION,A,N,D
+ANY,"any",DONT CIRCLE,NOT ACTION,A,N,Y
+AS,"as",DONT CIRCLE,NOT ACTION,A,S
+AT,"at",DONT CIRCLE,NOT ACTION,A,T
+BACK,"back",CIRCLE,NOT ACTION,B,C,K
+BE,"be",CIRCLE,NOT ACTION,B,E
+BECAUSE,"because",DONT CIRCLE,NOT ACTION,B,C,E
+BEFORE,"before",DONT CIRCLE,NOT ACTION,B,F,O
+BIRTHDAY,"birthday",DONT CIRCLE,NOT ACTION,B,D,A
+BUT,", but",CIRCLE,NOT ACTION,B,T
+BY,"by",DONT CIRCLE,NOT ACTION,B,Y
+CAN,"can",CIRCLE,NOT ACTION,C,A,N
+CANNOT,"can not",CIRCLE,NOT ACTION,C,A,N,T
+COME,"come",CIRCLE,NOT ACTION,C,M,E
+COULD,"could",CIRCLE,NOT ACTION,C,O,U
+DAY,"day",CIRCLE,NOT ACTION,MAGIC,D,A
+DO,"do",CIRCLE,NOT ACTION,MAGIC,D,O
+EVEN,"even",DONT CIRCLE,NOT ACTION,E,V,N
+FIND,"find",CIRCLE,NOT ACTION,F,N,D
+FIRST,"first",DONT CIRCLE,NOT ACTION,F,I,R
+FOR,"for",DONT CIRCLE,NOT ACTION,F,O,R
+FROM,"from",DONT CIRCLE,NOT ACTION,F,R,M
+GET,"get",CIRCLE,NOT ACTION,G,E,T
+GIVE,"give",CIRCLE,NOT ACTION,G,I,E
+GO,"go",CIRCLE,NOT ACTION,MAGIC,G,O
+GREAT,"great",CIRCLE,NOT ACTION,G,R,E
+HAVE,"have",CIRCLE,NOT ACTION,H,V,E
+HE,"he",CIRCLE,NOT ACTION,H,E
+I_,"I",CIRCLE,NOT ACTION,I,MAGIC
+IF,"if",DONT CIRCLE,NOT ACTION,I,F
+IN,"in",DONT CIRCLE,NOT ACTION,I,N
+INTO,"into",DONT CIRCLE,NOT ACTION,I,N,T
+IT,"it",CIRCLE,NOT ACTION,I,T
+KNOW,"know",CIRCLE,NOT ACTION,K,N,W
+KNOWLEDGE,"knowledge",CIRCLE,NOT ACTION,K,N,W,L
+LIKE,"like",CIRCLE,NOT ACTION,L,K,E
+LONG,"long",CIRCLE,NOT ACTION,L,N,G
+LOOK,"look",CIRCLE,NOT ACTION,MAGIC,L,K
+MAKE,"make",CIRCLE,NOT ACTION,M,K,E
+MAN,"man",CIRCLE,NOT ACTION,M,A,N
+MANY,"many",CIRCLE,NOT ACTION,M,A,N
+MAY,"may",DONT CIRCLE,NOT ACTION,M,A,Y
+MORE,"more",CIRCLE,NOT ACTION,M,R,E
+MOST,"most",CIRCLE,NOT ACTION,M,O,S
+MUST,"must",DONT CIRCLE,NOT ACTION,U,S,T
+NEW,"new",CIRCLE,NOT ACTION,N,E,W
+NO,"no",DONT CIRCLE,NOT ACTION,N,O
+NOT,"not",DONT CIRCLE,NOT ACTION,N,O,T
+NOW,"now",DONT CIRCLE,NOT ACTION,N,O,W
+OF,"of",DONT CIRCLE,NOT ACTION,O,F
+ON,"on",DONT CIRCLE,NOT ACTION,O,N
+ONE,"one",CIRCLE,NOT ACTION,O,N,E
+ONLY,"only",DONT CIRCLE,NOT ACTION,O,L,Y
+OR,"or",CIRCLE,NOT ACTION,MAGIC,O,R
+OTHER,"other",CIRCLE,NOT ACTION,O,T,R
+OUT,"out",CIRCLE,NOT ACTION,O,U,T
+OVER,"over",DONT CIRCLE,NOT ACTION,O,V,E
+SAY,"say",CIRCLE,NOT ACTION,S,A,Y
+SEE,"see",CIRCLE,NOT ACTION,MAGIC,S,E
+SHE,"she",CIRCLE,NOT ACTION,S,H,E
+SO,"so",DONT CIRCLE,NOT ACTION,S,O
+SOME,"some",CIRCLE,NOT ACTION,S,M,E
+STATE,"state",CIRCLE,NOT ACTION,S,T,E
+SUCH,"such",DONT CIRCLE,NOT ACTION,S,U,H
+TAKE,"take",DONT CIRCLE,NOT ACTION,T,K,E
+THAN,"than",DONT CIRCLE,NOT ACTION,T,H,N
+THAT,"that",CIRCLE,NOT ACTION,T,H,A
+THE,"the",DONT CIRCLE,NOT ACTION,T,H
+THEIR,"their",CIRCLE,NOT ACTION,MAGIC,T,R
+THEM,"them",DONT CIRCLE,NOT ACTION,T,H,E
+THEN,"then",DONT CIRCLE,NOT ACTION,MAGIC,T,N
+THERE,"there",DONT CIRCLE,NOT ACTION,T,H,R
+THESE,"these",CIRCLE,NOT ACTION,MAGIC,T,S
+THEY,"they",CIRCLE,NOT ACTION,T,E,Y
+THINK,"think",CIRCLE,NOT ACTION,T,I,K
+THIS,"this",CIRCLE,NOT ACTION,T,H,S
+THOSE,"those",CIRCLE,NOT ACTION,T,O,S
+TIME,"time",DONT CIRCLE,NOT ACTION,T,I,E
+TO,"to",DONT CIRCLE,NOT ACTION,T,O
+UP,"up",DONT CIRCLE,NOT ACTION,U,P
+USE,"use",CIRCLE,NOT ACTION,MAGIC,U,S
+WAY,"way",CIRCLE,NOT ACTION,W,A,Y
+WE,"we",CIRCLE,NOT ACTION,W,E
+WHAT,"what",DONT CIRCLE,NOT ACTION,W,H,A
+WHEN,"when",DONT CIRCLE,NOT ACTION,W,H,N
+WHERE,"where",DONT CIRCLE,NOT ACTION,W,H,R
+WHICH,"which",DONT CIRCLE,NOT ACTION,W,H,I
+WHO,"who",CIRCLE,NOT ACTION,W,H,O
+WHY,"why",DONT CIRCLE,NOT ACTION,MAGIC,W,Y
+WILL,"will",CIRCLE,NOT ACTION,W,I,L
+WITH,"with",DONT CIRCLE,NOT ACTION,W,T,H
+WORK,"work",CIRCLE,NOT ACTION,W,R,K
+WOULD,"would",CIRCLE,NOT ACTION,W,L,D
+YEAR,"year",CIRCLE,NOT ACTION,Y,E,A
+YOU,"you",CIRCLE,NOT ACTION,Y,O,U

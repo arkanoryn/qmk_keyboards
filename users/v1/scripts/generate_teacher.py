@@ -11,7 +11,7 @@ def write_correct_chords(correct_chords):
 
     c_content = common.lines(
         common.HEADER_CFILE,
-        "{fn_prototype} {{".format(fn_prototype=fn_prototype),
+        f"{fn_prototype} {{", # mind the {{
         "\n".join(statements),
         "  return NULL;",
         "}"
@@ -19,12 +19,12 @@ def write_correct_chords(correct_chords):
     h_content = common.lines(
         common.HEADER_HFILE,
         "",
-        "{fn_prototype};".format(fn_prototype=fn_prototype),
+        f"{fn_prototype};", # mind the ;
     )
 
-    with open(global_variables.GENERATED_FOLDER + global_variables.CORRECT_CHORD_FILENAME + ".c", "w") as file:
+    with (global_variables.GENERATED_FOLDER / f"{global_variables.CORRECT_CHORD_FILENAME}.c").open("w") as file:
         file.write(c_content)
-    with open(global_variables.GENERATED_FOLDER + global_variables.CORRECT_CHORD_FILENAME + ".h", "w") as file:
+    with (global_variables.GENERATED_FOLDER / f"{global_variables.CORRECT_CHORD_FILENAME}.h").open("w") as file:
         file.write(h_content)
 
 def generate_combos_teacher(combos):
