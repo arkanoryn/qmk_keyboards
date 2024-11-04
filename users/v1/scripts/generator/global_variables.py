@@ -1,7 +1,7 @@
 from pathlib import Path
 
 DESCRIPTIONS_FOLDER = Path(__file__).parent / "definitions/"
-GENERATED_FOLDER = Path(__file__).parent.parent / "generated"
+GENERATED_FOLDER = Path(__file__).parent.parent.parent / "generated"
 
 CORRECT_CHORD_FILENAME = "correct_chords"
 COMBOS_FILENAME = "combos"
