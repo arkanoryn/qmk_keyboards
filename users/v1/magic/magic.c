@@ -7,7 +7,7 @@
 #include "ark_v1.h"
 #include "magic.h"
 #include "cycling_combos.h"
-#include "generated_cycles_enum.h"
+#include "generated/cycles.h"
 #include "repeat.h"
 #include "combos/combos.h"
 

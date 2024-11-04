@@ -5,7 +5,7 @@
 */
 #include "magic.h"
 #include "cycling_combos.h"
-#include "generated_cycles_enum.h"
+#include "generated/cycles.h"
 
 static cycling_combos_state_t cycling_combos_state = {
     .is_combo_active     = false,

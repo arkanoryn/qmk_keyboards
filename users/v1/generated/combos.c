@@ -1,11 +1,16 @@
 /*
-** /!\ This file is generated with the script `combos/scripts/parser.py`
-** Do NOT manually modify. Change / create files under `combos/definitions` and
-** re-run the script: `python3 parser.py <filename>`
-** ex:
+**  /!\ This file is generated with the script `scripts/main.py`
+**  Do NOT manually modify or create files in the `generated/` folder.
+**  Prefer re-running the script: `python main.py`
+**  ex:
 **
-**     $> python3 parser.py qwerty.csv
+**       $> python main.py
+**
+**  Copyright 2024 Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
+**  SPDX-License-Identifier: GPL-2.0-or-later
+**
 */
+
 #include QMK_KEYBOARD_H
 #include "combos.h"
 
@@ -120,7 +125,7 @@ const uint16_t PROGMEM GRAPHITE_YEAR_COMBO[] = {GRAPHITE_Y, GRAPHITE_E, GRAPHITE
 const uint16_t PROGMEM GRAPHITE_YOU_COMBO[] = {GRAPHITE_Y, GRAPHITE_O, GRAPHITE_U, COMBO_END};
 
 combo_t key_combos[] = {
-  [GRAPHITE_DEL_WORD] = COMBO_ACTION(GRAPHITE_DEL_WORD_COMBO),
+  [GRAPHITE_DEL_WORD] = COMBO(GRAPHITE_DEL_WORD_COMBO, KC_NO),
   [GRAPHITE_ING] = COMBO_ACTION(GRAPHITE_ING_COMBO),
   [GRAPHITE_NT] = COMBO_ACTION(GRAPHITE_NT_COMBO),
   [GRAPHITE_QUOTE_VE] = COMBO_ACTION(GRAPHITE_QUOTE_VE_COMBO),
@@ -232,7 +237,6 @@ combo_t key_combos[] = {
 };
 
 static const char *combo_cmds[] = {
-  [GRAPHITE_DEL_WORD] = "",
   [GRAPHITE_ING] = "\bing",
   [GRAPHITE_NT] = "\bn't",
   [GRAPHITE_QUOTE_VE] = "\b've",

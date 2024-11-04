@@ -6,7 +6,7 @@
 #include "quantum.h"
 #include "ark_v1.h"
 #include "chord_teacher.h"
-#include "generated_correct_chords.h"
+#include "generated/correct_chords.h"
 #include "combos/combos.h"
 
 #define TEACHER_CORRECTION_BUFFER_LENGTH 20

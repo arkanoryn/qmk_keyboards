@@ -1,5 +1,17 @@
-#include "quantum.h"
-#include "ark_v1.h"
+/*
+**  /!\ This file is generated with the script `scripts/main.py`
+**  Do NOT manually modify or create files in the `generated/` folder.
+**  Prefer re-running the script: `python main.py`
+**  ex:
+**
+**       $> python main.py
+**
+**  Copyright 2024 Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
+**  SPDX-License-Identifier: GPL-2.0-or-later
+**
+*/
+
+#include <string.h>
 
 char *check_chord(char *buffer) {
   if (strcmp("\bing ", buffer) == 0) { return "I+N+G"; }
@@ -58,7 +70,7 @@ char *check_chord(char *buffer) {
   if (strcmp("many ", buffer) == 0) { return "M+A+N"; }
   if (strcmp("may ", buffer) == 0) { return "M+A+Y"; }
   if (strcmp("more ", buffer) == 0) { return "M+R+E"; }
-  if (strcmp("most ", buffer) == 0) { return "O+S+T"; }
+  if (strcmp("most ", buffer) == 0) { return "M+O+S"; }
   if (strcmp("must ", buffer) == 0) { return "U+S+T"; }
   if (strcmp("new ", buffer) == 0) { return "N+E+W"; }
   if (strcmp("no ", buffer) == 0) { return "N+O"; }
@@ -91,7 +103,7 @@ char *check_chord(char *buffer) {
   if (strcmp("they ", buffer) == 0) { return "T+E+Y"; }
   if (strcmp("think ", buffer) == 0) { return "T+I+K"; }
   if (strcmp("this ", buffer) == 0) { return "T+H+S"; }
-  if (strcmp("those ", buffer) == 0) { return "MAGIC+O+S"; }
+  if (strcmp("those ", buffer) == 0) { return "T+O+S"; }
   if (strcmp("time ", buffer) == 0) { return "T+I+E"; }
   if (strcmp("to ", buffer) == 0) { return "T+O"; }
   if (strcmp("up ", buffer) == 0) { return "U+P"; }
