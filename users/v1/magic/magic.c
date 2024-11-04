@@ -3,12 +3,13 @@
 ** TODO:
 **
 */
+#include "quantum.h"
 #include "ark_v1.h"
 #include "magic.h"
 #include "cycling_combos.h"
-#include "combos/combos.h"
 #include "generated_cycles_enum.h"
 #include "repeat.h"
+#include "combos/combos.h"
 
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
 #define MAC_WORD_BACCKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
@@ -57,6 +58,7 @@ bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
   }
 
   cycling_combos_state_t* combos_state = get_cycling_combo_state();
+
   switch (keycode) {
     case MAGIC:
       if (record->event.pressed && combos_state->is_cyclable) {

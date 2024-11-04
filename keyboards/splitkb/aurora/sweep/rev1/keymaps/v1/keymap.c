@@ -8,8 +8,8 @@
 #include "symbols/symbols.h"
 #include "magic/magic.h"
 #include "magic/cycling_combos.h"
+#include "teacher/chord_teacher.h"
 #include "getreuer/layer_lock/layer_lock.h"
-
 #include "getreuer/select_word/select_word.h"
 
 #define __X__	KC_NO
@@ -67,6 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // clang-format off
+  if (!process_chord_teacher(keycode, record)) { return false; } // FIXME: To add to the if statement: if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE)
   if (!process_magic_key(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LYR_LOCK)) { return false; }
   if (!process_shortcuts(keycode, record)) { return false; }
@@ -77,16 +78,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 };
 
+// Could be in an helper file
+uint8_t last_message_length = 0;
+void send_temporary_string(const char *str) {
+  last_message_length += strlen(str);
+  SEND_STRING(str);
+}
+
+void clear_last_message(void) {
+  if (last_message_length == 0) {
+    return;
+  }
+
+  do {
+    tap_code16(KC_BSPC);
+  } while (--last_message_length);
+}
+// Could be in an helper file -- end
+
+bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    clear_last_message();
+  }
+  return true;
+}
+
 void matrix_scan_user(void) {
   layer_lock_task();
   select_word_task();
   alt_tab_task();
   combo_event_task();
+  chord_teacher_task();
 };
 
 void keyboard_post_init_user(void) {
   init_alt_tab_state();
   init_cycling_combos_state();
+  init_teacher_state();
 };
 
 void keyboard_pre_init_user(void) {

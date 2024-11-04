@@ -26,6 +26,10 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	magic/generated_cycles_enum.c \
 	magic/magic.c \
 	magic/repeat.c \
+	teacher/chord_teacher.c \
+	teacher/generated_correct_chords.c \
 	symbols/symbols.c \
 	symbols/accents.c \
 	shortcuts/shortcuts.c
+
+# correction/virt_sidechannel.c

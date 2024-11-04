@@ -1,4 +1,4 @@
-refix,GRAPHITE
+prefix,GRAPHITE
 DEL_WORD,"",dont circle,MAGIC,BSPC
 ING,"\bing",dont circle,I,N,G
 NT,"\bn't",dont circle,N,QUOT,T
@@ -7,7 +7,7 @@ QUOTE_RE,"\b're",dont circle,QUOT,R,E
 QUOTE_S,"\b's",dont circle,QUOT,S,MAGIC
 QUOTE_D,"\b'd",dont circle,QUOT,D,MAGIC
 QUOTE_LL,"\b'll",dont circle,QUOT,L,MAGIC
-
+# 100 most used words
 A_,"a",dont circle,MAGIC,A
 A__,"A",dont circle,BSPC,A
 ABOUT,"about",dont circle,MAGIC,U,T
@@ -57,7 +57,7 @@ MAN,"man",circle,M,A,N
 MANY,"many",circle,M,A,N
 MAY,"may",dont circle,M,A,Y
 MORE,"more",circle,M,R,E
-MOST,"most",circle,O,S,T
+MOST,"most",circle,M,O,S
 MUST,"must",dont circle,U,S,T
 NEW,"new",circle,N,E,W
 NO,"no",dont circle,N,O
@@ -90,7 +90,7 @@ THESE,"these",circle,MAGIC,T,S
 THEY,"they",circle,T,E,Y
 THINK,"think",circle,T,I,K
 THIS,"this",circle,T,H,S
-THOSE,"those",circle,T,O,S
+THOSE,"those",circle,MAGIC,O,S
 TIME,"time",dont circle,T,I,E
 TO,"to",dont circle,T,O
 UP,"up",dont circle,U,P

@@ -3,6 +3,7 @@
 #include "combos.h"
 #include "magic/magic.h"
 #include "magic/cycling_combos.h"
+#include "teacher/chord_teacher.h"
 
 #ifndef COMBO_TIMEOUT
 #  define COMBO_TIMEOUT 9000 // miliseconds
@@ -17,6 +18,7 @@ void set_combo_event_timer(void) {
 void process_combo_event(uint16_t combo_index, bool pressed) {
   if (pressed) {
     set_combo_event_timer();
+    reset_teacher_state(true);
     process_magic_combo_event(combo_index);
   }
 };
