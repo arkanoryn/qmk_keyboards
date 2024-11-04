@@ -17,11 +17,6 @@ combos_cmds = []
 cycles_e = []
 teacher = []
 
-def valid_combo(combo):
-    if (len(combo) > 0 and combo[0][0] != "#"):
-        return True
-    else:
-        return False
 
 def write_correct_chords(correct_chords):
     statements = []
