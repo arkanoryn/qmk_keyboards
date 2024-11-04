@@ -73,7 +73,7 @@ char *check_chord(char *buffer) {
   if (strcmp("most ", buffer) == 0) { return "M+O+S"; }
   if (strcmp("must ", buffer) == 0) { return "U+S+T"; }
   if (strcmp("new ", buffer) == 0) { return "N+E+W"; }
-  if (strcmp("no ", buffer) == 0) { return "N+O"; }
+  if (strcmp("no ", buffer) == 0) { return "N+MAGIC"; }
   if (strcmp("not ", buffer) == 0) { return "N+O+T"; }
   if (strcmp("now ", buffer) == 0) { return "N+O+W"; }
   if (strcmp("of ", buffer) == 0) { return "O+F"; }
