@@ -90,7 +90,7 @@ THESE,"these",circle,MAGIC,T,S
 THEY,"they",circle,T,E,Y
 THINK,"think",circle,T,I,K
 THIS,"this",circle,T,H,S
-THOSE,"those",circle,MAGIC,O,S
+THOSE,"those",circle,T,O,S
 TIME,"time",dont circle,T,I,E
 TO,"to",dont circle,T,O
 UP,"up",dont circle,U,P

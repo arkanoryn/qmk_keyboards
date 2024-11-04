@@ -91,7 +91,7 @@ char *check_chord(char *buffer) {
   if (strcmp("they ", buffer) == 0) { return "T+E+Y"; }
   if (strcmp("think ", buffer) == 0) { return "T+I+K"; }
   if (strcmp("this ", buffer) == 0) { return "T+H+S"; }
-  if (strcmp("those ", buffer) == 0) { return "MAGIC+O+S"; }
+  if (strcmp("those ", buffer) == 0) { return "T+O+S"; }
   if (strcmp("time ", buffer) == 0) { return "T+I+E"; }
   if (strcmp("to ", buffer) == 0) { return "T+O"; }
   if (strcmp("up ", buffer) == 0) { return "U+P"; }
