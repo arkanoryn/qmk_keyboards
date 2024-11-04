@@ -1,12 +1,12 @@
 /*
 * Requirements:
-* - add `INTROSPECTION_KEYMAP_C = combos/generated_combos.c` to your `rules.mk`
+* - add `INTROSPECTION_KEYMAP_C = generated/combos.c` to your `rules.mk`
 */
 #pragma once
 
 #include "quantum.h"
 #include "ark_v1.h" // KEYMAP_MAIN_H
-#include "generated_combos.h"
+#include "generated/combos.h"
 
 #define COMBO_STR_MAX_LENGTH 15
 

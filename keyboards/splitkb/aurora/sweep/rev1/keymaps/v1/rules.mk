@@ -14,20 +14,20 @@ EXTRAFLAGS += -flto
 
 # Chording / Combos
 COMBO_ENABLE = yes
-INTROSPECTION_KEYMAP_C = combos/generated_combos.c
+INTROSPECTION_KEYMAP_C = generated/combos.c
 
 # DEFERRED_EXEC_ENABLE = yes
 # KEY_OVERRIDE_ENABLE = yes
 
 SRC += getreuer/layer_lock/layer_lock.c \
 	getreuer/select_word/select_word.c \
+	generated/cycles.c \
+	generated/correct_chords.c \
 	combos/combos.c \
 	magic/cycling_combos.c \
-	magic/generated_cycles_enum.c \
 	magic/magic.c \
 	magic/repeat.c \
 	teacher/chord_teacher.c \
-	teacher/generated_correct_chords.c \
 	symbols/symbols.c \
 	symbols/accents.c \
 	shortcuts/shortcuts.c

@@ -19,7 +19,7 @@
 
 #include "quantum.h"
 #include "ark_v1.h"
-#include "generated_cycles_enum.h"
+#include "generated/cycles.h"
 
 void process_magic_combo_event(uint16_t combo_index);
 

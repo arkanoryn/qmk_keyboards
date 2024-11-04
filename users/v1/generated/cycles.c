@@ -11,6 +11,7 @@
 **
 */
 
+#include "combos.h"
 #include "cycles.h"
 
 cycling_combos_e match_combo_index_with_cycling_combo(uint16_t combo_index) {

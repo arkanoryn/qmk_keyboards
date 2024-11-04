@@ -11,6 +11,8 @@ def write_correct_chords(correct_chords):
 
     c_content = common.lines(
         common.HEADER_CFILE,
+        "#include <string.h>",
+        "",
         f"{fn_prototype} {{", # mind the {{
         "\n".join(statements),
         "  return NULL;",
@@ -19,7 +21,6 @@ def write_correct_chords(correct_chords):
     )
     h_content = common.lines(
         common.HEADER_HFILE,
-        "",
         f"{fn_prototype};", # mind the ;
         ""
     )

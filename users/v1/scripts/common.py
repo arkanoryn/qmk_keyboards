@@ -21,4 +21,4 @@ __HEADER_WARNING = """/*
 _HEADER = partial(__HEADER_WARNING.format, year="2024", main_file="main.py", generated_folder="generated/", script_path="scripts")
 
 HEADER_CFILE = _HEADER()
-HEADER_HFILE = f"{HEADER_CFILE}\n#pragma once"
+HEADER_HFILE = f"{HEADER_CFILE}\n#pragma once\n"

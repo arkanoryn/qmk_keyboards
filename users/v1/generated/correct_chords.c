@@ -11,7 +11,10 @@
 **
 */
 
+#include <string.h>
+
 char *check_chord(char *buffer) {
+  if (strcmp("\bing ", buffer) == 0) { return "I+N+G"; }
   if (strcmp("\bn't ", buffer) == 0) { return "N+'+T"; }
   if (strcmp("\b've ", buffer) == 0) { return "'+V+E"; }
   if (strcmp("\b're ", buffer) == 0) { return "'+R+E"; }

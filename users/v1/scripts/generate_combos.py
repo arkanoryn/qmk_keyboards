@@ -7,8 +7,6 @@ def write_combos_header(enums):
 
     content = common.lines(
         common.HEADER_HFILE,
-        "#pragma once",
-        "",
         "#include \"quantum.h\"",
         "#include \"combos.h\"",
         "",

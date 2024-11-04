@@ -12,13 +12,12 @@
 */
 
 #pragma once
-#pragma once
-
 #include "quantum.h"
 #include "combos.h"
 
 enum combos {
   GRAPHITE_DEL_WORD = 0,
+  GRAPHITE_ING,
   GRAPHITE_NT,
   GRAPHITE_QUOTE_VE,
   GRAPHITE_QUOTE_RE,

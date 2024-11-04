@@ -8,7 +8,6 @@ def write_cycles_header(enums):
 
     content = common.lines(
         common.HEADER_HFILE,
-        "",
         "typedef enum {",
         f"  {",\n  ".join(tmp_enums)},",
         "  _LAST_CYCLING_COMBO",
@@ -24,6 +23,7 @@ def write_cycles_header(enums):
 def write_cycles_cfile(matches):
     content = common.lines(
         common.HEADER_CFILE,
+        f"#include \"{global_variables.COMBOS_FILENAME}.h\"",
         f"#include \"{global_variables.CYCLES_FILENAME}.h\"",
         "",
         "cycling_combos_e match_combo_index_with_cycling_combo(uint16_t combo_index) {",
@@ -32,6 +32,7 @@ def write_cycles_cfile(matches):
         "  }",
         "  return _LAST_CYCLING_COMBO;",
         "};",
+        ""
     )
 
     with (global_variables.GENERATED_FOLDER / f"{global_variables.CYCLES_FILENAME}.c").open("w") as file:
