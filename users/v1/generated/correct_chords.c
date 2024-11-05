@@ -21,77 +21,169 @@ char *check_chord(char *buffer) {
   if (strcmp("\b's ", buffer) == 0) { return "'+S+MAGIC"; }
   if (strcmp("\b'd ", buffer) == 0) { return "'+D+MAGIC"; }
   if (strcmp("\b'll ", buffer) == 0) { return "'+L+MAGIC"; }
-  if (strcmp("a ", buffer) == 0) { return "MAGIC+A"; }
   if (strcmp("A ", buffer) == 0) { return "BSPC+A"; }
+  if (strcmp("a ", buffer) == 0) { return "MAGIC+A"; }
   if (strcmp("about ", buffer) == 0) { return "MAGIC+U+T"; }
   if (strcmp("after ", buffer) == 0) { return "F+T+R"; }
+  if (strcmp("again ", buffer) == 0) { return "G+A+I"; }
+  if (strcmp("against ", buffer) == 0) { return "T+S+G+A"; }
   if (strcmp("all ", buffer) == 0) { return "MAGIC+A+L"; }
   if (strcmp("also ", buffer) == 0) { return "A+L+S"; }
   if (strcmp("and ", buffer) == 0) { return "A+N+D"; }
+  if (strcmp("another ", buffer) == 0) { return "R+H+A"; }
   if (strcmp("any ", buffer) == 0) { return "A+N+Y"; }
+  if (strcmp("around ", buffer) == 0) { return "R+D+A"; }
   if (strcmp("as ", buffer) == 0) { return "A+S"; }
+  if (strcmp("ask ", buffer) == 0) { return "S+K+A"; }
   if (strcmp("at ", buffer) == 0) { return "A+T"; }
   if (strcmp("back ", buffer) == 0) { return "B+C+K"; }
   if (strcmp("be ", buffer) == 0) { return "B+E"; }
-  if (strcmp("because ", buffer) == 0) { return "B+C+E"; }
+  if (strcmp("because ", buffer) == 0) { return "B+E+A"; }
+  if (strcmp("become ", buffer) == 0) { return "M+C+E"; }
   if (strcmp("before ", buffer) == 0) { return "B+F+O"; }
+  if (strcmp("begin ", buffer) == 0) { return "B+G+E+I"; }
+  if (strcmp("between ", buffer) == 0) { return "T+W+E"; }
   if (strcmp("birthday ", buffer) == 0) { return "B+D+A"; }
-  if (strcmp(", but ", buffer) == 0) { return "B+T"; }
+  if (strcmp("both ", buffer) == 0) { return "B+T+H"; }
+  if (strcmp(", but ", buffer) == 0) { return "B+U"; }
   if (strcmp("by ", buffer) == 0) { return "B+Y"; }
+  if (strcmp("call ", buffer) == 0) { return "L+C+A"; }
   if (strcmp("can ", buffer) == 0) { return "C+A+N"; }
   if (strcmp("can not ", buffer) == 0) { return "C+A+N+T"; }
-  if (strcmp("come ", buffer) == 0) { return "C+M+E"; }
+  if (strcmp("change ", buffer) == 0) { return "C+H+A+E"; }
+  if (strcmp("child ", buffer) == 0) { return "L+D+C"; }
+  if (strcmp("come ", buffer) == 0) { return "M+C+O"; }
+  if (strcmp("consider ", buffer) == 0) { return "N+D+C"; }
   if (strcmp("could ", buffer) == 0) { return "C+O+U"; }
+  if (strcmp("course ", buffer) == 0) { return "R+C+O+U"; }
   if (strcmp("day ", buffer) == 0) { return "MAGIC+D+A"; }
+  if (strcmp("develop ", buffer) == 0) { return "D+V+E"; }
   if (strcmp("do ", buffer) == 0) { return "MAGIC+D+O"; }
+  if (strcmp("down ", buffer) == 0) { return "D+W+N"; }
+  if (strcmp("during ", buffer) == 0) { return "N+R+D"; }
+  if (strcmp("each ", buffer) == 0) { return "E+C+H"; }
+  if (strcmp("early ", buffer) == 0) { return "L+Y+E"; }
+  if (strcmp("end ", buffer) == 0) { return "N+D+E"; }
   if (strcmp("even ", buffer) == 0) { return "E+V+N"; }
+  if (strcmp("eye ", buffer) == 0) { return "MAGIC+Y+E"; }
+  if (strcmp("face ", buffer) == 0) { return "C+F+A"; }
+  if (strcmp("fact ", buffer) == 0) { return "T+C+F"; }
+  if (strcmp("feel ", buffer) == 0) { return "F+E+L"; }
+  if (strcmp("few ", buffer) == 0) { return "W+F+E"; }
   if (strcmp("find ", buffer) == 0) { return "F+N+D"; }
   if (strcmp("first ", buffer) == 0) { return "F+I+R"; }
+  if (strcmp("FOLLOW ", buffer) == 0) { return "L+F+O"; }
   if (strcmp("for ", buffer) == 0) { return "F+O+R"; }
-  if (strcmp("from ", buffer) == 0) { return "F+R+M"; }
+  if (strcmp("form ", buffer) == 0) { return "M+MAGIC+F"; }
+  if (strcmp("from ", buffer) == 0) { return "M+F+O"; }
+  if (strcmp("general ", buffer) == 0) { return "N+L+E"; }
   if (strcmp("get ", buffer) == 0) { return "G+E+T"; }
-  if (strcmp("give ", buffer) == 0) { return "G+I+E"; }
+  if (strcmp("give ", buffer) == 0) { return "G+E+I"; }
   if (strcmp("go ", buffer) == 0) { return "MAGIC+G+O"; }
+  if (strcmp("good ", buffer) == 0) { return "MAGIC+G+O+D"; }
+  if (strcmp("govern ", buffer) == 0) { return "N+R+G+O"; }
   if (strcmp("great ", buffer) == 0) { return "G+R+E"; }
+  if (strcmp("group ", buffer) == 0) { return "R+G+P"; }
+  if (strcmp("hand ", buffer) == 0) { return "N+T+A+I"; }
   if (strcmp("have ", buffer) == 0) { return "H+V+E"; }
   if (strcmp("he ", buffer) == 0) { return "H+E"; }
+  if (strcmp("head ", buffer) == 0) { return "D+H+A+E"; }
+  if (strcmp("help ", buffer) == 0) { return "L+H+E"; }
+  if (strcmp("here ", buffer) == 0) { return "R+H+E"; }
+  if (strcmp("high ", buffer) == 0) { return "H+I+G"; }
+  if (strcmp("hold ", buffer) == 0) { return "L+D+H+O"; }
+  if (strcmp("home ", buffer) == 0) { return "H+O+E"; }
+  if (strcmp("house ", buffer) == 0) { return "S+O+E"; }
+  if (strcmp("how ", buffer) == 0) { return "MAGIC+O+W"; }
+  if (strcmp("however ", buffer) == 0) { return "V+H+O"; }
   if (strcmp("I ", buffer) == 0) { return "I+MAGIC"; }
   if (strcmp("if ", buffer) == 0) { return "I+F"; }
   if (strcmp("in ", buffer) == 0) { return "I+N"; }
+  if (strcmp("increase ", buffer) == 0) { return "N+C+I"; }
+  if (strcmp("interest ", buffer) == 0) { return "N+R+T+I"; }
   if (strcmp("into ", buffer) == 0) { return "I+N+T"; }
   if (strcmp("it ", buffer) == 0) { return "I+T"; }
+  if (strcmp("just ", buffer) == 0) { return "J+U+S+T"; }
+  if (strcmp("keep ", buffer) == 0) { return "K+P+E"; }
   if (strcmp("know ", buffer) == 0) { return "K+N+W"; }
   if (strcmp("knowledge ", buffer) == 0) { return "K+N+W+L"; }
+  if (strcmp("large ", buffer) == 0) { return "R+G+A"; }
+  if (strcmp("last ", buffer) == 0) { return "T+S+A"; }
+  if (strcmp("late ", buffer) == 0) { return "L+T+A"; }
+  if (strcmp("lead ", buffer) == 0) { return "L+D+A+E"; }
+  if (strcmp("leave ", buffer) == 0) { return "L+E+A"; }
+  if (strcmp("life ", buffer) == 0) { return "L+F+E+I"; }
   if (strcmp("like ", buffer) == 0) { return "L+K+E"; }
+  if (strcmp("line ", buffer) == 0) { return "N+L+E"; }
+  if (strcmp("little ", buffer) == 0) { return "L+I+T"; }
   if (strcmp("long ", buffer) == 0) { return "L+N+G"; }
   if (strcmp("look ", buffer) == 0) { return "MAGIC+L+K"; }
   if (strcmp("make ", buffer) == 0) { return "M+K+E"; }
   if (strcmp("man ", buffer) == 0) { return "M+A+N"; }
   if (strcmp("many ", buffer) == 0) { return "M+A+N"; }
   if (strcmp("may ", buffer) == 0) { return "M+A+Y"; }
+  if (strcmp("mean ", buffer) == 0) { return "M+A+E"; }
+  if (strcmp("might ", buffer) == 0) { return "M+H+I"; }
   if (strcmp("more ", buffer) == 0) { return "M+R+E"; }
   if (strcmp("most ", buffer) == 0) { return "M+O+S"; }
+  if (strcmp("move ", buffer) == 0) { return "M+V+E"; }
   if (strcmp("must ", buffer) == 0) { return "U+S+T"; }
+  if (strcmp("nation ", buffer) == 0) { return "N+T+A+I"; }
+  if (strcmp("need ", buffer) == 0) { return "N+D+E"; }
+  if (strcmp("never ", buffer) == 0) { return "N+R+V"; }
   if (strcmp("new ", buffer) == 0) { return "N+E+W"; }
-  if (strcmp("no ", buffer) == 0) { return "N+O"; }
+  if (strcmp("no ", buffer) == 0) { return "N+MAGIC"; }
   if (strcmp("not ", buffer) == 0) { return "N+O+T"; }
   if (strcmp("now ", buffer) == 0) { return "N+O+W"; }
+  if (strcmp("number ", buffer) == 0) { return "N+R+U"; }
   if (strcmp("of ", buffer) == 0) { return "O+F"; }
+  if (strcmp("off ", buffer) == 0) { return "MAGIC+F+O"; }
+  if (strcmp("old ", buffer) == 0) { return "L+D+O"; }
   if (strcmp("on ", buffer) == 0) { return "O+N"; }
   if (strcmp("one ", buffer) == 0) { return "O+N+E"; }
   if (strcmp("only ", buffer) == 0) { return "O+L+Y"; }
+  if (strcmp("open ", buffer) == 0) { return "P+O+E"; }
   if (strcmp("or ", buffer) == 0) { return "MAGIC+O+R"; }
+  if (strcmp("order ", buffer) == 0) { return "R+D+O"; }
   if (strcmp("other ", buffer) == 0) { return "O+T+R"; }
   if (strcmp("out ", buffer) == 0) { return "O+U+T"; }
   if (strcmp("over ", buffer) == 0) { return "O+V+E"; }
+  if (strcmp("own ", buffer) == 0) { return "D+W+N"; }
+  if (strcmp("part ", buffer) == 0) { return "R+T+P+A"; }
+  if (strcmp("people ", buffer) == 0) { return "P+E+L"; }
+  if (strcmp("person ", buffer) == 0) { return "P+E+R"; }
+  if (strcmp("place ", buffer) == 0) { return "P+C+E"; }
+  if (strcmp("plan ", buffer) == 0) { return "N+L+P"; }
+  if (strcmp("play ", buffer) == 0) { return "L+P+A"; }
+  if (strcmp("point ", buffer) == 0) { return "N+T+P"; }
+  if (strcmp("possible ", buffer) == 0) { return "P+E+I"; }
+  if (strcmp("present ", buffer) == 0) { return "N+R+T"; }
+  if (strcmp("problem ", buffer) == 0) { return "B+P"; }
+  if (strcmp("program ", buffer) == 0) { return "R+M+P"; }
+  if (strcmp("public ", buffer) == 0) { return "L+P+I"; }
+  if (strcmp("real ", buffer) == 0) { return "R+E+A"; }
+  if (strcmp("right ", buffer) == 0) { return "R+T+G"; }
+  if (strcmp("run ", buffer) == 0) { return "N+R+U"; }
+  if (strcmp("same ", buffer) == 0) { return "M+S+A"; }
   if (strcmp("say ", buffer) == 0) { return "S+A+Y"; }
+  if (strcmp("school ", buffer) == 0) { return "L+S+H"; }
   if (strcmp("see ", buffer) == 0) { return "MAGIC+S+E"; }
+  if (strcmp("seem ", buffer) == 0) { return "S+E+M"; }
+  if (strcmp("set ", buffer) == 0) { return "T+S+E"; }
   if (strcmp("she ", buffer) == 0) { return "S+H+E"; }
+  if (strcmp("should ", buffer) == 0) { return "S+O+U"; }
+  if (strcmp("show ", buffer) == 0) { return "S+H+O"; }
+  if (strcmp("since ", buffer) == 0) { return "S+I+E"; }
+  if (strcmp("small ", buffer) == 0) { return "M+S+A"; }
   if (strcmp("so ", buffer) == 0) { return "S+O"; }
   if (strcmp("some ", buffer) == 0) { return "S+M+E"; }
+  if (strcmp("stand ", buffer) == 0) { return "N+T+S"; }
   if (strcmp("state ", buffer) == 0) { return "S+T+E"; }
+  if (strcmp("still ", buffer) == 0) { return "S+T+L"; }
   if (strcmp("such ", buffer) == 0) { return "S+U+H"; }
+  if (strcmp("system ", buffer) == 0) { return "T+S+Y"; }
   if (strcmp("take ", buffer) == 0) { return "T+K+E"; }
+  if (strcmp("tell ", buffer) == 0) { return "L+T+E"; }
   if (strcmp("than ", buffer) == 0) { return "T+H+N"; }
   if (strcmp("that ", buffer) == 0) { return "T+H+A"; }
   if (strcmp("the ", buffer) == 0) { return "T+H"; }
@@ -101,26 +193,53 @@ char *check_chord(char *buffer) {
   if (strcmp("there ", buffer) == 0) { return "T+H+R"; }
   if (strcmp("these ", buffer) == 0) { return "MAGIC+T+S"; }
   if (strcmp("they ", buffer) == 0) { return "T+E+Y"; }
+  if (strcmp("thing ", buffer) == 0) { return "N+T+I"; }
   if (strcmp("think ", buffer) == 0) { return "T+I+K"; }
   if (strcmp("this ", buffer) == 0) { return "T+H+S"; }
   if (strcmp("those ", buffer) == 0) { return "T+O+S"; }
   if (strcmp("time ", buffer) == 0) { return "T+I+E"; }
   if (strcmp("to ", buffer) == 0) { return "T+O"; }
+  if (strcmp("too ", buffer) == 0) { return "MAGIC+T+O"; }
+  if (strcmp("turn ", buffer) == 0) { return "N+R+T+U"; }
+  if (strcmp("under ", buffer) == 0) { return "R+D+U"; }
   if (strcmp("up ", buffer) == 0) { return "U+P"; }
   if (strcmp("use ", buffer) == 0) { return "MAGIC+U+S"; }
+  if (strcmp("very ", buffer) == 0) { return "V+E+R+Y"; }
+  if (strcmp("want ", buffer) == 0) { return "N+T+W"; }
   if (strcmp("way ", buffer) == 0) { return "W+A+Y"; }
   if (strcmp("we ", buffer) == 0) { return "W+E"; }
+  if (strcmp("well ", buffer) == 0) { return "W+E+L"; }
   if (strcmp("what ", buffer) == 0) { return "W+H+A"; }
   if (strcmp("when ", buffer) == 0) { return "W+H+N"; }
   if (strcmp("where ", buffer) == 0) { return "W+H+R"; }
   if (strcmp("which ", buffer) == 0) { return "W+H+I"; }
+  if (strcmp("while ", buffer) == 0) { return "L+W+I"; }
   if (strcmp("who ", buffer) == 0) { return "W+H+O"; }
   if (strcmp("why ", buffer) == 0) { return "MAGIC+W+Y"; }
   if (strcmp("will ", buffer) == 0) { return "W+I+L"; }
   if (strcmp("with ", buffer) == 0) { return "W+T+H"; }
+  if (strcmp("without ", buffer) == 0) { return "T+W+H+O"; }
+  if (strcmp("word ", buffer) == 0) { return "R+D+W"; }
   if (strcmp("work ", buffer) == 0) { return "W+R+K"; }
+  if (strcmp("world ", buffer) == 0) { return "W+L+D+O"; }
   if (strcmp("would ", buffer) == 0) { return "W+L+D"; }
+  if (strcmp("write ", buffer) == 0) { return "W+R+T+E"; }
   if (strcmp("year ", buffer) == 0) { return "Y+E+A"; }
   if (strcmp("you ", buffer) == 0) { return "Y+O+U"; }
+  if (strcmp("are ", buffer) == 0) { return "R+A+E"; }
+  if (strcmp("learn ", buffer) == 0) { return "N+L+A+E"; }
+  if (strcmp("developer ", buffer) == 0) { return "R+D+V+E"; }
+  if (strcmp("Hi! ", buffer) == 0) { return "H+I"; }
+  if (strcmp("yeah ", buffer) == 0) { return "Y+A+E"; }
+  if (strcmp("thank you ", buffer) == 0) { return "T+Y"; }
+  if (strcmp("fuck ", buffer) == 0) { return "T+W+F"; }
+  if (strcmp("I've ", buffer) == 0) { return "V+E+I"; }
+  if (strcmp("I'm ", buffer) == 0) { return "V+E+I"; }
+  if (strcmp("I'll ", buffer) == 0) { return "L+MAGIC+I"; }
+  if (strcmp("god ", buffer) == 0) { return "G+O+D"; }
+  if (strcmp("project ", buffer) == 0) { return "P+J+E+T"; }
+  if (strcmp("product ", buffer) == 0) { return "P+R+D+U"; }
+  if (strcmp("lost ", buffer) == 0) { return "T+S+O"; }
+  if (strcmp("loose ", buffer) == 0) { return "L+S+O"; }
   return NULL;
 }

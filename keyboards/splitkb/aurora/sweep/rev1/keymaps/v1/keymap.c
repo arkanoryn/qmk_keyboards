@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [GRPT] = LAYOUT(
   	KC_B,	CTL_L,	ALT_D,  GUI_W,  KC_Z,			/* | */			KC_QUOT,	GUI_F,		ALT_O,		CTL_U,		KC_J,
   	L4_N,	L3_R,	L2_T,	L1_S,	KC_G,			/* | */			KC_Y,		L1_H,		L2_A,		L3_E,		L4_I,
-  	SFT_Q,	KC_X,	KC_M,	KC_C,	KC_V,			/* | */			KC_K,		KC_P,		KC_COMM,	KC_DOT,	SFT_SLSH,
+  	SFT_Q,	KC_X,	KC_M,	KC_C,	KC_V,			/* | */			KC_K,		KC_P,		KC_DOT,		KC_COMM,	SFT_SLSH,
   							MEH_SPC,		MAGIC,	/* | */		KC_BSPC,	KC_ENT
   ),
   [ISRT] = LAYOUT(
@@ -41,19 +41,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [ACT] = LAYOUT(
   	QK_GESC,		CKC(CMD_COPY),  CKC(LINE_BACKSPACE),    CKC(WORD_BACKSPACE),    KC_PGUP,		            /* | */ KC_HOME,    		CKC(WORD_JUMPL),    CKC(WORD_JUMPR),    RCS(KC_TAB),	LCTL(KC_TAB),
   	CKC(APP_PREV),  CKC(APP_NEXT),  KC_DEL,			        SEL_WORD,               KC_PGDN,		            /* | */ KC_END,             KC_LEFT,		    KC_DOWN,            KC_UP,			KC_RIGHT,
-  	CKC(CMD_CUT),   CKC(CMD_PASTE), CKC(LINE_DEL),		    CKC(WORD_DEL),          CKC(TAB_CLOSE),	            /* | */ CKC(TAB_REOPEN),    CKC(LINE_JUMPL),	CKC(LINE_JUMPR),	CKC(TASK_MNGR),	LYR_LOCK,
-  	                                                        CKC(LINE_SELECTL),          CKC(WORD_SELECTL),      /* | */ __X__,      __X__
+  	CKC(CMD_CUT),   CKC(CMD_PASTE), CKC(LINE_DEL),		    CKC(WORD_DEL),          CKC(TAB_CLOSE),	            /* | */ CKC(TAB_REOPEN),    CKC(LINE_JUMPL),	CKC(LINE_JUMPR),	CKC(TASK_MNGR),	__X__,
+  	                                                        CKC(LINE_SELECTL),      CKC(WORD_SELECTL),	        /* | */ __X__,      LYR_LOCK
   ),
   [SMBL] = LAYOUT(
   	KC_CAPS,	KC_AT,		KC_HASH,	KC_DOLLAR,	CKC(EURO),		/* | */	__X__,	KC_LBRC,	KC_RBRC,	KC_SCLN,	__X__,
-  	KC_GRV,		KC_UNDS,	KC_TILDE,	KC_MINS,	KC_PLUS,		/* | */	KC_EQL,	KC_LPRN,	KC_RPRN,	KC_COLN,	__X__,
-  	__X__,		__X__,		KC_LT,		KC_GT,		KC_CIRC,		/* | */	__X__,	KC_LCBR,	KC_RCBR,	KC_BSLS,	__X__,
+  	KC_TILDE,	KC_GRV,		KC_UNDS,	KC_MINS,	KC_PLUS,		/* | */	KC_EQL,	KC_LPRN,	KC_RPRN,	KC_COLN,	__X__,
+  	__X__,		KC_PIPE,	KC_LT,		KC_GT,		KC_CIRC,		/* | */	KC_SLSH,KC_LCBR,	KC_RCBR,	KC_BSLS,	__X__,
   	      								__X__,		__X__,	        /* | */	__X__,	LYR_LOCK
   ),
   [ACCT] = LAYOUT(
   	CW_TOGG,	KC_ASTR,	KC_AMPR,	KC_PERCENT,	CKC(CMD_REDO),	/* | */	__X__,	CKC(E_CIRC),     CKC(U_GRAVE),	CKC(I_CIRC),    CKC(I_TREMA),
   	KC_TAB,		KC_DQUO,	KC_EXLM,	KC_QUES,	CKC(CMD_UNDO),	/* | */	__X__,	CKC(E_AIGU),     CKC(E_GRAVE),	CKC(A_GRAVE),   CKC(O_CIRC),
-  	DF(GRPT),	__X__,		__X__,		__X__,		__X__,      	/* | */	__X__,	CKC(C_CEDILLE),	CKC(U_CIRC),    CKC(A_CIRC),    __X__,
+  	DF(GRPT),	DF(ISRT),	__X__,		__X__,		__X__,      	/* | */	__X__,	CKC(C_CEDILLE),	CKC(U_CIRC),    CKC(A_CIRC),    __X__,
   	      								__X__,	 	KC_LSFT,        /* | */	__X__,	LYR_LOCK
   ),
   [NPD] = LAYOUT( // multimedia is to
