@@ -5,11 +5,6 @@ layers:
   - [{t: N, h: '* Num', type: ghost}, {t: R, h: '* Acc', type: ghost}, {t: T, h: '* Sym', type: ghost}, {t: S, h: '* Act', type: ghost}, G, Y, {t: H, h: '* Act', type: ghost}, {t: A, h: '* Sym', type: ghost}, {t: R, h: '* Acc', type: ghost}, {t: I, h: '* Num', type: ghost}]
   - [{t: Q, h: '⇧'}, X, M, C, V, K, P, ., ',', {t: '/', h: '⇧'}]
   - [{t: '⎵', h: '☩'}, {t: '★'}, {t: '⌫'}, {t: '⏎'}]
-  ISRT:
-  - [Y, {t: C, h: ⌃}, {t: L, h: ⎇}, {t: M, h: ⌘}, K, Z, {t: F, h: ⌘}, {t: U, h: ⎇}, {t: ',', h: ⌃}, '''']
-  - [{t: I, h: '* Num', type: ghost}, {t: S, h: '* Acc', type: ghost}, {t: R, h: '* Sym', type: ghost}, {t: T, h: '* Act', type: ghost}, G, P, {t: N, h: '* Act', type: ghost}, {t: E, h: '* Sym', type: ghost}, {t: A, h: '* Acc', type: ghost}, {t: O, h: '* Num', type: ghost}]
-  - [{t: Q, h: '⇧'}, V, W, D, J, B, H, /, ., {t: X, h: '⇧'}]
-  - [{t: '⎵', h: '☩'}, {t: '★'}, {t: '⌫'}, {t: '⏎'}]
   Actions:
   - [{t: 'ESC', s: '`'}, {t: '⤹', h: 'copy'}, {t: '⌫', h: 'LINE', s: 'bspc' }, {t: '⌫', h: 'WORD', s: 'bspc'}, {t: '⇞', h: 'up', s: 'page'}, {t: '⇱', h: 'HOME', s: ''}, {t: '⤽', h: 'Word', s: 'Jump'}, {t: '⤼', h: 'Word', s: 'Jump'}, {t: '⤟', h: 'Tab', s: ''}, {t: '⤠', h: 'Tab', s: ''}]
   - [{t: '⤟', h: 'App', s: 'prev'}, {t: '⤠', h: 'App', s: 'next'}, {t: '⌦', h: 'char', s: 'del'}, {t: '【】', h: 'Word', s: 'slct'}, {t: '⇟', h: 'down', s: 'page'}, {t: '⇲', h: 'END', s: ''}, {t: '↞', h: '', s: ''}, {t: '↡', h: '', s: ''}, {t: '↟', h: '', s: ''}, {t: '↠', h: '', s: ''}]

@@ -70,7 +70,7 @@ replacements = {
     "L2 T": f"{{t: T, h: '{LAY_SYMBOLS}', type: ghost}}",
     "L2 A": f"{{t: A, h: '{LAY_SYMBOLS}', type: ghost}}",
     "L3 R": f"{{t: R, h: '{LAY_ACCENTS}', type: ghost}}",
-    "L3 E": f"{{t: R, h: '{LAY_ACCENTS}', type: ghost}}",
+    "L3 E": f"{{t: E, h: '{LAY_ACCENTS}', type: ghost}}",
     "L4 N": f"{{t: N, h: '{LAY_NUMPAD}', type: ghost}}",
     "L4 I": f"{{t: I, h: '{LAY_NUMPAD}', type: ghost}}",
     "SFT Q": f"{{t: Q, h: '{SHIFT}'}}",
