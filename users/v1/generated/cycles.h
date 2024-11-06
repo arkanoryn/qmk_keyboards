@@ -14,7 +14,20 @@
 #pragma once
 
 typedef enum {
-  ASK = 0,
+  LEARN = 0,
+  DEVELOPER,
+  HI,
+  YEAH,
+  THANK_YOU,
+  WTF,
+  I_VE,
+  I_M,
+  GOD,
+  PROJECT,
+  PRODUCT_COMBO,
+  LOST,
+  LOOSE,
+  ASK,
   BACK,
   BE,
   BECOME,
@@ -145,19 +158,6 @@ typedef enum {
   WRITE,
   YEAR,
   YOU,
-  LEARN,
-  DEVELOPER,
-  HI,
-  YEAH,
-  THANK_YOU,
-  WTF,
-  I_VE,
-  I_M,
-  GOD,
-  PROJECT,
-  PRODUCT_COMBO,
-  LOST,
-  LOOSE,
   _LAST_CYCLING_COMBO
 } cycling_combos_e;
 

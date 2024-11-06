@@ -71,4 +71,9 @@ enum custom_keycodes {
   LYR_LOCK = NEW_SAFE_RANGE,
   MAGIC,
   SEL_WORD,
+  QUOT_UNDER,
+  DOT_EXLM,
+  QUOT_UNDS,
+  SFT_ENT,
+  C_ENT,
 };

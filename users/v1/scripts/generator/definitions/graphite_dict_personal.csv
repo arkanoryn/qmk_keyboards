@@ -1,0 +1,162 @@
+
+prefix,GRAPHITE
+ING,"ing",DONT CIRCLE,NOT ACTION,I,N,G
+NT,"\bn't",DONT CIRCLE,NOT ACTION,N,QUOT,T
+QUOTE_VE,"\b've",DONT CIRCLE,NOT ACTION,QUOT,V,E
+QUOTE_RE,"\b're",DONT CIRCLE,NOT ACTION,QUOT,R,E
+QUOTE_S,"\b's",DONT CIRCLE,NOT ACTION,QUOT,S,MAGIC
+QUOTE_D,"\b'd",DONT CIRCLE,NOT ACTION,QUOT,D,MAGIC
+QUOTE_LL,"\b'll",DONT CIRCLE,NOT ACTION,QUOT,L,MAGIC
+
+# personal addition
+## common words
+HI,"Hi!",CIRCLE,NOT ACTION,MAGIC,H,I
+YEAH,"yeah",CIRCLE,NOT ACTION,Y,A,E
+THANK_YOU,"thank you",CIRCLE,NOT ACTION,T,Y,O,U
+WTF,"fuck",CIRCLE,NOT ACTION,T,W,F
+I_VE,"I've",CIRCLE,NOT ACTION,V,E,I
+I_M,"I'm",CIRCLE,NOT ACTION,V,E,I
+I_LL,"I'll",NO CIRCLE,NOT ACTION,L,MAGIC,I
+
+## misc
+GOD,"god",CIRCLE, NOT ACTION,O,G,D
+PROJECT,"project",CIRCLE, NOT ACTION,T,O,E,J
+PRODUCT_COMBO,"product",CIRCLE, NOT ACTION,R,D,P,U
+LOST,"lost",CIRCLE,NOT ACTION,L,T,S,O
+LOOSE,"loose",CIRCLE,NOT ACTION,L,S,O,E
+
+# Common pairs of words
+# i + n + t + e → in the
+# o + t + e + ⨧ → of the
+# o + b + e + ⨧ → to be
+# t + h + e + ⨧ → to the
+# a + n + t + h → and the
+# a + n + d + i → and I
+# o + n + h + e → on the
+# i + t + s + ⨧ → it is
+# f + y + o + u → if you
+# t + h + e + w → the world
+# i + n + a + ⨧ → in a
+# o + f + c → of course
+
+# Tech
+# d + m + n → admin → admins → administrator → administrators
+# a + r + y → array → arrays
+# s + y + n → async
+# a + i + t + ⨧ → await
+# d + f + n → define → defined → will define
+# d + i + v → div
+# e + v + t → environment → environments
+# g + i + t → git → github
+# g + a + h + l → graphql (shifted: GraphQL)
+# h + t + p → https:// → http://
+# i + m + b + l → immutable
+# i + m + p → implementation → implementations
+# i + m + r → import → imports
+# n + f + r → infra → infrastructure
+# i + n + s → insert → inserts → inserted → will insert
+# i + n + s + ⨧ → insert into (shifted: INSERT INTO)
+# i + n + t + ⨧ → int → integer → integers
+# i + c + f → interface → interfaces
+# j + s + n → json (shifted: JSON)
+# k + e + n + s → kubernetes
+# l + i + b → library → libraries
+# m + o + d → module → modules
+# n + i + l → nil → nils
+# n + u + l → null → nulls
+# p + u + b → pub
+# r + g + x → regex → regexes → regular expression → regular expressions
+# r + e + t → return → returns → returned → will return
+# c + e + a → schema → schemas → schemata
+# s + t + f + r → select * from (shifted: SELECT * FROM)
+# s + r + v → server → servers
+# s + v + i → service → services
+# s + r + t → sort → sorts → sorted → will sort
+# o + u + e + i → sudo
+# t + e + m + p → temporary
+# t + r + a + i → trait → traits
+# q + u + e → queue → queues → queued → will queue
+# q + u + o → quote → quotes → quoted → will quote
+# u + n + f → undefined
+# v + a + r → var → variable → variables
+# c + o + d + e → ```↵↵```<Up>
+# t + s + o + e → ```typescript↵↵```<Up>
+# g + l + o + e → ```go↵↵```<Up>
+
+# Other common words
+# h + e + y → hey
+# y + e + p → yep
+# p + b + l + y → probably
+# t + n + s → thanks → thank you → Thanks very much!
+# i + v + e → I've
+# p + e + r → per
+# a + c + k → acknowledge
+# a + k + ⨧ → attack
+# e + f + n → defend
+# e + p + o → expansion
+# f + u + c → fuck → what the fuck
+# h + e + l + ⨧ → hell → what the hell
+# h + e + k → heck → what the heck
+# s + h + i + t → shit → what the shit
+# p + s + o + n → personal → personally
+# i + m + ⨧ → I'm
+# i + l + ⨧ → I'll
+
+# Common pairs of words
+# i + n + t + e → in the
+# o + t + e + ⨧ → of the
+# o + b + e + ⨧ → to be
+# t + h + e + ⨧ → to the
+# a + n + t + h → and the
+# a + n + d + i → and I
+# o + n + h + e → on the
+# i + t + s + ⨧ → it is
+# f + y + o + u → if you
+# t + h + e + w → the world
+# i + n + a + ⨧ → in a
+# o + f + c → of course
+
+# Tech
+# d + m + n → admin → admins → administrator → administrators
+# a + r + y → array → arrays
+# s + y + n → async
+# a + i + t + ⨧ → await
+# d + f + n → define → defined → will define
+# d + i + v → div
+# e + v + t → environment → environments
+# g + i + t → git → github
+# g + a + h + l → graphql (shifted: GraphQL)
+# h + t + p → https:// → http://
+# i + m + b + l → immutable
+# i + m + p → implementation → implementations
+# i + m + r → import → imports
+# n + f + r → infra → infrastructure
+# i + n + s → insert → inserts → inserted → will insert
+# i + n + s + ⨧ → insert into (shifted: INSERT INTO)
+# i + n + t + ⨧ → int → integer → integers
+# i + c + f → interface → interfaces
+# j + s + n → json (shifted: JSON)
+# k + e + n + s → kubernetes
+# l + i + b → library → libraries
+# m + o + d → module → modules
+# n + i + l → nil → nils
+# n + u + l → null → nulls
+# o + j + e → project → projects → projected → will project
+# p + u + b → pub
+# r + g + x → regex → regexes → regular expression → regular expressions
+# r + e + t → return → returns → returned → will return
+# c + e + a → schema → schemas → schemata
+# s + t + f + r → select * from (shifted: SELECT * FROM)
+# s + r + v → server → servers
+# s + v + i → service → services
+# s + r + t → sort → sorts → sorted → will sort
+# o + u + e + i → sudo
+# t + e + m + p → temporary
+# t + r + a + i → trait → traits
+# q + u + e → queue → queues → queued → will queue
+# q + u + o → quote → quotes → quoted → will quote
+# u + n + f → undefined
+# v + a + r → var → variable → variables
+# c + o + d + e → ```↵↵```<Up>
+# t + s + o + e → ```typescript↵↵```<Up>
+# g + l + o + e → ```go↵↵```<Up>
