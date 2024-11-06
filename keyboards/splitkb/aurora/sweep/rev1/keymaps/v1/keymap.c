@@ -156,3 +156,25 @@ void keyboard_pre_init_user(void) {
   // (Due to technical reasons, high is off and low is on)
   writePinHigh(24);
 };
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case L4_N:
+        case L4_I:
+        case SFT_SLSH:
+        case SFT_Q:
+            return TAPPING_TERM + 200;
+        case CTL_L:
+        case L3_R:
+        case CTL_U:
+        case L3_E:
+            return TAPPING_TERM + 150;
+        case ALT_D:
+        case L2_T:
+        case ALT_O:
+        case L2_A:
+            return TAPPING_TERM + 100;
+        default:
+            return TAPPING_TERM;
+    }
+}
