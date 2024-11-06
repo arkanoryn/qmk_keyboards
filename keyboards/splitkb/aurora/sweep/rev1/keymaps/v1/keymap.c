@@ -12,8 +12,8 @@
 #include "getreuer/layer_lock/layer_lock.h"
 #include "getreuer/select_word/select_word.h"
 
-#define __X__	KC_NO
-#define _____	KC_TRNS
+#define __X__ KC_NO
+#define _____ KC_TRNS
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,9 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                               | MEH / SPC |  MAGIC  |       |  Bksp  |    ENT   |
 //                                               `-----------+---------'       `--------+----------'
   [GRPT] = LAYOUT(
-  	KC_B,	CTL_L,	ALT_D,  GUI_W,  KC_Z,			/* | */			KC_QUOT,	GUI_F,		ALT_O,		CTL_U,		KC_J,
+  	KC_B,	CTL_L,	ALT_D,  GUI_W,  KC_Z,			/* | */			QUOT_UNDS,	GUI_F,		ALT_O,		CTL_U,		KC_J,
   	L4_N,	L3_R,	L2_T,	L1_S,	KC_G,			/* | */			KC_Y,		L1_H,		L2_A,		L3_E,		L4_I,
-  	SFT_Q,	KC_X,	KC_M,	KC_C,	KC_V,			/* | */			KC_K,		KC_P,		KC_DOT,		KC_COMM,	SFT_SLSH,
+  	SFT_Q,	KC_X,	KC_M,	KC_C,	KC_V,			/* | */			KC_K,		KC_P,		DOT_EXLM,	KC_COMM,	SFT_SLSH,
   							MEH_SPC,		MAGIC,	/* | */		KC_BSPC,	KC_ENT
   ),
   [ISRT] = LAYOUT(
@@ -75,12 +75,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_select_word(keycode, record, SEL_WORD)) { return false; }
   // clang-format on
 
+  const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
+
+  switch (keycode) {
+    case DOT_EXLM:
+      if (record->event.pressed) {
+        (mods & MOD_MASK_SHIFT) ? tap_code16(KC_EXLM) : tap_code16(KC_DOT);
+      }
+      return false;
+    case QUOT_UNDS:
+      if (record->event.pressed) {
+        (mods & MOD_MASK_SHIFT) ? tap_code16(KC_UNDS) : tap_code16(KC_QUOT);
+      }
+      return false;
+    case SFT_ENT:
+      if (record->event.pressed) {
+        add_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_ENT);
+        set_mods(mods);
+      }
+      return false;
+    case C_ENT:
+      if (record->event.pressed) {
+        (detected_host_os() == OS_MACOS ? add_mods(MOD_MASK_GUI) : add_mods(MOD_MASK_CTRL));
+        tap_code16(KC_ENT);
+        set_mods(mods);
+      }
+      return false;
+  }
   return true;
 };
 
 // Could be in an helper file
 uint8_t last_message_length = 0;
-void send_temporary_string(const char *str) {
+void    send_temporary_string(const char *str) {
   last_message_length += strlen(str);
   SEND_STRING(str);
 }

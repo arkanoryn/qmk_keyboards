@@ -16,6 +16,19 @@
 
 cycling_combos_e match_combo_index_with_cycling_combo(uint16_t combo_index) {
   switch(combo_index) {
+    case GRAPHITE_LEARN: return LEARN;
+    case GRAPHITE_DEVELOPER: return DEVELOPER;
+    case GRAPHITE_HI: return HI;
+    case GRAPHITE_YEAH: return YEAH;
+    case GRAPHITE_THANK_YOU: return THANK_YOU;
+    case GRAPHITE_WTF: return WTF;
+    case GRAPHITE_I_VE: return I_VE;
+    case GRAPHITE_I_M: return I_M;
+    case GRAPHITE_GOD: return GOD;
+    case GRAPHITE_PROJECT: return PROJECT;
+    case GRAPHITE_PRODUCT_COMBO: return PRODUCT_COMBO;
+    case GRAPHITE_LOST: return LOST;
+    case GRAPHITE_LOOSE: return LOOSE;
     case GRAPHITE_ASK: return ASK;
     case GRAPHITE_BACK: return BACK;
     case GRAPHITE_BE: return BE;
@@ -147,19 +160,6 @@ cycling_combos_e match_combo_index_with_cycling_combo(uint16_t combo_index) {
     case GRAPHITE_WRITE: return WRITE;
     case GRAPHITE_YEAR: return YEAR;
     case GRAPHITE_YOU: return YOU;
-    case GRAPHITE_LEARN: return LEARN;
-    case GRAPHITE_DEVELOPER: return DEVELOPER;
-    case GRAPHITE_HI: return HI;
-    case GRAPHITE_YEAH: return YEAH;
-    case GRAPHITE_THANK_YOU: return THANK_YOU;
-    case GRAPHITE_WTF: return WTF;
-    case GRAPHITE_I_VE: return I_VE;
-    case GRAPHITE_I_M: return I_M;
-    case GRAPHITE_GOD: return GOD;
-    case GRAPHITE_PROJECT: return PROJECT;
-    case GRAPHITE_PRODUCT_COMBO: return PRODUCT_COMBO;
-    case GRAPHITE_LOST: return LOST;
-    case GRAPHITE_LOOSE: return LOOSE;
   }
   return _LAST_CYCLING_COMBO;
 };

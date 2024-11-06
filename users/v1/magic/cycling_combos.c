@@ -62,7 +62,7 @@ static const char *cycle_combo_output[][LONGEST_CYCLE] = {
     [GENERAL]   = {"general", "generals"},
     [GET]       = {"get", "gets", "got", "getting"},
     [GIVE]      = {"give", "gives", "gave", "giving"},
-    [GO]        = {"go", "went"},
+    [GO]        = {"go", "goes", "went", "going"},
     [GOOD]      = {"good", "better", "best"},
     [GOVERN]    = {"govern", "governs", "governed", "governing"},
     [GREAT]     = {"great", "greater", "greatest"},
@@ -168,7 +168,7 @@ static const char *cycle_combo_output[][LONGEST_CYCLE] = {
 
     // personal
     // common words
-    [WTF]       = {"fuck", "What the fuck"},
+    [WTF]       = {"fuck", "What the fuck", "wtf"},
     [HI]        = {"Hi!", "Hey!"},
     [I_VE]    = {"I've'", "you've"},
     [I_M]      = {"I'm", "you're"},

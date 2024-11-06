@@ -14,6 +14,8 @@
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
 #define MAC_WORD_BACCKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
 
+const char* root_combo_str = NULL;
+
 void process_magic_combo_event(uint16_t combo_index) {
   if (combo_index == GRAPHITE_DEL_WORD) {
     if (get_cycling_combo_state()->is_combo_active) {
@@ -21,7 +23,7 @@ void process_magic_combo_event(uint16_t combo_index) {
         backspace_current_output();
         init_cycling_combos_state();
       } else {
-        const size_t str_len = strlen(get_combos_cmds(combo_index));
+        const size_t str_len = strlen(root_combo_str);
 
         for (int i = 0; i < str_len; ++i) {
           tap_code16(KC_BSPC);
@@ -39,6 +41,7 @@ void process_magic_combo_event(uint16_t combo_index) {
   combos_state->is_combo_active = true;
   combos_state->shift_enabled   = false; // TODO
   combos_state->is_cyclable     = true;
+  root_combo_str                = get_combos_cmds(combo_index);
 
   const cycling_combos_e cycle_id = match_combo_index_with_cycling_combo(combo_index);
 

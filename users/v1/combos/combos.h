@@ -69,10 +69,12 @@
 #define GRAPHITE_X          KC_X
 #define GRAPHITE_Y          KC_Y
 #define GRAPHITE_Z          KC_Z
+#define GRAPHITE_DOT        DOT_EXLM
 #define GRAPHITE_BSPC       KC_BSPC
-#define GRAPHITE_SPC        KC_SPC
+#define GRAPHITE_SPC        MEH_SPC
+#define GRAPHITE_ENT        KC_ENT
 #define GRAPHITE_SLSH       SFT_SLSH
-#define GRAPHITE_QUOT       KC_QUOT
+#define GRAPHITE_QUOT       QUOT_UNDS
 #define GRAPHITE_MAGIC      MAGIC
 #define GRAPHITE_COMM       KC_COMM
 

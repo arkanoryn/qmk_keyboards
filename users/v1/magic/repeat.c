@@ -7,7 +7,7 @@ void process_repeat_event_isrt(uint16_t keycode, uint8_t mods) {
   switch (keycode) {
       // clang-format off
     case ISRT_A: SEND_STRING("u"); break;
-    case ISRT_B: SEND_STRING("efore"); break;
+    case ISRT_B: SEND_STRING("r"); break;
     case ISRT_C: SEND_STRING("c"); break;
     case ISRT_D: SEND_STRING("evelop"); break;
     case ISRT_E: SEND_STRING("u"); break;
@@ -73,7 +73,12 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
     case GRAPHITE_X: SEND_STRING("x"); break;
     case GRAPHITE_Y: SEND_STRING("y"); break;
     case GRAPHITE_Z: SEND_STRING("z"); break;
+    case GRAPHITE_DOT: SEND_STRING("com"); break;
     // clang-format on
+    case GRAPHITE_ENT:
+    case GRAPHITE_SPC:
+      add_oneshot_mods(MOD_LSFT);
+      break;
     case GRAPHITE_COMM:
       if (mods & MOD_MASK_SHIFT) {
         SEND_STRING("\b=");
@@ -87,11 +92,9 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
 
 void process_repeat_event(uint16_t keycode, uint8_t mods) {
   if (layer_state_is(ISRT)) {
-
-  process_repeat_event_isrt(keycode, mods);
+    process_repeat_event_isrt(keycode, mods);
   } else if (layer_state_is(GRPT)) {
-
-  process_repeat_event_graphite(keycode, mods);
+    process_repeat_event_graphite(keycode, mods);
   }
 }
 
