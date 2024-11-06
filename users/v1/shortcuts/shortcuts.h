@@ -20,6 +20,10 @@
 #include "quantum.h"
 #include "ark_v1.h" // TODO: should be KEYMAP_MAIN_H
 
+#ifndef ALT_TAB_TIMER
+#  define ALT_TAB_TIMER 5000 // miliseconds
+#endif // ALT_TAB_TIMER
+
 /*
 * The struct used by the script to determine in which OS we are running
 * and run the script accordingly.
@@ -32,7 +36,6 @@ typedef struct {
 typedef struct {
   bool active;
   uint16_t timer;
-  uint16_t keycode;
 } alt_tab_s;
 
 typedef enum {
