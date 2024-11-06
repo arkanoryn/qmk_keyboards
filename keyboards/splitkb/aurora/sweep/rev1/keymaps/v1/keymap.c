@@ -11,6 +11,8 @@
 #include "teacher/chord_teacher.h"
 #include "getreuer/layer_lock/layer_lock.h"
 #include "getreuer/select_word/select_word.h"
+#include "getreuer/sentence_case/sentence_case.h"
+
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
@@ -68,6 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // clang-format off
   if (!process_chord_teacher(keycode, record)) { return false; } // FIXME: To add to the if statement: if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE)
+  if (!process_sentence_case(keycode, record)) { return false; }
   if (!process_magic_key(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LYR_LOCK)) { return false; }
   if (!process_shortcuts(keycode, record)) { return false; }
@@ -137,6 +140,7 @@ void matrix_scan_user(void) {
   alt_tab_task();
   combo_event_task();
   chord_teacher_task();
+  sentence_case_task();
 };
 
 void keyboard_post_init_user(void) {

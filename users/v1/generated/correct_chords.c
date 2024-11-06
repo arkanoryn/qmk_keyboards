@@ -139,7 +139,7 @@ char *check_chord(char *buffer) {
   if (strcmp("may ", buffer) == 0) { return "M+Y+A"; }
   if (strcmp("mean ", buffer) == 0) { return "M+A+E"; }
   if (strcmp("might ", buffer) == 0) { return "M+H+I"; }
-  if (strcmp("more ", buffer) == 0) { return "R+M+R"; }
+  if (strcmp("more ", buffer) == 0) { return "R+M+O"; }
   if (strcmp("most ", buffer) == 0) { return "M+S+O"; }
   if (strcmp("move ", buffer) == 0) { return "M+V+E"; }
   if (strcmp("must ", buffer) == 0) { return "T+S+U"; }

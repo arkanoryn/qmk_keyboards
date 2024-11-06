@@ -20,6 +20,8 @@
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
+#define SENTENCE_CASE_TIMEOUT 2000
+
 // #define VIRT_SIDECHANNEL
 
 // #define COMBO_STRICT_TIMER // starts time on the first key of the combo
