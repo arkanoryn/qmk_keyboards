@@ -191,7 +191,7 @@ char *check_chord(char *buffer) {
   if (strcmp("since ", buffer) == 0) { return "S+I+E"; }
   if (strcmp("small ", buffer) == 0) { return "L+M+A"; }
   if (strcmp("so ", buffer) == 0) { return "S+O"; }
-  if (strcmp("some ", buffer) == 0) { return "M+S+E"; }
+  if (strcmp("some ", buffer) == 0) { return "M+S+O+E"; }
   if (strcmp("stand ", buffer) == 0) { return "N+T+S+A"; }
   if (strcmp("state ", buffer) == 0) { return "S+T+A+E"; }
   if (strcmp("still ", buffer) == 0) { return "L+T+S"; }

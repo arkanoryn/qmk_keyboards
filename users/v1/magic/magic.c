@@ -12,7 +12,7 @@
 #include "combos/combos.h"
 
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
-#define MAC_WORD_BACCKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
+#define MAC_WORD_BACKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
 
 const char* root_combo_str = NULL;
 
@@ -30,7 +30,7 @@ void process_magic_combo_event(uint16_t combo_index) {
         }
       }
     } else {
-      send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACCKSPACE : WIN_WORD_BACKSPACE);
+      send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACKSPACE : WIN_WORD_BACKSPACE);
     }
     return;
   }

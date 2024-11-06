@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // clang-format off
-  if (!process_chord_teacher(keycode, record)) { return false; } // FIXME: To add to the if statement: if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE)
+//   if (!process_chord_teacher(keycode, record)) { return false; } // FIXME: To add to the if statement: if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE)
   if (!process_sentence_case(keycode, record)) { return false; }
   if (!process_magic_key(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LYR_LOCK)) { return false; }
