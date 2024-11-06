@@ -37,9 +37,10 @@ void process_magic_combo_event(uint16_t combo_index) {
 
   init_cycling_combos_state();
   cycling_combos_state_t* combos_state = get_cycling_combo_state();
+  const uint8_t           mods         = get_mods() | get_oneshot_mods() | get_weak_mods();
 
   combos_state->is_combo_active = true;
-  combos_state->shift_enabled   = false; // TODO
+  combos_state->shift_enabled   = mods & MOD_MASK_SHIFT;
   combos_state->is_cyclable     = true;
   root_combo_str                = get_combos_cmds(combo_index);
 
@@ -52,7 +53,6 @@ void process_magic_combo_event(uint16_t combo_index) {
     default:
       combos_state->is_cyclable = false;
   }
-  send_string(get_combos_cmds(combo_index));
 };
 
 bool process_magic_key(uint16_t keycode, keyrecord_t* record) {

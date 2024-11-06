@@ -17,9 +17,20 @@ void set_combo_event_timer(void) {
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   if (pressed) {
+    const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
+
     set_combo_event_timer();
     reset_teacher_state(true);
     process_magic_combo_event(combo_index);
+
+    if (mods & MOD_MASK_SHIFT) {
+        del_mods(MOD_MASK_SHIFT);
+        set_oneshot_mods(MOD_BIT(KC_LSFT)); // Shift mod to capitalize.
+    }
+    send_string(get_combos_cmds(combo_index));
+    if (mods & MOD_MASK_SHIFT) {
+      set_mods(mods);
+    }
   }
 };
 
