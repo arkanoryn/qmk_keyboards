@@ -15,6 +15,7 @@ void set_combo_event_timer(void) {
   idle_timer = timer_read() + SELECT_WORD_TIMEOUT;
 }
 
+
 void process_combo_event(uint16_t combo_index, bool pressed) {
   if (pressed) {
     const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
@@ -39,3 +40,16 @@ void combo_event_task(void) {
     init_cycling_combos_state();
   }
 };
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  // We need this otherwise there's no way to toggle chords back on
+  if (combo_index == GRAPHITE_DEL_WORD) {
+    return true;
+  }
+
+  if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) {
+    return false;
+  }
+
+  return true;
+}

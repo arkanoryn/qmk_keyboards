@@ -16,6 +16,10 @@
 
 #pragma once
 
+// OS configurations
+#define OS_DETECTION_KEYBOARD_RESET
+#define OS_DETECTION_DEBOUNCE 200
+
 #define TAPPING_TERM 250
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
@@ -25,9 +29,9 @@
 
 // #define VIRT_SIDECHANNEL
 
-// #define COMBO_STRICT_TIMER // starts time on the first key of the combo
-// #define COMBO_TERM 60 // default is 50
-// #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
+#define COMBO_STRICT_TIMER // starts time on the first key of the combo
+#define COMBO_TERM 60 // default is 50
+#define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_SLEEP

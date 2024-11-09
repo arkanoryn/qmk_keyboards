@@ -18,10 +18,13 @@ const char* root_combo_str = NULL;
 
 void process_magic_combo_event(uint16_t combo_index) {
   if (combo_index == GRAPHITE_DEL_WORD) {
+    del_mods(MOD_MASK_SHIFT);
+    del_oneshot_mods(MOD_MASK_SHIFT);
+    init_cycling_combos_state();
+
     if (get_cycling_combo_state()->is_combo_active) {
       if (get_cycling_combo_state()->is_cyclable) {
         backspace_current_output();
-        init_cycling_combos_state();
       } else {
         const size_t str_len = strlen(root_combo_str);
 

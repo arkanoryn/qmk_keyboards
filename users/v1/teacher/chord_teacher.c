@@ -13,11 +13,12 @@
 #define CORRECTION_TIMEOUT 15000
 
 typedef struct {
-  char     buffer[TEACHER_CORRECTION_BUFFER_LENGTH];
-  uint8_t  length;
-  bool     skip;
-  char    *last_correction;
-  uint16_t timer;
+  char                 buffer[TEACHER_CORRECTION_BUFFER_LENGTH];
+  uint8_t              length;
+  bool                 skip;
+  char                *last_correction;
+  uint16_t             timer;
+  teacher_chord_mode_e mode;
 } teacher_s;
 
 // clang-format off
@@ -26,7 +27,8 @@ static teacher_s teacher_state = {
     .length          = 0,
     .skip            = true, // wait til we see the first space
     .last_correction = NULL,
-    .timer           = 0
+    .timer           = 0,
+    .mode            = DEFAULT_TEACHER_CHORD_MODE,
 };
 // clang-format on
 
@@ -36,6 +38,7 @@ void init_teacher_state(void) {
   teacher_state.skip                         = false; // wait til we see the first space
   teacher_state.last_correction              = NULL;
   teacher_state.timer                        = 0;
+  teacher_state.mode                         = DEFAULT_TEACHER_CHORD_MODE;
 };
 
 void reset_teacher_state(bool clear_teacher_state) {
@@ -46,7 +49,7 @@ void reset_teacher_state(bool clear_teacher_state) {
   teacher_state.buffer[teacher_state.length] = 0;
   teacher_state.skip                         = false;
   teacher_state.timer                        = timer_read();
-}
+};
 
 // FIXME: this must be a generic solution
 uint16_t is_valid_alphakey(uint16_t keycode) {
@@ -80,7 +83,7 @@ uint16_t is_valid_alphakey(uint16_t keycode) {
       return true;
   }
   return false;
-}
+};
 
 bool try_correct(void) {
   teacher_state.last_correction = check_chord(teacher_state.buffer);
@@ -94,7 +97,7 @@ bool try_correct(void) {
   send_temporary_string(teacher_state.last_correction);
   reset_teacher_state(false);
   return false;
-}
+};
 
 void chord_teacher_task(void) {
   if (timer_elapsed(teacher_state.timer) > CORRECTION_TIMEOUT) {
@@ -112,6 +115,9 @@ void update_buffer(char new_char) {
 }
 
 bool process_chord_teacher(uint16_t keycode, keyrecord_t *record) {
+  if (teacher_state.mode != TEACHER_CHORD_MODE_CORRECTIVE) {
+    return true;
+  }
   if (!record->event.pressed || keycode == KC_NO || teacher_state.skip) {
     return true;
   }
@@ -142,9 +148,39 @@ bool process_chord_teacher(uint16_t keycode, keyrecord_t *record) {
     reset_teacher_state(true);
   } else if (keycode == KC_BSPC) {
     teacher_state.timer = timer_read();
+    // if we press BSPC, we should also remove it from the current string with which
+    // we are going to run the comparison. We should however ensure that we are not
+    // going BELOW 0, in which case we reset (safety first)
+    (teacher_state.length > 0) ? teacher_state.length-- : reset_teacher_state(true);
   } else {
     teacher_state.skip = true;
   }
 
   return true;
-}
+};
+
+teacher_chord_mode_e get_teacher_chord_mode(void) {
+  return teacher_state.mode;
+};
+
+void set_teacher_chord_mode(teacher_chord_mode_e new_mode) {
+  teacher_state.mode = new_mode;
+
+  switch (new_mode) {
+    case TEACHER_CHORD_MODE_NORMAL:
+      send_temporary_string("teacher_chord_mode: normal");
+      break;
+    case TEACHER_CHORD_MODE_CORRECTIVE:
+      send_temporary_string("teacher_chord_mode: corrective");
+      break;
+    case TEACHER_CHORD_MODE_OFF:
+      send_temporary_string("teacher_chord_mode: off");
+      break;
+    case _CHORD_MODE_LENGTH:
+      teacher_state.mode = TEACHER_CHORD_MODE_NORMAL;
+      send_temporary_string("teacher_chord_mode: normal");
+      break;
+    default:
+      send_temporary_string("unknown code");
+  }
+};
