@@ -64,10 +64,7 @@ void manage_tabbing(shortcuts_id_e id, keyrecord_t *record) {
       alt_tab_state.active = true;
       register_code(CMD_OR_ALT);
     }
-    // TODO: fix the prev
-    register_code(KC_TAB);
-  } else {
-    unregister_code(KC_TAB);
+    send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
   }
 };
 
