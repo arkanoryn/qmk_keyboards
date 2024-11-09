@@ -6,18 +6,23 @@
 #include "ark_v1.h"
 
 typedef enum {
-  CHORD_MODE_NORMAL,
-  CHORD_MODE_CORRECTIVE,
-  CHORD_MODE_EXCLUSIVE,
-  CHORD_MODE_OFF,
+  TEACHER_CHORD_MODE_NORMAL = 0,
+  TEACHER_CHORD_MODE_CORRECTIVE,
+  TEACHER_CHORD_MODE_OFF,
   _CHORD_MODE_LENGTH,
-} setting_chord_mode;
+} teacher_chord_mode_e;
 
 #ifndef TOPLAYER
-#  define TOPLAYER NPD
+#  define TOPLAYER CONFIG
 #endif // TOPLAYER
 
-bool process_chord_teacher(uint16_t keycode, keyrecord_t *record);
-void init_teacher_state(void);
-void reset_teacher_state(bool clear_teacher_state);
-void chord_teacher_task(void);
+#ifndef DEFAULT_TEACHER_CHORD_MODE
+#  define DEFAULT_TEACHER_CHORD_MODE TEACHER_CHORD_MODE_CORRECTIVE
+#endif // DEFAULT_TEACHER_CHORD_MODE
+
+bool                 process_chord_teacher(uint16_t keycode, keyrecord_t *record);
+void                 init_teacher_state(void);
+void                 reset_teacher_state(bool clear_teacher_state);
+void                 chord_teacher_task(void);
+teacher_chord_mode_e get_teacher_chord_mode(void);
+void                 set_teacher_chord_mode(teacher_chord_mode_e new_mode);

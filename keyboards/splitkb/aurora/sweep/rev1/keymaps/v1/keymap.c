@@ -11,9 +11,11 @@
 #include "teacher/chord_teacher.h"
 #include "getreuer/layer_lock/layer_lock.h"
 #include "getreuer/select_word/select_word.h"
+#include "getreuer/sentence_case/sentence_case.h"
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
+
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,13 +63,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   	KC_P0,		KC_P1,		KC_P2,		KC_P3,		KC_PENT,		/* | */	KC_PSCR,	RGB_HUI,	RGB_HUD,	RGB_VAI,	RGB_VAD,
   	KC_PSLS,	KC_P7,		KC_P8,		KC_P9,		KC_PMNS,		/* | */	KC_MNXT,	KC_VOLU,	KC_VOLD,	RGB_SPI,	RGB_SPD,
   	      								KC_ENT,		KC_DOT,			/* | */	KC_MPLY,	LYR_LOCK
-  )
+  ),
+  [CONFIG] = LAYOUT(
+  	CYCLE_CHORD_MODE,	_____,	_____,  _____,  _____,			/* | */			_____,		_____,		_____,		_____,		_____,
+  	_____,				_____,	_____,	_____,	_____,			/* | */			_____,		_____,		_____,		_____,		_____,
+  	QK_BOOT,			_____,	_____,	_____,	_____,			/* | */			_____,		_____,		_____,		_____,		_____,
+  										_____,		_____,		/* | */		_____,		TG(CONFIG) // we turned ON the config layer, so now we want to turn it back off
+  ),
 };
 // clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // clang-format off
-  if (!process_chord_teacher(keycode, record)) { return false; } // FIXME: To add to the if statement: if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE)
+  if (!process_chord_teacher(keycode, record)) { return false; }
+  if (!process_sentence_case(keycode, record)) { return false; }
   if (!process_magic_key(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LYR_LOCK)) { return false; }
   if (!process_shortcuts(keycode, record)) { return false; }
@@ -100,6 +109,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         (detected_host_os() == OS_MACOS ? add_mods(MOD_MASK_GUI) : add_mods(MOD_MASK_CTRL));
         tap_code16(KC_ENT);
         set_mods(mods);
+      }
+      return false;
+    case CYCLE_CHORD_MODE:
+      if (record->event.pressed) {
+        set_teacher_chord_mode(get_teacher_chord_mode() + 1);
+      }
+      return false;
+    case TOGGLE_CONFIG_LYR:
+      if (record->event.pressed) {
+        send_temporary_string("conf lyr"); // temporary solution until I attack the RGB / OLED
+        layer_on(CONFIG);
       }
       return false;
   }
@@ -137,6 +157,7 @@ void matrix_scan_user(void) {
   alt_tab_task();
   combo_event_task();
   chord_teacher_task();
+  sentence_case_task();
 };
 
 void keyboard_post_init_user(void) {
@@ -152,3 +173,25 @@ void keyboard_pre_init_user(void) {
   // (Due to technical reasons, high is off and low is on)
   writePinHigh(24);
 };
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case L4_N:
+        case L4_I:
+        case SFT_SLSH:
+        case SFT_Q:
+            return TAPPING_TERM + 200;
+        case CTL_L:
+        case L3_R:
+        case CTL_U:
+        case L3_E:
+            return TAPPING_TERM + 150;
+        case ALT_D:
+        case L2_T:
+        case ALT_O:
+        case L2_A:
+            return TAPPING_TERM + 100;
+        default:
+            return TAPPING_TERM;
+    }
+}

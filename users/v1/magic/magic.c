@@ -12,16 +12,19 @@
 #include "combos/combos.h"
 
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
-#define MAC_WORD_BACCKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
+#define MAC_WORD_BACKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
 
 const char* root_combo_str = NULL;
 
 void process_magic_combo_event(uint16_t combo_index) {
   if (combo_index == GRAPHITE_DEL_WORD) {
+    del_mods(MOD_MASK_SHIFT);
+    del_oneshot_mods(MOD_MASK_SHIFT);
+    init_cycling_combos_state();
+
     if (get_cycling_combo_state()->is_combo_active) {
       if (get_cycling_combo_state()->is_cyclable) {
         backspace_current_output();
-        init_cycling_combos_state();
       } else {
         const size_t str_len = strlen(root_combo_str);
 
@@ -30,16 +33,17 @@ void process_magic_combo_event(uint16_t combo_index) {
         }
       }
     } else {
-      send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACCKSPACE : WIN_WORD_BACKSPACE);
+      send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACKSPACE : WIN_WORD_BACKSPACE);
     }
     return;
   }
 
   init_cycling_combos_state();
   cycling_combos_state_t* combos_state = get_cycling_combo_state();
+  const uint8_t           mods         = get_mods() | get_oneshot_mods() | get_weak_mods();
 
   combos_state->is_combo_active = true;
-  combos_state->shift_enabled   = false; // TODO
+  combos_state->shift_enabled   = mods & MOD_MASK_SHIFT;
   combos_state->is_cyclable     = true;
   root_combo_str                = get_combos_cmds(combo_index);
 
@@ -52,7 +56,6 @@ void process_magic_combo_event(uint16_t combo_index) {
     default:
       combos_state->is_cyclable = false;
   }
-  send_string(get_combos_cmds(combo_index));
 };
 
 bool process_magic_key(uint16_t keycode, keyrecord_t* record) {

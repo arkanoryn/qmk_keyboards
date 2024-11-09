@@ -9,8 +9,6 @@
 #define _FIRST_SYMBOL_ID _LAST_SHORTCUT_ID
 #include "symbols/symbols.h"
 
-void send_temporary_string(const char *str);
-
 enum layers {
   GRPT, // GRAPHITE
   ISRT,
@@ -18,6 +16,7 @@ enum layers {
   SMBL, // SYMBOLS
   ACCT, // ACCENTS
   NPD,  // NUMPAD & MULTIMEDIA
+  CONFIG,  // KEYBOARD CONFIGURATION
 };
 
 #define CKC(x)      (SAFE_RANGE + x)        // generate custom keycode from enum
@@ -76,4 +75,10 @@ enum custom_keycodes {
   QUOT_UNDS,
   SFT_ENT,
   C_ENT,
+  TOGGLE_CONFIG_LYR,
+  CYCLE_CHORD_MODE,
 };
+
+// will have to be move to its own source / helper folder /file
+void    send_temporary_string(const char *str);
+

@@ -139,7 +139,7 @@ char *check_chord(char *buffer) {
   if (strcmp("may ", buffer) == 0) { return "M+Y+A"; }
   if (strcmp("mean ", buffer) == 0) { return "M+A+E"; }
   if (strcmp("might ", buffer) == 0) { return "M+H+I"; }
-  if (strcmp("more ", buffer) == 0) { return "R+M+R"; }
+  if (strcmp("more ", buffer) == 0) { return "R+M+O"; }
   if (strcmp("most ", buffer) == 0) { return "M+S+O"; }
   if (strcmp("move ", buffer) == 0) { return "M+V+E"; }
   if (strcmp("must ", buffer) == 0) { return "T+S+U"; }
@@ -191,7 +191,7 @@ char *check_chord(char *buffer) {
   if (strcmp("since ", buffer) == 0) { return "S+I+E"; }
   if (strcmp("small ", buffer) == 0) { return "L+M+A"; }
   if (strcmp("so ", buffer) == 0) { return "S+O"; }
-  if (strcmp("some ", buffer) == 0) { return "M+S+E"; }
+  if (strcmp("some ", buffer) == 0) { return "M+S+O+E"; }
   if (strcmp("stand ", buffer) == 0) { return "N+T+S+A"; }
   if (strcmp("state ", buffer) == 0) { return "S+T+A+E"; }
   if (strcmp("still ", buffer) == 0) { return "L+T+S"; }

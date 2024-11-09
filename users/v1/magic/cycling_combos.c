@@ -199,14 +199,13 @@ void cycle_forward(void) {
   }
 
   if (cycling_combos_state.shift_enabled) {
-    SEND_STRING("one off is on\n");
     set_oneshot_mods(MOD_BIT(KC_LSFT));
   }
 
   send_string(cycle_combo_output[cycling_combos_state.last_cycle_combo_id][cycling_combos_state.cycle_position]);
 }
 
-void cycle_backward(void) {
+void cycle_backward(uint8_t mods) {
   if (cycling_combos_state.cycle_position > 0) {
     cycling_combos_state.cycle_position--;
   } else {
@@ -216,12 +215,12 @@ void cycle_backward(void) {
     }
   }
 
-  del_mods(MOD_MASK_SHIFT); // TODO: be less brute force and disable / enable only the mods that are enabled at the time of call
+  del_mods(MOD_MASK_SHIFT);
   if (cycling_combos_state.shift_enabled) {
     set_oneshot_mods(MOD_BIT(KC_LSFT));
   }
   send_string(cycle_combo_output[cycling_combos_state.last_cycle_combo_id][cycling_combos_state.cycle_position]);
-  add_mods(MOD_MASK_SHIFT);
+  set_mods(mods);
 }
 
 bool cycle(void) {
@@ -229,8 +228,9 @@ bool cycle(void) {
     const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
 
     backspace_current_output();
+
     if (mods & MOD_MASK_SHIFT) {
-      cycle_backward();
+      cycle_backward(mods);
     } else {
       cycle_forward();
     }

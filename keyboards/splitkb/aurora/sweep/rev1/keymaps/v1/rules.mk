@@ -21,6 +21,8 @@ INTROSPECTION_KEYMAP_C = generated/combos.c
 
 SRC += getreuer/layer_lock/layer_lock.c \
 	getreuer/select_word/select_word.c \
+	getreuer/sentence_case/sentence_case.c \
+	getreuer/sentence_case/override.c \
 	generated/cycles.c \
 	generated/correct_chords.c \
 	combos/combos.c \
