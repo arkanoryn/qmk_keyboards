@@ -6,10 +6,11 @@
 #include "quantum.h"
 #include "ark_v1.h"
 #include "magic.h"
+#include "combos/combos.h"
 #include "cycling_combos.h"
 #include "generated/cycles.h"
 #include "repeat.h"
-#include "combos/combos.h"
+#include "teacher/chord_teacher.h"
 
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
 #define MAC_WORD_BACKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
@@ -20,6 +21,11 @@ void process_magic_combo_event(uint16_t combo_index) {
   if (combo_index == GRAPHITE_DEL_WORD) {
     del_mods(MOD_MASK_SHIFT);
     del_oneshot_mods(MOD_MASK_SHIFT);
+
+    if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_CORRECTIVE) {
+      reset_teacher_state(true);
+    }
+
     init_cycling_combos_state();
 
     if (get_cycling_combo_state()->is_combo_active) {

@@ -24,5 +24,6 @@ bool                 process_chord_teacher(uint16_t keycode, keyrecord_t *record
 void                 init_teacher_state(void);
 void                 reset_teacher_state(bool clear_teacher_state);
 void                 chord_teacher_task(void);
-teacher_chord_mode_e get_teacher_chord_mode(void);
 void                 set_teacher_chord_mode(teacher_chord_mode_e new_mode);
+teacher_chord_mode_e get_teacher_chord_mode(void);
+char                *get_teacher_chord_buffer(void);

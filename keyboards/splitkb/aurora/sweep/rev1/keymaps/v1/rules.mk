@@ -3,6 +3,12 @@ CONVERT_TO=liatris
 # increase build time but reduce size
 LTO_ENABLE = yes
 
+OLED_ENABLE = yes
+OLED_DRIVER = ssd1306
+OLED_FONT_H = keyboards/splitkb/aurora/sweep/rev1/keymaps/v1/oled/font.c
+DEFERRED_EXEC_ENABLE = yes
+WPM_ENABLE = yes
+
 # Self settings
 RGB_MATRIX_ENABLE = yes
 OS_DETECTION_ENABLE = yes
@@ -32,6 +38,12 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	teacher/chord_teacher.c \
 	symbols/symbols.c \
 	symbols/accents.c \
-	shortcuts/shortcuts.c
+	shortcuts/shortcuts.c \
+	oled/oled.c \
+	oled/luna.c \
+	oled/modifiers.c \
+	oled/wpm.c
+
+# oled/clock.c
 
 # correction/virt_sidechannel.c

@@ -33,6 +33,20 @@
 #define COMBO_TERM 60 // default is 50
 #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 
+#ifdef OLED_ENABLE
+#  define SPLIT_OLED_ENABLE
+// Configuration to send data from main to off hand board
+#define SPLIT_TRANSACTION_IDS_USER USER_SYNC_STATE
+
+#define OLED_TIMEOUT 120000
+#define OLED_BRIGHTNESS 120
+
+// #define SPLIT_WPM_ENABLE
+#define WPM_SAMPLE_SECONDS 10
+#define WPM_SAMPLE_PERIODS 50
+#define WPM_LAUNCH_CONTROL
+#endif
+
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_SLEEP
     #define RGB_MATRIX_KEYPRESSES
