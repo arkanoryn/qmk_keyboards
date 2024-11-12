@@ -85,10 +85,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_shortcuts(keycode, record)) { return false; }
   if (!process_symbols(keycode, record)) { return false; }
   if (!process_select_word(keycode, record, SEL_WORD)) { return false; }
+  if (!process_oled_displays(keycode, record)) { return false; }
 
   // OLED
-//   if (!process_clock(keycode, record)) { return false; }
-  process_pet_status(keycode, record);
   // clang-format on
 
   const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
@@ -176,15 +175,14 @@ void keyboard_post_init_user(void) {
 
 void housekeeping_task_user(void) {
   if (is_keyboard_master()) {
-static uint32_t last_sync = 0;
+    static uint32_t last_sync = 0;
 
     if (timer_elapsed32(last_sync) > 500) {
         update_oled_state();
-        oled_state_s state = get_oled_state();
+        const oled_state_s state = get_oled_state();
 
       if (transaction_rpc_send(USER_SYNC_STATE, sizeof(state), &state)) {
         last_sync = timer_read32();
-        //   dprintf("Slave value: %d\n", s2m.s2m_data); // this will now be 11, as the slave adds 5
       } else {
         dprint("Slave sync failed!\n");
       }
@@ -198,6 +196,7 @@ void keyboard_pre_init_user(void) {
   // Turn the LED off
   // (Due to technical reasons, high is off and low is on)
   writePinHigh(24);
+  oled_clear();
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

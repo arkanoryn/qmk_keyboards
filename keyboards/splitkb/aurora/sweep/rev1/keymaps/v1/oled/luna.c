@@ -1,14 +1,15 @@
-#include QMK_KEYBOARD_H
-#include "ark_v1.h"
+#ifdef OLED_ENABLE
+#  include QMK_KEYBOARD_H
+#  include "ark_v1.h"
 /* KEYBOARD PET START */
 
 /* settings */
-#define MIN_WALK_SPEED 10
-#define MIN_RUN_SPEED 40
+#  define MIN_WALK_SPEED 10
+#  define MIN_RUN_SPEED 40
 
 /* advanced settings */
-#define ANIM_FRAME_DURATION 200 // how long each frame lasts in ms
-#define ANIM_SIZE 96            // number of bytes in array. If you change sprites, minimize for adequate firmware size. max is 1024
+#  define ANIM_FRAME_DURATION 200 // how long each frame lasts in ms
+#  define ANIM_SIZE 96            // number of bytes in array. If you change sprites, minimize for adequate firmware size. max is 1024
 
 /* timers */
 uint32_t anim_timer = 0;
@@ -122,7 +123,6 @@ void render_luna(int LUNA_X, int LUNA_Y) {
     }
   }
 
-
   /* animation timer */
   if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
     anim_timer = timer_read32();
@@ -130,10 +130,12 @@ void render_luna(int LUNA_X, int LUNA_Y) {
   }
 };
 
-void process_pet_status(uint16_t keycode, keyrecord_t *record) {
-  /* KEYBOARD PET STATUS START */
-
+bool process_pet_status(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case CTL_L:
+    case CTL_U:
+    case GUI_W:
+    case GUI_F:
     case KC_LCTL:
     case KC_RCTL:
       if (record->event.pressed) {
@@ -143,6 +145,7 @@ void process_pet_status(uint16_t keycode, keyrecord_t *record) {
       }
       break;
     case MEH_SPC:
+    case MAGIC:
     case KC_SPC:
       if (record->event.pressed) {
         isJumping  = true;
@@ -152,7 +155,8 @@ void process_pet_status(uint16_t keycode, keyrecord_t *record) {
       }
       break;
   }
-  /* KEYBOARD PET STATUS END */
+  return true;
 }
 
 /* KEYBOARD PET END */
+#endif // OLED_ENABLE

@@ -23,7 +23,7 @@ typedef struct {
 
 // clang-format off
 static teacher_s teacher_state = {
-    .buffer          = {},
+    .buffer          = {0},
     .length          = 0,
     .skip            = true, // wait til we see the first space
     .last_correction = NULL,

@@ -41,6 +41,7 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	shortcuts/shortcuts.c \
 	oled/oled.c \
 	oled/luna.c \
+	oled/pixel_arts.c \
 	oled/modifiers.c \
 	oled/wpm.c
 
