@@ -77,8 +77,12 @@ enum custom_keycodes {
   C_ENT,
   TOGGLE_CONFIG_LYR,
   CYCLE_CHORD_MODE,
+
+  // CLOCK, currently on hold
+//   CLOCKUP,
+//   CLOCKDN,
+//   CLOCKNX,
 };
 
 // will have to be move to its own source / helper folder /file
 void    send_temporary_string(const char *str);
-

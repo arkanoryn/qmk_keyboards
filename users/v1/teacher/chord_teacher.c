@@ -23,7 +23,7 @@ typedef struct {
 
 // clang-format off
 static teacher_s teacher_state = {
-    .buffer          = {},
+    .buffer          = {0},
     .length          = 0,
     .skip            = true, // wait til we see the first space
     .last_correction = NULL,
@@ -159,6 +159,10 @@ bool process_chord_teacher(uint16_t keycode, keyrecord_t *record) {
   return true;
 };
 
+char *get_teacher_chord_buffer(void) {
+  return teacher_state.buffer;
+};
+
 teacher_chord_mode_e get_teacher_chord_mode(void) {
   return teacher_state.mode;
 };
@@ -166,21 +170,7 @@ teacher_chord_mode_e get_teacher_chord_mode(void) {
 void set_teacher_chord_mode(teacher_chord_mode_e new_mode) {
   teacher_state.mode = new_mode;
 
-  switch (new_mode) {
-    case TEACHER_CHORD_MODE_NORMAL:
-      send_temporary_string("teacher_chord_mode: normal");
-      break;
-    case TEACHER_CHORD_MODE_CORRECTIVE:
-      send_temporary_string("teacher_chord_mode: corrective");
-      break;
-    case TEACHER_CHORD_MODE_OFF:
-      send_temporary_string("teacher_chord_mode: off");
-      break;
-    case _CHORD_MODE_LENGTH:
-      teacher_state.mode = TEACHER_CHORD_MODE_NORMAL;
-      send_temporary_string("teacher_chord_mode: normal");
-      break;
-    default:
-      send_temporary_string("unknown code");
+  if (new_mode == _CHORD_MODE_LENGTH) {
+    teacher_state.mode = TEACHER_CHORD_MODE_NORMAL;
   }
 };

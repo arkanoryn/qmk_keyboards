@@ -1,4 +1,6 @@
 #include QMK_KEYBOARD_H
+#include "oled_driver.h"
+#include "transactions.h"
 
 #define KEYMAP_MAIN_H "ark_v1.h"
 
@@ -12,6 +14,7 @@
 #include "getreuer/layer_lock/layer_lock.h"
 #include "getreuer/select_word/select_word.h"
 #include "getreuer/sentence_case/sentence_case.h"
+#include "oled/oled.h"
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
@@ -65,9 +68,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   	      								KC_ENT,		KC_DOT,			/* | */	KC_MPLY,	LYR_LOCK
   ),
   [CONFIG] = LAYOUT(
-  	CYCLE_CHORD_MODE,	_____,	_____,  _____,  _____,			/* | */			_____,		_____,		_____,		_____,		_____,
-  	_____,				_____,	_____,	_____,	_____,			/* | */			_____,		_____,		_____,		_____,		_____,
-  	QK_BOOT,			_____,	_____,	_____,	_____,			/* | */			_____,		_____,		_____,		_____,		_____,
+  	CYCLE_CHORD_MODE,	_____,	_____,  _____,  _____,		/* | */			_____,		_____,		_____,		_____,		_____,
+  	_____,				_____,	_____,	_____,	_____,		/* | */			_____,		_____,		_____,		_____,		_____,
+  	QK_BOOT,			_____,	_____,	_____,	_____,		/* | */			_____,		_____,		_____,		_____,		_____,
   										_____,		_____,		/* | */		_____,		TG(CONFIG) // we turned ON the config layer, so now we want to turn it back off
   ),
 };
@@ -82,6 +85,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_shortcuts(keycode, record)) { return false; }
   if (!process_symbols(keycode, record)) { return false; }
   if (!process_select_word(keycode, record, SEL_WORD)) { return false; }
+  if (!process_oled_displays(keycode, record)) { return false; }
+
+  // OLED
   // clang-format on
 
   const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
@@ -118,7 +124,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case TOGGLE_CONFIG_LYR:
       if (record->event.pressed) {
-        send_temporary_string("conf lyr"); // temporary solution until I attack the RGB / OLED
         layer_on(CONFIG);
       }
       return false;
@@ -164,6 +169,25 @@ void keyboard_post_init_user(void) {
   init_alt_tab_state();
   init_cycling_combos_state();
   init_teacher_state();
+//   defer_exec(clock_callback(0, NULL), clock_callback, NULL);
+  transaction_register_rpc(USER_SYNC_STATE, user_sync_state_handler);
+};
+
+void housekeeping_task_user(void) {
+  if (is_keyboard_master()) {
+    static uint32_t last_sync = 0;
+
+    if (timer_elapsed32(last_sync) > 500) {
+        update_oled_state();
+        const oled_state_s state = get_oled_state();
+
+      if (transaction_rpc_send(USER_SYNC_STATE, sizeof(state), &state)) {
+        last_sync = timer_read32();
+      } else {
+        dprint("Slave sync failed!\n");
+      }
+    }
+  }
 };
 
 void keyboard_pre_init_user(void) {
@@ -172,6 +196,7 @@ void keyboard_pre_init_user(void) {
   // Turn the LED off
   // (Due to technical reasons, high is off and low is on)
   writePinHigh(24);
+  oled_clear();
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
