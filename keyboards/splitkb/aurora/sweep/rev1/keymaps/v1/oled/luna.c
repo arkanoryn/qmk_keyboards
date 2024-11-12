@@ -1,3 +1,7 @@
+/*
+** This files is snipped from someone else. I found multiple code over
+** the QMK Code base, therefore I do not know the original author.
+*/
 #ifdef OLED_ENABLE
 #  include QMK_KEYBOARD_H
 #  include "ark_v1.h"

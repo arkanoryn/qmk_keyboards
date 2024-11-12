@@ -1,3 +1,10 @@
+/*
+** This code is part of the original setup from Aurora Sweep. Below is what is written
+** at the top of the file:
+**
+**    // NOTE: Most of the OLED code was originally written by Soundmonster for the Corne,
+**    // and has been copied directly from `crkbd/soundmonster/keymap.c`
+*/
 #ifdef OLED_ENABLE
 #  include QMK_KEYBOARD_H
 

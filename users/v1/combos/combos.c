@@ -43,7 +43,7 @@ void combo_event_task(void) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
   // We need this otherwise there's no way to toggle chords back on
-  if (combo_index == GRAPHITE_DEL_WORD) {
+  if (combo_index == GRAPHITE_CONFIG_LAYER) {
     return true;
   }
 
