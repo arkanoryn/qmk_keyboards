@@ -1,0 +1,7 @@
+layout: {qmk_keyboard: splitkb/aurora/sweep/rev1, qmk_layout: LAYOUT_split_3x5_2}
+layers:
+  Mac MEH Shortcuts:
+  - [1Password, {t: Brave, h: ''}, {t: Obsidian}, {t: 'Alfred'}, Zoom, {t: '1/6-2/3', h: 'top-left'}, {t: '1/3', h: 'left'}, {t: '1/3', h: 'center'}, {t: '1/3', h: 'right'}, {t: '1/6-2/3', h: 'top-right'}]
+  - [{t: Harvest}, {t: Things}, {t: Terminal}, {t: Slack}, Chrome, {t: '2/3', h: 'left'}, {t: '1/2', h: 'left'}, {t: 'center', h: 'app'}, {t: '2/3', h: 'center'}, {t: '1/2', h: 'right'}]
+  - [{t: ''}, HazeOver, Mail, VS Code, '', {t: '1/6-1/3', h: 'bottom-left'}, {t: '1/6', h: 'left'}, {t: '2/3', h: 'right'}, {t: '1/6', h: 'right'}, {t: '1/6-1/3', h: 'bottom-right'}]
+  - [{t: '⎵', h: '☩'}, {t: '★'}, {t: 'Reset size'}, {t: 'Full size'}]
