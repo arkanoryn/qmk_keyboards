@@ -47,7 +47,6 @@ replacements = {
     '  X  ': "",
     # layers titles
     "L0:": "Graphite:",
-    "L1:": "ISRT:",
     "L2:": "Actions:",
     "L3:": "Symbols:",
     "L4:": "Symbols | Accents:",
@@ -75,17 +74,6 @@ replacements = {
     "L4 I": f"{{t: I, h: '{LAY_NUMPAD}', type: ghost}}",
     "SFT Q": f"{{t: Q, h: '{SHIFT}'}}",
     "SFT SLSH": f"{{t: '/', h: '{SHIFT}'}}",
-    # layers modifier (ISRT)
-    "L1 T": f"{{t: T, h: '{LAY_ACTIONS}', type: ghost}}",
-    "L1 N": f"{{t: N, h: '{LAY_ACTIONS}', type: ghost}}",
-    "L2 R": f"{{t: R, h: '{LAY_SYMBOLS}', type: ghost}}",
-    "L2 E": f"{{t: E, h: '{LAY_SYMBOLS}', type: ghost}}",
-    "L3 S": f"{{t: S, h: '{LAY_ACCENTS}', type: ghost}}",
-    "L3 A": f"{{t: A, h: '{LAY_ACCENTS}', type: ghost}}",
-    # "L4 I": f"{{t: I, h: '{LAY_NUMPAD}', type: ghost}}", # Same in Graphite & ISRT
-    "L4 O": f"{{t: O, h: '{LAY_NUMPAD}', type: ghost}}",
-    # "SFT Q": f"{{t: Q, h: '{SHIFT}'}}", # Same in Graphite & ISRT
-    "SFT X": f"{{t: X, h: '{SHIFT}'}}",
     # Specials
     "MEH SPC": f"{{t: '{SPACE}', h: '{MEH}'}}",
     "MAGIC": f"{{t: '{MAGIC}'}}",
@@ -132,8 +120,7 @@ replacements = {
     "CW TOGG": f"{{t: '{CAPS_LOCK}', h: 'Word', s: ''}}",
     "CKC(CMD REDO)": f"{{t: 'REDO', h: '', s: ''}}",
     "CKC(CMD UNDO)": f"{{t: 'UNDO', h: '', s: ''}}",
-    "DF(GRPT)": f"{{t: '{LAYER}', h: 'Graphite', s: ''}}",
-    "DF(ISRT)": f"{{t: '{LAYER}', h: 'ISRT', s: ''}}",
+    "DF(_BASE)": f"{{t: '{LAYER}', h: 'Graphite', s: ''}}",
     "LSFT": f"{{t: '{SHIFT}', h: '', s: ''}}",
     # ACCENTS
     "CKC(E CIRC)": f"{{t: 'Ê', h: '', s: ''}}",

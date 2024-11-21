@@ -45,7 +45,7 @@
 
 #pragma once
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -55,8 +55,8 @@ extern "C" {
 // at least as large as the longest pattern checked. If less than 2, buffering
 // is disabled and the callback is not called.
 #ifndef SENTENCE_CASE_BUFFER_SIZE
-#define SENTENCE_CASE_BUFFER_SIZE 8
-#endif  // SENTENCE_CASE_BUFFER_SIZE
+#  define SENTENCE_CASE_BUFFER_SIZE 8
+#endif // SENTENCE_CASE_BUFFER_SIZE
 
 /**
  * Handler function for Sentence Case.
@@ -79,11 +79,11 @@ void sentence_case_task(void);
 static inline void sentence_case_task(void) {}
 #endif
 
-void sentence_case_on(void); /**< Enables Sentence Case. */
-void sentence_case_off(void); /**< Disables Sentence Case. */
+void sentence_case_on(void);     /**< Enables Sentence Case. */
+void sentence_case_off(void);    /**< Disables Sentence Case. */
 void sentence_case_toggle(void); /**< Toggles Sentence Case. */
-bool is_sentence_case_on(void); /**< Gets whether currently enabled. */
-void sentence_case_clear(void); /**< Clears Sentence Case to initial state. */
+bool is_sentence_case_on(void);  /**< Gets whether currently enabled. */
+void sentence_case_clear(void);  /**< Clears Sentence Case to initial state. */
 
 /**
  * Optional callback to indicate primed state.
@@ -135,14 +135,12 @@ bool sentence_case_check_ending(const uint16_t* buffer);
  *
  * @note The pattern must be no longer than `SENTENCE_CASE_BUFFER_SIZE`.
  */
-#define SENTENCE_CASE_JUST_TYPED(...)                               \
-  ({                                                                \
-    static const uint16_t PROGMEM pattern[] = {__VA_ARGS__};        \
-    sentence_case_just_typed_P(buffer, pattern,                     \
-                               sizeof(pattern) / sizeof(uint16_t)); \
+#define SENTENCE_CASE_JUST_TYPED(...)                                                \
+  ({                                                                                 \
+    static const uint16_t PROGMEM pattern[] = {__VA_ARGS__};                         \
+    sentence_case_just_typed_P(buffer, pattern, sizeof(pattern) / sizeof(uint16_t)); \
   })
-bool sentence_case_just_typed_P(const uint16_t* buffer, const uint16_t* pattern,
-                                int8_t pattern_len);
+bool sentence_case_just_typed_P(const uint16_t* buffer, const uint16_t* pattern, int8_t pattern_len);
 
 /**
  * Optional callback defining which keys are letter, punctuation, etc.
@@ -218,8 +216,7 @@ bool sentence_case_just_typed_P(const uint16_t* buffer, const uint16_t* pattern,
  * @return char code 'a', '.', '#', ' ', or '\0' indicating how the key is to be
  *         interpreted as described above.
  */
-char sentence_case_press_user(uint16_t keycode, keyrecord_t* record,
-                              uint8_t mods);
+char sentence_case_press_user(uint16_t keycode, keyrecord_t* record, uint8_t mods);
 
 #ifdef __cplusplus
 }

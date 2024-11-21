@@ -83,8 +83,8 @@ bool send_shortcut(shortcuts_id_e id, keyrecord_t *record) {
 
 bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case CKC(0)... CKC(_LAST_SHORTCUT_ID) - 1:
-      return send_shortcut(keycode - CKC(0), record);
+    case CKC(_FIRST_SHORTCUT_ID)... CKC(_LAST_SHORTCUT_ID) - 1:
+      return send_shortcut(keycode - CKC(_FIRST_SHORTCUT_ID), record);
   }
 
   // alt tab is a special shortcuts and we want to unregister the ALT / CMD

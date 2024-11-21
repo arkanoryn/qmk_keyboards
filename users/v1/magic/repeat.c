@@ -1,48 +1,6 @@
-
 #include "ark_v1.h"
 #include "../combos/combos.h"
 #include "repeat.h"
-
-void process_repeat_event_isrt(uint16_t keycode, uint8_t mods) {
-  switch (keycode) {
-      // clang-format off
-    case ISRT_A: SEND_STRING("u"); break;
-    case ISRT_B: SEND_STRING("r"); break;
-    case ISRT_C: SEND_STRING("c"); break;
-    case ISRT_D: SEND_STRING("evelop"); break;
-    case ISRT_E: SEND_STRING("u"); break;
-    case ISRT_F: SEND_STRING("f"); break;
-    case ISRT_G: SEND_STRING("g"); break;
-    case ISRT_H: SEND_STRING("owever"); break;
-    case ISRT_I: SEND_STRING("on"); break;
-    case ISRT_J: SEND_STRING("j"); break;
-    case ISRT_K: SEND_STRING("k"); break;
-    case ISRT_L: SEND_STRING("l"); break;
-    case ISRT_M: SEND_STRING("ent"); break;
-    case ISRT_N: SEND_STRING("n"); break;
-    case ISRT_O: SEND_STRING("u"); break;
-    case ISRT_P: SEND_STRING("h"); break;
-    case ISRT_Q: SEND_STRING("q"); break;
-    case ISRT_R: SEND_STRING("r"); break;
-    case ISRT_S: SEND_STRING("s"); break;
-    case ISRT_T: SEND_STRING("ment"); break;
-    case ISRT_U: SEND_STRING("u"); break;
-    case ISRT_V: SEND_STRING("v"); break;
-    case ISRT_W: SEND_STRING("hat"); break;
-    case ISRT_X: SEND_STRING("x"); break;
-    case ISRT_Y: SEND_STRING("y"); break;
-    case ISRT_Z: SEND_STRING("z"); break;
-    // clang-format on
-    case ISRT_COMM:
-      if (mods & MOD_MASK_SHIFT) {
-        SEND_STRING("\b=");
-      } else {
-        SEND_STRING(", but");
-        return;
-      }
-      break;
-  }
-}
 
 void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
   switch (keycode) {
@@ -74,16 +32,16 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
     case GRAPHITE_Y: SEND_STRING("y"); break;
     case GRAPHITE_Z: SEND_STRING("z"); break;
     case GRAPHITE_DOT: SEND_STRING("com"); break;
-    // clang-format on
-    case GRAPHITE_ENT:
-    case GRAPHITE_SPC:
-      add_oneshot_mods(MOD_LSFT);
+      // clang-format on
+      // case GRAPHITE_ENT:
+      // case GRAPHITE_SPC:
+      //   add_oneshot_mods(MOD_LSFT);
       break;
     case GRAPHITE_COMM:
       if (mods & MOD_MASK_SHIFT) {
         SEND_STRING("\b=");
       } else {
-        SEND_STRING(", but");
+        SEND_STRING(" but");
         return;
       }
       break;
@@ -91,9 +49,7 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
 }
 
 void process_repeat_event(uint16_t keycode, uint8_t mods) {
-  if (layer_state_is(ISRT)) {
-    process_repeat_event_isrt(keycode, mods);
-  } else if (layer_state_is(GRPT)) {
+  if (layer_state_is(_BASE)) {
     process_repeat_event_graphite(keycode, mods);
   }
 }

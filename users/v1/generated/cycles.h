@@ -14,7 +14,8 @@
 #pragma once
 
 typedef enum {
-  LEARN = 0,
+  EAT = 0,
+  LEARN,
   DEVELOPER,
   HI,
   YEAH,

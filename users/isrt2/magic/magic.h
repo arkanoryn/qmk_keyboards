@@ -9,7 +9,7 @@
 // # Configuration options
 // * TODO
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "keymap.h"
 
 /*

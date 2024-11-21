@@ -1,4 +1,4 @@
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include QMK_KEYBOARD_H
 #include "os_detection.h"
 #include "ark_v1.h" // TODO: should be KEYMAP_MAIN_H

@@ -29,6 +29,10 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	getreuer/select_word/select_word.c \
 	getreuer/sentence_case/sentence_case.c \
 	getreuer/sentence_case/override.c \
+	config/config.c \
+	helpers/helpers.c \
+	helpers/graphite.c \
+	helpers/temporary_message.c \
 	generated/cycles.c \
 	generated/correct_chords.c \
 	combos/combos.c \

@@ -1,6 +1,7 @@
 prefix,GRAPHITE
 # Top 1000 most used words (WIP)
 ARE,"are",NO CIRCLE,NOT ACTION,R,A,E
+EAT,"eat",CIRCLE,NOT ACTION,T,A,E
 LEARN,"learn",CIRCLE,NOT ACTION,N,L,A,E
 DEVELOPER,"developer",CIRCLE,NOT ACTION,R,D,V,E
 

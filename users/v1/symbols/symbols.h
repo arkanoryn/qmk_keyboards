@@ -20,8 +20,9 @@
  */
 #pragma once
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 
+// clang-format off
 typedef enum {
   E_CIRC = _FIRST_SYMBOL_ID,
   E_AIGU,
@@ -52,6 +53,7 @@ typedef enum {
 #define AIGU                    (detected_host_os() == OS_MACOS ? MAC_AIGU : WIN_AIGU)
 #define GRAVE                   (detected_host_os() == OS_MACOS ? MAC_GRAVE : WIN_GRAVE)
 #define TREMA                   (detected_host_os() == OS_MACOS ? MAC_TREMA : WIN_TREMA)
+// clang-format on
 
 bool process_accents(symbols_id_e id);
 bool process_symbols(uint16_t keycode, keyrecord_t *record);

@@ -13,11 +13,12 @@
 
 #pragma once
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "combos.h"
 
 enum combos {
   GRAPHITE_ARE = 0,
+  GRAPHITE_EAT,
   GRAPHITE_LEARN,
   GRAPHITE_DEVELOPER,
   GRAPHITE_ING,
@@ -44,10 +45,9 @@ enum combos {
   GRAPHITE_TAB_C,
   GRAPHITE_EXLM,
   GRAPHITE_QUES,
-  GRAPHITE_SFT_ENT_C,
-  GRAPHITE_C_ENT_C,
+  GRAPHITE_SFT_ENT,
+  GRAPHITE_C_ENT,
   GRAPHITE_A__,
-  GRAPHITE_A_,
   GRAPHITE_ABOUT,
   GRAPHITE_AFTER,
   GRAPHITE_AGAIN,

@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "ark_v1.h"
+#include "helpers/helpers.h"
 #include "combos.h"
 #include "magic/magic.h"
 #include "magic/cycling_combos.h"
@@ -9,28 +10,73 @@
 #  define COMBO_TIMEOUT 9000 // miliseconds
 #endif                       // COMBO_TIMEOUT
 
-static uint16_t idle_timer = 0;
+static uint16_t idle_timer     = 0;
+const char     *root_combo_str = NULL;
 
 void set_combo_event_timer(void) {
   idle_timer = timer_read() + SELECT_WORD_TIMEOUT;
 }
 
+void process_del_word(void) {
+  disable_shift();
+
+  if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_CORRECTIVE) {
+    reset_teacher_state(true);
+  }
+
+  if (get_cycling_combo_state()->is_combo_active) {
+    if (get_cycling_combo_state()->is_cyclable) {
+      backspace_current_output();
+    } else {
+      const size_t str_len = strlen(root_combo_str);
+
+      for (int i = 0; i < str_len; ++i) {
+        tap_code16(KC_BSPC);
+      }
+    }
+  } else {
+    send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACKSPACE : WIN_WORD_BACKSPACE);
+  }
+  return;
+}
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   if (pressed) {
-    const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
+    const uint8_t mods    = all_mods();
+    const bool    shifted = is_shifted();
 
-    set_combo_event_timer();
-    reset_teacher_state(true);
-    process_magic_combo_event(combo_index);
+    switch (combo_index) {
+      // TODO: should have a custom key-code and be managed as a custom action or shortcut
+      case GRAPHITE_DEL_WORD:
+        process_del_word();
+        break;
+      case GRAPHITE_SFT_ENT:
+        add_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_ENT);
+        set_mods(mods);
+        break;
+      case GRAPHITE_C_ENT:
+        (detected_host_os() == OS_MACOS ? add_mods(MOD_MASK_GUI) : add_mods(MOD_MASK_CTRL));
+        tap_code16(KC_ENT);
+        set_mods(mods);
+        break;
+      case GRAPHITE_CONFIG_LAYER:
+        layer_on(_CONFIG);
+        break;
+      default:
+        root_combo_str = get_combos_cmds(combo_index);
+        set_combo_event_timer();
+        reset_teacher_state(true);
+        process_magic_combo_event(combo_index);
 
-    if (mods & MOD_MASK_SHIFT) {
-        del_mods(MOD_MASK_SHIFT);
-        set_oneshot_mods(MOD_BIT(KC_LSFT)); // Shift mod to capitalize.
-    }
-    send_string(get_combos_cmds(combo_index));
-    if (mods & MOD_MASK_SHIFT) {
-      set_mods(mods);
+        if (shifted) {
+          del_mods(MOD_MASK_SHIFT);
+          set_oneshot_mods(MOD_BIT(KC_LSFT)); // Shift mod to capitalize.
+        }
+        send_string(root_combo_str);
+        if (shifted) {
+          set_mods(mods);
+        }
     }
   }
 };
@@ -43,6 +89,7 @@ void combo_event_task(void) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
   // We need this otherwise there's no way to toggle chords back on
+  // As we would no longer be able to access the Config Layer (access is via a combo)
   if (combo_index == GRAPHITE_CONFIG_LAYER) {
     return true;
   }

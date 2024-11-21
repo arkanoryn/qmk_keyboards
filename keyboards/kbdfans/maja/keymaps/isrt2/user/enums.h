@@ -4,13 +4,13 @@
 
 enum layers {
   ISRT,
-  QWER, // QWERTY
-  GAME, // GAMING QWERTY, NO MODIFIER
-  GRPT, // GRAPHITE
-  ACT,  // ACTIONS
-  SMBL, // SYMBOLS
-  ACCT, // ACCENTS
-  NPD,  // NUMPAD & MULTIMEDIA
+  QWER,  // QWERTY
+  GAME,  // GAMING QWERTY, NO MODIFIER
+  _BASE, // GRAPHITE
+  ACT,   // ACTIONS
+  SMBL,  // SYMBOLS
+  ACCT,  // ACCENTS
+  NPD,   // NUMPAD & MULTIMEDIA
 };
 
 typedef enum {
@@ -46,24 +46,10 @@ typedef enum {
   LAST_ACTION
 } e_actions_id;
 
-typedef enum {
-  FIRST_ACCENT = LAST_ACTION,
-  E_CIRC,
-  E_AIGU,
-  C_CEDILLE,
-  U_GRAVE,
-  E_GRAVE,
-  U_CIRC,
-  I_CIRC,
-  A_GRAVE,
-  A_CIRC,
-  I_TREMA,
-  O_CIRC,
-  LAST_ACCENT
-} e_accents_id;
+typedef enum { FIRST_ACCENT = LAST_ACTION, E_CIRC, E_AIGU, C_CEDILLE, U_GRAVE, E_GRAVE, U_CIRC, I_CIRC, A_GRAVE, A_CIRC, I_TREMA, O_CIRC, LAST_ACCENT } e_accents_id;
 
 enum custom_keycodes {
   CKC_EURO = SAFE_RANGE + LAST_ACTION + LAST_ACCENT,
-  LYR_LOCK,
+  LAYER_LOCK,
   MAGIC,
 };

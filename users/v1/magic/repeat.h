@@ -17,7 +17,7 @@
 **      }
 */
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "ark_v1.h"
 
 void process_repeat_event(uint16_t keycode, uint8_t mods);
