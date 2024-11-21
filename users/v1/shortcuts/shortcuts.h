@@ -17,27 +17,28 @@
  */
 #pragma once
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "ark_v1.h" // TODO: should be KEYMAP_MAIN_H
 
 #ifndef ALT_TAB_TIMER
 #  define ALT_TAB_TIMER 5000 // miliseconds
-#endif // ALT_TAB_TIMER
+#endif                       // ALT_TAB_TIMER
 
 /*
-* The struct used by the script to determine in which OS we are running
-* and run the script accordingly.
-*/
+ * The struct used by the script to determine in which OS we are running
+ * and run the script accordingly.
+ */
 typedef struct {
   const char *on_macOS;
   const char *on_winOS;
 } action_s;
 
 typedef struct {
-  bool active;
+  bool     active;
   uint16_t timer;
 } alt_tab_s;
 
+// clang-format off
 typedef enum {
   APP_CLOSE = _FIRST_SHORTCUT_ID,
   APP_NEXT,
@@ -69,6 +70,7 @@ typedef enum {
   TASK_MNGR,
   _LAST_SHORTCUT_ID
 } shortcuts_id_e;
+// clang-format on
 
 /**
  * Handler function for Shortcuts that work in both macOS and winOS.

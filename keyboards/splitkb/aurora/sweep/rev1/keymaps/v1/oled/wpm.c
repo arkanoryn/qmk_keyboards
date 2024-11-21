@@ -1,5 +1,5 @@
 #ifdef OLED_ENABLE
-#  include "quantum.h"
+#  include QMK_KEYBOARD_H
 #  include "ark_v1.h"
 
 bool wpm_keycode_user(uint16_t keycode) {

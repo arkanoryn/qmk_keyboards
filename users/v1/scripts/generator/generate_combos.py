@@ -7,7 +7,7 @@ def write_combos_header(enums):
 
     content = common.lines(
         common.HEADER_HFILE,
-        "#include \"quantum.h\"",
+        "#include QMK_KEYBOARD_H",
         "#include \"combos.h\"",
         "",
         "enum combos {",

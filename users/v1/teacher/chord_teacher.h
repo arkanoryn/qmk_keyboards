@@ -13,7 +13,7 @@ typedef enum {
 } teacher_chord_mode_e;
 
 #ifndef TOPLAYER
-#  define TOPLAYER CONFIG
+#  define TOPLAYER _CONFIG
 #endif // TOPLAYER
 
 #ifndef DEFAULT_TEACHER_CHORD_MODE

@@ -17,9 +17,10 @@
 **      }
 */
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "ark_v1.h"
 #include "generated/cycles.h"
+#include "cycling_combos.h"
 
 void process_magic_combo_event(uint16_t combo_index);
 

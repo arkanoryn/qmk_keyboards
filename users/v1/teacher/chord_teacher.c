@@ -3,11 +3,12 @@
 ** implementation and modified to my need (eventually)
 */
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 #include "ark_v1.h"
 #include "chord_teacher.h"
 #include "generated/correct_chords.h"
 #include "combos/combos.h"
+#include "helpers/helpers.h"
 
 #define TEACHER_CORRECTION_BUFFER_LENGTH 20
 #define CORRECTION_TIMEOUT 15000

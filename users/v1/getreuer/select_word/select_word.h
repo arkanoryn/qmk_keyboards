@@ -36,15 +36,14 @@
 
 #pragma once
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /** Handler function for select word. */
-bool process_select_word(uint16_t keycode, keyrecord_t* record,
-                         uint16_t sel_keycode);
+bool process_select_word(uint16_t keycode, keyrecord_t* record, uint16_t sel_keycode);
 
 /**
  * @fn select_word_task(void)
@@ -58,7 +57,7 @@ bool process_select_word(uint16_t keycode, keyrecord_t* record,
 void select_word_task(void);
 #else
 static inline void select_word_task(void) {}
-#endif  // SELECT_WORD_TIMEOUT > 0
+#endif // SELECT_WORD_TIMEOUT > 0
 
 #ifdef __cplusplus
 }

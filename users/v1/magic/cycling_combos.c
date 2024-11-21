@@ -50,6 +50,7 @@ static const char *cycle_combo_output[][LONGEST_CYCLE] = {
     [DO]        = {"do", "does", "did", "doing"},
     [EARLY]     = {"early", "earlier", "earliest"},
     [EARLY]     = {"early", "earlier", "earliest"},
+    [EAT]       = {"eat", "eats", "ate", "eating"},
     [END]       = {"end", "ends", "ended", "ending"},
     [EYE]       = {"eye", "eyes", "eyed", "eyeing"},
     [FACE]      = {"face", "faces", "faced", "facing"},
@@ -170,8 +171,8 @@ static const char *cycle_combo_output[][LONGEST_CYCLE] = {
     // common words
     [WTF]       = {"fuck", "What the fuck", "wtf"},
     [HI]        = {"Hi!", "Hey!"},
-    [I_VE]    = {"I've'", "you've"},
-    [I_M]      = {"I'm", "you're"},
+    [I_VE]      = {"I've'", "you've"},
+    [I_M]       = {"I'm", "you're"},
     [YEAH]      = {"Yeah!", "Yep!"},
     [THANK_YOU] = {"thank you!", "thanks!", "Thank you very much!"},
 

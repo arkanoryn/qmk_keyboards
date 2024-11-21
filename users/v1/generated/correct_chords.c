@@ -15,21 +15,22 @@
 
 char *check_chord(char *buffer) {
   if (strcmp("are ", buffer) == 0) { return "R+A+E"; }
+  if (strcmp("eat ", buffer) == 0) { return "T+A+E"; }
   if (strcmp("learn ", buffer) == 0) { return "N+L+A+E"; }
   if (strcmp("developer ", buffer) == 0) { return "R+D+V+E"; }
-  if (strcmp("ing ", buffer) == 0) { return "I+N+G"; }
-  if (strcmp("\bn't ", buffer) == 0) { return "N+'+T"; }
-  if (strcmp("\b've ", buffer) == 0) { return "'+V+E"; }
-  if (strcmp("\b're ", buffer) == 0) { return "'+R+E"; }
-  if (strcmp("\b's ", buffer) == 0) { return "'+S+MAGIC"; }
-  if (strcmp("\b'd ", buffer) == 0) { return "'+D+MAGIC"; }
-  if (strcmp("\b'll ", buffer) == 0) { return "'+L+MAGIC"; }
+  if (strcmp("ing ", buffer) == 0) { return "N+G+I"; }
+  if (strcmp("\bn't ", buffer) == 0) { return "N+T+'"; }
+  if (strcmp("\b've ", buffer) == 0) { return "V+'+E"; }
+  if (strcmp("\b're ", buffer) == 0) { return "R+'+E"; }
+  if (strcmp("\b's ", buffer) == 0) { return "S+MAGIC+'"; }
+  if (strcmp("\b'd ", buffer) == 0) { return "D+MAGIC+'"; }
+  if (strcmp("\b'll ", buffer) == 0) { return "L+MAGIC+'"; }
   if (strcmp("Hi! ", buffer) == 0) { return "MAGIC+H+I"; }
   if (strcmp("yeah ", buffer) == 0) { return "Y+A+E"; }
   if (strcmp("thank you ", buffer) == 0) { return "T+Y+O+U"; }
   if (strcmp("fuck ", buffer) == 0) { return "T+W+F"; }
   if (strcmp("I've ", buffer) == 0) { return "V+E+I"; }
-  if (strcmp("I'm ", buffer) == 0) { return "V+E+I"; }
+  if (strcmp("I'm ", buffer) == 0) { return "M+I"; }
   if (strcmp("I'll ", buffer) == 0) { return "L+MAGIC+I"; }
   if (strcmp("god ", buffer) == 0) { return "O+G+D"; }
   if (strcmp("project ", buffer) == 0) { return "T+O+E+J"; }
@@ -37,7 +38,6 @@ char *check_chord(char *buffer) {
   if (strcmp("lost ", buffer) == 0) { return "L+T+S+O"; }
   if (strcmp("loose ", buffer) == 0) { return "L+S+O+E"; }
   if (strcmp("A ", buffer) == 0) { return "BSPC+A"; }
-  if (strcmp("a ", buffer) == 0) { return "MAGIC+A"; }
   if (strcmp("about ", buffer) == 0) { return "T+MAGIC+A"; }
   if (strcmp("after ", buffer) == 0) { return "R+T+F"; }
   if (strcmp("again ", buffer) == 0) { return "G+A+I"; }
@@ -109,7 +109,7 @@ char *check_chord(char *buffer) {
   if (strcmp("hold ", buffer) == 0) { return "L+D+H+O"; }
   if (strcmp("home ", buffer) == 0) { return "H+O+E"; }
   if (strcmp("house ", buffer) == 0) { return "S+O+E"; }
-  if (strcmp("how ", buffer) == 0) { return "W+MAGIC+O"; }
+  if (strcmp("how ", buffer) == 0) { return "H+O"; }
   if (strcmp("however ", buffer) == 0) { return "W+MAGIC+H+O"; }
   if (strcmp("I ", buffer) == 0) { return "I+MAGIC"; }
   if (strcmp("if ", buffer) == 0) { return "F+I"; }
@@ -148,17 +148,17 @@ char *check_chord(char *buffer) {
   if (strcmp("never ", buffer) == 0) { return "N+R+V"; }
   if (strcmp("new ", buffer) == 0) { return "N+W+E"; }
   if (strcmp("no ", buffer) == 0) { return "N+MAGIC"; }
-  if (strcmp("not ", buffer) == 0) { return "N+T+O"; }
-  if (strcmp("now ", buffer) == 0) { return "N+W+O"; }
+  if (strcmp("not ", buffer) == 0) { return "N+T"; }
+  if (strcmp("now ", buffer) == 0) { return "N+W"; }
   if (strcmp("number ", buffer) == 0) { return "N+R+M"; }
   if (strcmp("of ", buffer) == 0) { return "F+O"; }
   if (strcmp("off ", buffer) == 0) { return "MAGIC+F+O"; }
   if (strcmp("old ", buffer) == 0) { return "L+D+O"; }
   if (strcmp("on ", buffer) == 0) { return "N+O"; }
   if (strcmp("one ", buffer) == 0) { return "N+O+E"; }
-  if (strcmp("only ", buffer) == 0) { return "L+O+Y"; }
+  if (strcmp("only ", buffer) == 0) { return "L+Y+O"; }
   if (strcmp("open ", buffer) == 0) { return "P+O+E"; }
-  if (strcmp("or ", buffer) == 0) { return "R+MAGIC+O"; }
+  if (strcmp("or ", buffer) == 0) { return "R+O"; }
   if (strcmp("order ", buffer) == 0) { return "R+D+O"; }
   if (strcmp("other ", buffer) == 0) { return "O+T+R"; }
   if (strcmp("out ", buffer) == 0) { return "T+O+U"; }
@@ -194,7 +194,7 @@ char *check_chord(char *buffer) {
   if (strcmp("some ", buffer) == 0) { return "M+S+O+E"; }
   if (strcmp("stand ", buffer) == 0) { return "N+T+S+A"; }
   if (strcmp("state ", buffer) == 0) { return "S+T+A+E"; }
-  if (strcmp("still ", buffer) == 0) { return "L+T+S"; }
+  if (strcmp("still ", buffer) == 0) { return "L+T+S+I"; }
   if (strcmp("such ", buffer) == 0) { return "S+H+U"; }
   if (strcmp("system ", buffer) == 0) { return "T+S+Y"; }
   if (strcmp("take ", buffer) == 0) { return "T+K+E"; }
@@ -218,21 +218,21 @@ char *check_chord(char *buffer) {
   if (strcmp("turn ", buffer) == 0) { return "N+R+T+U"; }
   if (strcmp("under ", buffer) == 0) { return "R+D+U"; }
   if (strcmp("up ", buffer) == 0) { return "P+U"; }
-  if (strcmp("use ", buffer) == 0) { return "S+MAGIC+U"; }
+  if (strcmp("use ", buffer) == 0) { return "S+U"; }
   if (strcmp("very ", buffer) == 0) { return "R+V+Y"; }
   if (strcmp("want ", buffer) == 0) { return "N+T+W"; }
   if (strcmp("way ", buffer) == 0) { return "W+Y+A"; }
   if (strcmp("we ", buffer) == 0) { return "W+E"; }
   if (strcmp("well ", buffer) == 0) { return "L+W+E"; }
   if (strcmp("what ", buffer) == 0) { return "W+H+A"; }
-  if (strcmp("when ", buffer) == 0) { return "N+W+H"; }
-  if (strcmp("where ", buffer) == 0) { return "R+W+H"; }
+  if (strcmp("when ", buffer) == 0) { return "N+W"; }
+  if (strcmp("where ", buffer) == 0) { return "R+W"; }
   if (strcmp("which ", buffer) == 0) { return "W+MAGIC+H+I"; }
-  if (strcmp("while ", buffer) == 0) { return "L+W+E+I"; }
-  if (strcmp("who ", buffer) == 0) { return "W+H+O"; }
-  if (strcmp("why ", buffer) == 0) { return "W+MAGIC+Y"; }
-  if (strcmp("will ", buffer) == 0) { return "L+W+I"; }
-  if (strcmp("with ", buffer) == 0) { return "T+W+H"; }
+  if (strcmp("while ", buffer) == 0) { return "L+W+I"; }
+  if (strcmp("who ", buffer) == 0) { return "W+O"; }
+  if (strcmp("why ", buffer) == 0) { return "W+Y"; }
+  if (strcmp("will ", buffer) == 0) { return "L+W"; }
+  if (strcmp("with ", buffer) == 0) { return "T+W"; }
   if (strcmp("without ", buffer) == 0) { return "T+W+H+O+U"; }
   if (strcmp("word ", buffer) == 0) { return "R+D+W"; }
   if (strcmp("work ", buffer) == 0) { return "R+W+K"; }

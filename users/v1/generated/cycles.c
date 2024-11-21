@@ -16,6 +16,7 @@
 
 cycling_combos_e match_combo_index_with_cycling_combo(uint16_t combo_index) {
   switch(combo_index) {
+    case GRAPHITE_EAT: return EAT;
     case GRAPHITE_LEARN: return LEARN;
     case GRAPHITE_DEVELOPER: return DEVELOPER;
     case GRAPHITE_HI: return HI;
