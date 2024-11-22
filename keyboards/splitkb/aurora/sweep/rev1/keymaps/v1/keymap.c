@@ -125,3 +125,23 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_TERM;
   }
 }
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case L1_S:
+    case L1_H:
+      // Immediately select the hold action when another key is tapped.
+      return false;
+    default:
+      // Do not select the hold action when another key is tapped.
+      return false;
+  }
+  return false;
+};
+
+// #include "tap_dance/tap_dance.h"
+// tap_dance_action_t tap_dance_actions[] = {
+//     // clang-format off
+//   [TD_NEW_WINDOW] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, x_finished, x_reset)
+//     // clang-format on
+// };

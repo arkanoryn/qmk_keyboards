@@ -43,6 +43,7 @@ typedef enum {
   APP_CLOSE = _FIRST_SHORTCUT_ID,
   APP_NEXT,
   APP_NEW_WINDOW,
+  APP_NEW_WINDOW_INCOGNITO,
   APP_PREV,
   CMD_COPY,
   CMD_CUT,
@@ -68,6 +69,12 @@ typedef enum {
   WORD_SELECTL,
   WORD_SELECTR,
   TASK_MNGR,
+  ALFRED,
+  // new
+  SELECT_BACKWARD,
+  SELECT_FORWARD,
+  JUMP_FORWARD,
+  JUMP_BACKWARD,
   _LAST_SHORTCUT_ID
 } shortcuts_id_e;
 // clang-format on
