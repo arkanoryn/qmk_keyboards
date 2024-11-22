@@ -3,14 +3,13 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  ISRT,
-  QWER,  // QWERTY
-  GAME,  // GAMING QWERTY, NO MODIFIER
-  _BASE, // GRAPHITE
-  ACT,   // ACTIONS
-  SMBL,  // SYMBOLS
-  ACCT,  // ACCENTS
-  NPD,   // NUMPAD & MULTIMEDIA
+  QWER,     // QWERTY
+  GAME,     // GAMING QWERTY, NO MODIFIER
+  GRAPHITE, // GRAPHITE
+  ACT,      // ACTIONS
+  SMBL,     // SYMBOLS
+  ACCT,     // ACCENTS
+  NPD,      // NUMPAD & MULTIMEDIA
 };
 
 typedef enum {

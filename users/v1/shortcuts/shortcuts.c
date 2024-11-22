@@ -45,7 +45,7 @@ alt_tab_s alt_tab_state = {0};
 void init_alt_tab_state(void) {
   alt_tab_state.active = false;
   alt_tab_state.timer  = 0;
-}
+};
 
 void alt_tab_task(void) {
   if (alt_tab_state.active) {
@@ -54,7 +54,7 @@ void alt_tab_task(void) {
       alt_tab_state.active = false;
     }
   }
-}
+};
 
 void manage_tabbing(shortcuts_id_e id, keyrecord_t *record) {
   if (record->event.pressed) {

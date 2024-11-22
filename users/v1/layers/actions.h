@@ -8,7 +8,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "ark_v1.h" // root_config
+// #include "ark_v1.h" // root_config
 #include "layers.h" // each keyboard should have this file with the available layers enum
 #include "shortcuts/shortcuts.h"
 

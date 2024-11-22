@@ -1,3 +1,10 @@
+
+```shell
+Sweep❯ qmk compile -kb splitkb/aurora/sweep/rev1 -km v1
+Maja_isrt❯ qmk compile -kb kbdfans/maja -km isrt2
+Maja_v1❯ qmk compile -kb kbdfans/maja -km v1
+```
+
 # QMK Userspace
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
