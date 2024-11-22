@@ -3,9 +3,14 @@
 #define _FIRST_SHORTCUT_ID 0
 #include "shortcuts/shortcuts.h"
 
+#define _FIRST_SYMBOL_ID _LAST_SHORTCUT_ID
+#include "symbols/symbols.h"
+
 #ifndef CKC
 #  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
 #endif                            // CKC
+
+#include "layers.h"
 
 #ifndef NEW_SAFE_RANGE
 #  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_SHORTCUT_ID // + _LAST_SYMBOL_ID

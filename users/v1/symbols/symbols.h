@@ -53,6 +53,8 @@ typedef enum {
 #define AIGU                    (detected_host_os() == OS_MACOS ? MAC_AIGU : WIN_AIGU)
 #define GRAVE                   (detected_host_os() == OS_MACOS ? MAC_GRAVE : WIN_GRAVE)
 #define TREMA                   (detected_host_os() == OS_MACOS ? MAC_TREMA : WIN_TREMA)
+#define WIN_EUR                 SS_LCTL(SS_LALT("5"))
+#define MAC_EUR                 SS_LALT(SS_LSFT("2"))
 // clang-format on
 
 bool process_accents(symbols_id_e id);

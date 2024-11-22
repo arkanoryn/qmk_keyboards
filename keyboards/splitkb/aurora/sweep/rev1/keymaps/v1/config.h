@@ -33,6 +33,11 @@
 #define COMBO_TERM 60        // default is 50
 #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 
+// CAPS WORD config
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
+#define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
+
 #ifdef OLED_ENABLE
 #  define SPLIT_OLED_ENABLE
 // Configuration to send data from main to off hand board

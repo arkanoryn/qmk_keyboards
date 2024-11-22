@@ -1,3 +1,5 @@
+#pragma once
+
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
@@ -8,10 +10,15 @@
 #define OS_DETECTION_KEYBOARD_RESET
 #define OS_DETECTION_DEBOUNCE 200
 
-// Leader configuration
-// #define LEADER_TIMEOUT 250
-// #define LEADER_PER_KEY_TIMING
-// #define LEADER_KEY_STRICT_KEY_PROCESSING
+#define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+
+#define SELECT_WORD_TIMEOUT 2000
+#define SENTENCE_CASE_TIMEOUT 2000
+
+#define COMBO_TERM 60        // default is 50
+#define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 
 // CAPS WORD config
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
