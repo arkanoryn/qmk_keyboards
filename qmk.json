@@ -3,10 +3,6 @@
     "build_targets": [
         [
             "kbdfans/maja",
-            "isrt2"
-        ],
-        [
-            "kbdfans/maja",
             "arkanoryn"
         ],
         [

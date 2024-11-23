@@ -1,10 +1,19 @@
+//  '##::::'##::::'###::::::::::'##::::'###::::
+//   ###::'###:::'## ##::::::::: ##:::'## ##:::
+//   ####'####::'##:. ##:::::::: ##::'##:. ##::
+//   ## ### ##:'##:::. ##::::::: ##:'##:::. ##:
+//   ##. #: ##: #########:'##::: ##: #########:
+//   ##:.:: ##: ##.... ##: ##::: ##: ##.... ##:
+//   ##:::: ##: ##:::: ##:. ######:: ##:::: ##:
+//  ..:::::..::..:::::..:::......:::..:::::..::
+//  maja/v1/config.h
 #pragma once
 
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
 // Layer Lock config
-#define LAYER_LOCK_IDLE_TIMEOUT 300000 // Turn off after 60 seconds.
+#define LAYER_LOCK_IDLE_TIMEOUT 300000 // in ms
 
 // OS configurations
 #define OS_DETECTION_KEYBOARD_RESET
