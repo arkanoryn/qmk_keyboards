@@ -182,7 +182,6 @@ static const char *cycle_combo_output[][LONGEST_CYCLE] = {
     [LOST]          = {"lost", "loses"},
     [PRODUCT_COMBO] = {"product", "products"},
     [PROJECT]       = {"project", "projects", "projected", "will project"},
-
 };
 
 void backspace_current_output(void) {

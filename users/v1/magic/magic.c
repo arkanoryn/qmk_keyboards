@@ -12,7 +12,15 @@
 #include "repeat.h"
 #include "teacher/chord_teacher.h"
 
+#ifndef CYCLE_COMBO_ENABLE
+cycling_combos_state_t* get_cycling_combo_state(void) {
+  return NULL;
+};
+void init_cycling_combos_state(void) {};
+#endif // CYCLE_COMBO_ENABLE
+
 void process_magic_combo_event(uint16_t combo_index) {
+#ifdef CYCLE_COMBO_ENABLE
   init_cycling_combos_state();
 
   cycling_combos_state_t* combos_state = get_cycling_combo_state();
@@ -31,6 +39,7 @@ void process_magic_combo_event(uint16_t combo_index) {
     default:
       combos_state->is_cyclable = false;
   }
+#endif // CYCLE_COMBO_ENABLE
 };
 
 bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
@@ -38,15 +47,21 @@ bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
     return true;
   }
 
+#ifdef CYCLE_COMBO_ENABLE
   cycling_combos_state_t* combos_state = get_cycling_combo_state();
+#endif // CYCLE_COMBO_ENABLE
 
   switch (keycode) {
     case MAGIC:
+#ifdef CYCLE_COMBO_ENABLE
       if (record->event.pressed && combos_state->is_cyclable) {
         set_combo_event_timer();
         cycle();
         return false;
       } else if (record->event.pressed) {
+#else
+      if (record->event.pressed) {
+#endif // CYCLE_COMBO_ENABLE
         process_repeat_event(get_last_keycode(), get_last_mods());
         return false;
       }
