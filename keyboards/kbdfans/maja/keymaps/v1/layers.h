@@ -6,6 +6,7 @@
 
 enum layers {
   _BASE,         // QWERTY
+  _GAME,         // SIMPLE DEFAULT QWERTY
   _GRAPHITE,     // GRAPHITE
   _ACTIONS,      // ACTIONS
   _SYMBOLS,      // SYMBOLS
@@ -15,6 +16,7 @@ enum layers {
 };
 
 #include "ark_v1.h"
+#include "layers/qwerty.h"
 #include "layers/graphite.h"
 #include "layers/actions.h"
 #include "layers/symbols.h"

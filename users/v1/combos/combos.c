@@ -20,10 +20,12 @@ void set_combo_event_timer(void) {
 void process_del_word(void) {
   disable_shift();
 
+#ifdef CHORD_TEACHER_ENABLE
   if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_CORRECTIVE) {
     reset_teacher_state(true);
   }
-
+#endif // CHORD_TEACHER_ENABLE
+#ifdef CYCLE_COMBO_ENABLE
   if (get_cycling_combo_state()->is_combo_active) {
     if (get_cycling_combo_state()->is_cyclable) {
       backspace_current_output();
@@ -35,8 +37,11 @@ void process_del_word(void) {
       }
     }
   } else {
+#endif // CYCLE_COMBO_ENABLE
     send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACKSPACE : WIN_WORD_BACKSPACE);
+#ifdef CYCLE_COMBO_ENABLE
   }
+#endif // CYCLE_COMBO_ENABLE
   return;
 }
 
@@ -66,8 +71,14 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       default:
         root_combo_str = get_combos_cmds(combo_index);
         set_combo_event_timer();
+
+#ifdef CHORD_TEACHER_ENABLE
         reset_teacher_state(true);
+#endif // CHORD_TEACHER_ENABLE
+
+#ifdef CYCLE_COMBO_ENABLE
         process_magic_combo_event(combo_index);
+#endif // CYCLE_COMBO_ENABLE
 
         if (shifted) {
           del_mods(MOD_MASK_SHIFT);
@@ -82,21 +93,21 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 };
 
 void combo_event_task(void) {
+#ifdef CYCLE_COMBO_ENABLE
   if (get_cycling_combo_state()->is_combo_active && timer_expired(timer_read(), idle_timer)) {
     init_cycling_combos_state();
   }
+#endif // CYCLE_COMBO_ENABLE
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
   // We need this otherwise there's no way to toggle chords back on
   // As we would no longer be able to access the Config Layer (access is via a combo)
-  if (combo_index == GRAPHITE_CONFIG_LAYER) {
-    return true;
-  }
+  if (combo_index == GRAPHITE_CONFIG_LAYER) return true;
 
-  if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) {
-    return false;
-  }
+#ifdef CHORD_TEACHER_ENABLE
+  if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) return false;
+#endif // CHORD_TEACHER_ENABLE
 
   return true;
 }
