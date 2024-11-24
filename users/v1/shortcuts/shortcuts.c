@@ -10,18 +10,19 @@ const action_s actions[] = {
     // [CMD_COPY]               = { .on_macOS = "this is macOS",                 .on_winOS =     "this is winOS"}, // for testing purpose, replace the key with the one you want
     [ALFRED]                   = {.on_macOS = SS_LCMD(" "), .on_winOS = SS_LGUI(" ")},
     [APP_CLOSE]                = {.on_macOS = SS_LCMD("q"), .on_winOS = SS_LALT(SS_TAP(X_F4))},
-    [APP_NEW_WINDOW]           = {.on_macOS = SS_LCMD("n"), .on_winOS = SS_LCTL("n")},
     [APP_NEW_WINDOW_INCOGNITO] = {.on_macOS = SS_LCMD(SS_LSFT("n")), .on_winOS = SS_LCTL(SS_LSFT("n"))},
+    [APP_NEW_WINDOW]           = {.on_macOS = SS_LCMD("n"), .on_winOS = SS_LCTL("n")},
     [APP_NEXT]                 = {.on_macOS = SS_TAP(X_TAB), .on_winOS = SS_TAP(X_TAB)},
     [APP_PREV]                 = {.on_macOS = SS_LSFT(SS_TAP(X_TAB)), .on_winOS = SS_LSFT(SS_TAP(X_TAB))},
     [CMD_COPY]                 = {.on_macOS = SS_LCMD("c"), .on_winOS = SS_LCTL("c")},
     [CMD_CUT]                  = {.on_macOS = SS_LCMD("x"), .on_winOS = SS_LCTL("x")},
     [CMD_PASTE]                = {.on_macOS = SS_LCMD("v"), .on_winOS = SS_LCTL("v")},
     [CMD_REDO]                 = {.on_macOS = SS_LCMD(SS_LSFT("z")), .on_winOS = SS_LCTL(SS_LSFT("z"))},
+    [CMD_SAVE]                 = {.on_macOS = SS_LCMD("s"), .on_winOS = SS_LCTL("s")},
+    [CMD_SEARCH_ALL]           = {.on_macOS = SS_LCMD(SS_LSFT("f")), .on_winOS = SS_LCTL(SS_LSFT("f"))},
+    [CMD_SEARCH]               = {.on_macOS = SS_LCMD("f"), .on_winOS = SS_LCTL("f")},
     [CMD_UNDO]                 = {.on_macOS = SS_LCMD("z"), .on_winOS = SS_LCTL("z")},
-    [LD_SAVE]                  = {.on_macOS = SS_LCMD("s"), .on_winOS = SS_LCTL("s")},
-    [LD_SEARCH]                = {.on_macOS = SS_LCMD("f"), .on_winOS = SS_LCTL("f")},
-    [LD_SELECT_ALL]            = {.on_macOS = SS_LCMD("a"), .on_winOS = SS_LCTL("a")},
+    [CMD_SELECT_ALL]           = {.on_macOS = SS_LCMD("a"), .on_winOS = SS_LCTL("a")},
     [LINE_BACKSPACE]           = {.on_macOS = SS_LCMD(SS_TAP(X_BACKSPACE)), .on_winOS = SS_LCTL(SS_LSFT(SS_TAP(X_BACKSPACE)))}, // not working on windows. Maybe do it in 2 steps: select then delete?
     [LINE_DEL]                 = {.on_macOS = SS_LCMD(SS_TAP(X_DELETE)), .on_winOS = SS_LCTL(SS_LSFT(SS_TAP(X_DELETE)))},       // not working on widows. Maybe do it in 2 steps: select then delete?
     [LINE_JUMPL]               = {.on_macOS = SS_LCMD(SS_TAP(X_LEFT)), .on_winOS = SS_TAP(X_HOME)},
@@ -32,21 +33,22 @@ const action_s actions[] = {
     [TAB_NEW]                  = {.on_macOS = SS_LCMD("t"), .on_winOS = SS_LCTL("t")},
     [TAB_REOPEN]               = {.on_macOS = SS_LCMD(SS_LSFT("t")), .on_winOS = SS_LCTL(SS_LSFT("t"))},
     [TASK_MNGR]                = {.on_macOS = SS_LCMD(SS_LOPT(SS_TAP(X_ESC))), .on_winOS = SS_LCTL(SS_LALT(SS_TAP(X_DEL)))},
+    [WINDOW_CLOSE]             = {.on_macOS = SS_LCMD(SS_LSFT("w")), .on_winOS = SS_LCTL(SS_LSFT("w"))}, // will have to check on Window, might be ALT+f4
     [WORD_BACKSPACE]           = {.on_macOS = SS_LALT(SS_TAP(X_BACKSPACE)), .on_winOS = SS_LCTL(SS_TAP(X_BACKSPACE))},
     [WORD_DEL]                 = {.on_macOS = SS_LALT(SS_TAP(X_DELETE)), .on_winOS = SS_LCTL(SS_TAP(X_DELETE))},
     [WORD_JUMPL]               = {.on_macOS = SS_LALT(SS_TAP(X_LEFT)), .on_winOS = SS_LCTL(SS_TAP(X_LEFT))},
     [WORD_JUMPR]               = {.on_macOS = SS_LALT(SS_TAP(X_RIGHT)), .on_winOS = SS_LCTL(SS_TAP(X_RIGHT))},
     [WORD_SELECTL]             = {.on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_LEFT))), .on_winOS = SS_LSFT(SS_TAP(X_LEFT))},
     [WORD_SELECTR]             = {.on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))), .on_winOS = SS_LSFT(SS_TAP(X_RIGHT))},
-    [SELECT_BACKWARD]          = {.on_macOS = "", .on_winOS = ""},
-    [SELECT_FORWARD]           = {.on_macOS = "", .on_winOS = ""},
-    [JUMP_FORWARD]             = {.on_macOS = "", .on_winOS = ""},
-    [JUMP_BACKWARD]            = {.on_macOS = "", .on_winOS = ""},
 };
 static_assert(ARRAY_SIZE(actions) == _LAST_SHORTCUT_ID, "Mismatch"); // ensure that we have all the actions from the enum
 
 #define CMD_OR_ALT (detected_host_os() == OS_MACOS ? KC_LCMD : KC_LALT)
 alt_tab_s alt_tab_state = {0};
+
+void send_action(shortcuts_id_e id) {
+  send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
+};
 
 void init_alt_tab_state(void) {
   alt_tab_state.active = false;
@@ -70,11 +72,9 @@ void process_tabbing(shortcuts_id_e id, keyrecord_t *record) {
       alt_tab_state.active = true;
       register_code(CMD_OR_ALT);
     }
-    send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
+    send_action(id);
   }
 };
-
-
 
 bool send_shortcut(shortcuts_id_e id, keyrecord_t *record) {
   assert(id < _LAST_SHORTCUT_ID);
@@ -84,13 +84,10 @@ bool send_shortcut(shortcuts_id_e id, keyrecord_t *record) {
     case APP_PREV:
       process_tabbing(id, record);
       return false;
-    // case APP_NEW_WINDOW:
-    //   process_new_app(record);
-    //   return false;
     default: // clang-format off
       if (!record->event.pressed) {  return true; } // clang-format on
 
-      send_string(detected_host_os() == OS_MACOS ? actions[id].on_macOS : actions[id].on_winOS);
+      send_action(id);
       return false;
   }
   return true;

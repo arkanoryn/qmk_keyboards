@@ -116,6 +116,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case CTL_U:
     case L3_E:
       return TAPPING_TERM + 100;
+    case TD(TD_JUMP_FORWARD):
+    case TD(TD_JUMP_BACKWARD):
+      return 50;
     // case ALT_D:
     // case L2_T:
     // case ALT_O:
@@ -138,10 +141,3 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   }
   return false;
 };
-
-// #include "tap_dance/tap_dance.h"
-// tap_dance_action_t tap_dance_actions[] = {
-//     // clang-format off
-//   [TD_NEW_WINDOW] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, x_finished, x_reset)
-//     // clang-format on
-// };

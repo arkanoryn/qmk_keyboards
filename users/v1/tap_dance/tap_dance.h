@@ -8,29 +8,38 @@
 // # Configuration options
 */
 #pragma once
-typedef enum {
+
+typedef enum { // clang-format off
   TD_NONE,
   TD_UNKNOWN,
-  TD_SINGLE_TAP,
-  TD_SINGLE_HOLD,
-  TD_DOUBLE_TAP,
-  TD_DOUBLE_HOLD,
-  TD_DOUBLE_SINGLE_TAP, // Send two single taps
-  TD_TRIPLE_TAP,
-  TD_TRIPLE_HOLD
-} td_state_t;
-
-typedef struct {
-  bool       is_press_action;
-  td_state_t state;
-} td_tap_t;
+  TD_1_TAP,
+  TD_1_HOLD,
+  TD_2_TAP,
+  TD_2_HOLD,
+  TD_2_SINGLE_TAP,
+  TD_3_TAP,
+  TD_3_HOLD,
+  TD_4_TAP,
+  TD_4_HOLD,
+  TD_5_TAP,
+  TD_5_HOLD,
+} td_state_t; // clang-format on
 
 enum {
   TD_NEW_WINDOW = 0,
+  TD_SEARCH,
+  TD_ESC,
+  TD_TAB_NEW,
+  TD_TAB_CLOSE,
+  TD_JUMP_FORWARD,
+  TD_JUMP_BACKWARD,
+  TD_SELECTION_FORWARD,
+  TD_SELECTION_BACKWARD,
+  TD_COPY,
+  TD_CUT,
 };
 
-// td_state_t cur_dance(tap_dance_state_t *state);
-
-// // For the x tap dance. Put it here so it can be used in any keymap
-// void x_finished(tap_dance_state_t *state, void *user_data);
-// void x_reset(tap_dance_state_t *state, void *user_data);
+td_state_t cur_dance(tap_dance_state_t *state);
+// #ifdef DEBUG_ENABLE
+void show_count(tap_dance_state_t *state);
+// #endif // DEBUG_ENABLE

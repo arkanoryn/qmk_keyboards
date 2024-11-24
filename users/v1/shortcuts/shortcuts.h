@@ -40,19 +40,21 @@ typedef struct {
 
 // clang-format off
 typedef enum {
-  APP_CLOSE = _FIRST_SHORTCUT_ID,
-  APP_NEXT,
-  APP_NEW_WINDOW,
+  ALFRED = _FIRST_SHORTCUT_ID,
+  APP_CLOSE,
   APP_NEW_WINDOW_INCOGNITO,
+  APP_NEW_WINDOW,
+  APP_NEXT,
   APP_PREV,
   CMD_COPY,
   CMD_CUT,
   CMD_PASTE,
   CMD_REDO,
+  CMD_SAVE,
+  CMD_SEARCH_ALL,
+  CMD_SEARCH,
   CMD_UNDO,
-  LD_SAVE,
-  LD_SEARCH,
-  LD_SELECT_ALL,
+  CMD_SELECT_ALL,
   LINE_BACKSPACE,
   LINE_DEL,
   LINE_JUMPL,
@@ -60,21 +62,16 @@ typedef enum {
   LINE_SELECTL,
   LINE_SELECTR,
   TAB_CLOSE,
-  TAB_REOPEN,
   TAB_NEW,
+  TAB_REOPEN,
+  TASK_MNGR,
+  WINDOW_CLOSE,
   WORD_BACKSPACE,
   WORD_DEL,
   WORD_JUMPL,
   WORD_JUMPR,
   WORD_SELECTL,
   WORD_SELECTR,
-  TASK_MNGR,
-  ALFRED,
-  // new
-  SELECT_BACKWARD,
-  SELECT_FORWARD,
-  JUMP_FORWARD,
-  JUMP_BACKWARD,
   _LAST_SHORTCUT_ID
 } shortcuts_id_e;
 // clang-format on
@@ -94,3 +91,4 @@ typedef enum {
 bool process_shortcuts(uint16_t keycode, keyrecord_t *record);
 void init_alt_tab_state(void);
 void alt_tab_task(void);
+void send_action(shortcuts_id_e id);
