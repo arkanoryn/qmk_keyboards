@@ -21,6 +21,7 @@
 #define OS_DETECTION_DEBOUNCE 200
 
 #define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
@@ -37,6 +38,9 @@
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
 #define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
+
+#define CYCLE_COMBO_ENABLE
+#define CHORD_TEACHER_ENABLE
 
 #ifdef OLED_ENABLE
 #  define SPLIT_OLED_ENABLE

@@ -10,20 +10,24 @@
 #include QMK_KEYBOARD_H
 #include "layers.h" // each keyboard should have this file with the available layers enum
 #include "shortcuts/shortcuts.h"
+#include "tap_dance/tap_dance.h"
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
+
+#define TAB_NEXT LCTL(KC_TAB)
+#define TAB_PREV RCS(KC_TAB)
 
 #ifndef CKC
 #  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
 #endif                            // CKC
 
-#define __________ACTIONS_LEFT_ROW_1________ KC_ESC, CKC(CMD_COPY), CKC(LINE_BACKSPACE), CKC(WORD_BACKSPACE), KC_PGUP
-#define __________ACTIONS_LEFT_ROW_2________ CKC(APP_PREV), CKC(APP_NEXT), KC_DEL, SEL_WORD, KC_PGDN
-#define __________ACTIONS_LEFT_ROW_3________ CKC(CMD_CUT), CKC(CMD_PASTE), CKC(LINE_DEL), CKC(WORD_DEL), CKC(TAB_CLOSE)
-#define __________ACTIONS_LEFT_THUMBS_______ CKC(LINE_SELECTL), CKC(WORD_SELECTL)
+#define __________ACTIONS_LEFT_ROW_1________ TD(TD_ESC), TD(TD_SEARCH), CKC(ALFRED), KC_DEL, CKC(APP_PREV)
+#define __________ACTIONS_LEFT_ROW_2________ KC_TAB, CKC(CMD_SAVE), TD(TD_SELECTION_BACKWARD), TD(TD_SELECTION_FORWARD), CKC(APP_NEXT)
+#define __________ACTIONS_LEFT_ROW_3________ CKC(TASK_MNGR), CKC(CMD_REDO), CKC(CMD_UNDO), TD(TD_NEW_WINDOW), CKC(APP_CLOSE)
+#define __________ACTIONS_LEFT_THUMBS_______ TD(TD_COPY), CKC(CMD_PASTE)
 
-#define _________ACTIONS_RIGHT_ROW_1________ KC_HOME, CKC(WORD_JUMPL), CKC(WORD_JUMPR), RCS(KC_TAB), LCTL(KC_TAB)
-#define _________ACTIONS_RIGHT_ROW_2________ KC_END, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT
-#define _________ACTIONS_RIGHT_ROW_3________ CKC(TAB_REOPEN), CKC(LINE_JUMPL), CKC(LINE_JUMPR), CKC(TASK_MNGR), __X__
-#define _________ACTIONS_RIGHT_THUMBS_______ __X__, LAYER_LOCK
+#define _________ACTIONS_RIGHT_ROW_1________ KC_PGUP, TD(TD_JUMP_BACKWARD), TD(TD_JUMP_FORWARD), KC_HOME, KC_END
+#define _________ACTIONS_RIGHT_ROW_2________ KC_PGDN, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT
+#define _________ACTIONS_RIGHT_ROW_3________ CKC(TAB_REOPEN), TD(TD_TAB_NEW), TD(TD_TAB_CLOSE), TAB_NEXT, TAB_PREV
+#define _________ACTIONS_RIGHT_THUMBS_______ TD(TD_CUT), LAYER_LOCK

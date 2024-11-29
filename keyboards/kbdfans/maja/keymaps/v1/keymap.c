@@ -10,13 +10,17 @@
 #include QMK_KEYBOARD_H
 
 #include "layers.h"
-#include "helpers/helpers.h"
+#include "config/config.h"
 #include "getreuer/getreuer.h"
+#include "helpers/helpers.h"
 #include "magic/magic.h"
 #include "shortcuts/shortcuts.h"
 #include "symbols/symbols.h"
-#include "teacher/chord_teacher.h"
-#include "config/config.h"
+#include "tap_dance/tap_dance.h"
+#include "jump_cursor/jump.h"
+
+// We need to include this .c file here, because we can only skip 1 `INTROSPECTION_KEYMAP_C` file.
+#include "tap_dance/tap_dance_extract.c"
 
 #define LAY_WRAPPER(...) LAYOUT(__VA_ARGS__)
 
@@ -25,7 +29,6 @@
 #define BASE TO(_BASE)
 #define _________NUMBERS_ROW_LEFT___________ __X__, __X__, __X__, __X__, __X__, __X__
 #define _________NUMBERS_ROW_RIGHT__________ __X__, __X__, __X__, __X__, __X__, __X__
-
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -47,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		QK_GESC,	_________NUMBERS_ROW_LEFT___________,	/* || */		_________NUMBERS_ROW_RIGHT__________, __X__,					/* || */	TG(_CONFIG),
 	    KC_TAB,		_________GRAPHITE_LEFT_ROW_1________,	/* || */		________GRAPHITE_RIGHT_ROW_1________, __X__,	__X__, __X__,	/* || */	TO(_BASE),
 	    __X__,		_________GRAPHITE_LEFT_ROW_2________,	/* || */		________GRAPHITE_RIGHT_ROW_2________, __X__,	__X__,			/* || */	QK_BOOT,
-	    KC_LSFT,	_________GRAPHITE_LEFT_ROW_3________,	/* || */ BASE,	________GRAPHITE_RIGHT_ROW_3________, __X__,					/* || */	__X__,
+	    KC_LSFT,	_________GRAPHITE_LEFT_ROW_3________,	/* || */ BASE,	________GRAPHITE_RIGHT_ROW_3________, KC_RSFT,					/* || */	__X__,
 	    __X__, __X__, _________GRAPHITE_LEFT_THUMBS_______,	/* || */		________GRAPHITE_RIGHT_THUMBS_______,					/* || */	__X__,	__X__,	__X__
     ),
     [_ACTIONS] = LAY_WRAPPER(
@@ -55,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	  __X__,		__________ACTIONS_LEFT_ROW_1________,	/* || */		_________ACTIONS_RIGHT_ROW_1________, __X__,	__X__, __X__,	/* || */	TO(_BASE),
 	  __X__,		__________ACTIONS_LEFT_ROW_2________,	/* || */		_________ACTIONS_RIGHT_ROW_2________, __X__,	__X__,			/* || */	__X__,
 	  __X__,		__________ACTIONS_LEFT_ROW_3________,	/* || */ __X__,	_________ACTIONS_RIGHT_ROW_3________, __X__,					/* || */	__X__,
-	  __X__, __X__, __________ACTIONS_LEFT_THUMBS_______,	/* || */		________GRAPHITE_RIGHT_THUMBS_______,					/* || */	__X__,	__X__,	__X__
+	  __X__, __X__, __________ACTIONS_LEFT_THUMBS_______,	/* || */		_________ACTIONS_RIGHT_THUMBS_______,					/* || */	__X__,	__X__,	__X__
     ),
     [_SYMBOLS] = LAY_WRAPPER(
 	  QK_GESC,		_________NUMBERS_ROW_LEFT___________,	/* || */		_________NUMBERS_ROW_RIGHT__________, __X__,					/* || */	__X__,
@@ -88,13 +91,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  };
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { // clang-format off
-  if (!process_magic_key(keycode, record)) { return false; }
+  if (!process_selection(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LAYER_LOCK)) { return false; }
+  if (!process_magic_key(keycode, record)) { return false; }
   if (!process_shortcuts(keycode, record)) { return false; }
   if (!process_symbols(keycode, record)) { return false; }
   if (!process_graphite_keys(keycode, record)) { return false; }
-  if (!process_config(keycode, record)) { return false; } // clang-format on
-
+  if (!process_config(keycode, record)) { return false; }
+  if (!process_jump_cursor(keycode, record)) { return false; } // clang-format on
   return true;
 };
 
@@ -112,24 +116,36 @@ void keyboard_post_init_user(void) {
   init_alt_tab_state();
 };
 
-// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-//   switch (keycode) {
-//     case L4_N:
-//     case L4_I:
-//     case SFT_SLSH:
-//     case SFT_Q:
-//       return TAPPING_TERM + 150;
-//     case CTL_L:
-//     case L3_R:
-//     case CTL_U:
-//     case L3_E:
-//       return TAPPING_TERM + 100;
-//     // case ALT_D:
-//     // case L2_T:
-//     // case ALT_O:
-//     // case L2_A:
-//     //   return TAPPING_TERM + 100;
-//     default:
-//       return TAPPING_TERM;
-//   }
-// };
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case L4_A:
+    case L4_SCLN:
+    case L4_N:
+    case L4_I:
+    case SFT_SLSH:
+    case SFT_Q:
+      return TAPPING_TERM + 150;
+    case CTL_L:
+    case CTL_U:
+    case L3_R:
+    case L3_E:
+    case L3_S:
+    case L3_L:
+      return TAPPING_TERM + 100;
+    case ALT_D:
+    case L2_T:
+    case ALT_O:
+    case L2_A:
+    case L2_D:
+    case L2_K:
+      return TAPPING_TERM + 100;
+    case TD(TD_SELECTION_BACKWARD):
+    case TD(TD_SELECTION_FORWARD):
+    case TD(TD_JUMP_BACKWARD):
+    case TD(TD_JUMP_FORWARD):
+      return 100;
+    default:
+      return TAPPING_TERM;
+  }
+  return TAPPING_TERM;
+};
