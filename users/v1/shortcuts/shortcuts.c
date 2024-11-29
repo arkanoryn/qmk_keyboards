@@ -80,10 +80,10 @@ bool send_shortcut(shortcuts_id_e id, keyrecord_t *record) {
   assert(id < _LAST_SHORTCUT_ID);
 
   switch (id) {
-    case APP_NEXT:
-    case APP_PREV:
-      process_tabbing(id, record);
-      return false;
+    // case APP_NEXT:
+    // case APP_PREV:
+    //   process_tabbing(id, record);
+    //   return false;
     default: // clang-format off
       if (!record->event.pressed) {  return true; } // clang-format on
 
@@ -101,9 +101,9 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
 
   // alt tab is a special shortcuts and we want to unregister the ALT / CMD
   //   if the feature is active and the layer-key is released
-  if (alt_tab_state.active && !record->event.pressed) {
-    unregister_code(CMD_OR_ALT);
-    alt_tab_state.active = false;
-  }
+//   if (alt_tab_state.active && !record->event.pressed) {
+//     unregister_code(CMD_OR_ALT);
+//     alt_tab_state.active = false;
+//   }
   return true;
 };

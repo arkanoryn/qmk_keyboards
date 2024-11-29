@@ -26,7 +26,7 @@ TAP_DANCE_ENABLE = yes
 INTROSPECTION_KEYMAP_C = tap_dance/tap_dance.c
 
 SRC += getreuer/layer_lock/layer_lock.c \
-	rgb.c \
+rgb.c \
 	config/config.c \
 	generated/correct_chords.c \
 	helpers/graphite.c \

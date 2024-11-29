@@ -22,11 +22,6 @@
 #  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
 #endif                            // CKC
 
-#define SELECT_FORWARD KC_0
-#define SELECT_BACKWARD KC_0
-#define JUMP_FORWARD KC_0
-#define JUMP_BACKWARD KC_0
-
 #define __________ACTIONS_LEFT_ROW_1________ TD(TD_ESC), TD(TD_SEARCH), CKC(ALFRED), KC_DEL, CKC(APP_PREV)
 #define __________ACTIONS_LEFT_ROW_2________ KC_TAB, CKC(CMD_SAVE), TD(TD_SELECTION_BACKWARD), TD(TD_SELECTION_FORWARD), CKC(APP_NEXT)
 #define __________ACTIONS_LEFT_ROW_3________ CKC(TASK_MNGR), CKC(CMD_REDO), CKC(CMD_UNDO), TD(TD_NEW_WINDOW), CKC(APP_CLOSE)

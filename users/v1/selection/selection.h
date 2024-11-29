@@ -2,16 +2,6 @@
 
 #include QMK_KEYBOARD_H
 
-// clang-format off
-enum {
-    STATE_NONE,        // No selection.
-    STATE_SELECTED,    // Macro released with something selected.
-    STATE_WORD,        // Macro held with word(s) selected.
-    STATE_FIRST_LINE,  // Macro held with one line selected.
-    STATE_LINE         // Macro held with multiple lines selected.
-};
-// clang-format on
-
 typedef enum {
   SELECTION_FORWARD = 0,
   SELECTION_BACKWARD,

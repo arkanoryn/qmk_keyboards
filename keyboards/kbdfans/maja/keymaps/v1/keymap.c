@@ -19,6 +19,9 @@
 #include "tap_dance/tap_dance.h"
 #include "jump_cursor/jump.h"
 
+// We need to include this .c file here, because we can only skip 1 `INTROSPECTION_KEYMAP_C` file.
+#include "tap_dance/tap_dance_extract.c"
+
 #define LAY_WRAPPER(...) LAYOUT(__VA_ARGS__)
 
 #define __X__ KC_NO

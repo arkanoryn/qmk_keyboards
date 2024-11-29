@@ -6,16 +6,16 @@
 #  include "oled.h"
 #  include "teacher/chord_teacher.h"
 
-oled_state_s state = {};
+oled_state_s oled_state = {};
 
 void update_oled_state(void) {
-  state.teacher_mode = get_teacher_chord_mode();
-  state.chord_buffer = get_teacher_chord_buffer();
-}
+  oled_state.teacher_mode = get_teacher_chord_mode();
+  oled_state.chord_buffer = get_teacher_chord_buffer();
+};
 
 oled_state_s get_oled_state(void) {
-  return state;
-}
+  return oled_state;
+};
 
 void render_highest_layer(void) {
   switch (get_highest_layer(layer_state)) {
@@ -43,7 +43,7 @@ void render_highest_layer(void) {
 };
 
 void render_teacher_mode(void) {
-  switch (state.teacher_mode) {
+  switch (oled_state.teacher_mode) {
     case TEACHER_CHORD_MODE_NORMAL:
       oled_write_ln_P(PSTR("NORM"), false);
       break;
@@ -68,13 +68,13 @@ void render_user_LED_state(void) {
 
 // not working for some reasons when on the slave side.
 void render_chord_buffer(void) {
-  if (state.chord_buffer == NULL || state.chord_buffer[0] == '\0') {
+  if (oled_state.chord_buffer == NULL || oled_state.chord_buffer[0] == '\0') {
     oled_write_ln_P(PSTR("     "), false);
     oled_write_ln_P(PSTR("     "), false);
     oled_write_ln_P(PSTR("     "), false);
     oled_write_ln_P(PSTR("     "), false);
   } else {
-    oled_write_ln_P(PSTR(state.chord_buffer), false);
+    oled_write_ln_P(PSTR(oled_state.chord_buffer), false);
   }
 }
 
@@ -134,7 +134,7 @@ bool process_oled_displays(uint16_t keycode, keyrecord_t* record) {
 };
 
 void user_sync_state_handler(uint8_t in_buflen, const void* in_data, uint8_t out_buflen, void* out_data) {
-  memcpy(&state, in_data, sizeof(oled_state_s));
+  memcpy(&oled_state, in_data, sizeof(oled_state_s));
 };
 
 void oled_housekeeping_task(void) {
@@ -159,8 +159,8 @@ void init_oled_state(void) {
   transaction_register_rpc(USER_SYNC_STATE, user_sync_state_handler); // move to "init_oled"
                                                                       //   oled_clear(); // move_to "init _oled"
 
-  state.teacher_mode = get_teacher_chord_mode();
-  state.chord_buffer = get_teacher_chord_buffer();
+  oled_state.teacher_mode = get_teacher_chord_mode();
+  oled_state.chord_buffer = get_teacher_chord_buffer();
 }
 
 #endif // OLED_ENABLE

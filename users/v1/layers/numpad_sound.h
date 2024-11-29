@@ -13,9 +13,9 @@
 #define __X__ KC_NO
 #define _____ KC_TRNS
 
-#define ___________NUMPAD_ROW_1_____________ KC_PAST, KC_P4, KC_P5, KC_P6, KC_PPLS
-#define ___________NUMPAD_ROW_2_____________ KC_P0, KC_P1, KC_P2, KC_P3, KC_EQL
-#define ___________NUMPAD_ROW_3_____________ KC_PSLS, KC_P7, KC_P8, KC_P9, KC_PMNS
+#define ___________NUMPAD_ROW_1_____________ KC_PAST, KC_4, KC_5, KC_6, KC_PPLS
+#define ___________NUMPAD_ROW_2_____________ KC_P0, KC_1, KC_2, KC_3, KC_EQL
+#define ___________NUMPAD_ROW_3_____________ KC_PSLS, KC_7, KC_8, KC_9, KC_PMNS
 #define ___________NUMPAD_THUMBS____________ KC_ENT, KC_DOT
 
 #define ____________SOUND_ROW_1_____________ __X__, __X__, __X__, __X__, __X__

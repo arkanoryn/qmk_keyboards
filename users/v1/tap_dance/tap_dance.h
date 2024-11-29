@@ -43,3 +43,11 @@ td_state_t cur_dance(tap_dance_state_t *state);
 // #ifdef DEBUG_ENABLE
 void show_count(tap_dance_state_t *state);
 // #endif // DEBUG_ENABLE
+
+void td_process_cut(tap_dance_state_t *td_state, void *user_data);
+void td_process_copy(tap_dance_state_t *td_state, void *user_data);
+void td_process_esc(tap_dance_state_t *state, void *user_data);
+void td_process_tab_close(tap_dance_state_t *state, void *user_data);
+void td_process_tab_new(tap_dance_state_t *state, void *user_data);
+void td_process_search(tap_dance_state_t *state, void *user_data);
+void td_process_new_window(tap_dance_state_t *state, void *user_data);

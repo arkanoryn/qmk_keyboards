@@ -5,10 +5,12 @@
 */
 #include QMK_KEYBOARD_H
 #include "ark_v1.h"
+#include "helpers/helpers.h"
 #include "tap_dance.h"
 #include "shortcuts/shortcuts.h"
 #include "jump_cursor/jump.h"
 #include "selection/selection.h"
+#include "magic/cycling_combos.h"
 
 td_state_t cur_dance(tap_dance_state_t *state) {
   if (state->count == 1) {
@@ -144,18 +146,3 @@ void td_process_cut(tap_dance_state_t *td_state, void *user_data) {
     clean_cut();
   }
 };
-
-tap_dance_action_t tap_dance_actions[] = {
-    // clang-format off
-    [TD_ESC]                 = ACTION_TAP_DANCE_FN(td_process_esc),
-    [TD_JUMP_BACKWARD]       = ACTION_TAP_DANCE_FN(td_process_jump_backward),
-    [TD_JUMP_FORWARD]        = ACTION_TAP_DANCE_FN(td_process_jump_forward),
-    [TD_NEW_WINDOW]          = ACTION_TAP_DANCE_FN(td_process_new_window),
-    [TD_SEARCH]              = ACTION_TAP_DANCE_FN(td_process_search),
-    [TD_SELECTION_BACKWARD]  = ACTION_TAP_DANCE_FN(td_process_selection_backward),
-    [TD_SELECTION_FORWARD]   = ACTION_TAP_DANCE_FN(td_process_selection_forward),
-    [TD_TAB_CLOSE]           = ACTION_TAP_DANCE_FN(td_process_tab_close),
-    [TD_TAB_NEW]             = ACTION_TAP_DANCE_FN(td_process_tab_new),
-    [TD_COPY]                = ACTION_TAP_DANCE_FN(td_process_copy),
-    [TD_CUT]                 = ACTION_TAP_DANCE_FN(td_process_cut),
-}; // clang-format on
