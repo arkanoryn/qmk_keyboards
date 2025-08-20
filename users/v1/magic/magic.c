@@ -13,10 +13,11 @@
 #include "teacher/chord_teacher.h"
 
 #ifndef CYCLE_COMBO_ENABLE
+void init_cycling_combos_state(void) {};
+
 cycling_combos_state_t* get_cycling_combo_state(void) {
   return NULL;
 };
-void init_cycling_combos_state(void) {};
 #endif // CYCLE_COMBO_ENABLE
 
 void process_magic_combo_event(uint16_t combo_index) {
