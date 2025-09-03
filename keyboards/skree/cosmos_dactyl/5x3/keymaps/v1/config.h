@@ -20,7 +20,6 @@
 #define OS_DETECTION_DEBOUNCE 200
 
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
@@ -38,35 +37,32 @@
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
 #define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
 
-#define CYCLE_COMBO_ENABLE
-#define CHORD_TEACHER_ENABLE
-
-#ifdef OLED_ENABLE
-#  define SPLIT_OLED_ENABLE
-// Configuration to send data from main to off hand board
-#  define SPLIT_TRANSACTION_IDS_USER USER_SYNC_STATE
-
-#  define OLED_TIMEOUT 120000
-#  define OLED_BRIGHTNESS 120
-
-#  define WPM_SAMPLE_SECONDS 10
-#  define WPM_SAMPLE_PERIODS 50
-#  define WPM_LAUNCH_CONTROL
-
-#  define SPLIT_WPM_ENABLE
-#  define SPLIT_TRANSPORT_MIRROR
-#  define SPLIT_LAYER_STATE_ENABLE
-#  define SPLIT_LED_STATE_ENABLE
-#  define SPLIT_MODS_ENABLE
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
-#  define RGB_MATRIX_SLEEP
-#  define RGB_MATRIX_KEYPRESSES
-#  define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#  define ENABLE_RGB_MATRIX_SOLID_SPLASH
-#  define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-#endif
+// #ifdef OLED_ENABLE
+// #  define SPLIT_OLED_ENABLE
+// // Configuration to send data from main to off hand board
+// #  define SPLIT_TRANSACTION_IDS_USER USER_SYNC_STATE
+//
+// #  define OLED_TIMEOUT 120000
+// #  define OLED_BRIGHTNESS 120
+//
+// #  define WPM_SAMPLE_SECONDS 10
+// #  define WPM_SAMPLE_PERIODS 50
+// #  define WPM_LAUNCH_CONTROL
+//
+// #  define SPLIT_WPM_ENABLE
+// #  define SPLIT_TRANSPORT_MIRROR
+// #  define SPLIT_LAYER_STATE_ENABLE
+// #  define SPLIT_LED_STATE_ENABLE
+// #  define SPLIT_MODS_ENABLE
+// #endif
+//
+// #ifdef RGB_MATRIX_ENABLE
+// #  define RGB_MATRIX_SLEEP
+// #  define RGB_MATRIX_KEYPRESSES
+// #  define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+// #  define ENABLE_RGB_MATRIX_SOLID_SPLASH
+// #  define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+// #endif
 
 // #ifdef MOUSEKEY_ENABLE
 //      // The default is 100
@@ -74,3 +70,4 @@
 //      // The default is 40
 // #    define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 // #endif
+
