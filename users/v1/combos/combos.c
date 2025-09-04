@@ -25,6 +25,7 @@ void process_del_word(void) {
     reset_teacher_state(true);
   }
 #endif // CHORD_TEACHER_ENABLE
+
 #ifdef CYCLE_COMBO_ENABLE
   if (get_cycling_combo_state()->is_combo_active) {
     if (get_cycling_combo_state()->is_cyclable) {
@@ -38,7 +39,7 @@ void process_del_word(void) {
     }
   } else {
 #endif // CYCLE_COMBO_ENABLE
-    send_string(detected_host_os() == OS_MACOS ? MAC_WORD_BACKSPACE : WIN_WORD_BACKSPACE);
+    word_backspace();
 #ifdef CYCLE_COMBO_ENABLE
   }
 #endif // CYCLE_COMBO_ENABLE
@@ -110,4 +111,23 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 #endif // CHORD_TEACHER_ENABLE
 
   return true;
+}
+
+void word_backspace() {
+  switch (detected_host_os())
+  {
+    case OS_MACOS:
+      send_string(MAC_WORD_BACKSPACE);
+      break;
+    case OS_WINDOWS:
+      send_string(WIN_WORD_BACKSPACE);
+      break;
+    case OS_LINUX:
+      send_string(LINUX_WORD_BACKSPACE);
+      break;
+    case OS_UNSURE:
+    case OS_IOS:
+      send_string(SS_TAP(X_BACKSPACE));
+      break;
+  }
 }

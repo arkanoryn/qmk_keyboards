@@ -11,7 +11,9 @@
 
 #define COMBO_STR_MAX_LENGTH 15
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
+#define LINUX_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))
 #define MAC_WORD_BACKSPACE SS_LALT(SS_TAP(X_BACKSPACE))
 
 void set_combo_event_timer(void);
 void combo_event_task(void);
+void word_backspace(void);
