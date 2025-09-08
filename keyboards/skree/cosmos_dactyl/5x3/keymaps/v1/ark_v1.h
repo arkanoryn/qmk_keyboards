@@ -23,6 +23,7 @@
 enum custom_keycodes {
   LAYER_LOCK = NEW_SAFE_RANGE,
   MAGIC,
+  ARCANE,
   SEL_WORD,
   QUOT_UNDER,
   DOT_EXLM,
@@ -34,4 +35,3 @@ enum custom_keycodes {
   //   CLOCKDN,
   //   CLOCKNX,
 };
-

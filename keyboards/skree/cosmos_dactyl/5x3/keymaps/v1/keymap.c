@@ -23,9 +23,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _________GRAPHITE_LEFT_ROW_1________, /* || */ ________GRAPHITE_RIGHT_ROW_1________,
         _________GRAPHITE_LEFT_ROW_2________, /* || */ ________GRAPHITE_RIGHT_ROW_2________,
         _________GRAPHITE_LEFT_ROW_3________, /* || */ ________GRAPHITE_RIGHT_ROW_3________,
-        KC_LEFT_BRACKET,   KC_RIGHT_BRACKET,            KC_D,
-        SFT_T(GRAPHITE_MAGIC),   GRAPHITE_SPC,   GUI_T(KC_ESC),               /**/ RGUI_T(KC_DEL),   RSFT_T(GRAPHITE_BSPC),
-        ALT_T(KC_TAB), CTL_T(S(KC_TAB)), QK_BOOT,               /**/ QK_BOOT, RALT_T(GRAPHITE_ENT)
+        _________GRAPHITE_LEFT_ROW_4________, /* || */ ________GRAPHITE_RIGHT_ROW_4________,
+        _________GRAPHITE_LEFT_THUMB1_______, /* || */ ________GRAPHITE_RIGHT_THUMB1_______,
+        _________GRAPHITE_LEFT_THUMB2_______, /* || */ ________GRAPHITE_RIGHT_THUMB2_______
     ),
   [_ACTIONS] = LAY_WRAPPER(
     __________ACTIONS_LEFT_ROW_1________, /* || */ _________ACTIONS_RIGHT_ROW_1________,
@@ -103,11 +103,9 @@ void keyboard_post_init_user(void) {
   init_teacher_state();
 };
 
-void housekeeping_task_user(void) {
-};
+void housekeeping_task_user(void) {};
 
-void keyboard_pre_init_user(void) {
-};
+void keyboard_pre_init_user(void) {};
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -130,4 +128,3 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_TERM;
   }
 }
-

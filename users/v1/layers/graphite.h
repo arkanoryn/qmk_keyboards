@@ -10,7 +10,6 @@
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
-#define MEH_SPC MEH_T(KC_SPC)
 
 // clang-format off
 #define CTL_L       LCTL_T(KC_L)
@@ -19,6 +18,7 @@
 #define GUI_F       RGUI_T(KC_F)
 #define ALT_O       RALT_T(KC_O)
 #define CTL_U       RCTL_T(KC_U)
+
 #define L4_N        LT(_NUMPAD_SOUND, KC_N)
 #define L3_R        LT(_ACCENTS, KC_R)
 #define L2_T        LT(_SYMBOLS, KC_T)
@@ -27,8 +27,20 @@
 #define L2_A        LT(_SYMBOLS, KC_A)
 #define L3_E        LT(_ACCENTS, KC_E)
 #define L4_I        LT(_NUMPAD_SOUND, KC_I)
+
 #define SFT_Q       LSFT_T(KC_Q)
 #define SFT_SLSH    RSFT_T(KC_SLSH)
+
+#define SFT_MAGIC   LSFT_T(MAGIC)
+#define MEH_SPC     MEH_T(KC_SPC)
+#define GUI_GESC    LGUI_T(QK_GESC)
+#define CTL_STAB    LCTL_T(S(KC_TAB))
+#define ALT_TAB     LALT_T(KC_TAB)
+
+#define GUI_DEL    RGUI_T(KC_DEL)
+#define SFT_BSPC   RSFT_T(KC_BSPC)
+#define CTL_ARCANE QK_BOOT // RCTL_T(ARCANE)
+#define ALT_ENT    RALT_T(KC_ENT)
 // clang-format off
 
 // TODO: add a link to the graphite layer image
@@ -36,12 +48,18 @@
 #define _________GRAPHITE_LEFT_ROW_1________ KC_B,		CTL_L,		ALT_D,		 GUI_W,		KC_Z
 #define _________GRAPHITE_LEFT_ROW_2________ L4_N,		L3_R,		L2_T,		L1_S,		KC_G
 #define _________GRAPHITE_LEFT_ROW_3________ SFT_Q,		KC_X,		KC_M,		KC_C,		KC_V
-#define _________GRAPHITE_LEFT_THUMBS_______ MEH_SPC,	 MAGIC
+#define _________GRAPHITE_LEFT_ROW_4________ KC_LEFT_BRACKET,   KC_RIGHT_BRACKET
+#define _________GRAPHITE_LEFT_THUMBS_______ MEH_SPC,	 SFT_MAGIC // sweep
+#define _________GRAPHITE_LEFT_THUMB1_______ SFT_MAGIC, MEH_SPC, GUI_GESC // cosmo
+#define _________GRAPHITE_LEFT_THUMB2_______ ALT_TAB, CTL_STAB, QK_BOOT // cosmo
 
 #define ________GRAPHITE_RIGHT_ROW_1________ QUOT_UNDS,	GUI_F,		ALT_O,		CTL_U,		KC_J
 #define ________GRAPHITE_RIGHT_ROW_2________ KC_Y,		L1_H,		L2_A,		L3_E,		L4_I
 #define ________GRAPHITE_RIGHT_ROW_3________ KC_K,		KC_P,		DOT_EXLM,	KC_COMM,	SFT_SLSH
-#define ________GRAPHITE_RIGHT_THUMBS_______ KC_BSPC,	KC_ENT
+#define ________GRAPHITE_RIGHT_ROW_4________ QK_BOOT
+#define ________GRAPHITE_RIGHT_THUMBS_______ SFT_BSPC,	ALT_ENT // sweep
+#define ________GRAPHITE_RIGHT_THUMB1_______ GUI_DEL, SFT_BSPC // cosmo
+#define ________GRAPHITE_RIGHT_THUMB2_______ CTL_ARCANE, ALT_ENT // cosmo
 
 // GRAPHITE_ keys
 #define GRAPHITE_A L2_A
@@ -71,11 +89,13 @@
 #define GRAPHITE_Y KC_Y
 #define GRAPHITE_Z KC_Z
 #define GRAPHITE_DOT DOT_EXLM
-#define GRAPHITE_BSPC KC_BSPC
+#define GRAPHITE_BSPC SFT_BSPC
 #define GRAPHITE_SPC MEH_SPC
-#define GRAPHITE_ENT KC_ENT
+#define GRAPHITE_ENT ALT_ENT
 #define GRAPHITE_SLSH SFT_SLSH
 #define GRAPHITE_QUOT QUOT_UNDS
-#define GRAPHITE_MAGIC MAGIC
+#define GRAPHITE_MAGIC SFT_MAGIC
+#define GRAPHITE_ARCANE CTL_ARCANE
+#define GRAPHITE_GESC GUI_GESC
 #define GRAPHITE_COMM KC_COMM
 
