@@ -13,6 +13,8 @@
 #include "teacher/chord_teacher.h"
 #include "config/config.h"
 
+#include "print.h"
+
 #define LAY_WRAPPER(...) LAYOUT_5x3(__VA_ARGS__)
 
 #define MEH_SPC MEH_T(KC_SPC)
@@ -70,6 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }; // clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { // clang-format off
+    print("process record");
   if (!process_sentence_case(keycode, record)) { return false; }
   if (!process_chord_teacher(keycode, record)) { return false; }
   if (!process_magic_key(keycode, record)) { return false; }
