@@ -25,7 +25,7 @@ CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 
-EXTRAFLAGS += -flto
+EXTRAFLAGS += -flto=auto
 
 # Chording / Combos
 COMBO_ENABLE = yes

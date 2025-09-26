@@ -12,7 +12,7 @@ LEADER_ENABLE = yes
 COMBO_ENABLE = yes
 INTROSPECTION_KEYMAP_C = generated/combos.c
 
-EXTRAFLAGS += -flto
+EXTRAFLAGS += -flto=auto
 
 SRC += getreuer/layer_lock/layer_lock.c \
 	getreuer/select_word/select_word.c \
