@@ -44,36 +44,38 @@ void process_magic_combo_event(uint16_t combo_index) {
 };
 
 bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
-  if (!record->event.pressed) {
-    return true;
-  }
-
-#ifdef CYCLE_COMBO_ENABLE
-  cycling_combos_state_t* combos_state = get_cycling_combo_state();
-#endif // CYCLE_COMBO_ENABLE
-
-  switch (keycode) {
-    case MAGIC:
-#ifdef CYCLE_COMBO_ENABLE
-      if (record->event.pressed && combos_state->is_cyclable) {
-        set_combo_event_timer();
-        cycle();
-        return false;
-      } else if (record->event.pressed) {
-#else
-      if (record->event.pressed) {
-#endif // CYCLE_COMBO_ENABLE
-        process_repeat_event(get_last_keycode(), get_last_mods());
-        return false;
-      }
-      // we want to ignore the reset of the combo (below) if one of the SHIFT key is held
-    case SFT_Q:
-    case SFT_SLSH:
-      if (record->tap.count == 0) {
+    if (!record->event.pressed) {
         return true;
-      }
-  }
+    }
 
-  init_cycling_combos_state();
-  return true;
-}
+#ifdef CYCLE_COMBO_ENABLE
+    cycling_combos_state_t* combos_state = get_cycling_combo_state();
+#endif // CYCLE_COMBO_ENABLE
+
+    switch (keycode) {
+        case MAGIC:
+#ifdef CYCLE_COMBO_ENABLE
+        if (record->event.pressed && combos_state->is_cyclable) {
+            set_combo_event_timer();
+            cycle();
+            return false;
+        } else if (record->event.pressed) {
+            #else
+            if (record->event.pressed) {
+                #endif // CYCLE_COMBO_ENABLE
+                process_repeat_event(get_last_keycode(), get_last_mods());
+                return false;
+            }
+            // we want to ignore the reset of the combo (below) if one of the SHIFT key is held
+            case GRAPHITE_3_01:
+            case GRAPHITE_3_10:
+                // case SFT_Q:
+                // case SFT_SLSH:
+                if (record->tap.count == 0) {
+                    return true;
+                }
+        }
+
+        init_cycling_combos_state();
+        return true;
+    }

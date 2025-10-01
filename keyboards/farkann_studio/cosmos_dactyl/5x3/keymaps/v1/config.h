@@ -15,6 +15,9 @@
 
 #pragma once
 
+#define THUMBCLUSTER_LEFT 6
+#define THUMBCLUSTER_RIGHT 4
+
 // OS configurations
 #define OS_DETECTION_KEYBOARD_RESET
 #define OS_DETECTION_DEBOUNCE 200

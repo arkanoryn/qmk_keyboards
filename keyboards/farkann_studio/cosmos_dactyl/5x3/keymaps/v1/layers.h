@@ -9,10 +9,13 @@ enum layers {
   _CONFIG,       // KEYBOARD CONFIGURATION
 };
 
-#include "layers/graphite.h"
-#include "layers/actions.h"
-#include "layers/symbols.h"
+#include "ark_v1.h"
 #include "layers/accents.h"
-#include "layers/numpad_sound.h"
+#include "layers/actions.h"
 #include "layers/config.h"
-
+#include "layers/graphite.h"
+#include "layers/num_row.h"
+#include "layers/numpad_sound.h"
+#include "layers/qwerty.h"
+#include "layers/symbols.h"
+#include "layers/thumbs.h"
