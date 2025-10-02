@@ -13,7 +13,6 @@
 #include "tap_dance/tap_dance.h"
 
 #define __X__ KC_NO
-#define _____ KC_TRNS
 
 #define TAB_NEXT LCTL(KC_TAB)
 #define TAB_PREV RCS(KC_TAB)

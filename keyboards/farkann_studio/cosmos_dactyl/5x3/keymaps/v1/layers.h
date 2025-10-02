@@ -7,12 +7,15 @@ enum layers {
   _ACCENTS,      // ACCENTS
   _NUMPAD_SOUND, // NUMPAD & MULTIMEDIA
   _CONFIG,       // KEYBOARD CONFIGURATION
+  _QWERTY,       // QWERTY Layout
+  _GAME,         // QWERTY Layout, but without any modifier keys on hold
 };
 
 #include "ark_v1.h"
 #include "layers/accents.h"
 #include "layers/actions.h"
 #include "layers/config.h"
+#include "layers/extra_row.h"
 #include "layers/graphite.h"
 #include "layers/num_row.h"
 #include "layers/numpad_sound.h"

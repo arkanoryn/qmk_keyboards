@@ -17,6 +17,8 @@
 
 #define THUMBCLUSTER_LEFT 6
 #define THUMBCLUSTER_RIGHT 4
+#define EXTRA_ROW_LEFT 2
+#define EXTRA_ROW_RIGHT 1
 
 // OS configurations
 #define OS_DETECTION_KEYBOARD_RESET
@@ -29,14 +31,12 @@
 #define SELECT_WORD_TIMEOUT 2000
 #define SENTENCE_CASE_TIMEOUT 2000
 
-// #define VIRT_SIDECHANNEL
-
 // #define COMBO_STRICT_TIMER   // starts time on the first key of the combo
 #define COMBO_TERM 60        // default is 50
 #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 
 // CAPS WORD config
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+// #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
 #define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
 
