@@ -26,3 +26,6 @@ Trackball is explicitly SPI (AFAIK SPI bus 0)
     - [ ] Talk with QMK and see how I can differentiate both screens
     - [ ] Create a default picture for the screen when the default keymap from QMK gets compiled/based
     - [ ] Code a way for the Screen to display the keys of the current layer. We might need to create another python script; tbd.
+- [ ] Make a script to compile my personal keymap
+- [ ] Make a script with input that Skree and I can use for customers with the proper prompts so that we do not have to think...
+
