@@ -18,7 +18,7 @@
 #define ___________NUMPAD_ROW_3_____________ KC_PSLS, KC_7, KC_8, KC_9, KC_PMNS
 #define ___________NUMPAD_THUMBS____________ KC_ENT, KC_DOT
 
-#define ____________SOUND_ROW_1_____________ __X__, __X__, __X__, __X__, __X__
-#define ____________SOUND_ROW_2_____________ KC_MNXT, KC_VOLU, KC_LCTL, KC_LGUI, __X__
-#define ____________SOUND_ROW_3_____________ KC_MPLY, KC_VOLD, __X__, __X__, __X__
+#define ____________SOUND_ROW_1_____________ KC_VOLU, KC_VOLD __X__, __X__, __X__
+#define ____________SOUND_ROW_2_____________ KC_MNXT, KC_LSFT, KC_LCTL, KC_LGUI, __X__
+#define ____________SOUND_ROW_3_____________ KC_MPLY, __X__, __X__, __X__, __X__
 #define ____________SOUND_THUMBS____________ __X__, LAYER_LOCK

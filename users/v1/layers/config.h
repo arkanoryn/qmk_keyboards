@@ -14,9 +14,9 @@
 #define __X__ KC_NO
 
 #define __________CONFIG_LEFT_ROW_1_________ CYCLE_CHORD_MODE, __X__, __X__, __X__, __X__
-#define __________CONFIG_LEFT_ROW_2_________ __X__, __X__, __X__, __X__, __X__
+#define __________CONFIG_LEFT_ROW_2_________ __X__, __X__, __X__, __X__, __X__ // MAKE LAYER AS NEW BASE: Graphite, Qwerty, Sturdy, Game, Colemak
 #define __________CONFIG_LEFT_ROW_3_________ QK_BOOT, __X__, __X__, __X__, __X__
-#define __________CONFIG_LEFT_THUMBS________ __X__, __X__
+#define __________CONFIG_LEFT_THUMBS________ __X__, __X__ // SAVE CURRENT LAYER AS EEPROM
 
 #define _________CONFIG_RIGHT_ROW_1________ RGB_MOD, RGB_SPI, RGB_HUI, RGB_SAI, RGB_VAI
 #define _________CONFIG_RIGHT_ROW_2________ RGB_RMOD, RGB_SPD, RGB_HUD, RGB_SAD, RGB_VAD
