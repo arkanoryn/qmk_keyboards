@@ -12,7 +12,7 @@
 #include "config/config.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(
+    [_GRAPHITE] = LAYOUT(
         #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
         #endif // FARKANN_NUMBER_ROW
@@ -79,6 +79,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___GAME_ROW_1___,
         ___GAME_ROW_2___,
         ___GAME_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
+    [_COLEMAK] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___COLEMAK_ROW_1___,
+        ___COLEMAK_ROW_2___,
+        ___COLEMAK_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
+    [_STURDY] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___STURDY_ROW_1___,
+        ___STURDY_ROW_2___,
+        ___STURDY_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),

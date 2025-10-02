@@ -13,16 +13,13 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-/*
-** This file contains the different keycode definition dedicated to the Graphite layout
-** of our keyboards.
-*/
 #pragma once
 
 #include QMK_KEYBOARD_H
 #include "layers.h" // each keyboard should have this file with the available layers enum
 #include "tap_dance/tap_dance.h"
+
+#include "layout.h" // each keyboard should have this file with the available layers enum
 
 #define QWERTY_A        LT(_NUMPAD_SOUND, KC_A)
 #define QWERTY_B        KC_B
@@ -37,9 +34,7 @@
 #define QWERTY_G        KC_G
 #define QWERTY_H        KC_H
 #define QWERTY_I        RALT_T(KC_I)
-#define QWERTY_J        KC_J
 #define QWERTY_J        LT(_ACTIONS, KC_J)
-#define QWERTY_K        KC_K
 #define QWERTY_K        LT(_SYMBOLS, KC_K)
 #define QWERTY_L        LT(_ACCENTS, KC_L)
 #define QWERTY_M        KC_M
@@ -60,20 +55,28 @@
 #define QWERTY_Y        KC_Y
 #define QWERTY_Z        LSFT_T(KC_Z)
 
-#define ___QWERTY_ROW_1___ QWERTY_Q, QWERTY_W, QWERTY_E, QWERTY_R, QWERTY_T, /* || */ QWERTY_Y, QWERTY_U, QWERTY_I,      QWERTY_O,  QWERTY_P
-#define ___QWERTY_ROW_2___ QWERTY_A, QWERTY_S, QWERTY_D, QWERTY_F, QWERTY_G, /* || */ QWERTY_H, QWERTY_J, QWERTY_K,      QWERTY_L,  QWERTY_SCLN
-#define ___QWERTY_ROW_3___ QWERTY_Z, QWERTY_X, QWERTY_C, QWERTY_V, QWERTY_B, /* || */ QWERTY_N, QWERTY_M, QWERTY_COMM,   QWERTY_DOT,QWERTY_SLSH
+#define ___QWERTY_CORE_ROW_1___ QWERTY_Q, QWERTY_W, QWERTY_E, QWERTY_R, QWERTY_T, /* || */ QWERTY_Y, QWERTY_U, QWERTY_I,      QWERTY_O,  QWERTY_P
+#define ___QWERTY_CORE_ROW_2___ QWERTY_A, QWERTY_S, QWERTY_D, QWERTY_F, QWERTY_G, /* || */ QWERTY_H, QWERTY_J, QWERTY_K,      QWERTY_L,  QWERTY_SCLN
+#define ___QWERTY_CORE_ROW_3___ QWERTY_Z, QWERTY_X, QWERTY_C, QWERTY_V, QWERTY_B, /* || */ QWERTY_N, QWERTY_M, QWERTY_COMM,   QWERTY_DOT,QWERTY_SLSH
 
-#define ___GAME_ROW_1___ KC_Q, KC_W, KC_E, KC_R, KC_T, /* || */ KC_Y, KC_U, KC_I,      KC_O,  KC_P
-#define ___GAME_ROW_2___ KC_A, KC_S, KC_D, KC_F, KC_G, /* || */ KC_H, KC_J, KC_K,      KC_L,  KC_SCLN
-#define ___GAME_ROW_3___ KC_Z, KC_X, KC_C, KC_V, KC_B, /* || */ KC_N, KC_M, KC_COMM,   KC_DOT,KC_SLSH
+#define ___GAME_CORE_ROW_1___ KC_Q, KC_W, KC_E, KC_R, KC_T, /* || */ KC_Y, KC_U, KC_I,      KC_O,  KC_P
+#define ___GAME_CORE_ROW_2___ KC_A, KC_S, KC_D, KC_F, KC_G, /* || */ KC_H, KC_J, KC_K,      KC_L,  KC_SCLN
+#define ___GAME_CORE_ROW_3___ KC_Z, KC_X, KC_C, KC_V, KC_B, /* || */ KC_N, KC_M, KC_COMM,   KC_DOT,KC_SLSH
 
 #ifdef FARKANN_EXTRA_COLS
-#   define ___QWERTY_ROW_1___ KC_TAB,    ___QWERTY_ROW_1___, KC_BSPC
-#   define ___QWERTY_ROW_2___ KC_CAPS,   ___QWERTY_ROW_2___, KC_ENT
-#   define ___QWERTY_ROW_3___ KC_LSHFT,  ___QWERTY_ROW_3___, KC_RSHFT
+#   define ___QWERTY_ROW_1___ ___ROW_1_WITH_EXTRA_COLS(___QWERTY_CORE_ROW_1___)
+#   define ___QWERTY_ROW_2___ ___ROW_2_WITH_EXTRA_COLS(___QWERTY_CORE_ROW_2___)
+#   define ___QWERTY_ROW_3___ ___ROW_3_WITH_EXTRA_COLS(___QWERTY_CORE_ROW_3___)
 
-#   define ___GAME_ROW_1___ KC_TAB,    ___GAME_ROW_1___, KC_BSPC
-#   define ___GAME_ROW_2___ KC_CAPS,   ___GAME_ROW_2___, KC_ENT
-#   define ___GAME_ROW_3___ KC_LSHFT,  ___GAME_ROW_3___, KC_RSHFT
+#   define ___GAME_ROW_1___ ___ROW_1_WITH_EXTRA_COLS(___GAME_CORE_ROW_1___)
+#   define ___GAME_ROW_2___ ___ROW_2_WITH_EXTRA_COLS(___GAME_CORE_ROW_2___)
+#   define ___GAME_ROW_4___ ___ROW_3_WITH_EXTRA_COLS(___GAME_CORE_ROW_3___)
+#else
+#   define ___QWERTY_ROW_1___ ___QWERTY_CORE_ROW_1___
+#   define ___QWERTY_ROW_2___ ___QWERTY_CORE_ROW_2___
+#   define ___QWERTY_ROW_3___ ___QWERTY_CORE_ROW_3___
+
+#   define ___GAME_ROW_1___ ___GAME_CORE_ROW_1___
+#   define ___GAME_ROW_2___ ___GAME_CORE_ROW_2___
+#   define ___GAME_ROW_3___ ___GAME_CORE_ROW_3___
 #endif // FARKANN_EXTRA_COLS

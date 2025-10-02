@@ -49,7 +49,7 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
 }
 
 void process_repeat_event(uint16_t keycode, uint8_t mods) {
-  if (layer_state_is(_BASE)) {
+  if (layer_state_is(_GRAPHITE)) {
     process_repeat_event_graphite(keycode, mods);
   }
 }
