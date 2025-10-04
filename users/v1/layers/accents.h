@@ -32,5 +32,5 @@
 #define _________ACCENTS_RIGHT_ROW_1________ __X__, CKC(E_CIRC), CKC(U_GRAVE), CKC(I_CIRC), CKC(I_TREMA)
 #define _________ACCENTS_RIGHT_ROW_2________ __X__, CKC(E_AIGU), CKC(E_GRAVE), CKC(A_GRAVE), CKC(O_CIRC)
 #define _________ACCENTS_RIGHT_ROW_3________ __X__, CKC(C_CEDILLE), CKC(U_CIRC), CKC(A_CIRC), __X__
-#end
+#endif
 #define _________ACCENTS_RIGHT_THUMBS_______ __X__, LAYER_LOCK

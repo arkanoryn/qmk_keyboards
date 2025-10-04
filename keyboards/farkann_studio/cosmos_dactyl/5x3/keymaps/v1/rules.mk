@@ -7,6 +7,7 @@ OS_DETECTION_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 LEADER_ENABLE = yes
+QUANTUM_PAINTER_SUPPORTS_256_PALETTE = yes
 
 # Chording / Combos
 COMBO_ENABLE = yes
@@ -22,12 +23,14 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	helpers/helpers.c \
 	helpers/graphite.c \
 	helpers/temporary_message.c \
+	img/dragon.qgf.c \
 	generated/cycles.c \
 	generated/correct_chords.c \
 	combos/combos.c \
 	magic/cycling_combos.c \
 	magic/magic.c \
 	magic/repeat.c \
+	painter/display.c \
 	teacher/chord_teacher.c \
 	symbols/symbols.c \
 	symbols/accents.c \
