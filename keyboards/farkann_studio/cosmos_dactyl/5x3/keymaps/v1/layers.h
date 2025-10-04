@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ark_v1.h"
+
 enum layers {
   _GRAPHITE,         // GRAPHITE
   _ACTIONS,      // ACTIONS
@@ -10,10 +12,17 @@ enum layers {
   _QWERTY,       // QWERTY Layout
   _GAME,         // QWERTY Layout, but without any modifier keys on hold
   _COLEMAK,
-  _STURDY
+  _STURDY,
+  _FN
 };
 
-#include "ark_v1.h"
+#define __X__ KC_NO
+#define _____ KC_TRNS
+
+#ifndef CKC
+#  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
+#endif                            // CKC
+
 #include "layers/accents.h"
 #include "layers/actions.h"
 #include "layers/config.h"
@@ -28,3 +37,4 @@ enum layers {
 #include "layers/qwerty.h"
 #include "layers/symbols.h"
 #include "layers/thumbs.h"
+

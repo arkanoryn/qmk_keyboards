@@ -11,7 +11,9 @@
 #include "ark_v1.h" // root_config
 #include "layers.h" // each keyboard should have this file with the available layers enum
 
-#define __X__ KC_NO
+#ifndef CKC
+#  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
+#endif                            // CKC
 
 #define __________CONFIG_LEFT_ROW_1_________ CYCLE_CHORD_MODE, __X__, __X__, __X__, __X__
 #define __________CONFIG_LEFT_ROW_2_________ __X__, __X__, __X__, __X__, __X__ // MAKE LAYER AS NEW BASE: Graphite, Qwerty, Sturdy, Game, Colemak

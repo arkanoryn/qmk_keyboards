@@ -36,7 +36,6 @@ void    init_displays(void) {
 
 void draw_screen_1(void) {
     for (int i = 0; i < 239; i+=8) {
-        // bool qp_rect(painter_device_t device, uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, uint8_t hue, uint8_t sat, uint8_t val, bool filled);
         qp_rect(display, 0, i, 25, i+7, i, 255, 255, true);
         qp_flush(display);
     }

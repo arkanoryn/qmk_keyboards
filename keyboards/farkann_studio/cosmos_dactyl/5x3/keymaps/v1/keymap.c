@@ -10,6 +10,7 @@
 #include "symbols/symbols.h"
 #include "teacher/chord_teacher.h"
 #include "config/config.h"
+#include "painter/display.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GRAPHITE] = LAYOUT(
@@ -30,31 +31,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO,
   //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO
   //  ),
-  // [_SYMBOLS] = LAY_WRAPPER(
-  //   __________SYMBOLS_LEFT_ROW_1________, /* || */ _________SYMBOLS_RIGHT_ROW_1________,
-  //   __________SYMBOLS_LEFT_ROW_2________, /* || */ _________SYMBOLS_RIGHT_ROW_2________,
-  //   __________SYMBOLS_LEFT_ROW_3________, /* || */ _________SYMBOLS_RIGHT_ROW_3________,
-  //       KC_NO,   KC_NO,                                                           KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO
-  // ),
-  // [_ACCENTS] = LAY_WRAPPER(
-  //   __________ACCENTS_LEFT_ROW_1________, /* || */ _________ACCENTS_RIGHT_ROW_1________,
-  //   __________ACCENTS_LEFT_ROW_2________, /* || */ _________ACCENTS_RIGHT_ROW_2________,
-  //   __________ACCENTS_LEFT_ROW_3________, /* || */ _________ACCENTS_RIGHT_ROW_3________,
-  //       KC_NO,   KC_NO,                                                           KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO
-  // ),
-  // [_NUMPAD_SOUND] = LAY_WRAPPER(
-  //   ___________NUMPAD_ROW_1_____________, /* || */ ____________SOUND_ROW_1_____________,
-  //   ___________NUMPAD_ROW_2_____________, /* || */ ____________SOUND_ROW_2_____________,
-  //   ___________NUMPAD_ROW_3_____________, /* || */ ____________SOUND_ROW_3_____________,
-  //       KC_NO,   KC_NO,                                                           KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO
-  // ),
-  /* [_CONFIG] = LAY_WRAPPER( */
+    [_SYMBOLS] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___SYMBOLS_ROW_1___,
+        ___SYMBOLS_ROW_2___,
+        ___SYMBOLS_ROW_3___,
+        __SYMBOLS_EXTRA_ROW__,
+        __SYMBOLS_THUMBS__________
+    ),
+  [_ACCENTS] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___ACCENTS_ROW_1___,
+        ___ACCENTS_ROW_2___,
+        ___ACCENTS_ROW_3___,
+        __ACCENTS_EXTRA_ROW__,
+        __ACCENTS_THUMBS__________
+  ),
+  [_NUMPAD_SOUND] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___NUMPAD_SOUND_ROW_1___,
+        ___NUMPAD_SOUND_ROW_2___,
+        ___NUMPAD_SOUND_ROW_3___,
+        __NUMPAD_SOUND_EXTRA_ROW__,
+        __NUMPAD_SOUND_THUMBS__________
+  ),
+  /* [_CONFIG] = LAYOUT( */
   /*   __________CONFIG_LEFT_ROW_1_________,  _________CONFIG_RIGHT_ROW_1________, */
   /*   __________CONFIG_LEFT_ROW_2_________,  _________CONFIG_RIGHT_ROW_2________, */
   /*   __________CONFIG_LEFT_ROW_3_________,  _________CONFIG_RIGHT_ROW_3________, */
@@ -138,6 +145,7 @@ void keyboard_post_init_user(void) {
     init_alt_tab_state();
     init_cycling_combos_state();
     init_teacher_state();
+    init_displays();
     // // Customise these values to desired behaviour
     // debug_enable=true;
     // debug_matrix=true;
@@ -146,15 +154,7 @@ void keyboard_post_init_user(void) {
 };
 
 void housekeeping_task_user(void) {
-    // static uint32_t last_draw = 0;
-    // if (timer_elapsed32(last_draw) > 33) { // Throttle to 30fps
-    //     last_draw = timer_read32();
-    //     // Draw 8px-wide rainbow filled rectangles down the left side of the display
-    //     for (int i = 0; i < 239; i+=8) {
-    //         qp_rect(display, 0, i, 7, i+7, i, 255, 255, true);
-    //     }
-    //     qp_flush(display);
-    // }
+
 };
 
 void keyboard_pre_init_user(void) {};

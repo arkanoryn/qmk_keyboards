@@ -40,6 +40,8 @@
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
 #define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
 
+#define FARKANN_FRENCH_ACCENTS
+
 // #ifdef OLED_ENABLE
 // #  define SPLIT_OLED_ENABLE
 // // Configuration to send data from main to off hand board
