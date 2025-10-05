@@ -14,25 +14,27 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GRAPHITE] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___GRAPHITE_ROW_1___,
         ___GRAPHITE_ROW_2___,
         ___GRAPHITE_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),
-  // [_ACTIONS] = LAY_WRAPPER(
-  //   __________ACTIONS_LEFT_ROW_1________, /* || */ _________ACTIONS_RIGHT_ROW_1________,
-  //   __________ACTIONS_LEFT_ROW_2________, /* || */ _________ACTIONS_RIGHT_ROW_2________,
-  //   __________ACTIONS_LEFT_ROW_3________, /* || */ _________ACTIONS_RIGHT_ROW_3________,
-  //       KC_NO,   KC_NO,                                                           KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO,
-  //       KC_NO, KC_NO, KC_NO,               /**/ KC_NO, KC_NO
-  //  ),
+//     [_ACTIONS] = LAYOUT(
+// #ifdef FARKANN_NUMBER_ROW
+//         __NUMBERS_ROW_____,
+// #endif // FARKANN_NUMBER_ROW
+//         ___ACTIONS_ROW_1___,
+//         ___ACTIONS_ROW_2___,
+//         ___ACTIONS_ROW_3___,
+//         __ACTIONS_EXTRA_ROW__,
+//         __ACTIONS_THUMBS__________
+//     ),
     [_SYMBOLS] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
         #endif // FARKANN_NUMBER_ROW
         ___SYMBOLS_ROW_1___,
@@ -41,30 +43,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __SYMBOLS_EXTRA_ROW__,
         __SYMBOLS_THUMBS__________
     ),
-  [_ACCENTS] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+    [_ACCENTS] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___ACCENTS_ROW_1___,
         ___ACCENTS_ROW_2___,
         ___ACCENTS_ROW_3___,
         __ACCENTS_EXTRA_ROW__,
         __ACCENTS_THUMBS__________
-  ),
-  [_NUMPAD_SOUND] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+    ),
+    [_NUMPAD_SOUND] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___NUMPAD_SOUND_ROW_1___,
         ___NUMPAD_SOUND_ROW_2___,
         ___NUMPAD_SOUND_ROW_3___,
         __NUMPAD_SOUND_EXTRA_ROW__,
         __NUMPAD_SOUND_THUMBS__________
-  ),
+    ),
     [_CONFIG] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___CONFIG_ROW_1___,
         ___CONFIG_ROW_2___,
         ___CONFIG_ROW_3___,
@@ -72,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __THUMBS__________
     ),
     [_QWERTY] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___QWERTY_ROW_1___,
         ___QWERTY_ROW_2___,
         ___QWERTY_ROW_3___,
@@ -82,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __THUMBS__________
     ),
     [_GAME] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___GAME_ROW_1___,
         ___GAME_ROW_2___,
         ___GAME_ROW_3___,
@@ -92,9 +94,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __THUMBS__________
     ),
     [_COLEMAK] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___COLEMAK_ROW_1___,
         ___COLEMAK_ROW_2___,
         ___COLEMAK_ROW_3___,
@@ -102,9 +104,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __THUMBS__________
     ),
     [_STURDY] = LAYOUT(
-        #ifdef FARKANN_NUMBER_ROW
+#ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___STURDY_ROW_1___,
         ___STURDY_ROW_2___,
         ___STURDY_ROW_3___,
