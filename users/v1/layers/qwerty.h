@@ -7,6 +7,7 @@
 
 #include QMK_KEYBOARD_H
 #include "layers.h" // each keyboard should have this file with the available layers enum
+#include "tap_dance/tap_dance.h"
 
 #define __X__ KC_NO
 #define _____ KC_TRNS
@@ -26,7 +27,7 @@
 #define L1_J        LT(_ACTIONS, KC_J)
 #define L2_K        LT(_SYMBOLS, KC_K)
 #define L3_L        LT(_ACCENTS, KC_L)
-#define L4_SCLN        LT(_NUMPAD_SOUND, KC_SCLN)
+#define L4_SCLN     LT(_NUMPAD_SOUND, KC_SCLN)
 // clang-format off
 
 // TODO: add a link to the QWERTY layer image

@@ -1,3 +1,12 @@
+//  :'######::'##:::::'##:'########:'########:'########::
+//  '##... ##: ##:'##: ##: ##.....:: ##.....:: ##.... ##:
+//   ##:::..:: ##: ##: ##: ##::::::: ##::::::: ##:::: ##:
+//  . ######:: ##: ##: ##: ######::: ######::: ########::
+//  :..... ##: ##: ##: ##: ##...:::: ##...:::: ##.....:::
+//  '##::: ##: ##: ##: ##: ##::::::: ##::::::: ##::::::::
+//  . ######::. ###. ###:: ########: ########: ##::::::::
+//  :......::::...::...:::........::........::..:::::::::
+
 #include QMK_KEYBOARD_H
 #include "oled_driver.h"
 #include "transactions.h"
@@ -13,6 +22,7 @@
 #include "symbols/symbols.h"
 #include "teacher/chord_teacher.h"
 #include "config/config.h"
+#include "jump_cursor/jump.h"
 
 #define LAY_WRAPPER(...) LAYOUT(__VA_ARGS__)
 
@@ -57,15 +67,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }; // clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { // clang-format off
+  if (!process_selection(keycode, record)) { return false; }
   if (!process_sentence_case(keycode, record)) { return false; }
   if (!process_chord_teacher(keycode, record)) { return false; }
   if (!process_magic_key(keycode, record)) { return false; }
   if (!process_layer_lock(keycode, record, LAYER_LOCK)) { return false; }
   if (!process_shortcuts(keycode, record)) { return false; }
   if (!process_symbols(keycode, record)) { return false; }
-  if (!process_select_word(keycode, record, SEL_WORD)) { return false; }
   if (!process_oled_displays(keycode, record)) { return false; }
   if (!process_graphite_keys(keycode, record)) { return false; }
+  if (!process_jump_cursor(keycode, record)) { return false; }
   if (!process_config(keycode, record)) { return false; } // clang-format on
 
   return true;
@@ -78,7 +89,6 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void matrix_scan_user(void) {
   layer_lock_task();
-  select_word_task();
   alt_tab_task();
   combo_event_task();
   chord_teacher_task();
@@ -116,6 +126,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case CTL_U:
     case L3_E:
       return TAPPING_TERM + 100;
+    case TD(TD_SELECTION_BACKWARD):
+    case TD(TD_SELECTION_FORWARD):
+    case TD(TD_JUMP_BACKWARD):
+    case TD(TD_JUMP_FORWARD):
+      return 150;
     // case ALT_D:
     // case L2_T:
     // case ALT_O:
@@ -125,3 +140,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_TERM;
   }
 }
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case L1_S:
+    case L1_H:
+      // Immediately select the hold action when another key is tapped.
+      return false;
+    default:
+      // Do not select the hold action when another key is tapped.
+      return false;
+  }
+  return false;
+};
