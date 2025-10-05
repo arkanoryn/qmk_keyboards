@@ -29,6 +29,7 @@
  * and run the script accordingly.
  */
 typedef struct {
+  const char *on_linux;
   const char *on_macOS;
   const char *on_winOS;
 } action_s;
