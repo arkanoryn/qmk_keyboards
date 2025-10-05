@@ -61,14 +61,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __NUMPAD_SOUND_EXTRA_ROW__,
         __NUMPAD_SOUND_THUMBS__________
   ),
-  /* [_CONFIG] = LAYOUT( */
-  /*   __________CONFIG_LEFT_ROW_1_________,  _________CONFIG_RIGHT_ROW_1________, */
-  /*   __________CONFIG_LEFT_ROW_2_________,  _________CONFIG_RIGHT_ROW_2________, */
-  /*   __________CONFIG_LEFT_ROW_3_________,  _________CONFIG_RIGHT_ROW_3________, */
-  /*       KC_NO,   KC_NO,                                                           KC_NO, */
-  /*       KC_NO, KC_NO, KC_NO,                KC_NO, KC_NO, */
-  /*       KC_NO, KC_NO, KC_NO,                KC_NO, KC_NO */
-  /* ), */
+    [_CONFIG] = LAYOUT(
+        #ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+        #endif // FARKANN_NUMBER_ROW
+        ___CONFIG_ROW_1___,
+        ___CONFIG_ROW_2___,
+        ___CONFIG_ROW_3___,
+        __CONFIG_EXTRA_ROW__,
+        __THUMBS__________
+    ),
     [_QWERTY] = LAYOUT(
         #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,

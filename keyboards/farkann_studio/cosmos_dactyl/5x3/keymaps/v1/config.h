@@ -34,6 +34,7 @@
 // #define COMBO_STRICT_TIMER   // starts time on the first key of the combo
 #define COMBO_TERM 60        // default is 50
 #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
+#define COMBO_ONLY_FROM_LAYER 0
 
 // CAPS WORD config
 // #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
