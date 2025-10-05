@@ -8,10 +8,11 @@ CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 LEADER_ENABLE = yes
 QUANTUM_PAINTER_SUPPORTS_256_PALETTE = yes
+TAP_DANCE_ENABLE = yes
 
 # Chording / Combos
 COMBO_ENABLE = yes
-INTROSPECTION_KEYMAP_C = generated/combos.c
+INTROSPECTION_KEYMAP_C = helpers/introspection_keymap.c
 
 EXTRAFLAGS += -flto=auto
 
@@ -19,24 +20,22 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	getreuer/select_word/select_word.c \
 	getreuer/sentence_case/sentence_case.c \
 	getreuer/sentence_case/override.c \
+	combos/combos.c \
 	config/config.c \
-	helpers/helpers.c \
+	generated/correct_chords.c \
+	generated/cycles.c \
 	helpers/graphite.c \
+	helpers/helpers.c \
 	helpers/temporary_message.c \
 	img/dragon.qgf.c \
-	generated/cycles.c \
-	generated/correct_chords.c \
-	combos/combos.c \
 	magic/cycling_combos.c \
 	magic/magic.c \
 	magic/repeat.c \
 	painter/display.c \
-	teacher/chord_teacher.c \
-	symbols/symbols.c \
+	shortcuts/shortcuts.c \
 	symbols/accents.c \
-	shortcuts/shortcuts.c
-
-# oled/clock.c
-
-# correction/virt_sidechannel.c
-
+	symbols/symbols.c \
+	selection/selection.c \
+	jump_cursor/jump.c \
+	tap_dance/tap_dance.c \
+	teacher/chord_teacher.c
