@@ -17,13 +17,14 @@ Trackball is explicitly SPI (AFAIK SPI bus 0)
 # TODOs
 
 - [ ] clean up:
-    - [ ] accents
+    - [X] accents
     - [ ] config
-    - [ ] numpad
-    - [ ] symbols
+    - [X] numpad
+    - [X] symbols
+    - [ ] add a fn layer
 - [ ] rework completely the actions based on the clean up I did and forgot to merge. To consider: should I merge and rebase?
 - [ ] Screens
-    - [ ] Talk with QMK and see how I can differentiate both screens
+    - [X] Talk with QMK and see how I can differentiate both screens
     - [ ] Create a default picture for the screen when the default keymap from QMK gets compiled/based
     - [ ] Code a way for the Screen to display the keys of the current layer. We might need to create another python script; tbd.
 - [ ] Make a script to compile my personal keymap
