@@ -15,10 +15,19 @@
 
 #pragma once
 
+// below should probably belong to either the firmware config OR in compile script
 #define THUMBCLUSTER_LEFT 6
 #define THUMBCLUSTER_RIGHT 4
 #define EXTRA_ROW_LEFT 2
 #define EXTRA_ROW_RIGHT 1
+#define FARKANN_FRENCH_ACCENTS
+
+#ifdef QUANTUM_PAINTER_DISPLAY_TIMEOUT
+#undef QUANTUM_PAINTER_DISPLAY_TIMEOUT
+#endif // QUANTUM_PAINTER_DISPLAY_TIMEOUT
+#define QUANTUM_PAINTER_DISPLAY_TIMEOUT 0
+#define QUANTUM_PAINTER_SUPPORTS_256_PALETTE TRUE
+#define QUANTUM_PAINTER_SUPPORTS_NATIVE_COLORS TRUE
 
 // OS configurations
 #define OS_DETECTION_KEYBOARD_RESET
@@ -40,8 +49,6 @@
 // #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
 #define CAPS_WORD_IDLE_TIMEOUT 15000 // When idle, turn off Caps Word after X seconds.
-
-#define FARKANN_FRENCH_ACCENTS
 
 // #ifdef OLED_ENABLE
 // #  define SPLIT_OLED_ENABLE

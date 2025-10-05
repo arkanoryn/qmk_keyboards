@@ -21,6 +21,6 @@
 #include <qp.h>
 
 void    init_displays(void);
-void    draw_default(void);
+void    draw(void);
 
 #endif // FARKANN_LCD_SCREEN

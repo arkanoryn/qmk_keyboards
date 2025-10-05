@@ -23,16 +23,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __EXTRA_ROW__,
         __THUMBS__________
     ),
-//     [_ACTIONS] = LAYOUT(
-// #ifdef FARKANN_NUMBER_ROW
-//         __NUMBERS_ROW_____,
-// #endif // FARKANN_NUMBER_ROW
-//         ___ACTIONS_ROW_1___,
-//         ___ACTIONS_ROW_2___,
-//         ___ACTIONS_ROW_3___,
-//         __ACTIONS_EXTRA_ROW__,
-//         __ACTIONS_THUMBS__________
-//     ),
+    [_ACTIONS] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___ACTIONS_ROW_1___,
+        ___ACTIONS_ROW_2___,
+        ___ACTIONS_ROW_3___,
+        __ACTIONS_EXTRA_ROW__,
+        __ACTIONS_THUMBS__________
+    ),
     [_SYMBOLS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
@@ -150,15 +150,10 @@ void keyboard_post_init_user(void) {
     init_cycling_combos_state();
     init_teacher_state();
     init_displays();
-    // // Customise these values to desired behaviour
-    // debug_enable=true;
-    // debug_matrix=true;
-    // debug_keyboard=true;
-    // debug_mouse=true;
 };
 
 void housekeeping_task_user(void) {
-
+    draw();
 };
 
 void keyboard_pre_init_user(void) {};

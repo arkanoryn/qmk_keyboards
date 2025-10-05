@@ -27,10 +27,11 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	helpers/graphite.c \
 	helpers/helpers.c \
 	helpers/temporary_message.c \
-	img/dragon.qgf.c \
 	magic/cycling_combos.c \
 	magic/magic.c \
 	magic/repeat.c \
+	painter/img/dragon.qgf.c \
+	painter/fonts/font_oled.qff.c \
 	painter/display.c \
 	shortcuts/shortcuts.c \
 	symbols/accents.c \
