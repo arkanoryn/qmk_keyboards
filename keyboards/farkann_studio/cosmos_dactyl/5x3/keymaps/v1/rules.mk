@@ -29,6 +29,7 @@ SRC += getreuer/layer_lock/layer_lock.c \
 	magic/cycling_combos.c \
 	magic/magic.c \
 	magic/repeat.c \
+	painter/img/demon-2.qgf.c \
 	painter/img/dragon.qgf.c \
 	painter/fonts/font_oled.qff.c \
 	painter/display.c \

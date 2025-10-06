@@ -17,6 +17,7 @@
 #ifdef FARKANN_LCD_SCREEN
 
 #include "qp_surface.h"
+#include "painter/img/demon-2.qgf.h"
 #include "painter/img/dragon.qgf.h"
 #include "painter/fonts/font_oled.qff.h"
 #include "layers.h"
@@ -24,14 +25,16 @@
 
 static painter_device_t         display;
 static painter_device_t         surface;
-static uint8_t my_framebuffer[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 16)];
+static uint8_t                  left_surface_buffer[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 16)];
+static uint8_t                  right_surface_buffer[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, 16)];
 static painter_font_handle_t    font_oled;
 static painter_image_handle_t   dragon;
+static painter_image_handle_t   demon;
 
-void init_display(painter_device_t current_display, painter_rotation_t rotation) {
+void init_display(painter_device_t current_display, painter_rotation_t rotation, uint16_t width, uint16_t height) {
     qp_init(current_display, rotation);
     qp_clear(current_display);
-    qp_rect(current_display, 0, 0, FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 0, 0, 0, true);
+    qp_rect(current_display, 0, 0, width, height , 0, 0, 0, true);
     qp_power(current_display, true);
     qp_flush(current_display);
 };
@@ -39,30 +42,43 @@ void init_display(painter_device_t current_display, painter_rotation_t rotation)
 void    init_displays(void) {
     font_oled = qp_load_font_mem(font_oled_font);
     dragon = qp_load_image_mem(gfx_dragon);
+    demon = qp_load_image_mem(gfx_demon_2);
 
     if (is_keyboard_left()) {
-        surface = qp_make_rgb565_surface(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, my_framebuffer);
+        surface = qp_make_rgb565_surface(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, left_surface_buffer);
         display = qp_st7735_make_spi_device(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, OLED_CS_PIN, OLED_DC_PIN, OLED_RST_PIN, FARKANN_SCREEN_SPI_DIVISOR, FARKANN_SCREEN_SPI_MODE);
 
-        init_display(display, FARKANN_SCREEN_ROTATION);
+        init_display(display, FARKANN_SCREEN_ROTATION, FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT);
         qp_init(surface, FARKANN_SCREEN_ROTATION);
+        qp_rect(surface, 0, 0, FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 0, 0, 0, true);
     } else {
-        display   = qp_st7735_make_spi_device(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, OLED_CS_PIN, OLED_DC_PIN, OLED_RST_PIN, FARKANN_SCREEN_2_SPI_DIVISOR, FARKANN_SCREEN_2_SPI_MODE);
+        surface = qp_make_rgb565_surface(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, right_surface_buffer);
+        display = qp_st7735_make_spi_device(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, OLED_CS_PIN, OLED_DC_PIN, OLED_RST_PIN, FARKANN_SCREEN_2_SPI_DIVISOR, FARKANN_SCREEN_2_SPI_MODE);
+
+        init_display(display, FARKANN_SCREEN_2_ROTATION, FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT);
         qp_init(surface, FARKANN_SCREEN_2_ROTATION);
+        qp_rect(surface, 0, 0, FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, 0, 0, 0, true);
     }
-    qp_rect(surface, 0, 0, FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 0, 0, 0, true);
+
     qp_surface_draw(surface, display, 0, 0, false);
+};
+
+void display_demon(void) {
+    if (demon != NULL) {
+        qp_drawimage(surface, (FARKANN_SCREEN_WIDTH - demon->width), (FARKANN_SCREEN_HEIGHT - demon->height), demon);
+    }
 };
 
 void display_dragon(void) {
     if (dragon != NULL) {
         qp_drawimage(surface, (FARKANN_SCREEN_WIDTH - dragon->width), (FARKANN_SCREEN_HEIGHT - dragon->height), dragon);
     }
-}
+};
 
 void write_layout(void) {
     if (font_oled != NULL) {
-        char *text = "!";
+        char *text;
+
         switch (get_highest_layer(layer_state)) {
             case _GRAPHITE:
                 text = "Graphite";
@@ -106,21 +122,22 @@ void write_layout(void) {
 };
 
 void draw_screen_left(void) {
-    display_dragon();
+    display_demon();
     write_layout();
     qp_surface_draw(surface, display, 0, 0, false);
-    // for (int i = 0; i < 239; i+=8) {
-        // qp_rect(display, 0, i, 10, i+7, i, 255, 255, true);
-        // qp_flush(display);
-    // }
 };
 
 // #ifdef FARKANN_DOUBLE_SCREEN
 void draw_screen_right(void) {
-    for (int i = 0; i < 239; i+=8) {
-        // qp_circle(display, 32, 32+i, 4, i, 255, 255, true);
-        // qp_flush(display);
+    display_dragon();
+
+    if (font_oled != NULL) {
+        char *text = "Right";
+        int16_t width = qp_textwidth(font_oled, text);
+        qp_drawtext(surface, (FARKANN_SCREEN_2_WIDTH - width), (FARKANN_SCREEN_2_HEIGHT - font_oled->line_height), font_oled, text);
     }
+
+    qp_surface_draw(surface, display, 0, 0, false);
 };
 // #endif // FARKANN_DOUBLE_SCREEN
 
