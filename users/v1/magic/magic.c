@@ -12,34 +12,36 @@
 #include "repeat.h"
 #include "teacher/chord_teacher.h"
 
+#include "helpers/helpers.h"
+
 #ifndef CYCLE_COMBO_ENABLE
 void init_cycling_combos_state(void) {};
 
 cycling_combos_state_t* get_cycling_combo_state(void) {
-  return NULL;
+    return NULL;
 };
 #endif // CYCLE_COMBO_ENABLE
 
 void process_magic_combo_event(uint16_t combo_index) {
 #ifdef CYCLE_COMBO_ENABLE
-  init_cycling_combos_state();
+    init_cycling_combos_state();
 
-  cycling_combos_state_t* combos_state = get_cycling_combo_state();
-  const uint8_t           mods         = get_mods() | get_oneshot_mods() | get_weak_mods();
+    cycling_combos_state_t* combos_state = get_cycling_combo_state();
+    const uint8_t           mods         = get_mods() | get_oneshot_mods() | get_weak_mods();
 
-  combos_state->is_combo_active = true;
-  combos_state->shift_enabled   = mods & MOD_MASK_SHIFT;
-  combos_state->is_cyclable     = true;
+    combos_state->is_combo_active = true;
+    combos_state->shift_enabled   = mods & MOD_MASK_SHIFT;
+    combos_state->is_cyclable     = true;
 
-  const cycling_combos_e cycle_id = match_combo_index_with_cycling_combo(combo_index);
+    const cycling_combos_e cycle_id = match_combo_index_with_cycling_combo(combo_index);
 
-  switch (cycle_id) {
-    case 0 ...(_LAST_CYCLING_COMBO - 1):
-      combos_state->last_cycle_combo_id = cycle_id;
-      break;
-    default:
-      combos_state->is_cyclable = false;
-  }
+    switch (cycle_id) {
+        case 0 ...(_LAST_CYCLING_COMBO - 1):
+            combos_state->last_cycle_combo_id = cycle_id;
+            break;
+        default:
+            combos_state->is_cyclable = false;
+    }
 #endif // CYCLE_COMBO_ENABLE
 };
 
@@ -60,17 +62,15 @@ bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
             cycle();
             return false;
         } else if (record->event.pressed) {
-            #else
+#else
             if (record->event.pressed) {
-                #endif // CYCLE_COMBO_ENABLE
+#endif // CYCLE_COMBO_ENABLE
                 process_repeat_event(get_last_keycode(), get_last_mods());
                 return false;
             }
             // we want to ignore the reset of the combo (below) if one of the SHIFT key is held
             case GRAPHITE_3_01:
             case GRAPHITE_3_10:
-                // case SFT_Q:
-                // case SFT_SLSH:
                 if (record->tap.count == 0) {
                     return true;
                 }

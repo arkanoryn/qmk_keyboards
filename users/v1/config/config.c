@@ -19,12 +19,12 @@ bool process_config(uint16_t keycode, keyrecord_t *record) {
         case TOGGLE_COLEMAK:
             layer_off(_CONFIG);
             layer_clear();
-            set_single_default_layer(_STURDY);
+            set_single_default_layer(_COLEMAK);
             return false;
         case TOGGLE_QWERTY:
             layer_off(_CONFIG);
             layer_clear();
-            set_single_default_layer(_STURDY);
+            set_single_default_layer(_QWERTY);
             return false;
         case TOGGLE_GRAPHITE:
             layer_off(_CONFIG);
@@ -34,7 +34,7 @@ bool process_config(uint16_t keycode, keyrecord_t *record) {
         case TOGGLE_GAME:
             layer_off(_CONFIG);
             layer_clear();
-            set_single_default_layer(_STURDY);
+            set_single_default_layer(_GAME);
             return false;
         default:
             return true;

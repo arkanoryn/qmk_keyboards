@@ -22,10 +22,11 @@
 
 #include QMK_KEYBOARD_H
 
+#define MEH_SPC MEH_T(KC_SPC)
 
 // #ifdef FARKANN_POWER_USER
-#define THUMB_L1 LSFT_T(MAGIC)
-#define THUMB_L2 MEH_T(KC_SPC)
+#define THUMB_L1 MAGIC
+#define THUMB_L2 MEH_SPC
 #define THUMB_L3 LGUI_T(KC_ESC)
 #define THUMB_L4 LCTL_T(S(KC_TAB))
 #define THUMB_L5 LALT_T(KC_TAB)
