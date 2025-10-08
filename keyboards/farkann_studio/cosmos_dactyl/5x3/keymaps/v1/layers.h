@@ -3,16 +3,16 @@
 #include "ark_v1.h"
 
 enum layers {
-  _GRAPHITE,         // GRAPHITE
+  _GRAPHITE,     // GRAPHITE
+  _QWERTY,       // QWERTY Layout
+  _GAME,         // QWERTY Layout, but without any modifier keys on hold
+  _COLEMAK,
+  _STURDY,
   _ACTIONS,      // ACTIONS
   _SYMBOLS,      // SYMBOLS
   _ACCENTS,      // ACCENTS
   _NUMPAD_SOUND, // NUMPAD & MULTIMEDIA
   _CONFIG,       // KEYBOARD CONFIGURATION
-  _QWERTY,       // QWERTY Layout
-  _GAME,         // QWERTY Layout, but without any modifier keys on hold
-  _COLEMAK,
-  _STURDY,
   _FN
 };
 
@@ -32,9 +32,9 @@ enum layers {
 #include "layers/layouts/layout.h"
 #include "layers/layouts/qwerty.h"
 #include "layers/layouts/sturdy.h"
+#include "layers/layouts/farkann_thumbs.h"
 #include "layers/num_row.h"
 #include "layers/numpad_sound.h"
 #include "layers/qwerty.h"
 #include "layers/symbols.h"
-#include "layers/thumbs.h"
 

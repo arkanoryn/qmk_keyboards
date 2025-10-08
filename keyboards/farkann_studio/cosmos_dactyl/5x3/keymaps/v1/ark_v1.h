@@ -29,6 +29,11 @@ enum custom_keycodes {
   DOT_EXLM,
   QUOT_UNDS,
   CYCLE_CHORD_MODE,
+  TOGGLE_STURDY,
+  TOGGLE_COLEMAK,
+  TOGGLE_QWERTY,
+  TOGGLE_GRAPHITE,
+  TOGGLE_GAME,
 
   // CLOCK, currently on hold
   //   CLOCKUP,

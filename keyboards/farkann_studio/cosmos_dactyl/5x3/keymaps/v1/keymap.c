@@ -23,6 +23,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __EXTRA_ROW__,
         __THUMBS__________
     ),
+    [_QWERTY] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___QWERTY_ROW_1___,
+        ___QWERTY_ROW_2___,
+        ___QWERTY_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
+    [_GAME] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___GAME_ROW_1___,
+        ___GAME_ROW_2___,
+        ___GAME_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
+    [_COLEMAK] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___COLEMAK_ROW_1___,
+        ___COLEMAK_ROW_2___,
+        ___COLEMAK_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
+    [_STURDY] = LAYOUT(
+#ifdef FARKANN_NUMBER_ROW
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___STURDY_ROW_1___,
+        ___STURDY_ROW_2___,
+        ___STURDY_ROW_3___,
+        __EXTRA_ROW__,
+        __THUMBS__________
+    ),
     [_ACTIONS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
@@ -73,46 +113,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __CONFIG_EXTRA_ROW__,
         __THUMBS__________
     ),
-    [_QWERTY] = LAYOUT(
-#ifdef FARKANN_NUMBER_ROW
-        __NUMBERS_ROW_____,
-#endif // FARKANN_NUMBER_ROW
-        ___QWERTY_ROW_1___,
-        ___QWERTY_ROW_2___,
-        ___QWERTY_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
-    [_GAME] = LAYOUT(
-#ifdef FARKANN_NUMBER_ROW
-        __NUMBERS_ROW_____,
-#endif // FARKANN_NUMBER_ROW
-        ___GAME_ROW_1___,
-        ___GAME_ROW_2___,
-        ___GAME_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
-    [_COLEMAK] = LAYOUT(
-#ifdef FARKANN_NUMBER_ROW
-        __NUMBERS_ROW_____,
-#endif // FARKANN_NUMBER_ROW
-        ___COLEMAK_ROW_1___,
-        ___COLEMAK_ROW_2___,
-        ___COLEMAK_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
-    [_STURDY] = LAYOUT(
-#ifdef FARKANN_NUMBER_ROW
-        __NUMBERS_ROW_____,
-#endif // FARKANN_NUMBER_ROW
-        ___STURDY_ROW_1___,
-        ___STURDY_ROW_2___,
-        ___STURDY_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
 }; // clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { // clang-format off
@@ -153,7 +153,13 @@ void keyboard_post_init_user(void) {
 };
 
 void housekeeping_task_user(void) {
-    draw();
+    static uint32_t last_draw = 0;
+
+    if (timer_elapsed32(last_draw) > 33) { // Throttle to 30fps
+        last_draw = timer_read32();
+
+        draw();
+    }
 };
 
 void keyboard_pre_init_user(void) {};

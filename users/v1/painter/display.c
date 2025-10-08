@@ -55,8 +55,8 @@ void    init_displays(void) {
         surface = qp_make_rgb565_surface(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, right_surface_buffer);
         display = qp_st7735_make_spi_device(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, OLED_CS_PIN, OLED_DC_PIN, OLED_RST_PIN, FARKANN_SCREEN_2_SPI_DIVISOR, FARKANN_SCREEN_2_SPI_MODE);
 
-        init_display(display, FARKANN_SCREEN_2_ROTATION, FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT);
         qp_init(surface, FARKANN_SCREEN_2_ROTATION);
+        init_display(display, FARKANN_SCREEN_2_ROTATION, FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT);
         qp_rect(surface, 0, 0, FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, 0, 0, 0, true);
     }
 
@@ -122,14 +122,14 @@ void write_layout(void) {
 };
 
 void draw_screen_left(void) {
-    display_demon();
+    // display_demon();
     write_layout();
     qp_surface_draw(surface, display, 0, 0, false);
 };
 
 // #ifdef FARKANN_DOUBLE_SCREEN
 void draw_screen_right(void) {
-    display_dragon();
+    // display_dragon();
 
     if (font_oled != NULL) {
         char *text = "Right";
@@ -142,16 +142,10 @@ void draw_screen_right(void) {
 // #endif // FARKANN_DOUBLE_SCREEN
 
 void    draw(void) {
-static uint32_t last_draw = 0;
-
-    if (timer_elapsed32(last_draw) > 33) { // Throttle to 30fps
-        last_draw = timer_read32();
-
-        if (is_keyboard_left()) {
-            draw_screen_left();
-        } else {
-            draw_screen_right();
-        }
+    if (is_keyboard_left()) {
+        draw_screen_left();
+    } else {
+        draw_screen_right();
     }
 };
 #endif // FARKANN_LCD_SCREEN

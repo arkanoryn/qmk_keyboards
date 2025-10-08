@@ -16,7 +16,7 @@
 #endif                            // CKC
 
 #define __________CONFIG_LEFT_ROW_1_________ CYCLE_CHORD_MODE, __X__, __X__, __X__, __X__
-#define __________CONFIG_LEFT_ROW_2_________ DF(_STURDY), DF(_COLEMAK), DF(_QWERTY), DF(_GRAPHITE), DF(_GAME)
+#define __________CONFIG_LEFT_ROW_2_________ TOGGLE_STURDY, TOGGLE_COLEMAK, TOGGLE_QWERTY, TOGGLE_GRAPHITE, TOGGLE_GAME
 #define __________CONFIG_LEFT_ROW_3_________ QK_BOOT, __X__, __X__, __X__, __X__
 
 #ifdef RGB_MATRIX_ENABLE
