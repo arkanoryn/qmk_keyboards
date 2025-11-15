@@ -55,7 +55,10 @@ bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
 #endif // CYCLE_COMBO_ENABLE
 
     switch (keycode) {
-        case MAGIC:
+        case SFT_MAGIC:
+            if (record->tap.count == 0) {
+                return true;
+            }
 #ifdef CYCLE_COMBO_ENABLE
         if (record->event.pressed && combos_state->is_cyclable) {
             set_combo_event_timer();
@@ -64,7 +67,7 @@ bool process_magic_key(uint16_t keycode, keyrecord_t* record) {
         } else if (record->event.pressed) {
 #else
             if (record->event.pressed) {
-#endif // CYCLE_COMBO_ENABLE
+                #endif // CYCLE_COMBO_ENABLE
                 process_repeat_event(get_last_keycode(), get_last_mods());
                 return false;
             }

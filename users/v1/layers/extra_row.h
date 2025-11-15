@@ -21,7 +21,7 @@
 #elif EXTRA_ROW_LEFT == 1 && EXTRA_ROW_RIGHT == 2
 #define __EXTRA_ROW__ KC_NO, KC_NO, KC_NO
 #elif EXTRA_ROW_LEFT == 2 && EXTRA_ROW_RIGHT == 1
-#define __EXTRA_ROW__ QK_BOOT, KC_NO, QK_BOOT
+#define __EXTRA_ROW__ KC_NO, KC_NO, KC_NO
 #elif EXTRA_ROW_LEFT == 2 && EXTRA_ROW_RIGHT == 2
 #define __EXTRA_ROW__ KC_NO, KC_NO, KC_NO, KC_NO
 #endif

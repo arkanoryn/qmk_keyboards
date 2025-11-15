@@ -22,19 +22,20 @@
 
 #include QMK_KEYBOARD_H
 
-#define MEH_SPC MEH_T(KC_SPC)
+#define MEH_SPC     MEH_T(KC_SPC)
+#define SFT_MAGIC   LSFT_T(MAGIC)
 
 // #ifdef FARKANN_POWER_USER
-#define THUMB_L1 MAGIC
+#define THUMB_L1 SFT_MAGIC
 #define THUMB_L2 MEH_SPC
 #define THUMB_L3 LGUI_T(KC_ESC)
 #define THUMB_L4 LCTL_T(S(KC_TAB))
 #define THUMB_L5 LALT_T(KC_TAB)
-#define THUMB_L6 QK_BOOT // KC_PGDN
+#define THUMB_L6 KC_PGDN
 #define THUMB_R1 RALT_T(ARCANE)
 #define THUMB_R2 RSFT_T(KC_BSPC)
-#define THUMB_R3 RCTL_T(KC_ENT)
-#define THUMB_R4 QK_BOOT // RGUI_T(KC_DEL)
+#define THUMB_R3 RGUI_T(KC_DEL)
+#define THUMB_R4 RCTL_T(KC_ENT)
 #define THUMB_R5 KC_HOME
 #define THUMB_R6 KC_END
 // #else
