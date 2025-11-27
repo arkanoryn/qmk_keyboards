@@ -17,19 +17,16 @@
 #ifdef FARKANN_LCD_SCREEN
 
 #include "qp_surface.h"
-#include "painter/img/demon-2.qgf.h"
-#include "painter/img/dragon.qgf.h"
 #include "painter/fonts/font_oled.qff.h"
 #include "layers.h"
 #include "display.h"
+#include "teacher/chord_teacher.h"
 
 static painter_device_t         display;
 static painter_device_t         surface;
 static uint8_t                  left_surface_buffer[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, 16)];
 static uint8_t                  right_surface_buffer[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(FARKANN_SCREEN_2_WIDTH, FARKANN_SCREEN_2_HEIGHT, 16)];
 static painter_font_handle_t    font_oled;
-static painter_image_handle_t   dragon;
-static painter_image_handle_t   demon;
 
 void init_display(painter_device_t current_display, painter_rotation_t rotation, uint16_t width, uint16_t height) {
     qp_init(current_display, rotation);
@@ -41,8 +38,6 @@ void init_display(painter_device_t current_display, painter_rotation_t rotation,
 
 void    init_displays(void) {
     font_oled = qp_load_font_mem(font_oled_font);
-    dragon = qp_load_image_mem(gfx_dragon);
-    demon = qp_load_image_mem(gfx_demon_2);
 
     if (is_keyboard_left()) {
         surface = qp_make_rgb565_surface(FARKANN_SCREEN_WIDTH, FARKANN_SCREEN_HEIGHT, left_surface_buffer);
@@ -61,18 +56,6 @@ void    init_displays(void) {
     }
 
     qp_surface_draw(surface, display, 0, 0, false);
-};
-
-void display_demon(void) {
-    if (demon != NULL) {
-        qp_drawimage(surface, (FARKANN_SCREEN_WIDTH - demon->width), (FARKANN_SCREEN_HEIGHT - demon->height), demon);
-    }
-};
-
-void display_dragon(void) {
-    if (dragon != NULL) {
-        qp_drawimage(surface, (FARKANN_SCREEN_WIDTH - dragon->width), (FARKANN_SCREEN_HEIGHT - dragon->height), dragon);
-    }
 };
 
 void write_layout(void) {
@@ -121,16 +104,48 @@ void write_layout(void) {
     }
 };
 
+#ifdef CHORD_TEACHER_ENABLE
+void write_teacher_state(painter_font_handle_t font_oled) {
+    if (font_oled != NULL) {
+        char *text;
+
+        if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_NORMAL) {
+            text = "Teacher Mode: Normal";
+        } else if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_CORRECTIVE) {
+            text = "Teacher Mode: Corrective";
+        } else if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) {
+            text = "Teacher Mode: OFF";
+        }
+
+        int16_t width = qp_textwidth(font_oled, text);
+        qp_drawtext(surface, (FARKANN_SCREEN_WIDTH - width), (FARKANN_SCREEN_HEIGHT - (font_oled->line_height * 2)), font_oled, text);
+    }
+}
+
+void write_teacher_str(painter_font_handle_t font_oled) {
+    if (font_oled != NULL) {
+        char *text;
+        text = get_teacher_chord_buffer();
+        if (*text == '\0') {
+            text = "                    ";
+        }
+        int16_t width = qp_textwidth(font_oled, text);
+        qp_drawtext(surface, (FARKANN_SCREEN_WIDTH - width), (FARKANN_SCREEN_HEIGHT - font_oled->line_height), font_oled, text);
+    }
+}
+#endif // CHORD_TEACHER_ENABLE
+
 void draw_screen_left(void) {
-    // display_demon();
-    write_layout();
+#ifdef CHORD_TEACHER_ENABLE
+    write_teacher_state(font_oled);
+    write_teacher_str(font_oled);
+#endif // CHORD_TEACHER_ENABLE
+    // write_layout();
     qp_surface_draw(surface, display, 0, 0, false);
 };
 
 // #ifdef FARKANN_DOUBLE_SCREEN
 void draw_screen_right(void) {
-    // display_dragon();
-
     if (font_oled != NULL) {
         char *text = "Right";
         int16_t width = qp_textwidth(font_oled, text);

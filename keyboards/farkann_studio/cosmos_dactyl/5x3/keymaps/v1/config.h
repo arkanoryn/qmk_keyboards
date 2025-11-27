@@ -45,6 +45,8 @@
 #define COMBO_SHOULD_TRIGGER // can define on which layer (for example) a combo is triggerable
 #define COMBO_ONLY_FROM_LAYER 0
 
+#define CHORD_TEACHER_ENABLE
+
 // CAPS WORD config
 // #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_INVERT_ON_SHIFT    // Holding Shift while Caps Word is active inverts the shift state.
