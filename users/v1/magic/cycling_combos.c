@@ -231,6 +231,7 @@ bool cycle(void) {
 
     backspace_current_output();
 
+    // if (ARCANE || (mods & MOD_MASK_SHIFT)) {
     if (mods & MOD_MASK_SHIFT) {
       cycle_backward(mods);
     } else {

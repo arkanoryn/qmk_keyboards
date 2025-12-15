@@ -18,25 +18,6 @@ char *check_chord(char *buffer) {
   if (strcmp("eat ", buffer) == 0) { return "T+A+E"; }
   if (strcmp("learn ", buffer) == 0) { return "N+L+A+E"; }
   if (strcmp("developer ", buffer) == 0) { return "R+D+V+E"; }
-  if (strcmp("ing ", buffer) == 0) { return "N+G+I"; }
-  if (strcmp("\bn't ", buffer) == 0) { return "N+T+'"; }
-  if (strcmp("\b've ", buffer) == 0) { return "V+'+E"; }
-  if (strcmp("\b're ", buffer) == 0) { return "R+'+E"; }
-  if (strcmp("\b's ", buffer) == 0) { return "S+MAGIC+'"; }
-  if (strcmp("\b'd ", buffer) == 0) { return "D+MAGIC+'"; }
-  if (strcmp("\b'll ", buffer) == 0) { return "L+MAGIC+'"; }
-  if (strcmp("Hi! ", buffer) == 0) { return "MAGIC+H+I"; }
-  if (strcmp("yeah ", buffer) == 0) { return "Y+A+E"; }
-  if (strcmp("thank you ", buffer) == 0) { return "T+Y+O+U"; }
-  if (strcmp("fuck ", buffer) == 0) { return "T+W+F"; }
-  if (strcmp("I've ", buffer) == 0) { return "V+E+I"; }
-  if (strcmp("I'm ", buffer) == 0) { return "M+I"; }
-  if (strcmp("I'll ", buffer) == 0) { return "L+MAGIC+I"; }
-  if (strcmp("god ", buffer) == 0) { return "O+G+D"; }
-  if (strcmp("project ", buffer) == 0) { return "T+O+E+J"; }
-  if (strcmp("product ", buffer) == 0) { return "R+D+P+U"; }
-  if (strcmp("lost ", buffer) == 0) { return "L+T+S+O"; }
-  if (strcmp("loose ", buffer) == 0) { return "L+S+O+E"; }
   if (strcmp("A ", buffer) == 0) { return "BSPC+A"; }
   if (strcmp("about ", buffer) == 0) { return "T+MAGIC+A"; }
   if (strcmp("after ", buffer) == 0) { return "R+T+F"; }
@@ -241,5 +222,24 @@ char *check_chord(char *buffer) {
   if (strcmp("write ", buffer) == 0) { return "R+T+W+E"; }
   if (strcmp("year ", buffer) == 0) { return "R+Y+A+E"; }
   if (strcmp("you ", buffer) == 0) { return "Y+O+U"; }
+  if (strcmp("ing  ", buffer) == 0) { return "N+G+SPC"; }
+  if (strcmp("\bn't  ", buffer) == 0) { return "N+T+SPC"; }
+  if (strcmp("\b've  ", buffer) == 0) { return "V+SPC+E"; }
+  if (strcmp("\b're  ", buffer) == 0) { return "R+SPC+E"; }
+  if (strcmp("\b's ", buffer) == 0) { return "S+MAGIC+'"; }
+  if (strcmp("\b'd ", buffer) == 0) { return "D+MAGIC+'"; }
+  if (strcmp("\b'll ", buffer) == 0) { return "L+MAGIC+'"; }
+  if (strcmp("Hi! ", buffer) == 0) { return "MAGIC+H+I"; }
+  if (strcmp("yeah ", buffer) == 0) { return "Y+A+E"; }
+  if (strcmp("thank you ", buffer) == 0) { return "T+Y+O+U"; }
+  if (strcmp("fuck ", buffer) == 0) { return "T+W+F"; }
+  if (strcmp("I've ", buffer) == 0) { return "V+E+I"; }
+  if (strcmp("I'm ", buffer) == 0) { return "M+I"; }
+  if (strcmp("I'll ", buffer) == 0) { return "L+MAGIC+I"; }
+  if (strcmp("god ", buffer) == 0) { return "O+G+D"; }
+  if (strcmp("project ", buffer) == 0) { return "T+O+E+J"; }
+  if (strcmp("product ", buffer) == 0) { return "R+D+P+U"; }
+  if (strcmp("lost ", buffer) == 0) { return "L+T+S+O"; }
+  if (strcmp("loose ", buffer) == 0) { return "L+S+O+E"; }
   return NULL;
 }
