@@ -4,9 +4,19 @@ This file contains guidelines and commands for agentic coding agents working in 
 
 ## Build Commands
 
+### Primary Working Configuration (v2)
+- **Main Keymap**: `keyboards/farkann_studio/cosmos_dactyl/5x3/keymaps/v2/`
+- **Main Userspace**: `users/v2/`
+- **Compile Command**: `qmk compile -kb farkann_studio/cosmos_dactyl/5x3 -km v2`
+- **Alternative**: `make farkann_studio/cosmos_dactyl/5x3:v2`
+
 ### Compilation
 ```bash
-# Compile specific keyboard keymap
+# Primary v2 configuration
+qmk compile -kb farkann_studio/cosmos_dactyl/5x3 -km v2
+make farkann_studio/cosmos_dactyl/5x3:v2
+
+# Legacy configurations
 qmk compile -kb splitkb/aurora/sweep/rev1 -km v1
 qmk compile -kb kbdfans/maja -km v1
 qmk compile -kb farkann_studio/cosmos_dactyl/5x3 -km v1
@@ -58,7 +68,7 @@ QMK uses clang-format for code formatting. Check QMK firmware documentation for 
 
 ### Code Structure
 ```c
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -171,7 +181,7 @@ bool process_feature_name(uint16_t keycode, keyrecord_t *record) {
 ### File Header Requirement
 - **All files must start with the exact copyright header**:
 ```c
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
