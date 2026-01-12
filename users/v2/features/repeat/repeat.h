@@ -1,4 +1,4 @@
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -18,17 +18,9 @@
 
 #include QMK_KEYBOARD_H
 
-// Layer definitions
-enum layers {
-  _GRAPHITE, // GRAPHITE
-  _QWERTY,   // QWERTY Layout
-  _GAME,     // QWERTY Layout, but without any modifier keys on hold
-  _COLEMAK,
-  _STURDY,
-  _ACTIONS,      // ACTIONS
-  _SYMBOLS,      // SYMBOLS
-  _ACCENTS,      // ACCENTS
-  _NUMPAD_SOUND, // NUMPAD & MULTIMEDIA
-  _CONFIG,       // KEYBOARD CONFIGURATION
-  _FN
-};
+// Process repeat key events
+bool process_repeat_keys(uint16_t keycode, keyrecord_t *record);
+
+// Graphite-specific key processing
+bool process_magic_key_graphite(uint16_t keycode, uint8_t mods);
+bool process_arcane_key_graphite(uint16_t keycode, uint8_t mods);

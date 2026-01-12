@@ -30,7 +30,10 @@ LEADER_ENABLE = yes
 # COMBO_ENABLE = yes
 
 # Future feature sources (commented out for now)
-# SRC += combos/combos.c \
+SRC += features/repeat/repeat.c \
+features/repeat/magic_graphite.c
+
+#   combos/combos.c \
 # 	helpers/helpers.c \
 # 	helpers/graphite.c \
 # 	symbols/symbols.c \

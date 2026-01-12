@@ -65,78 +65,78 @@
 // #   define ___GRAPHITE_ROW_2___ ___ROW_2_WITH_EXTRA_COLS(___GRAPHITE_CORE_ROW_2___)
 // #   define ___GRAPHITE_ROW_3___ ___ROW_3_WITH_EXTRA_COLS(___GRAPHITE_CORE_ROW_3___)
 // #else
-#   define ___GRAPHITE_ROW_1___ ___GRAPHITE_CORE_ROW_1___
-#   define ___GRAPHITE_ROW_2___ ___GRAPHITE_CORE_ROW_2___
-#   define ___GRAPHITE_ROW_3___ ___GRAPHITE_CORE_ROW_3___
+#define ___GRAPHITE_ROW_1___ ___GRAPHITE_CORE_ROW_1___
+#define ___GRAPHITE_ROW_2___ ___GRAPHITE_CORE_ROW_2___
+#define ___GRAPHITE_ROW_3___ ___GRAPHITE_CORE_ROW_3___
 // #endif
 
 // clang-format off
-#define CTL_L       LCTL_T(KC_L)
-#define ALT_D       LALT_T(KC_D)
-#define GUI_W       LGUI_T(KC_W)
-#define GUI_F       RGUI_T(KC_F)
-#define ALT_O       RALT_T(KC_O)
-#define CTL_U       RCTL_T(KC_U)
-
-#define L4_N        LT(_NUMPAD_SOUND, KC_N)
-#define L3_R        LT(_ACCENTS, KC_R)
-#define L2_T        LT(_SYMBOLS, KC_T)
-#define L1_S        LT(_ACTIONS, KC_S)
-#define L1_H        LT(_ACTIONS, KC_H)
-#define L2_A        LT(_SYMBOLS, KC_A)
-#define L3_E        LT(_ACCENTS, KC_E)
-#define L4_I        LT(_NUMPAD_SOUND, KC_I)
-
-#define SFT_Q       LSFT_T(KC_Q)
-#define SFT_SLSH    RSFT_T(KC_SLSH)
-
-#define SFT_MAGIC   LSFT_T(MAGIC)
-#define MEH_SPC     MEH_T(KC_SPC)
-#define GUI_GESC    LGUI_T(QK_GESC)
-#define CTL_STAB    LCTL_T(S(KC_TAB))
-#define ALT_TAB     LALT_T(KC_TAB)
-
-#define GUI_DEL    RGUI_T(KC_DEL)
-#define SFT_BSPC   RSFT_T(KC_BSPC)
-#define CTL_ARCANE QK_BOOT // RCTL_T(ARCANE)
-#define ALT_ENT    RALT_T(KC_ENT)
+// #define CTL_L       LCTL_T(KC_L)
+// #define ALT_D       LALT_T(KC_D)
+// #define GUI_W       LGUI_T(KC_W)
+// #define GUI_F       RGUI_T(KC_F)
+// #define ALT_O       RALT_T(KC_O)
+// #define CTL_U       RCTL_T(KC_U)
+//
+// #define L4_N        LT(_NUMPAD_SOUND, KC_N)
+// #define L3_R        LT(_ACCENTS, KC_R)
+// #define L2_T        LT(_SYMBOLS, KC_T)
+// #define L1_S        LT(_ACTIONS, KC_S)
+// #define L1_H        LT(_ACTIONS, KC_H)
+// #define L2_A        LT(_SYMBOLS, KC_A)
+// #define L3_E        LT(_ACCENTS, KC_E)
+// #define L4_I        LT(_NUMPAD_SOUND, KC_I)
+//
+// #define SFT_Q       LSFT_T(KC_Q)
+// #define SFT_SLSH    RSFT_T(KC_SLSH)
+//
+// #define SFT_MAGIC   LSFT_T(MAGIC)
+// #define MEH_SPC     MEH_T(KC_SPC)
+// #define GUI_GESC    LGUI_T(QK_GESC)
+// #define CTL_STAB    LCTL_T(S(KC_TAB))
+// #define ALT_TAB     LALT_T(KC_TAB)
+//
+// #define GUI_DEL    RGUI_T(KC_DEL)
+// #define SFT_BSPC   RSFT_T(KC_BSPC)
+// #define CTL_ARCANE QK_BOOT // RCTL_T(ARCANE)
+// #define ALT_ENT    RALT_T(KC_ENT)
 // clang-format on
 
 // Need these for the combos
 // GRAPHITE_ keys
-// #define GRAPHITE_A L2_A
-// #define GRAPHITE_B KC_B
-// #define GRAPHITE_C KC_C
-// #define GRAPHITE_D ALT_D
-// #define GRAPHITE_E L3_E
-// #define GRAPHITE_F GUI_F
-// #define GRAPHITE_G KC_G
-// #define GRAPHITE_H L1_H
-// #define GRAPHITE_I L4_I
-// #define GRAPHITE_J KC_J
-// #define GRAPHITE_K KC_K
-// #define GRAPHITE_L CTL_L
-// #define GRAPHITE_M KC_M
-// #define GRAPHITE_N L4_N
-// #define GRAPHITE_O ALT_O
-// #define GRAPHITE_P KC_P
-// #define GRAPHITE_Q SFT_Q
-// #define GRAPHITE_R L3_R
-// #define GRAPHITE_S L1_S
-// #define GRAPHITE_T L2_T
-// #define GRAPHITE_U CTL_U
-// #define GRAPHITE_V KC_V
-// #define GRAPHITE_W GUI_W
-// #define GRAPHITE_X KC_X
-// #define GRAPHITE_Y KC_Y
-// #define GRAPHITE_Z KC_Z
-// #define GRAPHITE_DOT DOT_EXLM
-// #define GRAPHITE_BSPC SFT_BSPC
-// #define GRAPHITE_SPC MEH_SPC
-// #define GRAPHITE_ENT ALT_ENT
-// #define GRAPHITE_SLSH SFT_SLSH
-// #define GRAPHITE_QUOT QUOT_UNDS
-// #define GRAPHITE_MAGIC SFT_MAGIC
-// #define GRAPHITE_ARCANE CTL_ARCANE
-// #define GRAPHITE_GESC GUI_GESC
-// #define GRAPHITE_COMM KC_COMM
+#define GRAPHITE_A GRAPHITE_2_08
+#define GRAPHITE_B GRAPHITE_1_01
+#define GRAPHITE_C GRAPHITE_3_04
+#define GRAPHITE_D GRAPHITE_1_03
+#define GRAPHITE_E GRAPHITE_2_09
+#define GRAPHITE_F GRAPHITE_1_07
+#define GRAPHITE_G GRAPHITE_2_05
+#define GRAPHITE_H GRAPHITE_2_07
+#define GRAPHITE_I GRAPHITE_2_10
+#define GRAPHITE_J GRAPHITE_1_10
+#define GRAPHITE_K GRAPHITE_3_06
+#define GRAPHITE_L GRAPHITE_1_02
+#define GRAPHITE_M GRAPHITE_3_03
+#define GRAPHITE_N GRAPHITE_2_01
+#define GRAPHITE_O GRAPHITE_1_08
+#define GRAPHITE_P GRAPHITE_3_07
+#define GRAPHITE_Q GRAPHITE_3_01
+#define GRAPHITE_R GRAPHITE_2_02
+#define GRAPHITE_S GRAPHITE_2_04
+#define GRAPHITE_T GRAPHITE_2_03
+#define GRAPHITE_U GRAPHITE_1_09
+#define GRAPHITE_V GRAPHITE_3_05
+#define GRAPHITE_W GRAPHITE_1_04
+#define GRAPHITE_X GRAPHITE_3_02
+#define GRAPHITE_Y GRAPHITE_2_06
+#define GRAPHITE_Z GRAPHITE_1_05
+#define GRAPHITE_DOT GRAPHITE_3_08
+#define GRAPHITE_BSPC SFT_BSPC
+#define GRAPHITE_SPC MEH_SPC
+#define GRAPHITE_ENT ALT_ENT
+#define GRAPHITE_SLSH GRAPHITE_3_10
+#define GRAPHITE_QUOTE GRAPHITE_1_06
+#define GRAPHITE_MAGIC SFT_MAGIC
+#define GRAPHITE_ARCANE CTL_ARCANE
+#define GRAPHITE_GESC GUI_GESC
+#define GRAPHITE_COMM GRAPHITE_3_09
