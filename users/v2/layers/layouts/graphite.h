@@ -104,39 +104,39 @@
 
 // Need these for the combos
 // GRAPHITE_ keys
-#define GRAPHITE_A L2_A
-#define GRAPHITE_B KC_B
-#define GRAPHITE_C KC_C
-#define GRAPHITE_D ALT_D
-#define GRAPHITE_E L3_E
-#define GRAPHITE_F GUI_F
-#define GRAPHITE_G KC_G
-#define GRAPHITE_H L1_H
-#define GRAPHITE_I L4_I
-#define GRAPHITE_J KC_J
-#define GRAPHITE_K KC_K
-#define GRAPHITE_L CTL_L
-#define GRAPHITE_M KC_M
-#define GRAPHITE_N L4_N
-#define GRAPHITE_O ALT_O
-#define GRAPHITE_P KC_P
-#define GRAPHITE_Q SFT_Q
-#define GRAPHITE_R L3_R
-#define GRAPHITE_S L1_S
-#define GRAPHITE_T L2_T
-#define GRAPHITE_U CTL_U
-#define GRAPHITE_V KC_V
-#define GRAPHITE_W GUI_W
-#define GRAPHITE_X KC_X
-#define GRAPHITE_Y KC_Y
-#define GRAPHITE_Z KC_Z
-#define GRAPHITE_DOT DOT_EXLM
-#define GRAPHITE_BSPC SFT_BSPC
-#define GRAPHITE_SPC MEH_SPC
-#define GRAPHITE_ENT ALT_ENT
-#define GRAPHITE_SLSH SFT_SLSH
-#define GRAPHITE_QUOT QUOT_UNDS
-#define GRAPHITE_MAGIC SFT_MAGIC
-#define GRAPHITE_ARCANE CTL_ARCANE
-#define GRAPHITE_GESC GUI_GESC
-#define GRAPHITE_COMM KC_COMM
+// #define GRAPHITE_A L2_A
+// #define GRAPHITE_B KC_B
+// #define GRAPHITE_C KC_C
+// #define GRAPHITE_D ALT_D
+// #define GRAPHITE_E L3_E
+// #define GRAPHITE_F GUI_F
+// #define GRAPHITE_G KC_G
+// #define GRAPHITE_H L1_H
+// #define GRAPHITE_I L4_I
+// #define GRAPHITE_J KC_J
+// #define GRAPHITE_K KC_K
+// #define GRAPHITE_L CTL_L
+// #define GRAPHITE_M KC_M
+// #define GRAPHITE_N L4_N
+// #define GRAPHITE_O ALT_O
+// #define GRAPHITE_P KC_P
+// #define GRAPHITE_Q SFT_Q
+// #define GRAPHITE_R L3_R
+// #define GRAPHITE_S L1_S
+// #define GRAPHITE_T L2_T
+// #define GRAPHITE_U CTL_U
+// #define GRAPHITE_V KC_V
+// #define GRAPHITE_W GUI_W
+// #define GRAPHITE_X KC_X
+// #define GRAPHITE_Y KC_Y
+// #define GRAPHITE_Z KC_Z
+// #define GRAPHITE_DOT DOT_EXLM
+// #define GRAPHITE_BSPC SFT_BSPC
+// #define GRAPHITE_SPC MEH_SPC
+// #define GRAPHITE_ENT ALT_ENT
+// #define GRAPHITE_SLSH SFT_SLSH
+// #define GRAPHITE_QUOT QUOT_UNDS
+// #define GRAPHITE_MAGIC SFT_MAGIC
+// #define GRAPHITE_ARCANE CTL_ARCANE
+// #define GRAPHITE_GESC GUI_GESC
+// #define GRAPHITE_COMM KC_COMM

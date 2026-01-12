@@ -3,9 +3,9 @@
 #include "farkann_v2.h"
 
 enum layers {
-  _GRAPHITE,     // GRAPHITE
-  _QWERTY,       // QWERTY Layout
-  _GAME,         // QWERTY Layout, but without any modifier keys on hold
+  _GRAPHITE, // GRAPHITE
+  _QWERTY,   // QWERTY Layout
+  _GAME,     // QWERTY Layout, but without any modifier keys on hold
   _COLEMAK,
   _STURDY,
   _ACTIONS,      // ACTIONS

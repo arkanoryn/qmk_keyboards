@@ -34,10 +34,50 @@ QMK does not have traditional unit tests. Testing is done by:
 - Flashing to hardware for functional testing
 - Using QMK's built-in debugging features
 
-### Linting/Formatting
-QMK uses clang-format for code formatting. Check QMK firmware documentation for specific formatting rules.
+### Linting
 
 ## Code Style Guidelines
+
+### Coding Conventions (C)
+* **Indentation**: Use four (4) spaces (soft tabs).
+* **Brace Style**: Modified One True Brace Style
+  * Opening brace: Place at the end of the same line as the statement that opens the block.
+  * Closing brace: Align with the first character of the statement that opens the block.
+  * Else If: Place the closing brace at the beginning of the line and the next opening brace at the end of the same line.
+  * Optional Braces: Always include optional braces.
+    * Good: `if (condition) { return false; }`
+    * Bad: `if (condition) return false;`
+* **Comments**: Use C style comments (`/* */`).
+  * Think of them as a story describing the feature.
+  * Use them liberally to explain why particular decisions were made.
+  * Avoid obvious comments.
+  * If unsure whether a comment is obvious, include it.
+* **Line Wrapping**: Avoid wrapping lines unless necessary. If wrapping, keep lines under 76 columns.
+* **Preprocessor Directives**:
+  * Use `#pragma once` at the start of header files instead of old-style include guards (`#ifndef THIS_FILE_H`, `#define THIS_FILE_H`, ..., `#endif`).
+  * Prefer `#ifdef DEFINED` over `#if defined(DEFINED)`.
+  * Do not change existing code from one style to another unless you are modifying the file for another reason. In which case, update the code to use the right style In which case, update the code to use the right style.
+  * When indenting, keep the hash at the start of the line and add whitespace between `#` and `if`, starting with 4 spaces after the `#`.
+  * Follow the indentation level of the surrounding C code, or use the preprocessor directives with their own indentation levels if it improves readability. Choose the style that best communicates the intent of your code.
+
+Here is an example for easy reference:
+
+```c
+/* Enums for foo */
+enum foo_state {
+    FOO_BAR,
+    FOO_BAZ,
+};
+
+/* Returns a value */
+int foo(void) {
+    if (some_condition) {
+        return FOO_BAR;
+    } else {
+        return -1;
+    }
+}
+```
 
 ### File Organization
 - **Keyboards**: `keyboards/<manufacturer>/<keyboard>/<sub-keyboard>/keymaps/<version>` - Contains keyboard-specific setup following QMK root structure (cannot be changed in this repository)

@@ -16,16 +16,18 @@
 
 #pragma once
 
+#include QMK_KEYBOARD_H
+
 // Layer definitions
 #include "layers.h"
 
 #ifndef NEW_SAFE_RANGE
 #  define NEW_SAFE_RANGE SAFE_RANGE // + _LAST_SHORTCUT_ID + _LAST_SYMBOL_ID
-#endif // NEW_SAFE_RANGE
+#endif                              // NEW_SAFE_RANGE
 
 // Custom keycodes
 enum custom_keycodes {
-    LAYER_LOCK = SAFE_RANGE,
-    MAGIC,
-    ARCANE,
+  LAYER_LOCK = SAFE_RANGE,
+  MAGIC,
+  ARCANE,
 };
