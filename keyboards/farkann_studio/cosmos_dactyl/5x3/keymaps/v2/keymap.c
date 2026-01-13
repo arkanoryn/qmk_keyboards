@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GRAPHITE] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
-        #endif // FARKANN_NUMBER_ROW
+#endif // FARKANN_NUMBER_ROW
         ___GRAPHITE_ROW_1___,
         ___GRAPHITE_ROW_2___,
         ___GRAPHITE_ROW_3___,
@@ -34,41 +34,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_QWERTY] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___QWERTY_ROW_1___,
+        ___QWERTY_ROW_2___,
+        ___QWERTY_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),
     [_GAME] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___GAME_ROW_1___,
+        ___GAME_ROW_2___,
+        ___GAME_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),
     [_COLEMAK] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___COLEMAK_ROW_1___,
+        ___COLEMAK_ROW_2___,
+        ___COLEMAK_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),
     [_STURDY] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___STURDY_ROW_1___,
+        ___STURDY_ROW_2___,
+        ___STURDY_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),
