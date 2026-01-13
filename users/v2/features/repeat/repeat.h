@@ -24,3 +24,15 @@ bool process_repeat_keys(uint16_t keycode, keyrecord_t *record);
 // Graphite-specific key processing
 bool process_magic_key_graphite(uint16_t keycode, uint8_t mods);
 bool process_arcane_key_graphite(uint16_t keycode, uint8_t mods);
+
+// Sturdy-specific key processing
+bool process_magic_key_sturdy(uint16_t keycode, uint8_t mods);
+bool process_arcane_key_sturdy(uint16_t keycode, uint8_t mods);
+
+// Colemak-specific key processing
+bool process_magic_key_colemak(uint16_t keycode, uint8_t mods);
+bool process_arcane_key_colemak(uint16_t keycode, uint8_t mods);
+
+// Qwerty-specific key processing
+bool process_magic_key_qwerty(uint16_t keycode, uint8_t mods);
+bool process_arcane_key_qwerty(uint16_t keycode, uint8_t mods);

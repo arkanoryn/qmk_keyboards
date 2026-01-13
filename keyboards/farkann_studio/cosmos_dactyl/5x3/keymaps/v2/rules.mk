@@ -31,7 +31,10 @@ LEADER_ENABLE = yes
 
 # Future feature sources (commented out for now)
 SRC += features/repeat/repeat.c \
-features/repeat/magic_graphite.c
+features/repeat/magic_graphite.c \
+features/repeat/magic_sturdy.c \
+features/repeat/magic_colemak.c \
+features/repeat/magic_qwerty.c
 
 #   combos/combos.c \
 # 	helpers/helpers.c \

@@ -20,12 +20,24 @@
 void process_magic_key(uint16_t last_keycode) {
   if (layer_state_is(_GRAPHITE)) {
     process_magic_key_graphite(last_keycode, get_last_mods());
+  } else if (layer_state_is(_STURDY)) {
+    process_magic_key_sturdy(last_keycode, get_last_mods());
+  } else if (layer_state_is(_COLEMAK)) {
+    process_magic_key_colemak(last_keycode, get_last_mods());
+  } else if (layer_state_is(_QWERTY)) {
+    process_magic_key_qwerty(last_keycode, get_last_mods());
   }
 }
 
 void process_arcane_key(uint16_t last_keycode) {
   if (layer_state_is(_GRAPHITE)) {
     process_arcane_key_graphite(last_keycode, get_last_mods());
+  } else if (layer_state_is(_STURDY)) {
+    process_arcane_key_sturdy(last_keycode, get_last_mods());
+  } else if (layer_state_is(_COLEMAK)) {
+    process_arcane_key_colemak(last_keycode, get_last_mods());
+  } else if (layer_state_is(_QWERTY)) {
+    process_arcane_key_qwerty(last_keycode, get_last_mods());
   }
 }
 
