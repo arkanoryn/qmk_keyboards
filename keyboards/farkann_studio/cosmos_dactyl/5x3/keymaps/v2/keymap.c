@@ -74,11 +74,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_ACTIONS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
+        __NUMBERS_ROW_____,
+#endif // FARKANN_NUMBER_ROW
+        ___ACTIONS_ROW_1___,
+        ___ACTIONS_ROW_2___,
+        ___ACTIONS_ROW_3___,
         __EXTRA_ROW__,
         __THUMBS__________
     ),

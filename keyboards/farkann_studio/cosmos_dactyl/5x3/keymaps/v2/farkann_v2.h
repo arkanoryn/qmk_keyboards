@@ -21,13 +21,17 @@
 // Layer definitions
 #include "layers.h"
 
+// Define action ID range starting from SAFE_RANGE
+#define _FIRST_ACTION_ID 0
+#include "features/actions/actions.h"
+
 #ifndef NEW_SAFE_RANGE
-#  define NEW_SAFE_RANGE SAFE_RANGE // + _LAST_SHORTCUT_ID + _LAST_SYMBOL_ID
+#  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_ACTION_ID // + _LAST_SYMBOL_ID
 #endif                              // NEW_SAFE_RANGE
 
 // Custom keycodes
 enum custom_keycodes {
-  LAYER_LOCK = SAFE_RANGE,
+  LAYER_LOCK = NEW_SAFE_RANGE,
   MAGIC,
   ARCANE,
 };

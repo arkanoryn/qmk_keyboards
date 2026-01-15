@@ -24,9 +24,7 @@ enum layers {
 #endif                            // CKC
 
 // #include "layers/accents.h"
-// #include "layers/actions.h"
-// #include "layers/config.h"
-// #include "layers/extra_row.h"
+#include "layers/actions.h"
 #include "layers/layouts/colemak.h"
 #include "layers/layouts/graphite.h"
 #include "layers/layouts/layout.h"
