@@ -23,7 +23,7 @@
 #  define CKC(x) (SAFE_RANGE + x) /* generate custom keycode from enum */
 #endif                            /* CKC */
 
-#define ___SYMBOLS_CORE_ROW_1___ KC_CAPS, KC_AT, KC_HASH, KC_DOLLAR, CKC(EURO), /* || */ KC_SLSH, KC_LBRC, KC_RBRC, KC_SCLN, __X__
+#define ___SYMBOLS_CORE_ROW_1___ KC_CAPS, KC_AT, KC_HASH, KC_DOLLAR, __X__, /* || */ KC_SLSH, KC_LBRC, KC_RBRC, KC_SCLN, __X__
 #define ___SYMBOLS_CORE_ROW_2___ KC_TILDE, KC_GRV, KC_UNDS, KC_MINS, KC_PLUS, /* || */ KC_EQL, KC_LPRN, KC_RPRN, KC_COLN, __X__
 #define ___SYMBOLS_CORE_ROW_3___ __X__, KC_PIPE, KC_LT, KC_GT, KC_CIRC, /* || */ __X__, KC_LCBR, KC_RCBR, KC_BSLS, __X__
 #define ___SYMBOLS_EXTRA_ROW__ __EXTRA_ROW__

@@ -34,4 +34,7 @@ enum layers {
 // #include "layers/num_row.h"
 // #include "layers/numpad_sound.h"
 // #include "layers/qwerty.h"
-// #include "layers/symbols.h"
+#include "layers/symbols.h"
+#include "layers/numpad_sound.h"
+#include "layers/config.h"
+#include "layers/fn.h"

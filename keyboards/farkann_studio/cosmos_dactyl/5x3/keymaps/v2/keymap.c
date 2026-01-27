@@ -17,119 +17,63 @@
 #include QMK_KEYBOARD_H
 #include "farkann_v2.h"
 
-
 #define __EXTRA_ROW__ KC_A, KC_B, KC_C
-#define __TMP_EMPTY KC_0, KC_0,KC_0,KC_0,KC_0,KC_0,KC_0,KC_0,KC_0, KC_0
+#define __TMP_EMPTY KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GRAPHITE] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___GRAPHITE_ROW_1___,
-        ___GRAPHITE_ROW_2___,
-        ___GRAPHITE_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___GRAPHITE_ROW_1___, ___GRAPHITE_ROW_2___, ___GRAPHITE_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_QWERTY] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___QWERTY_ROW_1___,
-        ___QWERTY_ROW_2___,
-        ___QWERTY_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___QWERTY_ROW_1___, ___QWERTY_ROW_2___, ___QWERTY_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_GAME] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___GAME_ROW_1___,
-        ___GAME_ROW_2___,
-        ___GAME_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___GAME_ROW_1___, ___GAME_ROW_2___, ___GAME_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_COLEMAK] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___COLEMAK_ROW_1___,
-        ___COLEMAK_ROW_2___,
-        ___COLEMAK_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___COLEMAK_ROW_1___, ___COLEMAK_ROW_2___, ___COLEMAK_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_STURDY] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___STURDY_ROW_1___,
-        ___STURDY_ROW_2___,
-        ___STURDY_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___STURDY_ROW_1___, ___STURDY_ROW_2___, ___STURDY_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_ACTIONS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __NUMBERS_ROW_____,
 #endif // FARKANN_NUMBER_ROW
-        ___ACTIONS_ROW_1___,
-        ___ACTIONS_ROW_2___,
-        ___ACTIONS_ROW_3___,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___ACTIONS_ROW_1___, ___ACTIONS_ROW_2___, ___ACTIONS_ROW_3___, __EXTRA_ROW__, __THUMBS__________),
     [_SYMBOLS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___SYMBOLS_ROW_1___,
+#endif // FARKANN_NUMBER_ROW
+        ___SYMBOLS_ROW_1___, ___SYMBOLS_ROW_2___, ___SYMBOLS_ROW_3___, __EXTRA_ROW__, ___SYMBOLS_THUMBS__________),
     [_ACCENTS] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+#endif // FARKANN_NUMBER_ROW
+        __TMP_EMPTY, __TMP_EMPTY, __TMP_EMPTY, __EXTRA_ROW__, __THUMBS__________),
     [_NUMPAD_SOUND] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___NUMPAD_SOUND_ROW_1___,
+#endif // FARKANN_NUMBER_ROW
+        ___NUMPAD_SOUND_ROW_1___, ___NUMPAD_SOUND_ROW_2___, ___NUMPAD_SOUND_ROW_3___, __EXTRA_ROW__, ___NUMPAD_SOUND_THUMBS__________),
     [_CONFIG] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___CONFIG_ROW_1___,
+#endif // FARKANN_NUMBER_ROW
+        ___CONFIG_ROW_1___, ___CONFIG_ROW_2___, ___CONFIG_ROW_3___, __EXTRA_ROW__, ___CONFIG_THUMBS__________),
     [_FN] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __TMP_EMPTY,
-        __EXTRA_ROW__,
-        __THUMBS__________
-    ),
+        ___FN_ROW_1___,
+#endif // FARKANN_NUMBER_ROW
+        ___FN_ROW_1___, ___FN_ROW_2___, ___FN_ROW_3___, __EXTRA_ROW__, ___FN_THUMBS__________),
 };
