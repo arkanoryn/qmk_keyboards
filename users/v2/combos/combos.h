@@ -1,4 +1,4 @@
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -14,27 +14,23 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "helpers.h"
+#pragma once
 
-void v2_helper_init(void) {
-  // Initialize helper functions
-}
+#include QMK_KEYBOARD_H
+#include "farkann_v2.h"
+#include "generated/combos.h"
 
-bool process_v2_helpers(uint16_t keycode, keyrecord_t *record) {
-  // Process helper-specific keycodes
-  return true;
-}
+// Combo configuration defaults
+#ifndef COMBO_TERM
+#  define COMBO_TERM 60
+#endif
 
-// Mod helper functions
-const uint8_t all_mods(void) {
-  return (get_mods() | get_oneshot_mods() | get_weak_mods());
-}
+#ifndef COMBO_STR_MAX_LENGTH
+#  define COMBO_STR_MAX_LENGTH 15
+#endif
 
-bool is_shifted(void) {
-  return (all_mods() & MOD_MASK_SHIFT);
-}
-
-void disable_shift(void) {
-  del_mods(MOD_MASK_SHIFT);
-  del_oneshot_mods(MOD_MASK_SHIFT);
-}
+// Function declarations
+void set_combo_event_timer(void);
+void combo_event_task(void);
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record);
+void process_combo_event(uint16_t combo_index, bool pressed);

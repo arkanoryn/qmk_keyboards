@@ -26,16 +26,31 @@ CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 LEADER_ENABLE = yes
 
-# Combo support // TODO: future change
-# COMBO_ENABLE = yes
+# Combo support
+COMBO_ENABLE = yes
 
-# Future feature sources (commented out for now)
+# Future feature sources
 SRC += features/repeat/repeat.c \
 features/repeat/magic_graphite.c \
 features/repeat/magic_sturdy.c \
 features/repeat/magic_colemak.c \
 features/repeat/magic_qwerty.c \
 features/actions/actions.c
+
+# Combo sources
+SRC += combos/combos.c \
+       combos/generated/combos.c \
+       helpers/helpers.c
+
+# Add cycling combos (conditional)
+ifeq ($(strip $(CYCLE_COMBO_ENABLE)),yes)
+SRC += features/cycling_combos/cycling_combos.c
+endif
+
+# Add chord teacher (conditional)
+ifeq ($(strip $(CHORD_TEACHER_ENABLE)),yes)
+SRC += features/chord_teacher/chord_teacher.c
+endif
 
 #   combos/combos.c \
 # 	helpers/helpers.c \

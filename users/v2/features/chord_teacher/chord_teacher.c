@@ -1,4 +1,4 @@
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -14,27 +14,20 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "helpers.h"
+#include "chord_teacher.h"
 
-void v2_helper_init(void) {
-  // Initialize helper functions
+static teacher_chord_mode_t teacher_chord_mode = TEACHER_CHORD_MODE_ON;
+
+void init_teacher_state(void) {
+  teacher_chord_mode = TEACHER_CHORD_MODE_ON;
 }
 
-bool process_v2_helpers(uint16_t keycode, keyrecord_t *record) {
-  // Process helper-specific keycodes
-  return true;
+void reset_teacher_state(bool full_reset) {
+  if (full_reset) {
+    teacher_chord_mode = TEACHER_CHORD_MODE_ON;
+  }
 }
 
-// Mod helper functions
-const uint8_t all_mods(void) {
-  return (get_mods() | get_oneshot_mods() | get_weak_mods());
-}
-
-bool is_shifted(void) {
-  return (all_mods() & MOD_MASK_SHIFT);
-}
-
-void disable_shift(void) {
-  del_mods(MOD_MASK_SHIFT);
-  del_oneshot_mods(MOD_MASK_SHIFT);
+teacher_chord_mode_t get_teacher_chord_mode(void) {
+  return teacher_chord_mode;
 }

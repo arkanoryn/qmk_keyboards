@@ -22,9 +22,9 @@
 #define PERMISSIVE_HOLD_PER_KEY
 
 // Combo configuration
-// #define COMBO_TERM 60
-// #define COMBO_SHOULD_TRIGGER
-// #define COMBO_ONLY_FROM_LAYER 0
+#define COMBO_TERM 60
+#define COMBO_SHOULD_TRIGGER
+#define COMBO_ONLY_FROM_LAYER 0
 
 // Caps Word configuration
 // #define CAPS_WORD_INVERT_ON_SHIFT
@@ -34,7 +34,7 @@
 #define OS_DETECTION_KEYBOARD_RESET
 #define OS_DETECTION_DEBOUNCE 200
 
-// Future feature placeholders (commented out for now)
+// Future feature placeholders
 // #define FARKANN_FRENCH_ACCENTS
 // #define CYCLE_COMBO_ENABLE
 // #define CHORD_TEACHER_ENABLE

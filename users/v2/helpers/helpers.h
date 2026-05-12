@@ -21,3 +21,8 @@
 // Function declarations for helper functions
 void v2_helper_init(void);
 bool process_v2_helpers(uint16_t keycode, keyrecord_t *record);
+
+// Mod helper functions
+const uint8_t all_mods(void);      // Returns all mods currently enabled
+bool          is_shifted(void);    // returns if shift is enabled or not
+void          disable_shift(void); // del mods and weak mods and onshot for shift.

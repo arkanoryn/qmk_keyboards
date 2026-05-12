@@ -1,14 +1,17 @@
 <!-- OPENSPEC:START -->
+
 # OpenSpec Instructions
 
 These instructions are for AI assistants working in this project.
 
 Always open `@/openspec/AGENTS.md` when the request:
+
 - Mentions planning or proposals (words like proposal, spec, change, plan)
 - Introduces new capabilities, breaking changes, architecture shifts, or big performance/security work
 - Sounds ambiguous and you need the authoritative spec before coding
 
 Use `@/openspec/AGENTS.md` to learn:
+
 - How to create and apply change proposals
 - Spec format and conventions
 - Project structure and guidelines
@@ -24,12 +27,14 @@ This file contains guidelines and commands for agentic coding agents working in 
 ## Build Commands
 
 ### Primary Working Configuration (v2)
+
 - **Main Keymap**: `keyboards/farkann_studio/cosmos_dactyl/5x3/keymaps/v2/`
 - **Main Userspace**: `users/v2/`
 - **Compile Command**: `qmk compile -kb farkann_studio/cosmos_dactyl/5x3 -km v2`
 - **Alternative**: `make farkann_studio/cosmos_dactyl/5x3:v2`
 
 ### Compilation
+
 ```bash
 # Primary v2 configuration
 qmk compile -kb farkann_studio/cosmos_dactyl/5x3 -km v2
@@ -48,7 +53,9 @@ make kbdfans/maja:isrt2
 ```
 
 ### Testing
+
 QMK does not have traditional unit tests. Testing is done by:
+
 - Compiling keymaps to verify syntax
 - Flashing to hardware for functional testing
 - Using QMK's built-in debugging features
@@ -58,26 +65,27 @@ QMK does not have traditional unit tests. Testing is done by:
 ## Code Style Guidelines
 
 ### Coding Conventions (C)
-* **Indentation**: Use four (4) spaces (soft tabs).
-* **Brace Style**: Modified One True Brace Style
-  * Opening brace: Place at the end of the same line as the statement that opens the block.
-  * Closing brace: Align with the first character of the statement that opens the block.
-  * Else If: Place the closing brace at the beginning of the line and the next opening brace at the end of the same line.
-  * Optional Braces: Always include optional braces.
-    * Good: `if (condition) { return false; }`
-    * Bad: `if (condition) return false;`
-* **Comments**: Use C style comments (`/* */`).
-  * Think of them as a story describing the feature.
-  * Use them liberally to explain why particular decisions were made.
-  * Avoid obvious comments.
-  * If unsure whether a comment is obvious, include it.
-* **Line Wrapping**: Avoid wrapping lines unless necessary. If wrapping, keep lines under 76 columns.
-* **Preprocessor Directives**:
-  * Use `#pragma once` at the start of header files instead of old-style include guards (`#ifndef THIS_FILE_H`, `#define THIS_FILE_H`, ..., `#endif`).
-  * Prefer `#ifdef DEFINED` over `#if defined(DEFINED)`.
-  * Do not change existing code from one style to another unless you are modifying the file for another reason. In which case, update the code to use the right style In which case, update the code to use the right style.
-  * When indenting, keep the hash at the start of the line and add whitespace between `#` and `if`, starting with 4 spaces after the `#`.
-  * Follow the indentation level of the surrounding C code, or use the preprocessor directives with their own indentation levels if it improves readability. Choose the style that best communicates the intent of your code.
+
+- **Indentation**: Use four (4) spaces (soft tabs).
+- **Brace Style**: Modified One True Brace Style
+    - Opening brace: Place at the end of the same line as the statement that opens the block.
+    - Closing brace: Align with the first character of the statement that opens the block.
+    - Else If: Place the closing brace at the beginning of the line and the next opening brace at the end of the same line.
+    - Optional Braces: Always include optional braces.
+        - Good: `if (condition) { return false; }`
+        - Bad: `if (condition) return false;`
+- **Comments**: Use C style comments (`/* */`).
+    - Think of them as a story describing the feature.
+    - Use them liberally to explain why particular decisions were made.
+    - Avoid obvious comments.
+    - If unsure whether a comment is obvious, include it.
+- **Line Wrapping**: Avoid wrapping lines unless necessary. If wrapping, keep lines under 76 columns.
+- **Preprocessor Directives**:
+    - Use `#pragma once` at the start of header files instead of old-style include guards (`#ifndef THIS_FILE_H`, `#define THIS_FILE_H`, ..., `#endif`).
+    - Prefer `#ifdef DEFINED` over `#if defined(DEFINED)`.
+    - Do not change existing code from one style to another unless you are modifying the file for another reason. In which case, update the code to use the right style In which case, update the code to use the right style.
+    - When indenting, keep the hash at the start of the line and add whitespace between `#` and `if`, starting with 4 spaces after the `#`.
+    - Follow the indentation level of the surrounding C code, or use the preprocessor directives with their own indentation levels if it improves readability. Choose the style that best communicates the intent of your code.
 
 Here is an example for easy reference:
 
@@ -99,6 +107,7 @@ int foo(void) {
 ```
 
 ### File Organization
+
 - **Keyboards**: `keyboards/<manufacturer>/<keyboard>/<sub-keyboard>/keymaps/<version>` - Contains keyboard-specific setup following QMK root structure (cannot be changed in this repository)
 - **Layouts**: `layouts/` - For creating and managing specific layouts for dedicated keyboards (required by QMK but not currently used)
 - **Users**: `users/<version>/` - Custom features that can be used across one or more keyboards
@@ -106,6 +115,7 @@ int foo(void) {
 - **Source files**: Organize in feature-specific subdirectories
 
 ### Includes and Imports
+
 ```c
 // Standard QMK includes first
 #include QMK_KEYBOARD_H
@@ -118,6 +128,7 @@ int foo(void) {
 ```
 
 ### Naming Conventions
+
 - **Files**: lowercase with underscores (`helper_functions.c`)
 - **Functions**: snake_case (`process_graphite_keys()`)
 - **Variables**: snake_case (`idle_timer`)
@@ -126,8 +137,9 @@ int foo(void) {
 - **Keycodes**: Follow QMK conventions (`KC_`, `LT_()`, `LCTL_T()`)
 
 ### Code Structure
+
 ```c
-/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -163,19 +175,21 @@ bool process_feature(uint16_t keycode, keyrecord_t *record) {
 ```
 
 ### Formatting Style (QMK C Conventions)
+
 - **Indentation**: 4 spaces (soft tabs)
 - **Brace Style**: Modified One True Brace Style
-  - Opening brace: Same line as statement
-  - Closing brace: Lined up with first character of opening statement
-  - Else if: `} else if (condition) {`
+    - Opening brace: Same line as statement
+    - Closing brace: Lined up with first character of opening statement
+    - Else if: `} else if (condition) {`
 - **Optional Braces**: Always include optional braces
-  - Good: `if (condition) { return false; }`
-  - Bad: `if (condition) return false;`
+    - Good: `if (condition) { return false; }`
+    - Bad: `if (condition) return false;`
 - **Comments**: Use C style `/* */` for explanations, avoid obvious comments
 - **Line Wrapping**: Generally don't wrap lines, if needed keep under 76 columns
 - **Preprocessor**: Use `#pragma once` for headers, accept `#ifdef` and `#if defined()`
 
 ### Keymap Layout Pattern
+
 ```c
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -192,6 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ```
 
 ### Feature Organization
+
 - **Combos**: Place in `combos/combos.c` and `combos/combos.h`
 - **Layers**: Define in `layers/` subdirectory with layout-specific headers
 - **Helpers**: Utility functions in `helpers/helpers.c`
@@ -199,17 +214,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 - **Magic**: Advanced features in `magic/magic.c`
 
 ### Configuration
+
 - **Keyboard config**: `keyboards/<keyboard>/<revision>/keymaps/<name>/config.h`
 - Use `#define` for QMK settings
 - Group related settings with comments
 
 ### Error Handling
+
 - Use QMK's built-in return conventions
 - Process functions should return `true` to continue processing, `false` to stop
 - Use `#ifdef` guards for optional features
 - Add descriptive comments for complex logic
 
 ### Process Record Pattern
+
 ```c
 bool process_feature_name(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -226,21 +244,25 @@ bool process_feature_name(uint16_t keycode, keyrecord_t *record) {
 ```
 
 ### Documentation
+
 - Add function headers for complex functions
 - Comment non-obvious keymap choices
 - Document custom keycodes and their behavior
 - Use inline comments for tricky logic
 
 ### Modular Design
+
 - Separate concerns into different files
 - Use header files for declarations
 - Implement feature flags with `#ifdef`
 - Keep keymap.c focused on layout definitions
 
 ### File Header Requirement
+
 - **All files must start with the exact copyright header**:
+
 ```c
-/* Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -256,12 +278,14 @@ bool process_feature_name(uint16_t keycode, keyrecord_t *record) {
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 ```
+
 - **If the header does not exist when editing a file, it must be added**
 - **If the header exists but the date is passed, it should be edited accordingly**:
-  - Example: `Copyright 2025 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)`
-  - Should become: `Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)`
+    - Example: `Copyright 2025 Ark'Anoryn (@arkanoryn)`
+    - Should become: `Copyright 2025-2026 Ark'Anoryn (@arkanoryn)`
 
 ### QMK Best Practices
+
 - Use `PROGMEM` for keymaps and large arrays
 - Implement proper layer switching
 - Handle both press and release events when needed

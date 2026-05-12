@@ -1,4 +1,4 @@
-/* Copyright 2025 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -89,17 +89,17 @@
 //
 // #define SFT_Q       LSFT_T(KC_Q)
 // #define SFT_SLSH    RSFT_T(KC_SLSH)
-//
-// #define SFT_MAGIC   LSFT_T(MAGIC)
-// #define MEH_SPC     MEH_T(KC_SPC)
-// #define GUI_GESC    LGUI_T(QK_GESC)
+
+#define SFT_MAGIC   LSFT_T(MAGIC)
+#define MEH_SPC     MEH_T(KC_SPC)
+#define GUI_GESC    LGUI_T(QK_GESC)
 // #define CTL_STAB    LCTL_T(S(KC_TAB))
 // #define ALT_TAB     LALT_T(KC_TAB)
 //
 // #define GUI_DEL    RGUI_T(KC_DEL)
-// #define SFT_BSPC   RSFT_T(KC_BSPC)
-// #define CTL_ARCANE QK_BOOT // RCTL_T(ARCANE)
-// #define ALT_ENT    RALT_T(KC_ENT)
+#define SFT_BSPC   RSFT_T(KC_BSPC)
+#define CTL_ARCANE RCTL_T(ARCANE)
+#define ALT_ENT    RALT_T(KC_ENT)
 // clang-format on
 
 // Need these for the combos

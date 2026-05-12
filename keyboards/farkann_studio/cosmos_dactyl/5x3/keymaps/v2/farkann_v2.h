@@ -25,8 +25,12 @@
 #define _FIRST_ACTION_ID 0
 #include "features/actions/actions.h"
 
+// Define combo ID range starting after action IDs
+#define _FIRST_COMBO_ID _LAST_ACTION_ID
+#include "combos/generated/combos.h"
+
 #ifndef NEW_SAFE_RANGE
-#  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_ACTION_ID // + _LAST_SYMBOL_ID
+#  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_ACTION_ID + (_LAST_COMBO_ID - _FIRST_COMBO_ID)
 #endif                              // NEW_SAFE_RANGE
 
 // Custom keycodes

@@ -12,13 +12,13 @@ __HEADER_WARNING = """/*
 **
 **       $> python {main_file}
 **
-**  Copyright {year} Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
+**  Copyright {year} Ark'Anoryn
 **  SPDX-License-Identifier: GPL-2.0-or-later
 **
 */
 """
 
-_HEADER = partial(__HEADER_WARNING.format, year="2024", main_file="main.py", generated_folder="generated/", script_path="scripts")
+_HEADER = partial(__HEADER_WARNING.format, year="2026", main_file="main.py", generated_folder="generated/", script_path="scripts")
 
 HEADER_CFILE = _HEADER()
 HEADER_HFILE = f"{HEADER_CFILE}\n#pragma once\n"
