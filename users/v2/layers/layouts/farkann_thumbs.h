@@ -28,7 +28,7 @@
 #define GUI_ESC     LGUI_T(KC_ESC)
 #define CTL_TAB     LCTL_T(KC_TAB)
 #define ALT_CAPS    LALT_T(KC_CAPS)
-#define DEL_WORD    KC_ESC // TODO: add the correct key press, once we are working on the function keys
+#define DEL_WORD    CKC(WORD_BACKSPACE)
 
 // Right side Thumb keys
 #define ALT_ARCANE  RALT_T(KC_F23)
@@ -38,10 +38,6 @@
 // // TODO: choose what to put on other keys for keyboards with 5 and 6 thumb clusters. Could be left and right click
 // #define THUMB_R5 KC_HOME
 // #define THUMB_R6 KC_END
-
-#ifndef __THUMBS__________
-#undef __THUMBS__________
-#endif
 
 // THUMBCLUSTER_LEFT == 5
 // #if THUMBCLUSTER_LEFT == 5 && THUMBCLUSTER_RIGHT == 4

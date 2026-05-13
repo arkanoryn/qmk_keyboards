@@ -52,9 +52,9 @@ SRC += features/combos/combos.c \
 SRC += process_record.c
 
 # Getreuer library sources
-SRC += users/v2/lib/getreuer/select_word/select_word.c \
-       users/v2/lib/getreuer/sentence_case/sentence_case.c \
-       users/v2/lib/getreuer/sentence_case/override.c
+SRC += lib/getreuer/select_word/select_word.c \
+       lib/getreuer/sentence_case/sentence_case.c \
+       lib/getreuer/sentence_case/override.c
 
 # Add cycling combos (conditional)
 ifeq ($(strip $(CYCLE_COMBO_ENABLE)),yes)
@@ -65,14 +65,6 @@ endif
 ifeq ($(strip $(CHORD_TEACHER_ENABLE)),yes)
 SRC += features/chord_teacher/chord_teacher.c
 endif
-
-#   combos/combos.c \
-# 	helpers/helpers.c \
-# 	helpers/graphite.c \
-# 	symbols/symbols.c \
-# 	selection/selection.c \
-# 	tap_dance/tap_dance.c \
-# 	magic/magic.c
 
 # Advanced compiler optimization
 EXTRAFLAGS += -flto=auto
