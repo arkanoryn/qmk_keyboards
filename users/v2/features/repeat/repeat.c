@@ -48,42 +48,34 @@ bool process_repeat_keys(uint16_t keycode, keyrecord_t *record) {
 
   uint16_t last_keycode = get_last_keycode();
 
-  switch (keycode) {
-    case SFT_MAGIC:
-      /* if the MAGIC key is held, we don't want to repeat but use the */
-      /* mod instead */
-      if (record->tap.count == 0) {
-        return true;
-      }
-
-    case MAGIC:
-      if (record->event.pressed) {
-        if (last_keycode != KC_NO) {
-          process_magic_key(last_keycode);
-        }
-        return false; /* Don't process further */
-      }
-
-    case ALT_ARCANE:
-      /* if the ARCANE key is held, we don't want to repeat but use the */
-      /* mod instead */
-      if (record->tap.count == 0) {
-        return true;
-      }
-
-    case ARCANE:
-            if (record->event.pressed) {
-                if (last_keycode != KC_NO) {
-                    process_arcane_key(last_keycode);
-                }
-                return false; // Don't process further
+    switch (keycode) {
+        case SFT_MAGIC:
+            /* If the MAGIC key is held, use the mod instead */
+            if (record->tap.count == 0) {
+                return true;
             }
+            /* Fall through to MAGIC on tap */
+            /* fallthrough */
+        case MAGIC:
+            if (last_keycode != KC_NO) {
+                process_magic_key(last_keycode);
+            }
+            return false;
 
-      return false; /* Don't process further */
+        case ALT_ARCANE:
+            /* If the ARCANE key is held, use the mod instead */
+            if (record->tap.count == 0) {
+                return true;
+            }
+            /* Fall through to ARCANE on tap */
+            /* fallthrough */
+        case ARCANE:
+            if (last_keycode != KC_NO) {
+                process_arcane_key(last_keycode);
+            }
+            return false;
 
-    default:
-      return true;
-  }
-
-  return true; /* Continue processing other features */
+        default:
+            return true;
+    }
 }

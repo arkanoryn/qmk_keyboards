@@ -14,7 +14,6 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <assert.h>
 #include QMK_KEYBOARD_H
 #include "farkann_v2.h"
 #include "actions.h"
@@ -102,7 +101,9 @@ void process_tabbing(actions_id_e id, keyrecord_t *record) {
 }
 
 bool process_one_action(actions_id_e id, keyrecord_t *record) {
-  assert(id < _LAST_ACTION_ID);
+  if (id >= _LAST_ACTION_ID) {
+    return true;
+  }
 
   switch (id) {
     // case APP_NEXT:

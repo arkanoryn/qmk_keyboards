@@ -1,6 +1,6 @@
 #pragma once
 
-#include "farkann_v2.h"
+#include QMK_KEYBOARD_H
 
 enum layers {
   _GRAPHITE, // GRAPHITE

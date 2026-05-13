@@ -16,6 +16,10 @@
 
 #pragma once
 
+/* Cosmos Dactyl 5x3 thumb cluster configuration */
+#define THUMBCLUSTER_LEFT 6
+#define THUMBCLUSTER_RIGHT 4
+
 // Basic QMK configuration
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
@@ -25,6 +29,7 @@
 #define COMBO_TERM 60
 #define COMBO_SHOULD_TRIGGER
 #define COMBO_ONLY_FROM_LAYER 0
+#define SELECT_WORD_TIMEOUT 2000
 
 // Caps Word configuration
 // #define CAPS_WORD_INVERT_ON_SHIFT

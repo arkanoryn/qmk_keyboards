@@ -24,10 +24,11 @@ DEFERRED_EXEC_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
-LEADER_ENABLE = yes
+# LEADER_ENABLE = yes
 
 # Combo support
 COMBO_ENABLE = yes
+INTROSPECTION_KEYMAP_C = features/combos/generated/combos.c
 
 # Future feature sources
 SRC += features/repeat/repeat.c \
@@ -38,8 +39,7 @@ features/repeat/magic_qwerty.c \
 features/actions/actions.c
 
 # Combo sources
-SRC += combos/combos.c \
-       combos/generated/combos.c \
+SRC += features/combos/combos.c \
        helpers/helpers.c
 
 # Add cycling combos (conditional)

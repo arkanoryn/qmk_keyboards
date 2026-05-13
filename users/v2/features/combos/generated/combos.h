@@ -2,18 +2,22 @@
 **  /!\ This file is generated with the script `scripts/main.py`
 **  Do NOT manually modify or create files in the `generated/` folder.
 **  Prefer re-running the script: `python main.py`
+**  ex:
 **
-**  Copyright 2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+**       $> python main.py
+**
+**  Copyright 2024 Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
 **  SPDX-License-Identifier: GPL-2.0-or-later
+**
 */
 
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "farkann_v2.h"
+#include "combos.h"
 
 enum combos {
-  GRAPHITE_DEL_WORD = _FIRST_COMBO_ID,
+  GRAPHITE_DEL_WORD = 0,
   GRAPHITE_CONFIG_LAYER,
   GRAPHITE_TAB_C,
   GRAPHITE_EXLM,
@@ -246,75 +250,9 @@ enum combos {
   GRAPHITE_PROJECT,
   GRAPHITE_PRODUCT_COMBO,
   GRAPHITE_LOST,
-  GRAPHITE_LOOSE,
-  _LAST_COMBO_ID
+  GRAPHITE_LOOSE
 };
 
-// External declarations for combo key sequences
-extern const uint16_t PROGMEM GRAPHITE_DEL_WORD_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CONFIG_LAYER_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_TAB_C_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EXLM_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_QUES_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_SFT_ENT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_C_ENT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ARE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EAT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_LEARN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DEVELOPER_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_A___COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ABOUT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AFTER_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AGAIN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AGAINST_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ALL_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ALSO_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AND_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ANOTHER_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ANY_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AROUND_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AS_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_ASK_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_AT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BACK_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BECAUSE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BECOME_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BEFORE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BEGIN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BETWEEN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BIRTHDAY_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BOTH_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BUT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_BY_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CALL_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CAN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CANNOT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CHANGE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CHILD_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_COME_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_CONSIDER_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_COULD_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_COURSE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DAY_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DEVELOP_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DO_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DOWN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_DURING_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EACH_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EARLY_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_END_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EVEN_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_EYE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FACE_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FACT_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FEEL_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FEW_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FIND_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FIRST_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FOLLOW_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FOR_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FORM_COMBO[];
-extern const uint16_t PROGMEM GRAPHITE_FROM_COMBO[];
+extern combo_t key_combos[];
 
 const char* get_combos_cmds(uint16_t combo_index);

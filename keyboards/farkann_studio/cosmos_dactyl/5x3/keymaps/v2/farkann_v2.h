@@ -27,7 +27,7 @@
 
 // Define combo ID range starting after action IDs
 #define _FIRST_COMBO_ID _LAST_ACTION_ID
-#include "combos/generated/combos.h"
+#define _LAST_COMBO_ID _LAST_ACTION_ID
 
 #ifndef NEW_SAFE_RANGE
 #  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_ACTION_ID + (_LAST_COMBO_ID - _FIRST_COMBO_ID)
