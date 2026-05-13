@@ -36,7 +36,8 @@ features/repeat/magic_graphite.c \
 features/repeat/magic_sturdy.c \
 features/repeat/magic_colemak.c \
 features/repeat/magic_qwerty.c \
-features/actions/actions.c
+features/actions/actions.c \
+features/accents/accents.c
 
 # Combo sources
 SRC += features/combos/combos.c \

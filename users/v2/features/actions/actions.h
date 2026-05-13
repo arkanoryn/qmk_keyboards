@@ -79,6 +79,19 @@ typedef enum {
     WORD_JUMPR,
     WORD_SELECTL,
     WORD_SELECTR,
+    /* French Accents */
+    E_CIRC,       /* ê */
+    E_AIGU,       /* é */
+    C_CEDILLE,    /* ç */
+    U_GRAVE,      /* ù */
+    E_GRAVE,      /* è */
+    U_CIRC,       /* û */
+    I_CIRC,       /* î */
+    A_GRAVE,      /* à */
+    A_CIRC,       /* â */
+    I_TREMA,      /* ï */
+    O_CIRC,       /* ô */
+    EURO,         /* € */
     _LAST_ACTION_ID
 } actions_id_e;
 

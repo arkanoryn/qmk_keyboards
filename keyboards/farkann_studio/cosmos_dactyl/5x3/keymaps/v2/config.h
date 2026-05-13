@@ -40,7 +40,7 @@
 #define OS_DETECTION_DEBOUNCE 200
 
 // Future feature placeholders
-// #define FARKANN_FRENCH_ACCENTS
+#define FARKANN_FRENCH_ACCENTS
 // #define CYCLE_COMBO_ENABLE
 // #define CHORD_TEACHER_ENABLE
 

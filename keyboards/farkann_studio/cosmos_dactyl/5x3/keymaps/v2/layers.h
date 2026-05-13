@@ -23,7 +23,7 @@ enum layers {
 #  define CKC(x) (SAFE_RANGE + x) // generate custom keycode from enum
 #endif                            // CKC
 
-// #include "layers/accents.h"
+#include "layers/accents.h"
 #include "layers/actions.h"
 #include "layers/layouts/colemak.h"
 #include "layers/layouts/graphite.h"

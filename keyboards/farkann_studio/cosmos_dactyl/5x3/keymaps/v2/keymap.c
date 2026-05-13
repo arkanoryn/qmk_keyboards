@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef FARKANN_NUMBER_ROW
         __TMP_EMPTY,
 #endif // FARKANN_NUMBER_ROW
-        __TMP_EMPTY, __TMP_EMPTY, __TMP_EMPTY, __EXTRA_ROW__, __THUMBS__________),
+        ___ACCENTS_ROW_1___, ___ACCENTS_ROW_2___, ___ACCENTS_ROW_3___, __EXTRA_ROW__, ___ACCENTS_THUMBS__________),
     [_NUMPAD_SOUND] = LAYOUT(
 #ifdef FARKANN_NUMBER_ROW
         ___NUMPAD_SOUND_ROW_1___,

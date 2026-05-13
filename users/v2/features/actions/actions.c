@@ -53,6 +53,18 @@ const action_s actions[] = {
     [WORD_JUMPR]               = {.on_linux = SS_LCTL(SS_TAP(X_RIGHT)),                 .on_macOS = SS_LALT(SS_TAP(X_RIGHT)),           .on_windows = SS_LCTL(SS_TAP(X_RIGHT))},
     [WORD_SELECTL]             = {.on_linux = SS_LSFT(SS_TAP(X_LEFT)),                  .on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_LEFT))),   .on_windows = SS_LSFT(SS_TAP(X_LEFT))},
     [WORD_SELECTR]             = {.on_linux = SS_LSFT(SS_TAP(X_RIGHT)),                 .on_macOS = SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))),  .on_windows = SS_LSFT(SS_TAP(X_RIGHT))},
+    [E_CIRC]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [E_AIGU]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [C_CEDILLE] = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [U_GRAVE]   = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [E_GRAVE]   = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [U_CIRC]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [I_CIRC]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [A_GRAVE]   = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [A_CIRC]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [I_TREMA]   = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [O_CIRC]    = {.on_linux = "", .on_macOS = "", .on_windows = ""},
+    [EURO]      = {.on_linux = "", .on_macOS = "", .on_windows = ""},
 };
 // clang-format on
 static_assert(ARRAY_SIZE(actions) == _LAST_ACTION_ID, "Mismatch"); // ensure that we have all the actions from the enum
