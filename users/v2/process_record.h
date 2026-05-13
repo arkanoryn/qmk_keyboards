@@ -18,14 +18,4 @@
 
 #include QMK_KEYBOARD_H
 
-// Chord teacher modes
-typedef enum {
-  TEACHER_CHORD_MODE_OFF,
-  TEACHER_CHORD_MODE_ON,
-  TEACHER_CHORD_MODE_CORRECTIVE
-} teacher_chord_mode_t;
-
-// Function declarations
-void init_teacher_state(void);
-void reset_teacher_state(bool full_reset);
-teacher_chord_mode_t get_teacher_chord_mode(void);
+bool process_record_v2(uint16_t keycode, keyrecord_t *record);

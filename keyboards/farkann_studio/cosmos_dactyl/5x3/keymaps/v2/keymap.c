@@ -1,4 +1,4 @@
-/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2025-2026 Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 #include QMK_KEYBOARD_H
 #include "farkann_v2.h"
 #include "features/combos/combos.h"
+#include "process_record.h"
 
 // Alias for keymap_introspection compatibility
 #define key_combos combos
@@ -100,6 +101,10 @@ void keyboard_post_init_user(void) {
 #ifdef CHORD_TEACHER_ENABLE
   init_teacher_state();
 #endif
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return process_record_v2(keycode, record);
 }
 
 

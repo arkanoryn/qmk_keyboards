@@ -1,4 +1,4 @@
-# Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+# Copyright 2025-2026 Ark'Anoryn (@arkanoryn)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,6 +41,9 @@ features/actions/actions.c
 # Combo sources
 SRC += features/combos/combos.c \
        helpers/helpers.c
+
+# Process record sources
+SRC += process_record.c
 
 # Add cycling combos (conditional)
 ifeq ($(strip $(CYCLE_COMBO_ENABLE)),yes)
