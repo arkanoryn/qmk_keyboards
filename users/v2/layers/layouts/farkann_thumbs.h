@@ -1,4 +1,4 @@
-/* Copyright 2025 Ark'Anoryn (@arkanoryn)
+/* Copyright 2025-2026 Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -24,14 +24,14 @@
 
 // Left side Thumb keys
 #define MEH_SPC     MEH_T(KC_SPC)
-#define SFT_MAGIC   LSFT_T(MAGIC)
+#define SFT_MAGIC   LSFT_T(KC_F24)
 #define GUI_ESC     LGUI_T(KC_ESC)
 #define CTL_TAB     LCTL_T(KC_TAB)
 #define ALT_CAPS    LALT_T(KC_CAPS)
 #define DEL_WORD    KC_ESC // TODO: add the correct key press, once we are working on the function keys
 
 // Right side Thumb keys
-#define ALT_ARCANE  RALT_T(ARCANE)
+#define ALT_ARCANE  RALT_T(KC_F23)
 #define SFT_BSPC    RSFT_T(KC_BSPC)
 #define GUI_DEL     RGUI_T(KC_DEL)
 #define CTL_ENTR    RCTL_T(KC_ENT)

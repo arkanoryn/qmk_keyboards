@@ -45,7 +45,7 @@
 #define FN_L5 __X__
 #define FN_L6 __X__
 #define FN_R1 __X__
-#define FN_R2 LAYER_LOCK
+#define FN_R2 QK_LLCK
 #define FN_R3 __X__
 #define FN_R4 __X__
 #define FN_R5 __X__

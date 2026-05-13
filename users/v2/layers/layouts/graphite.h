@@ -90,7 +90,6 @@
 // #define SFT_Q       LSFT_T(KC_Q)
 // #define SFT_SLSH    RSFT_T(KC_SLSH)
 
-#define SFT_MAGIC   LSFT_T(MAGIC)
 #define MEH_SPC     MEH_T(KC_SPC)
 #define GUI_GESC    LGUI_T(QK_GESC)
 // #define CTL_STAB    LCTL_T(S(KC_TAB))
@@ -98,7 +97,7 @@
 //
 // #define GUI_DEL    RGUI_T(KC_DEL)
 #define SFT_BSPC   RSFT_T(KC_BSPC)
-#define CTL_ARCANE RCTL_T(ARCANE)
+
 #define ALT_ENT    RALT_T(KC_ENT)
 // clang-format on
 
@@ -139,5 +138,5 @@
 #define GRAPHITE_SPC MEH_SPC
 #define GRAPHITE_ENT ALT_ENT
 #define GRAPHITE_MAGIC SFT_MAGIC
-#define GRAPHITE_ARCANE CTL_ARCANE
+#define GRAPHITE_ARCANE ALT_ARCANE
 #define GRAPHITE_GESC GUI_GESC

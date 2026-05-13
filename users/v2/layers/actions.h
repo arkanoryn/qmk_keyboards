@@ -53,7 +53,7 @@
 #define ACTIONS_2_07 KC_LEFT
 #define ACTIONS_2_08 KC_DOWN
 #define ACTIONS_2_09 KC_UP
-#define ACTIONS_2_10 KC_RIGHT
+#define ACTIONS_2_10 SEL_WORD
 /* Side: Left, ROW: 3 */
 #define ACTIONS_3_01 CKC(TASK_MNGR)
 #define ACTIONS_3_02 CKC(CMD_REDO)

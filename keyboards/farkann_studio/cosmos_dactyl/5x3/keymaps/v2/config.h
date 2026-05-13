@@ -31,6 +31,9 @@
 // #define COMBO_ONLY_FROM_LAYER 0
 #define SELECT_WORD_TIMEOUT 2000
 
+// Layer Lock configuration — unlock after 5 minutes idle
+#define LAYER_LOCK_IDLE_TIMEOUT 300000
+
 // Caps Word configuration
 // #define CAPS_WORD_INVERT_ON_SHIFT
 // #define CAPS_WORD_IDLE_TIMEOUT 15000

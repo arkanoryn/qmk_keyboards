@@ -45,7 +45,7 @@
 #define NUMPAD_SOUND_L5 __X__
 #define NUMPAD_SOUND_L6 __X__
 #define NUMPAD_SOUND_R1 __X__
-#define NUMPAD_SOUND_R2 LAYER_LOCK
+#define NUMPAD_SOUND_R2 QK_LLCK
 #define NUMPAD_SOUND_R3 __X__
 #define NUMPAD_SOUND_R4 __X__
 #define NUMPAD_SOUND_R5 __X__

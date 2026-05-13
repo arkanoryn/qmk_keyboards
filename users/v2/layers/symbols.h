@@ -45,7 +45,7 @@
 #define SYMBOL_L5 __X__
 #define SYMBOL_L6 __X__
 #define SYMBOL_R1 KC_PERCENT
-#define SYMBOL_R2 LAYER_LOCK
+#define SYMBOL_R2 QK_LLCK
 #define SYMBOL_R3 __X__
 #define SYMBOL_R4 __X__
 #define SYMBOL_R5 __X__

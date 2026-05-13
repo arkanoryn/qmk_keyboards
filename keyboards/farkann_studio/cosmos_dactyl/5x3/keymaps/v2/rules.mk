@@ -25,6 +25,7 @@ OS_DETECTION_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 TAP_DANCE_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
 # LEADER_ENABLE = yes
 
 # Combo support
@@ -39,6 +40,8 @@ features/repeat/magic_colemak.c \
 features/repeat/magic_qwerty.c \
 features/actions/actions.c \
 features/accents/accents.c \
+features/selection/selection.c \
+features/jump_cursor/jump.c \
 features/tap_dance/tap_dance.c
 
 # Combo sources
@@ -47,6 +50,11 @@ SRC += features/combos/combos.c \
 
 # Process record sources
 SRC += process_record.c
+
+# Getreuer library sources
+SRC += users/v2/lib/getreuer/select_word/select_word.c \
+       users/v2/lib/getreuer/sentence_case/sentence_case.c \
+       users/v2/lib/getreuer/sentence_case/override.c
 
 # Add cycling combos (conditional)
 ifeq ($(strip $(CYCLE_COMBO_ENABLE)),yes)

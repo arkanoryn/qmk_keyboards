@@ -1,4 +1,4 @@
-/* Copyright 2025-2026 Ark'Anoryn (@arkanoryn)
+/* Copyright 2026 Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -17,25 +17,16 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+#include "../selection/selection.h"
 
-// Layer definitions
-#include "layers.h"
+typedef struct {
+    deferred_token      token;
+    uint8_t             rep_count;
+    selection_direction_e direction;
+} jump_state_s;
 
-// Define action ID range starting from SAFE_RANGE
-#define _FIRST_ACTION_ID 0
-#include "features/actions/actions.h"
-
-// Define combo ID range starting after action IDs
-#define _FIRST_COMBO_ID _LAST_ACTION_ID
-#define _LAST_COMBO_ID _LAST_ACTION_ID
-
-#ifndef NEW_SAFE_RANGE
-#  define NEW_SAFE_RANGE SAFE_RANGE + _LAST_ACTION_ID + (_LAST_COMBO_ID - _FIRST_COMBO_ID)
-#endif                              // NEW_SAFE_RANGE
-
-// Custom keycodes
-enum custom_keycodes {
-  MAGIC = NEW_SAFE_RANGE,
-  ARCANE,
-  SEL_WORD,
-};
+/* Function declarations */
+bool process_jump_cursor(uint16_t keycode, keyrecord_t *record);
+void td_process_jump_forward(tap_dance_state_t *td_state, void *user_data);
+void td_process_jump_backward(tap_dance_state_t *td_state, void *user_data);
+void cancel_jump_state_token(void);
