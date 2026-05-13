@@ -24,6 +24,7 @@ DEFERRED_EXEC_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
+TAP_DANCE_ENABLE = yes
 # LEADER_ENABLE = yes
 
 # Combo support
@@ -37,7 +38,8 @@ features/repeat/magic_sturdy.c \
 features/repeat/magic_colemak.c \
 features/repeat/magic_qwerty.c \
 features/actions/actions.c \
-features/accents/accents.c
+features/accents/accents.c \
+features/tap_dance/tap_dance.c
 
 # Combo sources
 SRC += features/combos/combos.c \

@@ -17,7 +17,23 @@
 #include QMK_KEYBOARD_H
 #include "farkann_v2.h"
 #include "features/combos/combos.h"
+#include "features/tap_dance/tap_dance.h"
 #include "process_record.h"
+
+/* Tap dance actions array - must be defined here for QMK introspection to work */
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_ESC]          = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_esc, NULL),
+    [TD_SEARCH]       = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_search, NULL),
+    [TD_TAB_NEW]      = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_tab_new, NULL),
+    [TD_TAB_CLOSE]    = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_tab_close, NULL),
+    [TD_NEW_WINDOW]   = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_new_window, NULL),
+    [TD_JUMP_BWD]     = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_jump_backward, NULL),
+    [TD_JUMP_FWD]     = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_jump_forward, NULL),
+    [TD_SEL_BWD]      = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_selection_backward, NULL),
+    [TD_SEL_FWD]      = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_selection_forward, NULL),
+    [TD_COPY]         = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_copy, NULL),
+    [TD_CUT]          = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_process_cut, NULL),
+};
 
 // Alias for keymap_introspection compatibility
 #define key_combos combos

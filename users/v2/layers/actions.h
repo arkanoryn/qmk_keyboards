@@ -17,6 +17,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+#include "features/tap_dance/tap_dance.h"
 
 // Define __X__ for empty keys
 #ifndef __X__
@@ -28,18 +29,17 @@
 #define TAB_PREV RCS(KC_TAB)
 
 // Individual action key defines for better configurability
-// TAP_DANCE placeholders - will be replaced with TD() functions when enabled
 
 /* Side: Left, ROW: 1 */
-#define ACTIONS_1_01 KC_0 // TD(TD_ESC)
-#define ACTIONS_1_02 KC_0 // TD(TD_SEARCH)
+#define ACTIONS_1_01 TD(TD_ESC)
+#define ACTIONS_1_02 TD(TD_SEARCH)
 #define ACTIONS_1_03 CKC(ALFRED)
 #define ACTIONS_1_04 KC_DEL
 #define ACTIONS_1_05 CKC(APP_PREV)
 /* Side: Right, ROW: 1 */
 #define ACTIONS_1_06 KC_PGUP
-#define ACTIONS_1_07 KC_0 // TD(TD_JUMP_BACKWARD)
-#define ACTIONS_1_08 KC_0 // TD(TD_JUMP_FORWARD)
+#define ACTIONS_1_07 TD(TD_JUMP_BWD)
+#define ACTIONS_1_08 TD(TD_JUMP_FWD)
 #define ACTIONS_1_09 KC_HOME
 #define ACTIONS_1_10 KC_END
 /* Side: Left, ROW: 2 */
@@ -58,12 +58,12 @@
 #define ACTIONS_3_01 CKC(TASK_MNGR)
 #define ACTIONS_3_02 CKC(CMD_REDO)
 #define ACTIONS_3_03 CKC(CMD_UNDO)
-#define ACTIONS_3_04 KC_0 // TD(TD_NEW_WINDOW)
+#define ACTIONS_3_04 TD(TD_NEW_WINDOW)
 #define ACTIONS_3_05 CKC(APP_CLOSE)
 /* Side: Right, ROW: 3 */
 #define ACTIONS_3_06 CKC(TAB_REOPEN)
-#define ACTIONS_3_07 KC_0 // TD(TD_TAB_NEW)
-#define ACTIONS_3_08 KC_0 // TD(TD_TAB_CLOSE)
+#define ACTIONS_3_07 TD(TD_TAB_NEW)
+#define ACTIONS_3_08 TD(TD_TAB_CLOSE)
 #define ACTIONS_3_09 TAB_NEXT
 #define ACTIONS_3_10 TAB_PREV
 
