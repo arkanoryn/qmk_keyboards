@@ -49,12 +49,8 @@ bool process_repeat_keys(uint16_t keycode, keyrecord_t *record) {
   uint16_t last_keycode = get_last_keycode();
 
     switch (keycode) {
-        case SFT_MAGIC:
-            /* If the MAGIC key is held, use the mod instead */
-            if (record->tap.count == 0) {
-                return true;
-            }
-            /* Fall through to MAGIC on tap */
+        case KC_F24:
+            /* SFT_MAGIC tap — if held, QMK handles Shift automatically */
             /* fallthrough */
         case MAGIC:
             if (last_keycode != KC_NO) {
@@ -62,12 +58,8 @@ bool process_repeat_keys(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-        case ALT_ARCANE:
-            /* If the ARCANE key is held, use the mod instead */
-            if (record->tap.count == 0) {
-                return true;
-            }
-            /* Fall through to ARCANE on tap */
+        case KC_F23:
+            /* ALT_ARCANE tap — if held, QMK handles Alt automatically */
             /* fallthrough */
         case ARCANE:
             if (last_keycode != KC_NO) {

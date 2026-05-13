@@ -19,6 +19,10 @@
 #include "features/repeat/repeat.h"
 #include "features/actions/actions.h"
 #include "features/accents/accents.h"
+#include "features/selection/selection.h"
+#include "features/jump_cursor/jump.h"
+#include "lib/getreuer/select_word/select_word.h"
+#include "lib/getreuer/sentence_case/sentence_case.h"
 
 #ifdef CHORD_TEACHER_ENABLE
 #    include "features/chord_teacher/chord_teacher.h"
@@ -36,6 +40,10 @@ bool process_record_v2(uint16_t keycode, keyrecord_t *record) {
     if (!process_repeat_keys(keycode, record)) { return false; }
     if (!process_actions(keycode, record)) { return false; }
     if (!process_accents(keycode, record)) { return false; }
+    if (!process_selection(keycode, record)) { return false; }
+    if (!process_jump_cursor(keycode, record)) { return false; }
+    if (!process_select_word(keycode, record, SEL_WORD)) { return false; }
+    if (!process_sentence_case(keycode, record)) { return false; }
 
     /* Future features will be added here:
     ** if (!process_symbols(keycode, record)) { return false; }
@@ -46,10 +54,11 @@ bool process_record_v2(uint16_t keycode, keyrecord_t *record) {
 
 bool remember_last_key_user(uint16_t keycode, keyrecord_t *record, uint8_t *remembered_mods) {
     switch (keycode) {
-        case SFT_MAGIC:
+        case KC_F24:   /* SFT_MAGIC tap */
         case MAGIC:
-        case ALT_ARCANE:
+        case KC_F23:   /* ALT_ARCANE tap */
         case ARCANE:
+        case SEL_WORD:
             return false; /* Don't track these as "last key" */
     }
     return true;
