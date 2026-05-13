@@ -18,6 +18,7 @@
 
 #include QMK_KEYBOARD_H
 #include "layout.h" // each keyboard should have this file with the available layers enum
+#include "farkann_thumbs.h"
 
 /* Side: Left, ROW: 1 */
 #define STURDY_1_01 KC_V
@@ -103,6 +104,7 @@
 #define STURDY_SPC MEH_SPC
 #define STURDY_ENT ALT_ENT
 #define STURDY_SLSH STURDY_3_10
+#define STURDY_QUOT STURDY_3_08
 #define STURDY_QUOTE STURDY_3_08
 #define STURDY_MAGIC SFT_MAGIC
 #define STURDY_ARCANE CTL_ARCANE

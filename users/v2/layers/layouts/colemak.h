@@ -1,12 +1,23 @@
-/*
-** This file contains the different keycode definition dedicated to Graphite.
-** Here we are only looking at the generic 5 rows of the 3 alpha column.
-**  If a keyboard has more key, around the rows, the modifications should be done in the keymap.c
+/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+**
+** This program is free software: you can redistribute it and/or modify
+** it under the terms of the GNU General Public License as published by
+** the Free Software Foundation, either version 2 of the License, or
+** (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
 
 #include QMK_KEYBOARD_H
 #include "layout.h" // each keyboard should have this file with the available layers enum
+#include "farkann_thumbs.h"
 
 /* Side: Left, ROW: 1 */
 #define COLEMAK_1_01 KC_Q
@@ -97,3 +108,5 @@
 #define COLEMAK_MAGIC SFT_MAGIC
 #define COLEMAK_ARCANE CTL_ARCANE
 #define COLEMAK_GESC GUI_GESC
+#define COLEMAK_QUOTE KC_QUOT
+#define COLEMAK_QUOT COLEMAK_QUOTE

@@ -6,10 +6,11 @@
 **
 **       $> python main.py
 **
-**  Copyright 2024 Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
+**  Copyright 2025-2026 Ark'Anoryn
 **  SPDX-License-Identifier: GPL-2.0-or-later
 **
 */
+
 
 #pragma once
 

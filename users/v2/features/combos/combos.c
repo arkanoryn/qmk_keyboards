@@ -51,23 +51,42 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     const bool    shifted = is_shifted();
 
     switch (combo_index) {
-      // TODO: should have a custom key-code and be managed as a custom action or shortcut
+      // DEL_WORD - per layout
       case GRAPHITE_DEL_WORD:
+      case QWERTY_DEL_WORD:
+      case STURDY_DEL_WORD:
+      case COLEMAK_DEL_WORD:
         process_del_word();
         break;
+
+      // SFT_ENT - per layout
       case GRAPHITE_SFT_ENT:
+      case QWERTY_SFT_ENT:
+      case STURDY_SFT_ENT:
+      case COLEMAK_SFT_ENT:
         add_mods(MOD_MASK_SHIFT);
         tap_code16(KC_ENT);
         set_mods(mods);
         break;
+
+      // C_ENT - per layout
       case GRAPHITE_C_ENT:
+      case QWERTY_C_ENT:
+      case STURDY_C_ENT:
+      case COLEMAK_C_ENT:
         (detected_host_os() == OS_MACOS ? add_mods(MOD_MASK_GUI) : add_mods(MOD_MASK_CTRL));
         tap_code16(KC_ENT);
         set_mods(mods);
         break;
+
+      // CONFIG_LAYER - per layout
       case GRAPHITE_CONFIG_LAYER:
+      case QWERTY_CONFIG_LAYER:
+      case STURDY_CONFIG_LAYER:
+      case COLEMAK_CONFIG_LAYER:
         layer_on(_CONFIG);
         break;
+
       default:
         root_combo_str = get_combos_cmds(combo_index);
         set_combo_event_timer();
@@ -101,15 +120,34 @@ void combo_event_task(void) {
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-  // We need this otherwise there's no way to toggle chords back on
-  // As we would no longer be able to access the Config Layer (access is via a combo)
-  if (combo_index == GRAPHITE_CONFIG_LAYER) return true;
+    // Always allow config layer combos (needed to toggle chords back on)
+    // As we would no longer be able to access the Config Layer without it
+    if (combo_index == GRAPHITE_CONFIG_LAYER ||
+        combo_index == QWERTY_CONFIG_LAYER ||
+        combo_index == STURDY_CONFIG_LAYER ||
+        combo_index == COLEMAK_CONFIG_LAYER) {
+        return true;
+    }
+
+    /* Only fire combos when their layout layer is active */
+    if (combo_index >= _FIRST_GRAPHITE_COMBO && combo_index <= _LAST_GRAPHITE_COMBO) {
+        return layer_state_is(_GRAPHITE);
+    }
+    if (combo_index >= _FIRST_QWERTY_COMBO && combo_index <= _LAST_QWERTY_COMBO) {
+        return layer_state_is(_QWERTY);
+    }
+    if (combo_index >= _FIRST_STURDY_COMBO && combo_index <= _LAST_STURDY_COMBO) {
+        return layer_state_is(_STURDY);
+    }
+    if (combo_index >= _FIRST_COLEMAK_COMBO && combo_index <= _LAST_COLEMAK_COMBO) {
+        return layer_state_is(_COLEMAK);
+    }
 
 #ifdef CHORD_TEACHER_ENABLE
-  if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) return false;
-#endif // CHORD_TEACHER_ENABLE
+    if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) { return false; }
+#endif
 
-  return true;
+    return false;
 }
 
 void word_backspace() {

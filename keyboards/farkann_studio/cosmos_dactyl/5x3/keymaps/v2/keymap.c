@@ -16,6 +16,10 @@
 
 #include QMK_KEYBOARD_H
 #include "farkann_v2.h"
+#include "features/combos/combos.h"
+
+// Alias for keymap_introspection compatibility
+#define key_combos combos
 
 #define __EXTRA_ROW__ KC_A, KC_B, KC_C
 #define __TMP_EMPTY KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0, KC_0
@@ -78,6 +82,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___FN_ROW_1___, ___FN_ROW_2___, ___FN_ROW_3___, __EXTRA_ROW__, ___FN_THUMBS__________),
 };
 
+// Combos array - generated from scripts
+combo_t PROGMEM combos[] = {
+#include "features/combos/generated/keymap_combos.inc"
+};
+
 // Add matrix_scan_user function for combo event task
 void matrix_scan_user(void) {
   // combo_event_task();
@@ -93,14 +102,4 @@ void keyboard_post_init_user(void) {
 #endif
 }
 
-// Combo should trigger callback - implementation is in features/combos/combos.c
-// bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-// //   // Always allow config layer combo (needed to toggle chords back on)
-// //   // As we would no longer be able to access the Config Layer without it
-// //   if (combo_index == GRAPHITE_CONFIG_LAYER) return true;
-// //
-// // #ifdef CHORD_TEACHER_ENABLE
-// //   if (get_teacher_chord_mode() == TEACHER_CHORD_MODE_OFF) return false;
-// // #endif // CHORD_TEACHER_ENABLE
-// \n// //   return true;
-// }
+

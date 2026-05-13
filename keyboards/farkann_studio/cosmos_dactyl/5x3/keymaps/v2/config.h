@@ -28,7 +28,7 @@
 // Combo configuration
 #define COMBO_TERM 60
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_ONLY_FROM_LAYER 0
+// #define COMBO_ONLY_FROM_LAYER 0
 #define SELECT_WORD_TIMEOUT 2000
 
 // Caps Word configuration

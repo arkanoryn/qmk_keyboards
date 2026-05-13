@@ -1,4 +1,4 @@
-/* Copyright 2025 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
+/* Copyright 2025-2026 Pierre-Nicolas SORMANI, aka Ark'Anoryn (@arkanoryn)
 **
 ** This program is free software: you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -20,16 +20,15 @@
 // #include "tap_dance/tap_dance.h"
 
 #include "layout.h" // each keyboard should have this file with the available layers enum
+#include "farkann_thumbs.h"
 
 #define QWERTY_A LT(_NUMPAD_SOUND, KC_A)
 #define QWERTY_B KC_B
-#define QWERTY_BSPC KC_BSPC
 #define QWERTY_C KC_C
 #define QWERTY_COMM KC_COMM
 #define QWERTY_D LT(_SYMBOLS, KC_D)
 #define QWERTY_DOT KC_DOT
 #define QWERTY_E LALT_T(KC_E)
-#define QWERTY_ENT KC_ENT
 #define QWERTY_F LT(_ACTIONS, KC_F)
 #define QWERTY_G KC_G
 #define QWERTY_H KC_H
@@ -80,3 +79,13 @@
 #  define ___GAME_ROW_2___ ___GAME_CORE_ROW_2___
 #  define ___GAME_ROW_3___ ___GAME_CORE_ROW_3___
 #endif // FARKANN_EXTRA_COLS
+
+// Need these for the combos
+// QWERTY_ keys
+#define QWERTY_BSPC SFT_BSPC
+#define QWERTY_SPC MEH_SPC
+#define QWERTY_ENT CTL_ENTR
+#define QWERTY_MAGIC SFT_MAGIC
+#define QWERTY_ARCANE ALT_ARCANE
+#define QWERTY_GESC GUI_ESC
+#define QWERTY_QUOT QWERTY_QUOTE
