@@ -17,9 +17,9 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "layers.h"
 
 #ifndef CKC
+#include "layers.h"
 #  define CKC(x) (SAFE_RANGE + x) /* generate custom keycode from enum */
 #endif                            /* CKC */
 

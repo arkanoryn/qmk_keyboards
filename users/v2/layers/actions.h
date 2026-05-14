@@ -17,9 +17,11 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "features/tap_dance/tap_dance.h"
 
 // Define __X__ for empty keys
+#include "layers.h"
+
+// Define TAB_NEXT and TAB_PREV for tab navigation
 #ifndef __X__
 #  define __X__ KC_NO
 #endif

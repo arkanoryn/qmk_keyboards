@@ -111,9 +111,9 @@ void matrix_scan_user(void) {
 
 // Add keyboard_post_init_user function for initialization
 void keyboard_post_init_user(void) {
-// #ifdef CYCLE_COMBO_ENABLE
-//   init_cycling_combos_state();
-// #endif
+#ifdef CYCLE_COMBO_ENABLE
+  init_cycling_combos_state();
+#endif
 #ifdef CHORD_TEACHER_ENABLE
   init_teacher_state();
 #endif

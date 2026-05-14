@@ -16,10 +16,9 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "layers.h" // each keyboard should have this file with the available layers enum
-// #include "tap_dance/tap_dance.h"
 
 #include "layout.h" // each keyboard should have this file with the available layers enum
+#include "farkann_thumbs.h"
 #include "farkann_thumbs.h"
 
 #define QWERTY_A LT(_NUMPAD_SOUND, KC_A)

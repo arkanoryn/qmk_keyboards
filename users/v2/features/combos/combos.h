@@ -21,8 +21,9 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "farkann_v2.h" // KEYMAP_MAIN_H
 #include "generated/combos.h"
+
+#include "farkann_v2.h" // KEYMAP_MAIN_H
 
 #define COMBO_STR_MAX_LENGTH 15
 #define WIN_WORD_BACKSPACE SS_LCTL(SS_TAP(X_BACKSPACE))

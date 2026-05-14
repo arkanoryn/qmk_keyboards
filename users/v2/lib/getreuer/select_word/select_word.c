@@ -20,7 +20,7 @@
  * <https://getreuer.info/posts/keyboards/select-word>
  */
 
-#include "os_detection.h"
+#include <os_detection.h>
 #include "select_word.h"
 
 // Mac users, uncomment this line:

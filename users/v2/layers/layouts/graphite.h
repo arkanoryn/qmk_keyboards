@@ -17,6 +17,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+
 #include "layout.h" // each keyboard should have this file with the available layers enum
 
 /* Side: Left, ROW: 1 */

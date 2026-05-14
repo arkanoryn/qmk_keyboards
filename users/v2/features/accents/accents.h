@@ -17,7 +17,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
-#include "os_detection.h"
+#include <os_detection.h>
 
 /* OS-aware dead key constants */
 #define WIN_CIRCONFLEXE         A(S(KC_6))

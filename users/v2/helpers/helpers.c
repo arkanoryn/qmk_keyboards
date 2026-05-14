@@ -16,15 +16,6 @@
 
 #include "helpers.h"
 
-void v2_helper_init(void) {
-  // Initialize helper functions
-}
-
-bool process_v2_helpers(uint16_t keycode, keyrecord_t *record) {
-  // Process helper-specific keycodes
-  return true;
-}
-
 // Mod helper functions
 const uint8_t all_mods(void) {
   return (get_mods() | get_oneshot_mods() | get_weak_mods());

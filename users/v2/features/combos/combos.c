@@ -15,12 +15,17 @@
 */
 
 #include QMK_KEYBOARD_H
-#include "farkann_v2.h"
-#include "helpers/helpers.h"
 #include "combos.h"
 #ifdef CYCLE_COMBO_ENABLE
 #    include "features/cycling_combos/cycling_combos.h"
 #endif
+
+#ifdef CHORD_TEACHER_ENABLE
+#    include "features/chord_teacher/chord_teacher.h"
+#endif
+
+#include "farkann_v2.h"
+#include "helpers/helpers.h"
 
 #ifdef CHORD_TEACHER_ENABLE
 #    include "features/chord_teacher/chord_teacher.h"

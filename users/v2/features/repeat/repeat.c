@@ -17,7 +17,8 @@
 #include "farkann_v2.h"
 #include "repeat.h"
 
-void process_magic_key(uint16_t last_keycode) {
+static void process_magic_key(uint16_t last_keycode) {
+    (void)last_keycode;
   if (layer_state_is(_GRAPHITE)) {
     process_magic_key_graphite(last_keycode, get_last_mods());
   } else if (layer_state_is(_STURDY)) {
@@ -29,7 +30,8 @@ void process_magic_key(uint16_t last_keycode) {
   }
 }
 
-void process_arcane_key(uint16_t last_keycode) {
+static void process_arcane_key(uint16_t last_keycode) {
+    (void)last_keycode;
   if (layer_state_is(_GRAPHITE)) {
     process_arcane_key_graphite(last_keycode, get_last_mods());
   } else if (layer_state_is(_STURDY)) {

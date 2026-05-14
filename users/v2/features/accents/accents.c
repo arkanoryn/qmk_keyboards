@@ -15,7 +15,7 @@
 */
 
 #include QMK_KEYBOARD_H
-#include "os_detection.h"
+#include <os_detection.h>
 #include "farkann_v2.h"
 #include "accents.h"
 #include "features/actions/actions.h"

@@ -17,8 +17,9 @@
 #include QMK_KEYBOARD_H
 #include "jump.h"
 #include "farkann_v2.h"
+#include "features/tap_dance/tap_dance.h"
 
-jump_state_s jump_state = {
+static jump_state_s jump_state = {
     .token     = INVALID_DEFERRED_TOKEN,
     .rep_count = 0,
     .direction = SELECTION_FORWARD,

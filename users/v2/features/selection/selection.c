@@ -18,6 +18,7 @@
 #include "selection.h"
 #include "farkann_v2.h"
 #include "helpers/helpers.h"
+#include "features/tap_dance/tap_dance.h"
 
 static const uint8_t INIT_DELAY_MS          = 250;
 static const uint8_t REP_DELAY_MS[] PROGMEM = {238, 238, 199, 199, 168, 168, 132, 132, 132, 99, 99, 79, 79, 79, 79, 65, 65, 65, 65, 57, 49, 43};
