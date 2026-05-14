@@ -49,7 +49,7 @@ void process_repeat_event_graphite(uint16_t keycode, uint8_t mods) {
 }
 
 void process_repeat_event(uint16_t keycode, uint8_t mods) {
-  if (layer_state_is(_BASE)) {
+  if (layer_state_is(_GRAPHITE)) {
     process_repeat_event_graphite(keycode, mods);
   }
 }
@@ -57,7 +57,7 @@ void process_repeat_event(uint16_t keycode, uint8_t mods) {
 // This is to ignore the MAGIC key for the REPEAT function
 bool remember_last_key_user(uint16_t keycode, keyrecord_t* record, uint8_t* remembered_mods) {
   switch (keycode) {
-    case MAGIC:
+    case SFT_MAGIC:
       return false; // Ignore backspace.
   }
 

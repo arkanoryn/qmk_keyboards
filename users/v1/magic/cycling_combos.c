@@ -15,6 +15,7 @@ static cycling_combos_state_t cycling_combos_state = {
     .cycle_position      = 0,
 };
 
+#ifdef CYCLE_COMBO_ENABLE
 // use that if the key pressed is not a combo
 void init_cycling_combos_state(void) {
   cycling_combos_state.is_combo_active     = false;
@@ -27,6 +28,7 @@ void init_cycling_combos_state(void) {
 cycling_combos_state_t *get_cycling_combo_state(void) {
   return &cycling_combos_state;
 }
+#endif // CYCLE_COMBO_ENABLE
 
 static const char *cycle_combo_output[][LONGEST_CYCLE] = {
     // 100 most used
@@ -229,6 +231,7 @@ bool cycle(void) {
 
     backspace_current_output();
 
+    // if (ARCANE || (mods & MOD_MASK_SHIFT)) {
     if (mods & MOD_MASK_SHIFT) {
       cycle_backward(mods);
     } else {

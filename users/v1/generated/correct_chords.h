@@ -6,7 +6,7 @@
 **
 **       $> python main.py
 **
-**  Copyright 2024 Pierre-Nicolas "Ark'Anoryn" Sormani <arkanoryn@gmail.com>
+**  Copyright 2024 Ark'Anoryn @arkanoryn
 **  SPDX-License-Identifier: GPL-2.0-or-later
 **
 */

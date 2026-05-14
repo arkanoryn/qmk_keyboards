@@ -21,3 +21,9 @@ __pycache__
 
 # raw file to generate keymap drawings
 raw_sweep_keymap.yaml
+
+# OpenSpec planning files
+openspec/
+
+# OpenCode assistant files
+.opencode/
